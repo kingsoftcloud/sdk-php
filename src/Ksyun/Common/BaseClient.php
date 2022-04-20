@@ -2,7 +2,7 @@
 
 namespace Ksyun\Common;
 
-use \ReflectionClass;
+use Psr\Http\Message\ResponseInterface;
 
 use Ksyun\Common\Http\HttpConnection;
 use Ksyun\Common\Http\HttpOptions;
@@ -63,7 +63,7 @@ abstract class BaseClient
      * @param string $region 产品地域
      * @param HttpOptions $profile
      */
-    function __construct($endpoint, $version, $credential, $region, $profile=null)
+    function __construct($endpoint, $version, $credential, $region, $profile = null)
     {
         $this->path = "/";
         $this->credential = $credential;
@@ -137,8 +137,8 @@ abstract class BaseClient
     }
 
     /**
-     * @param string $action  方法名
-     * @param array $request  参数列表
+     * @param string $action 方法名
+     * @param array $request 参数列表
      * @return mixed
      * @throws KsyunSDKException
      */
@@ -165,32 +165,38 @@ abstract class BaseClient
                 throw new KsyunSDKException($responseData->getReasonPhrase(), $responseData->getBody());
             }
             $tmpResp = json_decode($responseData->getBody(), true);
-//            if (array_key_exists("Error", $tmpResp)) {
-//                throw new KsyunSDKException($tmpResp["Error"]["Code"], $tmpResp["Error"]["Message"], $tmpResp["RequestId"]);
-//            }
-
-            return $this->returnResponse($action, $tmpResp);
+            if (array_key_exists("Error", $tmpResp)) {
+                throw new KsyunSDKException($tmpResp["Error"]["Code"], $tmpResp["Error"]["Message"], $tmpResp["RequestId"]);
+            }
+            return json_encode($tmpResp);
         } catch (\Exception $e) {
             if (!($e instanceof KsyunSDKException)) {
-                throw new KsyunSDKException("", $e->getMessage());
+                throw new KsyunSDKException("", $e->getResponse()->getBody()->getContents());
             } else {
                 throw $e;
             }
         }
     }
 
+    /**
+     * @funcName doRequest
+     * @param $action
+     * @param $request
+     * @return mixed|ResponseInterface
+     * @throws KsyunSDKException
+     * @Description doRequest
+     */
     private function doRequest($action, $request)
     {
         switch ($this->profile->getReqMethod()) {
             case HttpOptions::$REQ_GET:
                 return $this->getRequest($action, $request);
-                break;
+            case HttpOptions::$REQ_PUT:
             case HttpOptions::$REQ_POST:
+            case HttpOptions::$REQ_DELETE:
                 return $this->postRequest($action, $request);
-                break;
             default:
                 throw new KsyunSDKException("", "Method only support (GET, POST)");
-                break;
         }
     }
 
@@ -204,9 +210,7 @@ abstract class BaseClient
         $headers = [
             'Accept' => 'application/json',
         ];
-        $res =  $connect->getRequest($this->path, $query, $headers);
-
-        return $res;
+        return $connect->getRequest($this->path, $query, $headers);
     }
 
     /**
@@ -227,6 +231,11 @@ abstract class BaseClient
      */
     private function formatRequestData($action, $request)
     {
+        foreach ($request as $key => $value) {
+            if ($value === null) {
+                unset($request[$key]);
+            }
+        }
         $param = [
             'Version' => $this->apiVersion,
             'Action' => $action,
@@ -234,7 +243,7 @@ abstract class BaseClient
             'SignatureVersion' => '1.0',
             'Service' => $this->service,
         ];
-        $param = array_merge($param,$request);
+        $param = array_merge($param, $request);
 
         if ($this->credential->getSecretId()) {
             $param["Accesskey"] = $this->credential->getSecretId();
@@ -256,10 +265,11 @@ abstract class BaseClient
     private function createConnect()
     {
         $prot = $this->profile->getProtocol();
-        return new HttpConnection($prot.$this->getRefreshedEndpoint(), $this->profile);
+        return new HttpConnection($prot . $this->getRefreshedEndpoint(), $this->profile);
     }
 
-    private function getConnect() {
+    private function getConnect()
+    {
         $keepAlive = $this->profile->getKeepAlive();
         if (true === $keepAlive) {
             return $this->httpConn;
@@ -268,22 +278,53 @@ abstract class BaseClient
         }
     }
 
-    private function formatSignString( $param)
+    private function formatSignString($param)
     {
-        $tmpParam = [];
-        ksort($param,SORT_STRING);
-        foreach ($param as $key => $value) {
-            array_push($tmpParam, rawurlencode($key) . "=" . rawurlencode($value));
+        ksort($param, SORT_STRING);
+        $str_encode = '';
+        foreach ($param as $k => $v) {
+            if (is_string($v) || is_int($v)) {
+                $str_encode .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
+            } elseif (is_array($v)) {
+                $str_arr = $this->parse_arr($v, $k);
+                $str_encode .= implode('&', $str_arr) . '&';
+            }
         }
-        $signStr = join ("&", $tmpParam);
-        return $signStr;
+        return rtrim($str_encode, '&');
     }
 
+    public function parse_arr(array $array = array(), string $var_name = ''): array
+    {
+        $val = [];
+        foreach ($array as $key => $value) {
+            if ($this->profile->getHeaderContentType() == HttpOptions::$CONTENT_TYPE_jSON) {
+                if ($this->profile->getReqMethod() == HttpOptions::$REQ_GET) {
+                    if (is_array($value)) {
+                        $tmp = "[$key]";
+                        $val = array_merge($val, $this->parse_arr($value, $var_name . $tmp));
+                    } else {
+                        $val[] = rawurlencode($var_name . "[$key]") . "=" . rawurlencode($value);;
+                    }
+                } else {
+                    $val[] = rawurlencode($var_name) . "=" . rawurlencode($value);;
+                }
+            } else {
+                if (is_array($value)) {
+                    $tmp = "[$key]";
+                    $val = array_merge($val, $this->parse_arr($value, $var_name . $tmp));
+                } else {
+                    $val[] = rawurlencode($var_name . "[$key]") . "=" . rawurlencode($value);;
+                }
+            }
+        }
+        return $val;
+    }
 
-    private function getRefreshedEndpoint() {
+    private function getRefreshedEndpoint()
+    {
         $this->endpoint = $this->profile->getEndpoint();
         if ($this->endpoint === null) {
-            $this->endpoint = $this->service.".".$this->profile->getRootDomain();
+            $this->endpoint = $this->service . "." . $this->profile->getRootDomain();
         }
         return $this->endpoint;
     }

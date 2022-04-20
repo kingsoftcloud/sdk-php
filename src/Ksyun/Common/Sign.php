@@ -3,10 +3,11 @@
 namespace Ksyun\Common;
 
 use Ksyun\Common\Exception\KsyunSDKException;
+
 /**
  * 签名类，禁止client引用
- * @package App\Ksyun\Common
  * @throws KsyunSDKException
+ * @package App\Ksyun\Common
  */
 class Sign
 {
@@ -19,8 +20,7 @@ class Sign
         if (!array_key_exists($signMethod, $signMethodMap)) {
             throw new KsyunSDKException("signMethod invalid", "signMethod only support (HMAC-SHA256)");
         }
-        $signature = hash_hmac($signMethodMap[$signMethod], $signStr, $secretKey);
-        return $signature;
+        return hash_hmac($signMethodMap[$signMethod], $signStr, $secretKey);
     }
 
 }

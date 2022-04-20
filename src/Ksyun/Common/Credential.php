@@ -25,8 +25,8 @@ class Credential
 
     /**
      * Credential constructor.
-     * @param string $secretId   secretId
-     * @param string $secretKey  secretKey
+     * @param string $secretId secretId
+     * @param string $secretKey secretKey
      * @param string $token token
      */
     public function __construct($secretId, $secretKey, $token = null)
@@ -39,7 +39,7 @@ class Credential
      * 设置secretId
      * @param string $secretId secretId
      */
-    public function  setSecretId($secretId)
+    public function setSecretId($secretId)
     {
         $this->secretId = $secretId;
     }

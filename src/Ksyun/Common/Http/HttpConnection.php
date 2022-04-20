@@ -25,7 +25,7 @@ class HttpConnection
         $this->profile = $profile;
     }
 
-    private  function getOptions()
+    private function getOptions()
     {
         $options = ["allow_redirects" => false];
         $options["timeout"] = $this->profile->getReqTimeout();
@@ -43,7 +43,7 @@ class HttpConnection
         if ($headers) {
             $options["headers"] = $headers;
         }
-        return $this->client->request('GET',$uri, $options);
+        return $this->client->request('GET', $uri, $options);
     }
 
     public function postRequest($uri = '', $headers = [], $body = '')
@@ -65,7 +65,7 @@ class HttpConnection
             throw new KsyunSDKException("", "content_type only support (application/x-www-form-urlencoded,application/json)");
 
         }
-        return $this->client->request('POST',$uri, $options);
+        return $this->client->request($this->profile->getReqMethod(), $uri, $options);
     }
 
 }
