@@ -283,17 +283,17 @@ abstract class BaseClient
         ksort($param, SORT_STRING);
         $str_encode = '';
         foreach ($param as $k => $v) {
-            if (is_string($v) || is_int($v)) {
-                $str_encode .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
-            } elseif (is_array($v)) {
+            if (is_array($v)) {
                 $str_arr = $this->parse_arr($v, $k);
                 $str_encode .= implode('&', $str_arr) . '&';
+            } else {
+                $str_encode .= rawurlencode($k) . '=' . rawurlencode($v) . '&';
             }
         }
         return rtrim($str_encode, '&');
     }
 
-    public function parse_arr(array $array = array(), string $var_name = ''): array
+    public function parse_arr($array = array(), $var_name = '')
     {
         $val = [];
         foreach ($array as $key => $value) {
