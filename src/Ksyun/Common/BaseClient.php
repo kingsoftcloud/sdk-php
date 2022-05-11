@@ -18,7 +18,7 @@ abstract class BaseClient
     /**
      * @var string SDK版本
      */
-    public static $SDK_VERSION = "SDK_PHP_1.0";
+    public static $SDK_VERSION = "1.0.2";
 
     /**
      * @var integer http响应码200
