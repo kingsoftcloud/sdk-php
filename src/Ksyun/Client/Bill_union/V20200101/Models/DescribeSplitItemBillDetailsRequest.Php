@@ -6,6 +6,20 @@ use Ksyun\Common\BaseModel;
 class DescribeSplitItemBillDetailsRequest extends BaseModel
 {
     public $RequestParams = [
+         /**Int**/
+        "CustomerBillMonth" => null,
+         /**String**/
+        "ProductGroupCode" => null,
+         /**Int**/
+        "StatisticType" => null,
+         /**Int**/
+        "PayType" => null,
+         /**Int**/
+        "SubAccountId" => null,
+         /**Int**/
+        "Page" => null,
+         /**String**/
+        "Size" => null,
     ];
 
 
@@ -18,6 +32,55 @@ class DescribeSplitItemBillDetailsRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("CustomerBillMonth",$param) and $param["CustomerBillMonth"] !== null) {
+            if(is_bool($param["CustomerBillMonth"])){
+                $this->RequestParams["CustomerBillMonth"] = $param["CustomerBillMonth"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CustomerBillMonth"] = $param["CustomerBillMonth"];
+            }
+        }
+        if (array_key_exists("ProductGroupCode",$param) and $param["ProductGroupCode"] !== null) {
+            if(is_bool($param["ProductGroupCode"])){
+                $this->RequestParams["ProductGroupCode"] = $param["ProductGroupCode"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProductGroupCode"] = $param["ProductGroupCode"];
+            }
+        }
+        if (array_key_exists("StatisticType",$param) and $param["StatisticType"] !== null) {
+            if(is_bool($param["StatisticType"])){
+                $this->RequestParams["StatisticType"] = $param["StatisticType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["StatisticType"] = $param["StatisticType"];
+            }
+        }
+        if (array_key_exists("PayType",$param) and $param["PayType"] !== null) {
+            if(is_bool($param["PayType"])){
+                $this->RequestParams["PayType"] = $param["PayType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PayType"] = $param["PayType"];
+            }
+        }
+        if (array_key_exists("SubAccountId",$param) and $param["SubAccountId"] !== null) {
+            if(is_bool($param["SubAccountId"])){
+                $this->RequestParams["SubAccountId"] = $param["SubAccountId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SubAccountId"] = $param["SubAccountId"];
+            }
+        }
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
+                $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Page"] = $param["Page"];
+            }
+        }
+        if (array_key_exists("Size",$param) and $param["Size"] !== null) {
+            if(is_bool($param["Size"])){
+                $this->RequestParams["Size"] = $param["Size"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Size"] = $param["Size"];
+            }
         }
 
     }

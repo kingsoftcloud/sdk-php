@@ -5,8 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class DescribeCostBillResponse extends BaseModel
 {
-         /** **/
-         public  $status;
+         /**Object **/
+         public  $Status;
 
          public function __construct()
          {
@@ -18,8 +18,8 @@ class DescribeCostBillResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("status",$param) and $param["status"] !== null) {
-                $this->status = $param["status"];
+            if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+                $this->Status = $param["Status"];
             }
 
         }

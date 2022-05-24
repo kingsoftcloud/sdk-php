@@ -6,6 +6,14 @@ use Ksyun\Common\BaseModel;
 class DescribeInstanceSummaryBillsRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "BillMonth" => null,
+         /**String**/
+        "ProductCode" => null,
+         /**Int**/
+        "Page" => null,
+         /**Int**/
+        "Size" => null,
     ];
 
 
@@ -18,6 +26,34 @@ class DescribeInstanceSummaryBillsRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("BillMonth",$param) and $param["BillMonth"] !== null) {
+            if(is_bool($param["BillMonth"])){
+                $this->RequestParams["BillMonth"] = $param["BillMonth"] ? "true" : "false";
+            } else {
+                $this->RequestParams["BillMonth"] = $param["BillMonth"];
+            }
+        }
+        if (array_key_exists("ProductCode",$param) and $param["ProductCode"] !== null) {
+            if(is_bool($param["ProductCode"])){
+                $this->RequestParams["ProductCode"] = $param["ProductCode"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProductCode"] = $param["ProductCode"];
+            }
+        }
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
+                $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Page"] = $param["Page"];
+            }
+        }
+        if (array_key_exists("Size",$param) and $param["Size"] !== null) {
+            if(is_bool($param["Size"])){
+                $this->RequestParams["Size"] = $param["Size"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Size"] = $param["Size"];
+            }
         }
 
     }
