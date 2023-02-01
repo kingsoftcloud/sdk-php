@@ -3,12 +3,12 @@ namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ListUsersResponse extends BaseModel
+class ListAllUserAccessKeysResponse extends BaseModel
 {
-         /** **/
-         public  $ListUserResult;
+         /**Object **/
+         public  $AccessKeyList;
 
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
          public function __construct()
@@ -21,8 +21,8 @@ class ListUsersResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("ListUserResult",$param) and $param["ListUserResult"] !== null) {
-                $this->ListUserResult = $param["ListUserResult"];
+            if (array_key_exists("AccessKeyList",$param) and $param["AccessKeyList"] !== null) {
+                $this->AccessKeyList = $param["AccessKeyList"];
             }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];

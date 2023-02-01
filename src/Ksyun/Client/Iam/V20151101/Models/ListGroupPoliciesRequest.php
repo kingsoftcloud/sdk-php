@@ -3,15 +3,15 @@ namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ListUsersRequest extends BaseModel
+class ListGroupPoliciesRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "Marker" => null,
-         /**Int**/
+        "GroupName" => null,
+         /**String**/
         "MaxItems" => null,
          /**String**/
-        "AccessKey" => null,
+        "Marker" => null,
     ];
 
 
@@ -25,11 +25,11 @@ class ListUsersRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
-            if(is_bool($param["Marker"])){
-                $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
+        if (array_key_exists("GroupName",$param) and $param["GroupName"] !== null) {
+            if(is_bool($param["GroupName"])){
+                $this->RequestParams["GroupName"] = $param["GroupName"] ? "true" : "false";
             } else {
-                $this->RequestParams["Marker"] = $param["Marker"];
+                $this->RequestParams["GroupName"] = $param["GroupName"];
             }
         }
         if (array_key_exists("MaxItems",$param) and $param["MaxItems"] !== null) {
@@ -39,11 +39,11 @@ class ListUsersRequest extends BaseModel
                 $this->RequestParams["MaxItems"] = $param["MaxItems"];
             }
         }
-        if (array_key_exists("AccessKey",$param) and $param["AccessKey"] !== null) {
-            if(is_bool($param["AccessKey"])){
-                $this->RequestParams["AccessKey"] = $param["AccessKey"] ? "true" : "false";
+        if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
+            if(is_bool($param["Marker"])){
+                $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
             } else {
-                $this->RequestParams["AccessKey"] = $param["AccessKey"];
+                $this->RequestParams["Marker"] = $param["Marker"];
             }
         }
 

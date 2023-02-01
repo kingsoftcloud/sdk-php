@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ListUsersResponse extends BaseModel
+class ListAttachedUserPoliciesResponse extends BaseModel
 {
          /** **/
-         public  $ListUserResult;
-
-         /** 请求ID**/
          public  $RequestId;
+
+         /** **/
+         public  $ListAttachedUserPoliciesResult;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class ListUsersResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("ListUserResult",$param) and $param["ListUserResult"] !== null) {
-                $this->ListUserResult = $param["ListUserResult"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("ListAttachedUserPoliciesResult",$param) and $param["ListAttachedUserPoliciesResult"] !== null) {
+                $this->ListAttachedUserPoliciesResult = $param["ListAttachedUserPoliciesResult"];
             }
 
         }

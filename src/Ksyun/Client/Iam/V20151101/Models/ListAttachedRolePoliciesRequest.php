@@ -3,15 +3,15 @@ namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ListUsersRequest extends BaseModel
+class ListAttachedRolePoliciesRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "RoleName" => null,
          /**String**/
         "Marker" => null,
          /**Int**/
         "MaxItems" => null,
-         /**String**/
-        "AccessKey" => null,
     ];
 
 
@@ -25,6 +25,13 @@ class ListUsersRequest extends BaseModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("RoleName",$param) and $param["RoleName"] !== null) {
+            if(is_bool($param["RoleName"])){
+                $this->RequestParams["RoleName"] = $param["RoleName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RoleName"] = $param["RoleName"];
+            }
+        }
         if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
             if(is_bool($param["Marker"])){
                 $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
@@ -37,13 +44,6 @@ class ListUsersRequest extends BaseModel
                 $this->RequestParams["MaxItems"] = $param["MaxItems"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxItems"] = $param["MaxItems"];
-            }
-        }
-        if (array_key_exists("AccessKey",$param) and $param["AccessKey"] !== null) {
-            if(is_bool($param["AccessKey"])){
-                $this->RequestParams["AccessKey"] = $param["AccessKey"] ? "true" : "false";
-            } else {
-                $this->RequestParams["AccessKey"] = $param["AccessKey"];
             }
         }
 

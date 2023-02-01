@@ -3,15 +3,17 @@ namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ListUsersRequest extends BaseModel
+class ListPoliciesRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "Marker" => null,
-         /**Int**/
-        "MaxItems" => null,
          /**String**/
-        "AccessKey" => null,
+        "MaxItems" => null,
+         /**Boolean**/
+        "OnlyAttached" => null,
+         /**String**/
+        "Scope" => null,
     ];
 
 
@@ -39,11 +41,18 @@ class ListUsersRequest extends BaseModel
                 $this->RequestParams["MaxItems"] = $param["MaxItems"];
             }
         }
-        if (array_key_exists("AccessKey",$param) and $param["AccessKey"] !== null) {
-            if(is_bool($param["AccessKey"])){
-                $this->RequestParams["AccessKey"] = $param["AccessKey"] ? "true" : "false";
+        if (array_key_exists("OnlyAttached",$param) and $param["OnlyAttached"] !== null) {
+            if(is_bool($param["OnlyAttached"])){
+                $this->RequestParams["OnlyAttached"] = $param["OnlyAttached"] ? "true" : "false";
             } else {
-                $this->RequestParams["AccessKey"] = $param["AccessKey"];
+                $this->RequestParams["OnlyAttached"] = $param["OnlyAttached"];
+            }
+        }
+        if (array_key_exists("Scope",$param) and $param["Scope"] !== null) {
+            if(is_bool($param["Scope"])){
+                $this->RequestParams["Scope"] = $param["Scope"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Scope"] = $param["Scope"];
             }
         }
 

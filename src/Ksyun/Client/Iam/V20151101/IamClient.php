@@ -6,15 +6,14 @@ use Ksyun\Common\BaseClient;
 use Ksyun\Common\Http\HttpOptions;
 use Ksyun\Common\Credential;
 
-/**
- */
+
 
 class IamClient extends BaseClient
 {
     /**
      * @var string
      */
-    protected $endpoint = "10.111.94.163";
+    protected $endpoint = "iam.api.ksyun.com";
 
     /**
      * @var string
@@ -39,7 +38,7 @@ class IamClient extends BaseClient
 
     public function returnResponse($action, $response)
     {
-        $respClass = "Ksyun\Client"."\\".ucfirst("Iam")."\\"."V20151101\\Models"."\\".ucfirst($action)."Response";
+        $respClass = "Ksyun\Client"."\\".ucfirst("iam")."\\"."V20151101\\Models"."\\".ucfirst($action)."Response";
         $obj = new $respClass();
         $obj->unserialize($response);
         return $obj;
