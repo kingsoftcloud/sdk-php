@@ -1,6 +1,7 @@
 <?php
 
 namespace Ksyun\Common;
+
 use \ReflectionClass;
 
 /**
@@ -15,24 +16,26 @@ abstract class BaseModel
     public function serialize()
     {
         $ret = $this->objSerialize($this);
-		return $ret;
+        return $ret;
     }
 
-    public function requestObjSerialize($obj) {
+    public function requestObjSerialize($obj)
+    {
         $memberRet = [];
         $ref = new ReflectionClass(get_class($obj));
         $memberList = $ref->getProperties();
-        foreach ($memberList as $x => $member)
-        {
+        foreach ($memberList as $member) {
             $name = ucfirst($member->getName());
             $member->setAccessible(true);
             $memberValue = $member->getValue($obj);
-            if($name == 'RequestParams'){
-                $memberRet = array_merge($memberRet,$memberValue);
-            } else {
-                foreach ($memberValue as $key => $value){
-                    if($value){
-                        $memberRet[$key] = $value;
+            if ($memberValue) {
+                if ($name == 'RequestParams') {
+                    $memberRet = array_merge($memberRet, $memberValue);
+                } else {
+                    foreach ($memberValue as $key => $value) {
+                        if ($value) {
+                            $memberRet[$key] = $value;
+                        }
                     }
                 }
             }
@@ -40,9 +43,47 @@ abstract class BaseModel
         return $memberRet;
     }
 
-    private function objSerialize($obj) {
+    private function responseObjSerialize($obj)
+    {
         $objSerialize = json_encode($obj);
-        return json_decode($objSerialize,true);
+        return json_decode($objSerialize, true);
+    }
+
+
+    private function arraySerialize($memberList)
+    {
+        $memberRet = [];
+        foreach ($memberList as $name => $value) {
+            if ($value === null) {
+                continue;
+            }
+            if ($value instanceof BaseModel) {
+                $memberRet[$name] = $this->objSerialize($value);
+            } elseif (is_array($value)) {
+                $memberRet[$name] = $this->arraySerialize($value);
+            } else {
+                $memberRet[$name] = $value;
+            }
+        }
+        return $memberRet;
+    }
+
+    private function arrayMerge($array, $prepend = null)
+    {
+        $results = array();
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $results = array_merge($results, static::arrayMerge($value, $prepend . $key . '.'));
+            } else {
+                if (is_bool($value)) {
+                    $results[$prepend . $key] = json_encode($value);
+                } else {
+                    $results[$prepend . $key] = $value;
+                }
+
+            }
+        }
+        return $results;
     }
 
     /**
@@ -51,12 +92,12 @@ abstract class BaseModel
     public function fromJsonString($jsonString)
     {
         $arr = json_decode($jsonString, true);
-        $this->deserialize($arr);
+        $this->unserialize($arr);
     }
 
     public function toJsonString()
     {
-        $r = $this->serialize();
+        $r = $this->responseObjSerialize($this);
         // it is an object rather than an array
         if (empty($r)) {
             return "{}";
@@ -66,8 +107,8 @@ abstract class BaseModel
 
     public function __call($member, $param)
     {
-        $act = substr($member,0,3);
-        $attr = substr($member,3);
+        $act = substr($member, 0, 3);
+        $attr = substr($member, 3);
         if ($act === "get") {
             return $this->$attr;
         } else if ($act === "set") {
@@ -78,14 +119,16 @@ abstract class BaseModel
 
     /**
      * @funcName formatFilterParams 如果是Filter的话 需要对参数进行处理
-     * @param $params //例如传参 $filter = [["name"=>1,"value"=>1]]
-     * @Description 转化 FIlter 类型的数据
+     * @param $paramName
+     * @param $queryParams
+     * @return array|mixed
+     * @Description 转化 FAlter 类型的数据
      */
     public function formatFilterParams($paramName, $queryParams)
     {
         $res = [];
         foreach ($queryParams as $pKey => $pVal) {
-            $prefixName = $paramName . '.' . ($pKey + 1);
+            $prefixName = $paramName . '.' . $pKey;
             if (is_string($pVal) || is_numeric($pVal)) {
                 $res[$prefixName] = $pVal;
             }

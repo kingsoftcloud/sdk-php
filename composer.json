@@ -1,15 +1,14 @@
- {
-    "name": "kingsoftcloud/sdk-php",
-    "description": "kingsoftcloud php sdk",
+{
+    "name": "ksyun/ksyun-sdk-php",
+    "description": "ksyunApi php sdk",
     "type": "library",
     "homepage": "https://github.com/kingsoftcloud/sdk-php",
     "license": "Apache-2.0",
-    "version": "1.0.0",
     "authors": [
         {
             "name": "liuhuicheng",
             "email": "liuhuicheng1@kingsoft.com",
-            "homepage": "https://github.com/orange89757",
+            "homepage": "https://github.com/kingsoftcloud/sdk-php",
             "role": "Developer"
         }
     ],

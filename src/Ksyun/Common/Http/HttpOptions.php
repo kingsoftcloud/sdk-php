@@ -26,6 +26,18 @@ class HttpOptions
     public static $REQ_POST = "POST";
 
     /**
+     * @var string  put请求
+     */
+    public static $REQ_PUT = "PUT";
+
+
+    /**
+     * @var string  delete请求
+     */
+    public static $REQ_DELETE = "DELETE";
+
+
+    /**
      * @var string  get请求
      */
     public static $REQ_GET = "GET";
@@ -84,14 +96,15 @@ class HttpOptions
      * @var string
      */
     private $contentType;
+
     /**
      * HttpProfile constructor.
-     * @param string $protocol  请求协议
-     * @param string $endpoint  请求接入点域名(xx.api.ksyun.com)
+     * @param string $protocol 请求协议
+     * @param string $endpoint 请求接入点域名(xx.api.ksyun.com)
      * @param string $reqMethod http请求方法，目前支持POST GET
      * @param integer $reqTimeout 请求超时时间，单位:s
      */
-    public function __construct($protocol = null, $endpoint = null, $reqMethod = null,  $reqTimeout = null)
+    public function __construct($protocol = null, $endpoint = null, $reqMethod = null, $reqTimeout = null)
     {
         $this->reqMethod = $reqMethod ? $reqMethod : HttpOptions::$REQ_GET;
         $this->endpoint = $endpoint;
@@ -115,7 +128,8 @@ class HttpOptions
      * 设置请求协议
      * @param string $protocol 请求协议（https://  http://）
      */
-    public function setProtocol($protocol) {
+    public function setProtocol($protocol)
+    {
         $this->protocol = $protocol;
     }
 
@@ -204,11 +218,13 @@ class HttpOptions
     /**
      * @param boolean $flag
      */
-    public function setKeepAlive($flag) {
+    public function setKeepAlive($flag)
+    {
         $this->keepAlive = $flag;
     }
 
-    public function getKeepAlive() {
+    public function getKeepAlive()
+    {
         return $this->keepAlive;
     }
 
@@ -221,7 +237,8 @@ class HttpOptions
         $this->contentType = $contentType;
     }
 
-    public function getHeaderContentType() {
+    public function getHeaderContentType()
+    {
         return $this->contentType;
     }
 }

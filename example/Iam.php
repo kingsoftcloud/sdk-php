@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../vendor/autoload.php';
 // 导入对应产品模块的client
-use Ksyun\Iam\V20151101\IamClient;
+use Ksyun\Client\Iam\V20151101\IamClient;
 // 导入要请求接口对应的Request类
-use Ksyun\Iam\V20151101\Models\ListUsersRequest;
+use Ksyun\Client\Iam\V20151101\Models\ListUsersRequest;
 use Ksyun\Common\Exception\KsyunSDKException;
 use Ksyun\Common\Credential;
 // 导入可选配置类
@@ -14,7 +14,7 @@ try {
     $cred = new Credential(getenv("KSYUN_SECRETID"), getenv("KSYUN_SECRETKEY"));
 
     // 实例化一个http选项，可选的，没有特殊需求可以跳过
-    $httpOptions = new HttpOptions("http://","127.0.0.1","GET");
+    $httpOptions = new HttpOptions("http://","iam.api.ksyun.com","GET");
 
     $client = new IamClient($cred, "default", $httpOptions);
 
@@ -33,7 +33,7 @@ try {
     $resp = $client->ListUsers($req);
 
     // 输出json格式的字符串回包
-    var_dump($resp->toJsonString());
+    var_dump($resp);
 
 }
 catch(KsyunSDKException $e) {
