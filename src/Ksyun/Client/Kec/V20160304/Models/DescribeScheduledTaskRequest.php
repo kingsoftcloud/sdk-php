@@ -1,0 +1,77 @@
+<?php
+namespace  Ksyun\Client\Kec\V20160304\Models;
+
+use Ksyun\Common\BaseModel;
+
+class DescribeScheduledTaskRequest extends BaseModel
+{
+    public $RequestParams = [
+         /**String**/
+        "ScalingGroupId" => null,
+         /**String**/
+        "ScalingScheduledTaskName" => null,
+         /**Int**/
+        "Marker" => null,
+         /**Int**/
+        "MaxResults" => null,
+    ];
+
+     /**特殊参数类型:Filter**/
+    public $ScalingScheduledTaskId = [];
+ 
+    public function __construct()
+    {
+
+    }
+
+    public function setParams($param = [])
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("ScalingGroupId",$param) and $param["ScalingGroupId"] !== null) {
+            if(is_bool($param["ScalingGroupId"])){
+                $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"];
+            }
+        }
+        if (array_key_exists("ScalingScheduledTaskId",$param) and $param["ScalingScheduledTaskId"] !== null) {
+            $res = $this->formatFilterParams("ScalingScheduledTaskId",$param["ScalingScheduledTaskId"]);
+            $this->_unserialize("ScalingScheduledTaskId",$res);
+        }
+        if (array_key_exists("ScalingScheduledTaskName",$param) and $param["ScalingScheduledTaskName"] !== null) {
+            if(is_bool($param["ScalingScheduledTaskName"])){
+                $this->RequestParams["ScalingScheduledTaskName"] = $param["ScalingScheduledTaskName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ScalingScheduledTaskName"] = $param["ScalingScheduledTaskName"];
+            }
+        }
+        if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
+            if(is_bool($param["Marker"])){
+                $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Marker"] = $param["Marker"];
+            }
+        }
+        if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
+            if(is_bool($param["MaxResults"])){
+                $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
+            } else {
+                $this->RequestParams["MaxResults"] = $param["MaxResults"];
+            }
+        }
+
+    }
+
+    private function _unserialize($name,$params)
+    {
+        if ($params === null) {
+            return;
+        }
+        foreach ($params as $key => $value){
+            $this->$name[$key] = $value;
+        }
+
+    }
+}
