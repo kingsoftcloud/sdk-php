@@ -15,8 +15,6 @@ class CreateEpcRequest extends BaseModel
          /**String**/
         "RaidId" => null,
          /**String**/
-        "RaidInfo" => null,
-         /**String**/
         "ImageId" => null,
          /**String**/
         "NetworkInterfaceMode" => null,
@@ -57,8 +55,6 @@ class CreateEpcRequest extends BaseModel
          /**String**/
         "Description" => null,
          /**String**/
-        "HostId" => null,
-         /**String**/
         "AddressBandWidth" => null,
          /**String**/
         "LineId" => null,
@@ -70,10 +66,6 @@ class CreateEpcRequest extends BaseModel
         "AddressPurchaseTime" => null,
          /**String**/
         "AddressProjectId" => null,
-         /**String**/
-        "ContainerInfo" => null,
-         /**Int**/
-        "LimitDay" => null,
          /**String**/
         "SystemFileType" => null,
          /**String**/
@@ -149,13 +141,6 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["RaidId"] = $param["RaidId"] ? "true" : "false";
             } else {
                 $this->RequestParams["RaidId"] = $param["RaidId"];
-            }
-        }
-        if (array_key_exists("RaidInfo",$param) and $param["RaidInfo"] !== null) {
-            if(is_bool($param["RaidInfo"])){
-                $this->RequestParams["RaidInfo"] = $param["RaidInfo"] ? "true" : "false";
-            } else {
-                $this->RequestParams["RaidInfo"] = $param["RaidInfo"];
             }
         }
         if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
@@ -302,13 +287,6 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["Description"] = $param["Description"];
             }
         }
-        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
-            if(is_bool($param["HostId"])){
-                $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["HostId"] = $param["HostId"];
-            }
-        }
         if (array_key_exists("AddressBandWidth",$param) and $param["AddressBandWidth"] !== null) {
             if(is_bool($param["AddressBandWidth"])){
                 $this->RequestParams["AddressBandWidth"] = $param["AddressBandWidth"] ? "true" : "false";
@@ -349,20 +327,6 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["AddressProjectId"] = $param["AddressProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AddressProjectId"] = $param["AddressProjectId"];
-            }
-        }
-        if (array_key_exists("ContainerInfo",$param) and $param["ContainerInfo"] !== null) {
-            if(is_bool($param["ContainerInfo"])){
-                $this->RequestParams["ContainerInfo"] = $param["ContainerInfo"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ContainerInfo"] = $param["ContainerInfo"];
-            }
-        }
-        if (array_key_exists("LimitDay",$param) and $param["LimitDay"] !== null) {
-            if(is_bool($param["LimitDay"])){
-                $this->RequestParams["LimitDay"] = $param["LimitDay"] ? "true" : "false";
-            } else {
-                $this->RequestParams["LimitDay"] = $param["LimitDay"];
             }
         }
         if (array_key_exists("SystemFileType",$param) and $param["SystemFileType"] !== null) {

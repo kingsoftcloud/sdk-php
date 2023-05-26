@@ -25,11 +25,7 @@ class ReinstallEpcRequest extends BaseModel
          /**String**/
         "RaidId" => null,
          /**String**/
-        "ReserveDisk" => null,
-         /**String**/
         "HostName" => null,
-         /**String**/
-        "ContainerInfo" => null,
          /**String**/
         "SystemFileType" => null,
          /**String**/
@@ -48,8 +44,6 @@ class ReinstallEpcRequest extends BaseModel
         "NvmeDataDiskCatalogueSuffix" => null,
          /**String**/
         "bondAttribute" => null,
-         /**String**/
-        "Region" => null,
          /**String**/
         "KesAgent" => null,
          /**String**/
@@ -140,25 +134,11 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["RaidId"] = $param["RaidId"];
             }
         }
-        if (array_key_exists("ReserveDisk",$param) and $param["ReserveDisk"] !== null) {
-            if(is_bool($param["ReserveDisk"])){
-                $this->RequestParams["ReserveDisk"] = $param["ReserveDisk"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ReserveDisk"] = $param["ReserveDisk"];
-            }
-        }
         if (array_key_exists("HostName",$param) and $param["HostName"] !== null) {
             if(is_bool($param["HostName"])){
                 $this->RequestParams["HostName"] = $param["HostName"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostName"] = $param["HostName"];
-            }
-        }
-        if (array_key_exists("ContainerInfo",$param) and $param["ContainerInfo"] !== null) {
-            if(is_bool($param["ContainerInfo"])){
-                $this->RequestParams["ContainerInfo"] = $param["ContainerInfo"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ContainerInfo"] = $param["ContainerInfo"];
             }
         }
         if (array_key_exists("SystemFileType",$param) and $param["SystemFileType"] !== null) {
@@ -222,13 +202,6 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["bondAttribute"] = $param["bondAttribute"] ? "true" : "false";
             } else {
                 $this->RequestParams["bondAttribute"] = $param["bondAttribute"];
-            }
-        }
-        if (array_key_exists("Region",$param) and $param["Region"] !== null) {
-            if(is_bool($param["Region"])){
-                $this->RequestParams["Region"] = $param["Region"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Region"] = $param["Region"];
             }
         }
         if (array_key_exists("KesAgent",$param) and $param["KesAgent"] !== null) {

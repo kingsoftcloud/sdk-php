@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Sks\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class CreateEpcResponse extends BaseModel
+class ImportKeyResponse extends BaseModel
 {
          /** 请求ID**/
          public  $RequestId;
 
-         /**Object 云物理主机信息**/
-         public  $Host;
+         /**Object 用户的公钥信息**/
+         public  $Key;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class CreateEpcResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("Host",$param) and $param["Host"] !== null) {
-                $this->Host = $param["Host"];
+            if (array_key_exists("Key",$param) and $param["Key"] !== null) {
+                $this->Key = $param["Key"];
             }
 
         }
