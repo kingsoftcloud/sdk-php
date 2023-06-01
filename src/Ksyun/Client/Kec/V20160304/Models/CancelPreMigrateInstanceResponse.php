@@ -3,9 +3,9 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class RunInstancesResponse extends BaseModel
+class CancelPreMigrateInstanceResponse extends BaseModel
 {
-         /** **/
+         /** 请求id**/
          public  $RequestId;
 
          public function __construct()

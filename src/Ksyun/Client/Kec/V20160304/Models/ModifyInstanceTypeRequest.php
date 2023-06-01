@@ -24,6 +24,10 @@ class ModifyInstanceTypeRequest extends BaseModel
         "StopInstance" => null,
          /**Boolean**/
         "AutoRestart" => null,
+         /**Int**/
+        "SystemDisk.DiskSize" => null,
+         /**String**/
+        "SystemDisk.ResizeType" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -104,6 +108,20 @@ class ModifyInstanceTypeRequest extends BaseModel
                 $this->RequestParams["AutoRestart"] = $param["AutoRestart"] ? "true" : "false";
             } else {
                 $this->RequestParams["AutoRestart"] = $param["AutoRestart"];
+            }
+        }
+        if (array_key_exists("SystemDisk.DiskSize",$param) and $param["SystemDisk.DiskSize"] !== null) {
+            if(is_bool($param["SystemDisk.DiskSize"])){
+                $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"];
+            }
+        }
+        if (array_key_exists("SystemDisk.ResizeType",$param) and $param["SystemDisk.ResizeType"] !== null) {
+            if(is_bool($param["SystemDisk.ResizeType"])){
+                $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"];
             }
         }
 

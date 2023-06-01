@@ -40,6 +40,12 @@ class RunInstancesRequest extends BaseModel
         "InstanceNameSuffix" => null,
          /**Int**/
         "ProjectId" => null,
+         /**String**/
+        "Userdata" => null,
+         /**String**/
+        "SystemDisk.DiskType" => null,
+         /**Int**/
+        "SystemDisk.DiskSize" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -183,6 +189,27 @@ class RunInstancesRequest extends BaseModel
         if (array_key_exists("NetworkInterface",$param) and $param["NetworkInterface"] !== null) {
             $res = $this->formatFilterParams("NetworkInterface",$param["NetworkInterface"]);
             $this->_unserialize("NetworkInterface",$res);
+        }
+        if (array_key_exists("Userdata",$param) and $param["Userdata"] !== null) {
+            if(is_bool($param["Userdata"])){
+                $this->RequestParams["Userdata"] = $param["Userdata"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Userdata"] = $param["Userdata"];
+            }
+        }
+        if (array_key_exists("SystemDisk.DiskType",$param) and $param["SystemDisk.DiskType"] !== null) {
+            if(is_bool($param["SystemDisk.DiskType"])){
+                $this->RequestParams["SystemDisk.DiskType"] = $param["SystemDisk.DiskType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SystemDisk.DiskType"] = $param["SystemDisk.DiskType"];
+            }
+        }
+        if (array_key_exists("SystemDisk.DiskSize",$param) and $param["SystemDisk.DiskSize"] !== null) {
+            if(is_bool($param["SystemDisk.DiskSize"])){
+                $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"];
+            }
         }
 
     }

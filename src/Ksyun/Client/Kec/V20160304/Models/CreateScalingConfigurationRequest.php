@@ -22,6 +22,8 @@ class CreateScalingConfigurationRequest extends BaseModel
         "ProjectId" => null,
          /**Boolean**/
         "KeepImageLogin" => null,
+         /**String**/
+        "SystemDisk.DiskSize" => null,
          /**Int**/
         "AddressBandWidth" => null,
          /**String**/
@@ -38,14 +40,16 @@ class CreateScalingConfigurationRequest extends BaseModel
         "UserData" => null,
          /**Boolean**/
         "InstanceNameTimeSuffix" => null,
+         /**String**/
+        "SystemDisk.DiskType" => null,
+         /**String**/
+        "SystemDisk.ResizeType" => null,
     ];
 
      /**特殊参数类型:Filter**/
     public $KeyId = [];
       /**特殊参数类型:Filter**/
     public $DataDisk = [];
-      /**特殊参数类型:Filter**/
-    public $SystemDisk = [];
       /**特殊参数类型:Filter**/
     public $Tag = [];
  
@@ -123,9 +127,12 @@ class CreateScalingConfigurationRequest extends BaseModel
             $res = $this->formatFilterParams("DataDisk",$param["DataDisk"]);
             $this->_unserialize("DataDisk",$res);
         }
-        if (array_key_exists("SystemDisk",$param) and $param["SystemDisk"] !== null) {
-            $res = $this->formatFilterParams("SystemDisk",$param["SystemDisk"]);
-            $this->_unserialize("SystemDisk",$res);
+        if (array_key_exists("SystemDisk.DiskSize",$param) and $param["SystemDisk.DiskSize"] !== null) {
+            if(is_bool($param["SystemDisk.DiskSize"])){
+                $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"];
+            }
         }
         if (array_key_exists("AddressBandWidth",$param) and $param["AddressBandWidth"] !== null) {
             if(is_bool($param["AddressBandWidth"])){
@@ -186,6 +193,20 @@ class CreateScalingConfigurationRequest extends BaseModel
         if (array_key_exists("Tag",$param) and $param["Tag"] !== null) {
             $res = $this->formatFilterParams("Tag",$param["Tag"]);
             $this->_unserialize("Tag",$res);
+        }
+        if (array_key_exists("SystemDisk.DiskType",$param) and $param["SystemDisk.DiskType"] !== null) {
+            if(is_bool($param["SystemDisk.DiskType"])){
+                $this->RequestParams["SystemDisk.DiskType"] = $param["SystemDisk.DiskType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SystemDisk.DiskType"] = $param["SystemDisk.DiskType"];
+            }
+        }
+        if (array_key_exists("SystemDisk.ResizeType",$param) and $param["SystemDisk.ResizeType"] !== null) {
+            if(is_bool($param["SystemDisk.ResizeType"])){
+                $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"];
+            }
         }
 
     }
