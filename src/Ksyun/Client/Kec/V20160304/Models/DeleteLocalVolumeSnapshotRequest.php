@@ -6,11 +6,11 @@ use Ksyun\Common\BaseModel;
 class DeleteLocalVolumeSnapshotRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
-        "LocalVolumeSnapshotId" => null,
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $LocalVolumeSnapshotId = [];
+ 
     public function __construct()
     {
 
@@ -22,11 +22,8 @@ class DeleteLocalVolumeSnapshotRequest extends BaseModel
             return;
         }
         if (array_key_exists("LocalVolumeSnapshotId",$param) and $param["LocalVolumeSnapshotId"] !== null) {
-            if(is_bool($param["LocalVolumeSnapshotId"])){
-                $this->RequestParams["LocalVolumeSnapshotId"] = $param["LocalVolumeSnapshotId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["LocalVolumeSnapshotId"] = $param["LocalVolumeSnapshotId"];
-            }
+            $res = $this->formatFilterParams("LocalVolumeSnapshotId",$param["LocalVolumeSnapshotId"]);
+            $this->_unserialize("LocalVolumeSnapshotId",$res);
         }
 
     }
