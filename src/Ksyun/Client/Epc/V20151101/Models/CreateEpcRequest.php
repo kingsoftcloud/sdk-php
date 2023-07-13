@@ -100,6 +100,8 @@ class CreateEpcRequest extends BaseModel
         "SystemVolumeType" => null,
          /**String**/
         "SystemVolumeSize" => null,
+         /**String**/
+        "RoceNetwork" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -446,6 +448,13 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["SystemVolumeSize"] = $param["SystemVolumeSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemVolumeSize"] = $param["SystemVolumeSize"];
+            }
+        }
+        if (array_key_exists("RoceNetwork",$param) and $param["RoceNetwork"] !== null) {
+            if(is_bool($param["RoceNetwork"])){
+                $this->RequestParams["RoceNetwork"] = $param["RoceNetwork"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RoceNetwork"] = $param["RoceNetwork"];
             }
         }
 
