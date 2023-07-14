@@ -54,6 +54,8 @@ class CreateModelRequest extends BaseModel
         "SystemDisk.DiskType" => null,
          /**String**/
         "SystemDisk.ResizeType" => null,
+         /**String**/
+        "VersionDetail" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -239,6 +241,13 @@ class CreateModelRequest extends BaseModel
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"];
+            }
+        }
+        if (array_key_exists("VersionDetail",$param) and $param["VersionDetail"] !== null) {
+            if(is_bool($param["VersionDetail"])){
+                $this->RequestParams["VersionDetail"] = $param["VersionDetail"] ? "true" : "false";
+            } else {
+                $this->RequestParams["VersionDetail"] = $param["VersionDetail"];
             }
         }
 

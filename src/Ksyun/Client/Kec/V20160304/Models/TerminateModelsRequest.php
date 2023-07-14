@@ -6,11 +6,13 @@ use Ksyun\Common\BaseModel;
 class TerminateModelsRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "ModelId" => null,
+         /**Int**/
+        "ModelVersion" => null,
     ];
 
-     /**特殊参数类型:Filter**/
-    public $ModelId = [];
- 
+
     public function __construct()
     {
 
@@ -22,8 +24,18 @@ class TerminateModelsRequest extends BaseModel
             return;
         }
         if (array_key_exists("ModelId",$param) and $param["ModelId"] !== null) {
-            $res = $this->formatFilterParams("ModelId",$param["ModelId"]);
-            $this->_unserialize("ModelId",$res);
+            if(is_bool($param["ModelId"])){
+                $this->RequestParams["ModelId"] = $param["ModelId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelId"] = $param["ModelId"];
+            }
+        }
+        if (array_key_exists("ModelVersion",$param) and $param["ModelVersion"] !== null) {
+            if(is_bool($param["ModelVersion"])){
+                $this->RequestParams["ModelVersion"] = $param["ModelVersion"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelVersion"] = $param["ModelVersion"];
+            }
         }
 
     }

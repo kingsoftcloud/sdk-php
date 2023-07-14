@@ -20,6 +20,8 @@ class ModifyInstanceImageRequest extends BaseModel
         "SystemDisk.DiskType" => null,
          /**String**/
         "SystemDisk.ResizeType" => null,
+         /**String**/
+        "UserData" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -86,6 +88,13 @@ class ModifyInstanceImageRequest extends BaseModel
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"];
+            }
+        }
+        if (array_key_exists("UserData",$param) and $param["UserData"] !== null) {
+            if(is_bool($param["UserData"])){
+                $this->RequestParams["UserData"] = $param["UserData"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UserData"] = $param["UserData"];
             }
         }
 

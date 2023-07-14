@@ -46,6 +46,12 @@ class RunInstancesRequest extends BaseModel
         "SystemDisk.DiskType" => null,
          /**Int**/
         "SystemDisk.DiskSize" => null,
+         /**String**/
+        "ModelId" => null,
+         /**Int**/
+        "ModelVersion" => null,
+         /**String**/
+        "AssembledImageDataDiskType" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -209,6 +215,27 @@ class RunInstancesRequest extends BaseModel
                 $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"];
+            }
+        }
+        if (array_key_exists("ModelId",$param) and $param["ModelId"] !== null) {
+            if(is_bool($param["ModelId"])){
+                $this->RequestParams["ModelId"] = $param["ModelId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelId"] = $param["ModelId"];
+            }
+        }
+        if (array_key_exists("ModelVersion",$param) and $param["ModelVersion"] !== null) {
+            if(is_bool($param["ModelVersion"])){
+                $this->RequestParams["ModelVersion"] = $param["ModelVersion"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelVersion"] = $param["ModelVersion"];
+            }
+        }
+        if (array_key_exists("AssembledImageDataDiskType",$param) and $param["AssembledImageDataDiskType"] !== null) {
+            if(is_bool($param["AssembledImageDataDiskType"])){
+                $this->RequestParams["AssembledImageDataDiskType"] = $param["AssembledImageDataDiskType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AssembledImageDataDiskType"] = $param["AssembledImageDataDiskType"];
             }
         }
 
