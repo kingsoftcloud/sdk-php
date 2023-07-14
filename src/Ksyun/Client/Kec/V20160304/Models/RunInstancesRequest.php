@@ -52,6 +52,8 @@ class RunInstancesRequest extends BaseModel
         "ModelVersion" => null,
          /**String**/
         "AssembledImageDataDiskType" => null,
+         /**Boolean**/
+        "AutoCreateEbs" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -236,6 +238,13 @@ class RunInstancesRequest extends BaseModel
                 $this->RequestParams["AssembledImageDataDiskType"] = $param["AssembledImageDataDiskType"] ? "true" : "false";
             } else {
                 $this->RequestParams["AssembledImageDataDiskType"] = $param["AssembledImageDataDiskType"];
+            }
+        }
+        if (array_key_exists("AutoCreateEbs",$param) and $param["AutoCreateEbs"] !== null) {
+            if(is_bool($param["AutoCreateEbs"])){
+                $this->RequestParams["AutoCreateEbs"] = $param["AutoCreateEbs"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AutoCreateEbs"] = $param["AutoCreateEbs"];
             }
         }
 
