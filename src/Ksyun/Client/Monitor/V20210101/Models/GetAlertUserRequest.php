@@ -1,14 +1,16 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Monitor\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeMinFlavorCountRequest extends BaseModel
+class GetAlertUserRequest extends BaseModel
 {
     public $RequestParams = [
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $UserGrpId = [];
+ 
     public function __construct()
     {
 
@@ -18,6 +20,10 @@ class DescribeMinFlavorCountRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("UserGrpId",$param) and $param["UserGrpId"] !== null) {
+            $res = $this->formatFilterParams("UserGrpId",$param["UserGrpId"]);
+            $this->_unserialize("UserGrpId",$res);
         }
 
     }

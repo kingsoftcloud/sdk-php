@@ -1,9 +1,9 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Monitor\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeProjectMaxNumRequest extends BaseModel
+class GetUserGroupRequest extends BaseModel
 {
     public $RequestParams = [
     ];

@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Monitor\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeRegionsResponse extends BaseModel
+class ListMetricsResponse extends BaseModel
 {
-         /** **/
-         public  $RequestId;
+         /**Object 监控指标的集合**/
+         public  $Metrics;
 
-         /**Object **/
-         public  $RegionSet;
+         /** 请求ID**/
+         public  $RequestId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class DescribeRegionsResponse extends BaseModel
             if ($param === null) {
                 return;
             }
+            if (array_key_exists("Metrics",$param) and $param["Metrics"] !== null) {
+                $this->Metrics = $param["Metrics"];
+            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("RegionSet",$param) and $param["RegionSet"] !== null) {
-                $this->RegionSet = $param["RegionSet"];
             }
 
         }

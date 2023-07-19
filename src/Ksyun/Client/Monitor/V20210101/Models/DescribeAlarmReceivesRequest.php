@@ -1,13 +1,13 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Monitor\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeImageSharePermissionRequest extends BaseModel
+class DescribeAlarmReceivesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "ImageId" => null,
+         /**Int**/
+        "PolicyId" => null,
     ];
 
 
@@ -21,11 +21,11 @@ class DescribeImageSharePermissionRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
-            if(is_bool($param["ImageId"])){
-                $this->RequestParams["ImageId"] = $param["ImageId"] ? "true" : "false";
+        if (array_key_exists("PolicyId",$param) and $param["PolicyId"] !== null) {
+            if(is_bool($param["PolicyId"])){
+                $this->RequestParams["PolicyId"] = $param["PolicyId"] ? "true" : "false";
             } else {
-                $this->RequestParams["ImageId"] = $param["ImageId"];
+                $this->RequestParams["PolicyId"] = $param["PolicyId"];
             }
         }
 
