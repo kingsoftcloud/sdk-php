@@ -3,15 +3,13 @@ namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ListEntityForPolicyRequest extends BaseModel
+class DetachUserPolicyRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "PolicyKrn" => null,
          /**String**/
-        "Marker" => null,
-         /**Int**/
-        "MaxItems" => null,
+        "UserName" => null,
     ];
 
 
@@ -32,18 +30,11 @@ class ListEntityForPolicyRequest extends BaseModel
                 $this->RequestParams["PolicyKrn"] = $param["PolicyKrn"];
             }
         }
-        if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
-            if(is_bool($param["Marker"])){
-                $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
+        if (array_key_exists("UserName",$param) and $param["UserName"] !== null) {
+            if(is_bool($param["UserName"])){
+                $this->RequestParams["UserName"] = $param["UserName"] ? "true" : "false";
             } else {
-                $this->RequestParams["Marker"] = $param["Marker"];
-            }
-        }
-        if (array_key_exists("MaxItems",$param) and $param["MaxItems"] !== null) {
-            if(is_bool($param["MaxItems"])){
-                $this->RequestParams["MaxItems"] = $param["MaxItems"] ? "true" : "false";
-            } else {
-                $this->RequestParams["MaxItems"] = $param["MaxItems"];
+                $this->RequestParams["UserName"] = $param["UserName"];
             }
         }
 

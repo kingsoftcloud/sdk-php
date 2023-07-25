@@ -8,6 +8,8 @@ class GetLoginProfileRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "UserName" => null,
+         /**Int**/
+        "NotCheckPassword" => null,
     ];
 
 
@@ -26,6 +28,13 @@ class GetLoginProfileRequest extends BaseModel
                 $this->RequestParams["UserName"] = $param["UserName"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserName"] = $param["UserName"];
+            }
+        }
+        if (array_key_exists("NotCheckPassword",$param) and $param["NotCheckPassword"] !== null) {
+            if(is_bool($param["NotCheckPassword"])){
+                $this->RequestParams["NotCheckPassword"] = $param["NotCheckPassword"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NotCheckPassword"] = $param["NotCheckPassword"];
             }
         }
 
