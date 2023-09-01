@@ -6,7 +6,7 @@ use Ksyun\Common\BaseModel;
 class DeleteAlarmReceivesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+         /**Int**/
         "PolicyId" => null,
          /**Int**/
         "ContactFlag" => null,

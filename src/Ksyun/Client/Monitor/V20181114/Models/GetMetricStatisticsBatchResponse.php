@@ -5,8 +5,14 @@ use Ksyun\Common\BaseModel;
 
 class GetMetricStatisticsBatchResponse extends BaseModel
 {
-         /** status**/
-         public  $status;
+         /** **/
+         public  $getMetricStatisticsBatchResults;
+
+         /** **/
+         public  $responseMetadata;
+
+         /**String 错误信息列表。**/
+         public  $errorMessage;
 
          public function __construct()
          {
@@ -18,8 +24,14 @@ class GetMetricStatisticsBatchResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("status",$param) and $param["status"] !== null) {
-                $this->status = $param["status"];
+            if (array_key_exists("getMetricStatisticsBatchResults",$param) and $param["getMetricStatisticsBatchResults"] !== null) {
+                $this->getMetricStatisticsBatchResults = $param["getMetricStatisticsBatchResults"];
+            }
+            if (array_key_exists("responseMetadata",$param) and $param["responseMetadata"] !== null) {
+                $this->responseMetadata = $param["responseMetadata"];
+            }
+            if (array_key_exists("errorMessage",$param) and $param["errorMessage"] !== null) {
+                $this->errorMessage = $param["errorMessage"];
             }
 
         }

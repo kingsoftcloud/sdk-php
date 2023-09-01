@@ -1,5 +1,5 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20210101\Models;
+namespace  Ksyun\Client\Monitor\V20100525\Models;
 
 use Ksyun\Common\BaseModel;
 
