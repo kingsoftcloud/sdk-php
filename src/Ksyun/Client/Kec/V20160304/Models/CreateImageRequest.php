@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class CreateImageRequest extends BaseModel
 {
@@ -12,6 +13,8 @@ class CreateImageRequest extends BaseModel
         "Name" => null,
          /**String**/
         "Type" => null,
+         /**Boolean**/
+        "InstantAccess" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -19,9 +22,9 @@ class CreateImageRequest extends BaseModel
       /**特殊参数类型:Filter**/
     public $SnapshotIds = [];
  
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -57,6 +60,13 @@ class CreateImageRequest extends BaseModel
         if (array_key_exists("SnapshotIds",$param) and $param["SnapshotIds"] !== null) {
             $res = $this->formatFilterParams("SnapshotIds",$param["SnapshotIds"]);
             $this->_unserialize("SnapshotIds",$res);
+        }
+        if (array_key_exists("InstantAccess",$param) and $param["InstantAccess"] !== null) {
+            if(is_bool($param["InstantAccess"])){
+                $this->RequestParams["InstantAccess"] = $param["InstantAccess"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstantAccess"] = $param["InstantAccess"];
+            }
         }
 
     }

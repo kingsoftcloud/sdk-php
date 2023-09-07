@@ -4,17 +4,17 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeDedicatedClusterRequest extends BaseModel
+class GetVNCAddressRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "InstanceId" => null,
     ];
 
-     /**特殊参数类型:Filter**/
-    public $DedicatedClusterId = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -22,9 +22,12 @@ class DescribeDedicatedClusterRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DedicatedClusterId",$param) and $param["DedicatedClusterId"] !== null) {
-            $res = $this->formatFilterParams("DedicatedClusterId",$param["DedicatedClusterId"]);
-            $this->_unserialize("DedicatedClusterId",$res);
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
+                $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstanceId"] = $param["InstanceId"];
+            }
         }
 
     }

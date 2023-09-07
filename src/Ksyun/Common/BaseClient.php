@@ -3,7 +3,6 @@
 namespace Ksyun\Common;
 
 use Psr\Http\Message\ResponseInterface;
-
 use Ksyun\Common\Http\HttpConnection;
 use Ksyun\Common\Http\HttpOptions;
 use Ksyun\Common\Exception\KsyunSDKException;
@@ -15,11 +14,6 @@ use Ksyun\Common\Exception\KsyunSDKException;
  */
 abstract class BaseClient
 {
-    /**
-     * @var string SDK版本
-     */
-    public static $SDK_VERSION = "1.0.2";
-
     /**
      * @var integer http响应码200
      */
@@ -75,8 +69,6 @@ abstract class BaseClient
         }
 
         $this->getRefreshedEndpoint();
-
-        $this->sdkVersion = BaseClient::$SDK_VERSION;
         $this->apiVersion = $version;
 
         $this->httpConn = $this->createConnect();
@@ -153,14 +145,8 @@ abstract class BaseClient
             $responseData = null;
             $serializeRequest = $request->requestObjSerialize($request);
 
-            switch ($this->credential->getSignMethod()) {
-                case 'HMAC-SHA256':
-                    $responseData = $this->doRequest($action, $serializeRequest);
-                    break;
-                default:
-                    throw new KsyunSDKException("ClientError", "Invalid sign method");
-                    break;
-            }
+            $responseData = $this->doRequest($action, $serializeRequest);
+
             if ($responseData->getStatusCode() !== BaseClient::$HTTP_RSP_OK) {
                 throw new KsyunSDKException($responseData->getReasonPhrase(), $responseData->getBody());
             }
@@ -188,6 +174,10 @@ abstract class BaseClient
      */
     private function doRequest($action, $request)
     {
+        if (empty($this->profile->getHeaderContentType())) {
+            $this->profile->setHeaderContentType(HttpOptions::$CONTENT_TYPE_JSON);
+        }
+
         switch ($this->profile->getReqMethod()) {
             case HttpOptions::$REQ_GET:
                 return $this->getRequest($action, $request);
@@ -209,8 +199,10 @@ abstract class BaseClient
         $connect = $this->getConnect();
         $headers = [
             'Accept' => 'application/json',
+            'Content-Type' => $this->profile->getHeaderContentType(),
         ];
-        return $connect->getRequest($this->path, $query, $headers);
+
+        return $connect->getRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $query, $headers);
     }
 
     /**
@@ -222,8 +214,9 @@ abstract class BaseClient
         $connect = $this->getConnect();
         $headers = [
             'Accept' => 'application/json',
+            'Content-Type' => $this->profile->getHeaderContentType(),
         ];
-        return $connect->postRequest($this->path, $headers, $body);
+        return $connect->postRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $headers, $body);
     }
 
     /**
@@ -239,9 +232,6 @@ abstract class BaseClient
         $param = [
             'Version' => $this->apiVersion,
             'Action' => $action,
-            'Timestamp' => gmdate("Y-m-d\TH:i:s\Z"),
-            'SignatureVersion' => '1.0',
-            'Service' => $this->service,
         ];
         $param = array_merge($param, $request);
 
@@ -253,12 +243,6 @@ abstract class BaseClient
             $param["Region"] = $this->region;
         }
 
-        if ($this->credential->getSignMethod()) {
-            $param["SignatureMethod"] = $this->credential->getSignMethod();
-        }
-
-        $signStr = $this->formatSignString($param);
-        $param["Signature"] = Sign::sign($this->credential->getSecretKey(), $signStr, $this->credential->getSignMethod());
         return $param;
     }
 
@@ -297,7 +281,7 @@ abstract class BaseClient
     {
         $val = [];
         foreach ($array as $key => $value) {
-            if ($this->profile->getHeaderContentType() == HttpOptions::$CONTENT_TYPE_jSON) {
+            if ($this->profile->getHeaderContentType() == HttpOptions::$CONTENT_TYPE_JSON) {
                 if ($this->profile->getReqMethod() == HttpOptions::$REQ_GET) {
                     if (is_array($value)) {
                         $tmp = "[$key]";

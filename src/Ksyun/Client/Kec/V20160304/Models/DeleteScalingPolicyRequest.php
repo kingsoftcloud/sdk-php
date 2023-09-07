@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class DeleteScalingPolicyRequest extends BaseModel
 {
@@ -13,9 +14,9 @@ class DeleteScalingPolicyRequest extends BaseModel
     ];
 
 
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])

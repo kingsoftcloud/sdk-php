@@ -2,9 +2,13 @@
 
 namespace Ksyun\Common\Http;
 
-use GuzzleHttp\Client;
-use Ksyun\Common\Http\HttpOptions;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Psr7\Utils;
 use Ksyun\Common\Exception\KsyunSDKException;
+use Aws\Signature\SignatureV4;
+use Aws\Credentials\Credentials;
+use GuzzleHttp\Client;
 
 /**
  * http连接类
@@ -12,8 +16,9 @@ use Ksyun\Common\Exception\KsyunSDKException;
  */
 class HttpConnection
 {
-    private $client;
     private $profile;
+
+    private $url;
 
     /**
      * @param string $url url
@@ -21,7 +26,7 @@ class HttpConnection
      */
     function __construct($url, $profile)
     {
-        $this->client = new Client(["base_uri" => $url]);
+        $this->url = $url;
         $this->profile = $profile;
     }
 
@@ -33,39 +38,44 @@ class HttpConnection
         return $options;
     }
 
-    public function getRequest($uri = '', $query = [], $headers = [])
+    public function getRequest($accessKey, $secretKey, $service, $region, $uri = '', $query = [], $headers = [])
     {
-        $options = $this->getOptions();
-
-        if ($query) {
-            $options["query"] = $query;
-        }
-        if ($headers) {
-            $options["headers"] = $headers;
-        }
-        return $this->client->request('GET', $uri, $options);
+        $credentials = new Credentials($accessKey, $secretKey, "");
+        $signer = new SignatureV4($service, $region);
+        $uri = new Uri($this->url . $uri);
+        $uri = $uri->withQuery(http_build_query($query));
+        $request = new Request('GET', $uri, $headers);
+        $signedRequest = $signer->signRequest($request, $credentials);
+        $client = new Client();
+        return $client->send($signedRequest);
     }
 
-    public function postRequest($uri = '', $headers = [], $body = '')
+    public function postRequest($accessKey, $secretKey, $service, $region, $uri = '', $headers = [], $body = '')
     {
-        $options = $this->getOptions();
-        if ($headers) {
-            $options["headers"] = $headers;
-        }
         $contentType = $this->profile->getHeaderContentType();
+
+        $credentials = new Credentials($accessKey, $secretKey, "");
+        $signer = new SignatureV4($service, $region);
+        $uri = new Uri($this->url . $uri);
+
         if ($contentType == HttpOptions::$CONTENT_TYPE_FORM) {
             if ($body) {
-                $options["form_params"] = $body;
+                $request = new Request('POST', $uri, $headers, http_build_query($body));
+                $signedRequest = $signer->signRequest($request, $credentials);
+                $client = new Client();
+                return $client->send($signedRequest);
             }
-        } elseif ($contentType == HttpOptions::$CONTENT_TYPE_jSON) {
+        } elseif ($contentType == HttpOptions::$CONTENT_TYPE_JSON) {
             if ($body) {
-                $options["json"] = $body;
+                $body = Utils::streamFor(json_encode($body, JSON_UNESCAPED_UNICODE));
+                $request = new Request('POST', $uri, $headers, $body);
+                $signedRequest = $signer->signRequest($request, $credentials);
+                $client = new Client();
+                return $client->send($signedRequest);
             }
-        } else {
-            throw new KsyunSDKException("", "content_type only support (application/x-www-form-urlencoded,application/json)");
-
         }
-        return $this->client->request($this->profile->getReqMethod(), $uri, $options);
+
+        throw new KsyunSDKException("", "content_type only support (application/x-www-form-urlencoded,application/json)");
     }
 
 }

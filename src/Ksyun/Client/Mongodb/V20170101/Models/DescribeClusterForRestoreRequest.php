@@ -1,22 +1,21 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Mongodb\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
-use Ksyun\Common\Http\HttpOptions;
 
-class DetachNetworkInterfaceRequest extends BaseModel
+class DescribeClusterForRestoreRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "InstanceId" => null,
          /**String**/
-        "NetworkInterfaceId" => null,
+        "ResetTimePoint" => null,
     ];
 
 
-    public function __construct(HttpOptions $httpOptions)
+    public function __construct()
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+
     }
 
     public function setParams($param = [])
@@ -31,11 +30,11 @@ class DetachNetworkInterfaceRequest extends BaseModel
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
-            if(is_bool($param["NetworkInterfaceId"])){
-                $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
+        if (array_key_exists("ResetTimePoint",$param) and $param["ResetTimePoint"] !== null) {
+            if(is_bool($param["ResetTimePoint"])){
+                $this->RequestParams["ResetTimePoint"] = $param["ResetTimePoint"] ? "true" : "false";
             } else {
-                $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
+                $this->RequestParams["ResetTimePoint"] = $param["ResetTimePoint"];
             }
         }
 

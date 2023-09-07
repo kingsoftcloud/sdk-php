@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class ModifyScalingNotificationRequest extends BaseModel
 {
@@ -15,9 +16,9 @@ class ModifyScalingNotificationRequest extends BaseModel
      /**特殊参数类型:Filter**/
     public $NotificationType = [];
  
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])

@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class CreateLocalVolumeSnapshotRequest extends BaseModel
 {
@@ -12,12 +13,14 @@ class CreateLocalVolumeSnapshotRequest extends BaseModel
         "LocalVolumeSnapshotName" => null,
          /**String**/
         "LocalVolumeSnapshotDesc" => null,
+         /**Boolean**/
+        "InstantAccess" => null,
     ];
 
 
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -44,6 +47,13 @@ class CreateLocalVolumeSnapshotRequest extends BaseModel
                 $this->RequestParams["LocalVolumeSnapshotDesc"] = $param["LocalVolumeSnapshotDesc"] ? "true" : "false";
             } else {
                 $this->RequestParams["LocalVolumeSnapshotDesc"] = $param["LocalVolumeSnapshotDesc"];
+            }
+        }
+        if (array_key_exists("InstantAccess",$param) and $param["InstantAccess"] !== null) {
+            if(is_bool($param["InstantAccess"])){
+                $this->RequestParams["InstantAccess"] = $param["InstantAccess"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstantAccess"] = $param["InstantAccess"];
             }
         }
 

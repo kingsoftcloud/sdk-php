@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class ModifyInstanceTypeRequest extends BaseModel
 {
@@ -28,14 +29,16 @@ class ModifyInstanceTypeRequest extends BaseModel
         "SystemDisk.DiskSize" => null,
          /**String**/
         "SystemDisk.ResizeType" => null,
+         /**Boolean**/
+        "InstantAccess" => null,
     ];
 
      /**特殊参数类型:Filter**/
     public $DataDisk = [];
  
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -122,6 +125,13 @@ class ModifyInstanceTypeRequest extends BaseModel
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"];
+            }
+        }
+        if (array_key_exists("InstantAccess",$param) and $param["InstantAccess"] !== null) {
+            if(is_bool($param["InstantAccess"])){
+                $this->RequestParams["InstantAccess"] = $param["InstantAccess"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstantAccess"] = $param["InstantAccess"];
             }
         }
 

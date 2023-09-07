@@ -19,11 +19,6 @@ class Credential
     private $secretKey;
 
     /**
-     * @var string token
-     */
-    private $signMethod = "HMAC-SHA256";
-
-    /**
      * Credential constructor.
      * @param string $secretId secretId
      * @param string $secretKey secretKey
@@ -69,14 +64,5 @@ class Credential
     public function getSecretKey()
     {
         return $this->secretKey;
-    }
-
-    /**
-     * 获取签名方法
-     * @return null|string 签名方法
-     */
-    public function getSignMethod()
-    {
-        return $this->signMethod;
     }
 }

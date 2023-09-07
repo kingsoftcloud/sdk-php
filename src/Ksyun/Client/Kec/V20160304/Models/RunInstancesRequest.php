@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class RunInstancesRequest extends BaseModel
 {
@@ -41,7 +42,7 @@ class RunInstancesRequest extends BaseModel
          /**Int**/
         "ProjectId" => null,
          /**String**/
-        "Userdata" => null,
+        "UserData" => null,
          /**String**/
         "SystemDisk.DiskType" => null,
          /**Int**/
@@ -54,6 +55,16 @@ class RunInstancesRequest extends BaseModel
         "AssembledImageDataDiskType" => null,
          /**Boolean**/
         "AutoCreateEbs" => null,
+         /**String**/
+        "LineId" => null,
+         /**Int**/
+        "AddressBandWidth" => null,
+         /**String**/
+        "AddressChargeType" => null,
+         /**String**/
+        "AddressProjectId" => null,
+         /**Int**/
+        "AddressPurchaseTime" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -61,9 +72,9 @@ class RunInstancesRequest extends BaseModel
       /**特殊参数类型:Filter**/
     public $NetworkInterface = [];
  
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -198,11 +209,11 @@ class RunInstancesRequest extends BaseModel
             $res = $this->formatFilterParams("NetworkInterface",$param["NetworkInterface"]);
             $this->_unserialize("NetworkInterface",$res);
         }
-        if (array_key_exists("Userdata",$param) and $param["Userdata"] !== null) {
-            if(is_bool($param["Userdata"])){
-                $this->RequestParams["Userdata"] = $param["Userdata"] ? "true" : "false";
+        if (array_key_exists("UserData",$param) and $param["UserData"] !== null) {
+            if(is_bool($param["UserData"])){
+                $this->RequestParams["UserData"] = $param["UserData"] ? "true" : "false";
             } else {
-                $this->RequestParams["Userdata"] = $param["Userdata"];
+                $this->RequestParams["UserData"] = $param["UserData"];
             }
         }
         if (array_key_exists("SystemDisk.DiskType",$param) and $param["SystemDisk.DiskType"] !== null) {
@@ -245,6 +256,41 @@ class RunInstancesRequest extends BaseModel
                 $this->RequestParams["AutoCreateEbs"] = $param["AutoCreateEbs"] ? "true" : "false";
             } else {
                 $this->RequestParams["AutoCreateEbs"] = $param["AutoCreateEbs"];
+            }
+        }
+        if (array_key_exists("LineId",$param) and $param["LineId"] !== null) {
+            if(is_bool($param["LineId"])){
+                $this->RequestParams["LineId"] = $param["LineId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LineId"] = $param["LineId"];
+            }
+        }
+        if (array_key_exists("AddressBandWidth",$param) and $param["AddressBandWidth"] !== null) {
+            if(is_bool($param["AddressBandWidth"])){
+                $this->RequestParams["AddressBandWidth"] = $param["AddressBandWidth"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AddressBandWidth"] = $param["AddressBandWidth"];
+            }
+        }
+        if (array_key_exists("AddressChargeType",$param) and $param["AddressChargeType"] !== null) {
+            if(is_bool($param["AddressChargeType"])){
+                $this->RequestParams["AddressChargeType"] = $param["AddressChargeType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AddressChargeType"] = $param["AddressChargeType"];
+            }
+        }
+        if (array_key_exists("AddressProjectId",$param) and $param["AddressProjectId"] !== null) {
+            if(is_bool($param["AddressProjectId"])){
+                $this->RequestParams["AddressProjectId"] = $param["AddressProjectId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AddressProjectId"] = $param["AddressProjectId"];
+            }
+        }
+        if (array_key_exists("AddressPurchaseTime",$param) and $param["AddressPurchaseTime"] !== null) {
+            if(is_bool($param["AddressPurchaseTime"])){
+                $this->RequestParams["AddressPurchaseTime"] = $param["AddressPurchaseTime"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AddressPurchaseTime"] = $param["AddressPurchaseTime"];
             }
         }
 

@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class DescribeMinFlavorCountRequest extends BaseModel
 {
@@ -9,9 +10,9 @@ class DescribeMinFlavorCountRequest extends BaseModel
     ];
 
 
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])

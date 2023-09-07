@@ -50,7 +50,7 @@ class HttpOptions
     /**
      * @var string  get请求
      */
-    public static $CONTENT_TYPE_jSON = "application/json";
+    public static $CONTENT_TYPE_JSON = "application/json";
 
     /**
      * @var int 时间一分钟
@@ -112,7 +112,6 @@ class HttpOptions
         $this->protocol = $protocol ? $protocol : HttpOptions::$REQ_HTTPS;
         $this->rootDomain = "api.ksyun.com";
         $this->keepAlive = false;
-        $this->contentType = HttpOptions::$CONTENT_TYPE_FORM;
     }
 
     /**
