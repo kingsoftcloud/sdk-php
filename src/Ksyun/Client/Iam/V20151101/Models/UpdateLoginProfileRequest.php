@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class UpdateLoginProfileRequest extends BaseModel
 {
@@ -21,9 +22,9 @@ class UpdateLoginProfileRequest extends BaseModel
     ];
 
 
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])

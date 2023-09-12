@@ -2,6 +2,7 @@
 namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
 
 class ListEntitiesForPolicyRequest extends BaseModel
 {
@@ -15,9 +16,9 @@ class ListEntitiesForPolicyRequest extends BaseModel
     ];
 
 
-    public function __construct()
+    public function __construct(HttpOptions $httpOptions)
     {
-
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
