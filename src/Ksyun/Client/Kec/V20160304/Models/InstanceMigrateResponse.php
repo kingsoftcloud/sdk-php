@@ -5,19 +5,11 @@ use Ksyun\Common\BaseModel;
 
 class InstanceMigrateResponse extends BaseModel
 {
-         /** 
-
-- 请求ID
-- 类型：String
-
- **Return**
-
-- 返回结果
-- 类型：Boolean
-
-
-**/
+         /** **/
          public  $RequestId;
+
+         /** **/
+         public  $Return;
 
          public function __construct()
          {
@@ -31,6 +23,9 @@ class InstanceMigrateResponse extends BaseModel
             }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
+                $this->Return = $param["Return"];
             }
 
         }

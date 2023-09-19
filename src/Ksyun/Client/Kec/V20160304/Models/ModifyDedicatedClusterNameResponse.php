@@ -5,19 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class ModifyDedicatedClusterNameResponse extends BaseModel
 {
-         /** 
-
-- 请求ID
-- 类型：String
-
- **Return**
-
-- 返回结果
-- 类型：Boolean
-
-
-**/
-         public  $RequestId;
+         /** **/
+         public  $ModifyDedicatedClusterNameResponse;
 
          public function __construct()
          {
@@ -29,8 +18,8 @@ class ModifyDedicatedClusterNameResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
+            if (array_key_exists("ModifyDedicatedClusterNameResponse",$param) and $param["ModifyDedicatedClusterNameResponse"] !== null) {
+                $this->ModifyDedicatedClusterNameResponse = $param["ModifyDedicatedClusterNameResponse"];
             }
 
         }

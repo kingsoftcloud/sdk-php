@@ -5,13 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class DeleteDedicatedClusterResponse extends BaseModel
 {
-         /** 
-
-- 请求ID
-- 类型：String
-
-**/
-         public  $RequestId;
+         /** **/
+         public  $DeleteDedicatedClusterResponse;
 
          public function __construct()
          {
@@ -23,8 +18,8 @@ class DeleteDedicatedClusterResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
+            if (array_key_exists("DeleteDedicatedClusterResponse",$param) and $param["DeleteDedicatedClusterResponse"] !== null) {
+                $this->DeleteDedicatedClusterResponse = $param["DeleteDedicatedClusterResponse"];
             }
 
         }

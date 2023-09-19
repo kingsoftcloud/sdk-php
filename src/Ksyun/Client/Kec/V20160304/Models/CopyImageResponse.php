@@ -5,14 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class CopyImageResponse extends BaseModel
 {
-         /** 请求ID。**/
-         public  $RequestId;
-
-         /** 返回，当有任何镜像到目标地域失败时，则返回false。**/
-         public  $Return;
-
-         /** 失败原因。**/
-         public  $Message;
+         /** **/
+         public  $ImageCopyResponse;
 
          public function __construct()
          {
@@ -24,14 +18,8 @@ class CopyImageResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
-            }
-            if (array_key_exists("Message",$param) and $param["Message"] !== null) {
-                $this->Message = $param["Message"];
+            if (array_key_exists("ImageCopyResponse",$param) and $param["ImageCopyResponse"] !== null) {
+                $this->ImageCopyResponse = $param["ImageCopyResponse"];
             }
 
         }

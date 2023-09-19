@@ -6,10 +6,7 @@ use Ksyun\Common\BaseModel;
 class DescribeRegionsResponse extends BaseModel
 {
          /** **/
-         public  $RequestId;
-
-         /**Object **/
-         public  $RegionSet;
+         public  $RegionResponse;
 
          public function __construct()
          {
@@ -21,11 +18,8 @@ class DescribeRegionsResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("RegionSet",$param) and $param["RegionSet"] !== null) {
-                $this->RegionSet = $param["RegionSet"];
+            if (array_key_exists("RegionResponse",$param) and $param["RegionResponse"] !== null) {
+                $this->RegionResponse = $param["RegionResponse"];
             }
 
         }

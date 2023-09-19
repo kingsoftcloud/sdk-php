@@ -5,11 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class ModifyScalingConfigurationResponse extends BaseModel
 {
-         /** 请求ID**/
-         public  $RequestId;
-
-         /** 修改启动配置信息是否成功**/
-         public  $Return;
+         /** **/
+         public  $ModifyScalingConfigurationResponse;
 
          public function __construct()
          {
@@ -21,11 +18,8 @@ class ModifyScalingConfigurationResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
+            if (array_key_exists("ModifyScalingConfigurationResponse",$param) and $param["ModifyScalingConfigurationResponse"] !== null) {
+                $this->ModifyScalingConfigurationResponse = $param["ModifyScalingConfigurationResponse"];
             }
 
         }

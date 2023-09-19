@@ -5,8 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class TerminateModelsResponse extends BaseModel
 {
-         /** 请求ID**/
-         public  $RequestId;
+         /** **/
+         public  $DeleteModelResponse;
 
          public function __construct()
          {
@@ -18,8 +18,8 @@ class TerminateModelsResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
+            if (array_key_exists("DeleteModelResponse",$param) and $param["DeleteModelResponse"] !== null) {
+                $this->DeleteModelResponse = $param["DeleteModelResponse"];
             }
 
         }

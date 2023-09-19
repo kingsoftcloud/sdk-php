@@ -5,14 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class CreateMountTargetResponse extends BaseModel
 {
-         /** 请求ID**/
-         public  $RequestId;
-
-         /** 挂载点ID**/
-         public  $MountTargetID;
-
-         /** 访问文件系统的挂载点IP地址**/
-         public  $IpAddress;
+         /** **/
+         public  $CreateMountTargetResponse;
 
          public function __construct()
          {
@@ -24,14 +18,8 @@ class CreateMountTargetResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("MountTargetID",$param) and $param["MountTargetID"] !== null) {
-                $this->MountTargetID = $param["MountTargetID"];
-            }
-            if (array_key_exists("IpAddress",$param) and $param["IpAddress"] !== null) {
-                $this->IpAddress = $param["IpAddress"];
+            if (array_key_exists("CreateMountTargetResponse",$param) and $param["CreateMountTargetResponse"] !== null) {
+                $this->CreateMountTargetResponse = $param["CreateMountTargetResponse"];
             }
 
         }

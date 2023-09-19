@@ -6,10 +6,7 @@ use Ksyun\Common\BaseModel;
 class DeleteMountTargetResponse extends BaseModel
 {
          /** **/
-         public  $RequestId;
-
-         /** **/
-         public  $Return;
+         public  $DeleteMountTargetResponse;
 
          public function __construct()
          {
@@ -21,11 +18,8 @@ class DeleteMountTargetResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
+            if (array_key_exists("DeleteMountTargetResponse",$param) and $param["DeleteMountTargetResponse"] !== null) {
+                $this->DeleteMountTargetResponse = $param["DeleteMountTargetResponse"];
             }
 
         }

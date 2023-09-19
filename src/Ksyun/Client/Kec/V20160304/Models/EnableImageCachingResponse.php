@@ -5,11 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class EnableImageCachingResponse extends BaseModel
 {
-         /** 请求ID。**/
-         public  $RequestId;
-
-         /** 返回参数。**/
-         public  $Return;
+         /** **/
+         public  $WarmUpImageResponse;
 
          public function __construct()
          {
@@ -21,11 +18,8 @@ class EnableImageCachingResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
+            if (array_key_exists("WarmUpImageResponse",$param) and $param["WarmUpImageResponse"] !== null) {
+                $this->WarmUpImageResponse = $param["WarmUpImageResponse"];
             }
 
         }

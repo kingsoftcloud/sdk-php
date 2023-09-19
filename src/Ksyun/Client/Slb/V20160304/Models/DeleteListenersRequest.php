@@ -1,20 +1,20 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeMinFlavorCountRequest extends BaseModel
+class DeleteListenersRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
-        "ProductType" => null,
+         /**String**/
+        "ListenerId" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -22,11 +22,11 @@ class DescribeMinFlavorCountRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProductType",$param) and $param["ProductType"] !== null) {
-            if(is_bool($param["ProductType"])){
-                $this->RequestParams["ProductType"] = $param["ProductType"] ? "true" : "false";
+        if (array_key_exists("ListenerId",$param) and $param["ListenerId"] !== null) {
+            if(is_bool($param["ListenerId"])){
+                $this->RequestParams["ListenerId"] = $param["ListenerId"] ? "true" : "false";
             } else {
-                $this->RequestParams["ProductType"] = $param["ProductType"];
+                $this->RequestParams["ListenerId"] = $param["ListenerId"];
             }
         }
 

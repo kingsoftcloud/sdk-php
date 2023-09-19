@@ -5,8 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class DeleteScalingPolicyResponse extends BaseModel
 {
-         /** 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。**/
-         public  $RequestId;
+         /** **/
+         public  $DeleteScalingPolicyResponse;
 
          public function __construct()
          {
@@ -18,8 +18,8 @@ class DeleteScalingPolicyResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
+            if (array_key_exists("DeleteScalingPolicyResponse",$param) and $param["DeleteScalingPolicyResponse"] !== null) {
+                $this->DeleteScalingPolicyResponse = $param["DeleteScalingPolicyResponse"];
             }
 
         }

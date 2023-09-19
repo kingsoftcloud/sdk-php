@@ -5,8 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class CancelPreMigrateInstanceResponse extends BaseModel
 {
-         /** 请求id**/
-         public  $RequestId;
+         /** **/
+         public  $CancelPreMigrateInstanceResponse;
 
          public function __construct()
          {
@@ -18,8 +18,8 @@ class CancelPreMigrateInstanceResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
+            if (array_key_exists("CancelPreMigrateInstanceResponse",$param) and $param["CancelPreMigrateInstanceResponse"] !== null) {
+                $this->CancelPreMigrateInstanceResponse = $param["CancelPreMigrateInstanceResponse"];
             }
 
         }
