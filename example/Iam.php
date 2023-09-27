@@ -19,7 +19,7 @@ try {
     $client = new IamClient($cred, "default", $httpOptions);
 
     // 实例化一个请求对象,每个接口都会对应一个request对象。
-    $req = new ListUsersRequest();
+    $req = new ListUsersRequest($httpOptions);
 
     // 这里还支持以标准json格式的string来赋值请求参数的方式。下面的代码跟上面的参数赋值是等效的
     $params = [
