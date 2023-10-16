@@ -98,6 +98,11 @@ class HttpOptions
     private $contentType;
 
     /**
+     * @var array-key header
+     */
+    private $headers;
+
+    /**
      * HttpProfile constructor.
      * @param string $protocol 请求协议
      * @param string $endpoint 请求接入点域名(xx.api.ksyun.com)
@@ -239,5 +244,25 @@ class HttpOptions
     public function getHeaderContentType()
     {
         return $this->contentType;
+    }
+
+    /**
+     * 设置headers
+     * 示例：
+     * [
+     *     "Cookie" => "demo",
+     *     "KsYun" => "demo"
+     * ]
+     * @param $headers
+     * @return void
+     */
+    public function setHeaders($headers)
+    {
+        $this->headers = $headers;
+    }
+
+    public function getHeaders()
+    {
+        return $this->headers;
     }
 }

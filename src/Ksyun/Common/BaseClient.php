@@ -201,6 +201,13 @@ abstract class BaseClient
             'Accept' => 'application/json',
             'Content-Type' => $this->profile->getHeaderContentType(),
         ];
+        if (!empty($this->profile->getHeaders())) {
+            $profileHeaders = (array)$this->profile->getHeaders();
+            foreach ($profileHeaders as $key => $header) {
+                $headers[$key] = $header;
+            }
+        }
+        $headers = array_unique($headers);
 
         return $connect->getRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $query, $headers);
     }
@@ -216,6 +223,14 @@ abstract class BaseClient
             'Accept' => 'application/json',
             'Content-Type' => $this->profile->getHeaderContentType(),
         ];
+        if (!empty($this->profile->getHeaders())) {
+            $profileHeaders = (array)$this->profile->getHeaders();
+            foreach ($profileHeaders as $key => $header) {
+                $headers[$key] = $header;
+            }
+        }
+        $headers = array_unique($headers);
+
         return $connect->postRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $headers, $body);
     }
 
