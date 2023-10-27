@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class ModifyImageAttributeResponse extends BaseModel
 {
-         /** 请求ID。**/
+         /** **/
          public  $RequestId;
 
-         /** 修改实例属性成功与否。**/
+         /** **/
          public  $Return;
 
          public function __construct()

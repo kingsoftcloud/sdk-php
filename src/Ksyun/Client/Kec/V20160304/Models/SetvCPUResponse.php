@@ -5,8 +5,11 @@ use Ksyun\Common\BaseModel;
 
 class SetvCPUResponse extends BaseModel
 {
+         /**Object **/
+         public  $ReturnSet;
+
          /** **/
-         public  $SetvCPUResponse;
+         public  $RequestId;
 
          public function __construct()
          {
@@ -18,8 +21,11 @@ class SetvCPUResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("SetvCPUResponse",$param) and $param["SetvCPUResponse"] !== null) {
-                $this->SetvCPUResponse = $param["SetvCPUResponse"];
+            if (array_key_exists("ReturnSet",$param) and $param["ReturnSet"] !== null) {
+                $this->ReturnSet = $param["ReturnSet"];
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
             }
 
         }

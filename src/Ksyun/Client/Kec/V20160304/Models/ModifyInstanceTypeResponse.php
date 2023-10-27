@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class ModifyInstanceTypeResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** 升级实例套餐类型成功与否**/
+         /** **/
          public  $Return;
 
          public function __construct()

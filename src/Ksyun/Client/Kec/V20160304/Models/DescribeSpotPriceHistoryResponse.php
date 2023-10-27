@@ -6,10 +6,16 @@ use Ksyun\Common\BaseModel;
 class DescribeSpotPriceHistoryResponse extends BaseModel
 {
          /** **/
-         public  $RequestID;
+         public  $RequestId;
 
          /** **/
-         public  $Error;
+         public  $InstanceType;
+
+         /** **/
+         public  $AvailabilityZone;
+
+         /**Object **/
+         public  $SpotPrices;
 
          public function __construct()
          {
@@ -21,11 +27,17 @@ class DescribeSpotPriceHistoryResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestID",$param) and $param["RequestID"] !== null) {
-                $this->RequestID = $param["RequestID"];
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("Error",$param) and $param["Error"] !== null) {
-                $this->Error = $param["Error"];
+            if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
+                $this->InstanceType = $param["InstanceType"];
+            }
+            if (array_key_exists("AvailabilityZone",$param) and $param["AvailabilityZone"] !== null) {
+                $this->AvailabilityZone = $param["AvailabilityZone"];
+            }
+            if (array_key_exists("SpotPrices",$param) and $param["SpotPrices"] !== null) {
+                $this->SpotPrices = $param["SpotPrices"];
             }
 
         }

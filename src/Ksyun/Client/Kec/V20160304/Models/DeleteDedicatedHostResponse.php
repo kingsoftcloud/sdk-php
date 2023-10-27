@@ -5,30 +5,11 @@ use Ksyun\Common\BaseModel;
 
 class DeleteDedicatedHostResponse extends BaseModel
 {
-         /** 
-
-- 请求ID
-- 类型：String
-
-**/
+         /** **/
          public  $RequestId;
 
-         /** 
-
-- 专属宿主机ID
-- 类型：String
-
-
-**/
-         public  $DedicatedHostId;
-
-         /** 
-
-- 操作是否成功
-- 类型：Boolean
-
-**/
-         public  $Return;
+         /** **/
+         public  $ReturnSet;
 
          public function __construct()
          {
@@ -43,11 +24,8 @@ class DeleteDedicatedHostResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("DedicatedHostId",$param) and $param["DedicatedHostId"] !== null) {
-                $this->DedicatedHostId = $param["DedicatedHostId"];
-            }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
+            if (array_key_exists("ReturnSet",$param) and $param["ReturnSet"] !== null) {
+                $this->ReturnSet = $param["ReturnSet"];
             }
 
         }

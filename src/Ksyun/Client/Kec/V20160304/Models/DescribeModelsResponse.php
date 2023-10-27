@@ -5,14 +5,14 @@ use Ksyun\Common\BaseModel;
 
 class DescribeModelsResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** 实例启动模板集合**/
-         public  $ModelParent;
-
-         /** 模板总数**/
+         /** **/
          public  $InstanceCount;
+
+         /**Object **/
+         public  $ModelSet;
 
          public function __construct()
          {
@@ -27,11 +27,11 @@ class DescribeModelsResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("ModelParent",$param) and $param["ModelParent"] !== null) {
-                $this->ModelParent = $param["ModelParent"];
-            }
             if (array_key_exists("InstanceCount",$param) and $param["InstanceCount"] !== null) {
                 $this->InstanceCount = $param["InstanceCount"];
+            }
+            if (array_key_exists("ModelSet",$param) and $param["ModelSet"] !== null) {
+                $this->ModelSet = $param["ModelSet"];
             }
 
         }

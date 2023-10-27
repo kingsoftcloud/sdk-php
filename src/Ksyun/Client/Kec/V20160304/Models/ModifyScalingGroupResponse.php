@@ -5,13 +5,13 @@ use Ksyun\Common\BaseModel;
 
 class ModifyScalingGroupResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** 添加云服务器是否成功**/
+         /** **/
          public  $Return;
 
-         /** 返回集合**/
+         /** **/
          public  $ReturnSet;
 
          public function __construct()

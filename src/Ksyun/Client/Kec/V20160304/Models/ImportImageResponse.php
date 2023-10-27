@@ -6,7 +6,10 @@ use Ksyun\Common\BaseModel;
 class ImportImageResponse extends BaseModel
 {
          /** **/
-         public  $ImageImportResponse;
+         public  $RequestId;
+
+         /** **/
+         public  $ImageId;
 
          public function __construct()
          {
@@ -18,8 +21,11 @@ class ImportImageResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("ImageImportResponse",$param) and $param["ImageImportResponse"] !== null) {
-                $this->ImageImportResponse = $param["ImageImportResponse"];
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
+                $this->ImageId = $param["ImageId"];
             }
 
         }

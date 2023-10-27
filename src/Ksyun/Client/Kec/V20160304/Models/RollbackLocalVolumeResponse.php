@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class RollbackLocalVolumeResponse extends BaseModel
 {
-         /** 请求ID。**/
+         /** **/
          public  $RequestId;
 
-         /** 成功或者失败。**/
+         /** **/
          public  $Return;
 
          public function __construct()

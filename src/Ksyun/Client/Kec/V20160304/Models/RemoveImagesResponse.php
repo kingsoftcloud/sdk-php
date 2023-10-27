@@ -5,11 +5,11 @@ use Ksyun\Common\BaseModel;
 
 class RemoveImagesResponse extends BaseModel
 {
-         /** 请求ID。**/
-         public  $RequestId;
-
-         /** 镜像删除结果集合。**/
+         /**Object **/
          public  $ReturnSet;
+
+         /** **/
+         public  $RequestId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class RemoveImagesResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
             if (array_key_exists("ReturnSet",$param) and $param["ReturnSet"] !== null) {
                 $this->ReturnSet = $param["ReturnSet"];
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
             }
 
         }

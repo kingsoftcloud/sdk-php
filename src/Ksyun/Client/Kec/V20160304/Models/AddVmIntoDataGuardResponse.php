@@ -6,7 +6,13 @@ use Ksyun\Common\BaseModel;
 class AddVmIntoDataGuardResponse extends BaseModel
 {
          /** **/
-         public  $AddVmToDataGuardResponse;
+         public  $DataGuardResult;
+
+         /** **/
+         public  $RequestId;
+
+         /** **/
+         public  $Return;
 
          public function __construct()
          {
@@ -18,8 +24,14 @@ class AddVmIntoDataGuardResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("AddVmToDataGuardResponse",$param) and $param["AddVmToDataGuardResponse"] !== null) {
-                $this->AddVmToDataGuardResponse = $param["AddVmToDataGuardResponse"];
+            if (array_key_exists("DataGuardResult",$param) and $param["DataGuardResult"] !== null) {
+                $this->DataGuardResult = $param["DataGuardResult"];
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
+                $this->Return = $param["Return"];
             }
 
         }

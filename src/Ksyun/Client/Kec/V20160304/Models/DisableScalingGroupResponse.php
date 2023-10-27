@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class DisableScalingGroupResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** 返回集合**/
+         /** **/
          public  $ReturnSet;
 
          public function __construct()

@@ -6,7 +6,13 @@ use Ksyun\Common\BaseModel;
 class CreateModelResponse extends BaseModel
 {
          /** **/
-         public  $CreateModelResponse;
+         public  $RequestId;
+
+         /** **/
+         public  $ModelId;
+
+         /** **/
+         public  $ModelName;
 
          public function __construct()
          {
@@ -18,8 +24,14 @@ class CreateModelResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("CreateModelResponse",$param) and $param["CreateModelResponse"] !== null) {
-                $this->CreateModelResponse = $param["CreateModelResponse"];
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("ModelId",$param) and $param["ModelId"] !== null) {
+                $this->ModelId = $param["ModelId"];
+            }
+            if (array_key_exists("ModelName",$param) and $param["ModelName"] !== null) {
+                $this->ModelName = $param["ModelName"];
             }
 
         }

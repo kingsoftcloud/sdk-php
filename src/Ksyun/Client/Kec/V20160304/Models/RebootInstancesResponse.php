@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class RebootInstancesResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** 重启实例集合**/
+         /**Object **/
          public  $InstancesSet;
 
          public function __construct()

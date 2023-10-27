@@ -5,11 +5,14 @@ use Ksyun\Common\BaseModel;
 
 class DetachNetworkInterfaceResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** 返回状态**/
+         /** **/
          public  $Return;
+
+         /** **/
+         public  $Message;
 
          public function __construct()
          {
@@ -26,6 +29,9 @@ class DetachNetworkInterfaceResponse extends BaseModel
             }
             if (array_key_exists("Return",$param) and $param["Return"] !== null) {
                 $this->Return = $param["Return"];
+            }
+            if (array_key_exists("Message",$param) and $param["Message"] !== null) {
+                $this->Message = $param["Message"];
             }
 
         }

@@ -14,9 +14,6 @@ class DescribeScalingInstanceResponse extends BaseModel
          /**Object **/
          public  $ScalingInstanceSet;
 
-         /** **/
-         public  $DesiredCapacity;
-
          public function __construct()
          {
 
@@ -35,9 +32,6 @@ class DescribeScalingInstanceResponse extends BaseModel
             }
             if (array_key_exists("ScalingInstanceSet",$param) and $param["ScalingInstanceSet"] !== null) {
                 $this->ScalingInstanceSet = $param["ScalingInstanceSet"];
-            }
-            if (array_key_exists("DesiredCapacity",$param) and $param["DesiredCapacity"] !== null) {
-                $this->DesiredCapacity = $param["DesiredCapacity"];
             }
 
         }

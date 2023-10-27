@@ -6,7 +6,10 @@ use Ksyun\Common\BaseModel;
 class ModifyInstanceAutoDeleteTimeResponse extends BaseModel
 {
          /** **/
-         public  $AutoDeleteResponse;
+         public  $RequestId;
+
+         /** **/
+         public  $Return;
 
          public function __construct()
          {
@@ -18,8 +21,11 @@ class ModifyInstanceAutoDeleteTimeResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("AutoDeleteResponse",$param) and $param["AutoDeleteResponse"] !== null) {
-                $this->AutoDeleteResponse = $param["AutoDeleteResponse"];
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
+                $this->Return = $param["Return"];
             }
 
         }

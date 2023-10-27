@@ -7,15 +7,21 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeFileSystemsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "FileSystemId" => null,
          /**Int**/
         "MaxResults" => null,
          /**Int**/
         "Marker" => null,
+         /**Boolean**/
+        "IncludeDel" => null,
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $FileSystemId = [];
+      /**特殊参数类型:Filter**/
+    public $ProjectId = [];
+      /**特殊参数类型:Filter**/
+    public $Filter = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -27,11 +33,8 @@ class DescribeFileSystemsRequest extends BaseModel
             return;
         }
         if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
-            if(is_bool($param["FileSystemId"])){
-                $this->RequestParams["FileSystemId"] = $param["FileSystemId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["FileSystemId"] = $param["FileSystemId"];
-            }
+            $res = $this->formatFilterParams("FileSystemId",$param["FileSystemId"]);
+            $this->_unserialize("FileSystemId",$res);
         }
         if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
             if(is_bool($param["MaxResults"])){
@@ -46,6 +49,21 @@ class DescribeFileSystemsRequest extends BaseModel
             } else {
                 $this->RequestParams["Marker"] = $param["Marker"];
             }
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
+            $this->_unserialize("ProjectId",$res);
+        }
+        if (array_key_exists("IncludeDel",$param) and $param["IncludeDel"] !== null) {
+            if(is_bool($param["IncludeDel"])){
+                $this->RequestParams["IncludeDel"] = $param["IncludeDel"] ? "true" : "false";
+            } else {
+                $this->RequestParams["IncludeDel"] = $param["IncludeDel"];
+            }
+        }
+        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
+            $res = $this->formatFilterParams("Filter",$param["Filter"]);
+            $this->_unserialize("Filter",$res);
         }
 
     }

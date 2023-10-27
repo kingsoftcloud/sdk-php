@@ -11,7 +11,7 @@ class DescribeScalingNotificationResponse extends BaseModel
          /** **/
          public  $ScalingNotificationCount;
 
-         /** **/
+         /**Object **/
          public  $ScalingNotificationSet;
 
          public function __construct()

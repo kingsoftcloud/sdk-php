@@ -9,6 +9,9 @@ class DescribeScalingActivityResponse extends BaseModel
          public  $RequestId;
 
          /** **/
+         public  $AvailabilityZone;
+
+         /** **/
          public  $ScalingActivityCount;
 
          /**Object **/
@@ -26,6 +29,9 @@ class DescribeScalingActivityResponse extends BaseModel
             }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("AvailabilityZone",$param) and $param["AvailabilityZone"] !== null) {
+                $this->AvailabilityZone = $param["AvailabilityZone"];
             }
             if (array_key_exists("ScalingActivityCount",$param) and $param["ScalingActivityCount"] !== null) {
                 $this->ScalingActivityCount = $param["ScalingActivityCount"];

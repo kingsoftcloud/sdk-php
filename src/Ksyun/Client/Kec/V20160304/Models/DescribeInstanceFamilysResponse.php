@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class DescribeInstanceFamilysResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** [机型配置信息集合](https://docs.ksyun.com/documents/5713)**/
+         /**Object **/
          public  $InstanceFamilySet;
 
          public function __construct()

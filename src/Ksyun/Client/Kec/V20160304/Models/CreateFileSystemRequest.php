@@ -17,6 +17,8 @@ class CreateFileSystemRequest extends BaseModel
         "ProtocolType" => null,
          /**String**/
         "FileSystemName" => null,
+         /**Int**/
+        "ProjectId" => null,
     ];
 
 
@@ -63,6 +65,13 @@ class CreateFileSystemRequest extends BaseModel
                 $this->RequestParams["FileSystemName"] = $param["FileSystemName"] ? "true" : "false";
             } else {
                 $this->RequestParams["FileSystemName"] = $param["FileSystemName"];
+            }
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
+                $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
 

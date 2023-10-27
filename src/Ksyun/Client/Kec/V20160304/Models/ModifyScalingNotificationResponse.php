@@ -6,7 +6,7 @@ use Ksyun\Common\BaseModel;
 class ModifyScalingNotificationResponse extends BaseModel
 {
          /** **/
-         public  $RequestID;
+         public  $RequestId;
 
          /** **/
          public  $Return;
@@ -24,8 +24,8 @@ class ModifyScalingNotificationResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestID",$param) and $param["RequestID"] !== null) {
-                $this->RequestID = $param["RequestID"];
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
             }
             if (array_key_exists("Return",$param) and $param["Return"] !== null) {
                 $this->Return = $param["Return"];

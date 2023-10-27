@@ -6,7 +6,10 @@ use Ksyun\Common\BaseModel;
 class DescribeDedicatedClusterResponse extends BaseModel
 {
          /** **/
-         public  $DescribeDedicatedClusterResponse;
+         public  $RequestId;
+
+         /** **/
+         public  $DedicatedClustersSet;
 
          public function __construct()
          {
@@ -18,8 +21,11 @@ class DescribeDedicatedClusterResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("DescribeDedicatedClusterResponse",$param) and $param["DescribeDedicatedClusterResponse"] !== null) {
-                $this->DescribeDedicatedClusterResponse = $param["DescribeDedicatedClusterResponse"];
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("DedicatedClustersSet",$param) and $param["DedicatedClustersSet"] !== null) {
+                $this->DedicatedClustersSet = $param["DedicatedClustersSet"];
             }
 
         }

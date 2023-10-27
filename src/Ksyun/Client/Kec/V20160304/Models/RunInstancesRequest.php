@@ -65,6 +65,14 @@ class RunInstancesRequest extends BaseModel
         "AddressProjectId" => null,
          /**Int**/
         "AddressPurchaseTime" => null,
+         /**Boolean**/
+        "keepImageLogin" => null,
+         /**String**/
+        "HostName" => null,
+         /**Int**/
+        "HostNameSuffix" => null,
+         /**String**/
+        "Password" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -298,6 +306,34 @@ class RunInstancesRequest extends BaseModel
         if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
             $res = $this->formatFilterParams("KeyId",$param["KeyId"]);
             $this->_unserialize("KeyId",$res);
+        }
+        if (array_key_exists("keepImageLogin",$param) and $param["keepImageLogin"] !== null) {
+            if(is_bool($param["keepImageLogin"])){
+                $this->RequestParams["keepImageLogin"] = $param["keepImageLogin"] ? "true" : "false";
+            } else {
+                $this->RequestParams["keepImageLogin"] = $param["keepImageLogin"];
+            }
+        }
+        if (array_key_exists("HostName",$param) and $param["HostName"] !== null) {
+            if(is_bool($param["HostName"])){
+                $this->RequestParams["HostName"] = $param["HostName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HostName"] = $param["HostName"];
+            }
+        }
+        if (array_key_exists("HostNameSuffix",$param) and $param["HostNameSuffix"] !== null) {
+            if(is_bool($param["HostNameSuffix"])){
+                $this->RequestParams["HostNameSuffix"] = $param["HostNameSuffix"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HostNameSuffix"] = $param["HostNameSuffix"];
+            }
+        }
+        if (array_key_exists("Password",$param) and $param["Password"] !== null) {
+            if(is_bool($param["Password"])){
+                $this->RequestParams["Password"] = $param["Password"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Password"] = $param["Password"];
+            }
         }
 
     }

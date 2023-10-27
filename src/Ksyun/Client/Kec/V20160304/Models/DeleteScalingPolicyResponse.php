@@ -6,7 +6,10 @@ use Ksyun\Common\BaseModel;
 class DeleteScalingPolicyResponse extends BaseModel
 {
          /** **/
-         public  $DeleteScalingPolicyResponse;
+         public  $RequestId;
+
+         /** **/
+         public  $ReturnSet;
 
          public function __construct()
          {
@@ -18,8 +21,11 @@ class DeleteScalingPolicyResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("DeleteScalingPolicyResponse",$param) and $param["DeleteScalingPolicyResponse"] !== null) {
-                $this->DeleteScalingPolicyResponse = $param["DeleteScalingPolicyResponse"];
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("ReturnSet",$param) and $param["ReturnSet"] !== null) {
+                $this->ReturnSet = $param["ReturnSet"];
             }
 
         }
