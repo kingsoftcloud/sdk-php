@@ -41,6 +41,24 @@ class CreateNatResponse extends BaseModel
          /**Object Nat Ip的信息**/
          public  $NatIpSet;
 
+         /** 服务结束时间**/
+         public  $ServiceEndTime;
+
+         /**Object 关联的专线网关信息**/
+         public  $AssociateDirectConnectGatewaySet;
+
+         /**Object 关联的Vpn信息**/
+         public  $AssociateVpnGatewaySet;
+
+         /**Object 关联的实例信息**/
+         public  $AssociateInstanceSet;
+
+         /**Object 关联的子网信息**/
+         public  $AssociateNatSet;
+
+         /**Object Dnat的信息**/
+         public  $DnatSet;
+
          public function __construct()
          {
 
@@ -86,6 +104,24 @@ class CreateNatResponse extends BaseModel
             }
             if (array_key_exists("NatIpSet",$param) and $param["NatIpSet"] !== null) {
                 $this->NatIpSet = $param["NatIpSet"];
+            }
+            if (array_key_exists("ServiceEndTime",$param) and $param["ServiceEndTime"] !== null) {
+                $this->ServiceEndTime = $param["ServiceEndTime"];
+            }
+            if (array_key_exists("AssociateDirectConnectGatewaySet",$param) and $param["AssociateDirectConnectGatewaySet"] !== null) {
+                $this->AssociateDirectConnectGatewaySet = $param["AssociateDirectConnectGatewaySet"];
+            }
+            if (array_key_exists("AssociateVpnGatewaySet",$param) and $param["AssociateVpnGatewaySet"] !== null) {
+                $this->AssociateVpnGatewaySet = $param["AssociateVpnGatewaySet"];
+            }
+            if (array_key_exists("AssociateInstanceSet",$param) and $param["AssociateInstanceSet"] !== null) {
+                $this->AssociateInstanceSet = $param["AssociateInstanceSet"];
+            }
+            if (array_key_exists("AssociateNatSet",$param) and $param["AssociateNatSet"] !== null) {
+                $this->AssociateNatSet = $param["AssociateNatSet"];
+            }
+            if (array_key_exists("DnatSet",$param) and $param["DnatSet"] !== null) {
+                $this->DnatSet = $param["DnatSet"];
             }
 
         }

@@ -26,8 +26,6 @@ class CreateAlbListenerRequest extends BaseModel
          /**String**/
         "AlbListenerState" => null,
          /**String**/
-        "RedirectAlbListenerId" => null,
-         /**String**/
         "SessionState" => null,
          /**Int**/
         "SessionPersistencePeriod" => null,
@@ -113,13 +111,6 @@ class CreateAlbListenerRequest extends BaseModel
                 $this->RequestParams["AlbListenerState"] = $param["AlbListenerState"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbListenerState"] = $param["AlbListenerState"];
-            }
-        }
-        if (array_key_exists("RedirectAlbListenerId",$param) and $param["RedirectAlbListenerId"] !== null) {
-            if(is_bool($param["RedirectAlbListenerId"])){
-                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"];
             }
         }
         if (array_key_exists("SessionState",$param) and $param["SessionState"] !== null) {

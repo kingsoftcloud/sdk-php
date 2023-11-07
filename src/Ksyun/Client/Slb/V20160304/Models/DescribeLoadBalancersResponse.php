@@ -11,6 +11,9 @@ class DescribeLoadBalancersResponse extends BaseModel
          /** 获取另一页返回结果的 token.**/
          public  $NextToken;
 
+         /** 总数**/
+         public  $TotalCount;
+
          /**Object 负载均衡的信息**/
          public  $LoadBalancerDescriptions;
 
@@ -29,6 +32,9 @@ class DescribeLoadBalancersResponse extends BaseModel
             }
             if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
                 $this->NextToken = $param["NextToken"];
+            }
+            if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+                $this->TotalCount = $param["TotalCount"];
             }
             if (array_key_exists("LoadBalancerDescriptions",$param) and $param["LoadBalancerDescriptions"] !== null) {
                 $this->LoadBalancerDescriptions = $param["LoadBalancerDescriptions"];

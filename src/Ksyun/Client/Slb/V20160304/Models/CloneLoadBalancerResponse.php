@@ -3,13 +3,10 @@ namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class CreateAlbRuleGroupResponse extends BaseModel
+class CloneLoadBalancerResponse extends BaseModel
 {
-         /** **/
+         /** 请求id**/
          public  $RequestId;
-
-         /** **/
-         public  $AlbRuleGroup;
 
          public function __construct()
          {
@@ -23,9 +20,6 @@ class CreateAlbRuleGroupResponse extends BaseModel
             }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("AlbRuleGroup",$param) and $param["AlbRuleGroup"] !== null) {
-                $this->AlbRuleGroup = $param["AlbRuleGroup"];
             }
 
         }

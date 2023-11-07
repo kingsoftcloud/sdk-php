@@ -35,6 +35,8 @@ class ModifyListenersRequest extends BaseModel
         "CookieName" => null,
          /**String**/
         "CertificateId" => null,
+         /**String**/
+        "RedirectListenerId" => null,
     ];
 
 
@@ -144,6 +146,13 @@ class ModifyListenersRequest extends BaseModel
                 $this->RequestParams["CertificateId"] = $param["CertificateId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CertificateId"] = $param["CertificateId"];
+            }
+        }
+        if (array_key_exists("RedirectListenerId",$param) and $param["RedirectListenerId"] !== null) {
+            if(is_bool($param["RedirectListenerId"])){
+                $this->RequestParams["RedirectListenerId"] = $param["RedirectListenerId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RedirectListenerId"] = $param["RedirectListenerId"];
             }
         }
 

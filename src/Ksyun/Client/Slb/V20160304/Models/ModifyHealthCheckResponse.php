@@ -41,6 +41,9 @@ class ModifyHealthCheckResponse extends BaseModel
          /** UDP监听健康检查的响应串**/
          public  $HealthCheckExp;
 
+         /** HTTP请求方式**/
+         public  $HttpMethod;
+
          public function __construct()
          {
 
@@ -86,6 +89,9 @@ class ModifyHealthCheckResponse extends BaseModel
             }
             if (array_key_exists("HealthCheckExp",$param) and $param["HealthCheckExp"] !== null) {
                 $this->HealthCheckExp = $param["HealthCheckExp"];
+            }
+            if (array_key_exists("HttpMethod",$param) and $param["HttpMethod"] !== null) {
+                $this->HttpMethod = $param["HttpMethod"];
             }
 
         }

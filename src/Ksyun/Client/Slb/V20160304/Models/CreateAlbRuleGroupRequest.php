@@ -41,6 +41,10 @@ class CreateAlbRuleGroupRequest extends BaseModel
         "HostName" => null,
          /**Array**/
         "AlbRuleSet" => null,
+         /**String**/
+        "RedirectHttpCode" => null,
+         /**String**/
+        "RedirectAlbListenerId" => null,
     ];
 
 
@@ -171,6 +175,20 @@ class CreateAlbRuleGroupRequest extends BaseModel
                 $this->RequestParams["AlbRuleSet"] = $param["AlbRuleSet"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbRuleSet"] = $param["AlbRuleSet"];
+            }
+        }
+        if (array_key_exists("RedirectHttpCode",$param) and $param["RedirectHttpCode"] !== null) {
+            if(is_bool($param["RedirectHttpCode"])){
+                $this->RequestParams["RedirectHttpCode"] = $param["RedirectHttpCode"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RedirectHttpCode"] = $param["RedirectHttpCode"];
+            }
+        }
+        if (array_key_exists("RedirectAlbListenerId",$param) and $param["RedirectAlbListenerId"] !== null) {
+            if(is_bool($param["RedirectAlbListenerId"])){
+                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"];
             }
         }
 

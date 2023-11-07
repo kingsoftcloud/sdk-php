@@ -27,6 +27,10 @@ class AuthorizeSecurityGroupEntryRequest extends BaseModel
         "PortRangeTo" => null,
          /**String**/
         "RuleTag" => null,
+         /**Int**/
+        "Priority" => null,
+         /**String**/
+        "Policy" => null,
     ];
 
 
@@ -108,6 +112,20 @@ class AuthorizeSecurityGroupEntryRequest extends BaseModel
                 $this->RequestParams["RuleTag"] = $param["RuleTag"] ? "true" : "false";
             } else {
                 $this->RequestParams["RuleTag"] = $param["RuleTag"];
+            }
+        }
+        if (array_key_exists("Priority",$param) and $param["Priority"] !== null) {
+            if(is_bool($param["Priority"])){
+                $this->RequestParams["Priority"] = $param["Priority"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Priority"] = $param["Priority"];
+            }
+        }
+        if (array_key_exists("Policy",$param) and $param["Policy"] !== null) {
+            if(is_bool($param["Policy"])){
+                $this->RequestParams["Policy"] = $param["Policy"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Policy"] = $param["Policy"];
             }
         }
 

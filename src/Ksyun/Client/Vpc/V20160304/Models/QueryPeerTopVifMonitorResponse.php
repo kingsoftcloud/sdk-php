@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class CreateAlbRuleGroupResponse extends BaseModel
+class QueryPeerTopVifMonitorResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
-         public  $AlbRuleGroup;
+         /**Object BWS相关流量数据**/
+         public  $NatPeerMonitorData;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class CreateAlbRuleGroupResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("AlbRuleGroup",$param) and $param["AlbRuleGroup"] !== null) {
-                $this->AlbRuleGroup = $param["AlbRuleGroup"];
+            if (array_key_exists("NatPeerMonitorData",$param) and $param["NatPeerMonitorData"] !== null) {
+                $this->NatPeerMonitorData = $param["NatPeerMonitorData"];
             }
 
         }

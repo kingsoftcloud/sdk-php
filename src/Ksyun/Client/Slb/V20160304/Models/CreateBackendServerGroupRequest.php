@@ -29,6 +29,8 @@ class CreateBackendServerGroupRequest extends BaseModel
         "UrlPath" => null,
          /**String**/
         "Region" => null,
+         /**String**/
+        "Type" => null,
     ];
 
 
@@ -117,6 +119,13 @@ class CreateBackendServerGroupRequest extends BaseModel
                 $this->RequestParams["Region"] = $param["Region"] ? "true" : "false";
             } else {
                 $this->RequestParams["Region"] = $param["Region"];
+            }
+        }
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            if(is_bool($param["Type"])){
+                $this->RequestParams["Type"] = $param["Type"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Type"] = $param["Type"];
             }
         }
 
