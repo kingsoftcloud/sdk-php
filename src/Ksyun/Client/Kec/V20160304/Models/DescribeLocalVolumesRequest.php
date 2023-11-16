@@ -25,6 +25,8 @@ class DescribeLocalVolumesRequest extends BaseModel
         "BindSnapshotPolicy" => null,
          /**String**/
         "AutoSnapshotPolicyId" => null,
+         /**String**/
+        "InstanceId" => null,
     ];
 
 
@@ -99,6 +101,13 @@ class DescribeLocalVolumesRequest extends BaseModel
                 $this->RequestParams["AutoSnapshotPolicyId"] = $param["AutoSnapshotPolicyId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AutoSnapshotPolicyId"] = $param["AutoSnapshotPolicyId"];
+            }
+        }
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
+                $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
 

@@ -57,6 +57,8 @@ class CreateModelRequest extends BaseModel
         "SystemDisk.ResizeType" => null,
          /**String**/
         "VersionDetail" => null,
+         /**Boolean**/
+        "FailureAutoDelete" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -249,6 +251,13 @@ class CreateModelRequest extends BaseModel
                 $this->RequestParams["VersionDetail"] = $param["VersionDetail"] ? "true" : "false";
             } else {
                 $this->RequestParams["VersionDetail"] = $param["VersionDetail"];
+            }
+        }
+        if (array_key_exists("FailureAutoDelete",$param) and $param["FailureAutoDelete"] !== null) {
+            if(is_bool($param["FailureAutoDelete"])){
+                $this->RequestParams["FailureAutoDelete"] = $param["FailureAutoDelete"] ? "true" : "false";
+            } else {
+                $this->RequestParams["FailureAutoDelete"] = $param["FailureAutoDelete"];
             }
         }
 

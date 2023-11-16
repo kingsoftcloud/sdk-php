@@ -73,6 +73,8 @@ class RunInstancesRequest extends BaseModel
         "HostNameSuffix" => null,
          /**String**/
         "Password" => null,
+         /**Boolean**/
+        "FailureAutoDelete" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -333,6 +335,13 @@ class RunInstancesRequest extends BaseModel
                 $this->RequestParams["Password"] = $param["Password"] ? "true" : "false";
             } else {
                 $this->RequestParams["Password"] = $param["Password"];
+            }
+        }
+        if (array_key_exists("FailureAutoDelete",$param) and $param["FailureAutoDelete"] !== null) {
+            if(is_bool($param["FailureAutoDelete"])){
+                $this->RequestParams["FailureAutoDelete"] = $param["FailureAutoDelete"] ? "true" : "false";
+            } else {
+                $this->RequestParams["FailureAutoDelete"] = $param["FailureAutoDelete"];
             }
         }
 
