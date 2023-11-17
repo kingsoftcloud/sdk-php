@@ -19,7 +19,7 @@ class GetMetricStatisticsRequest extends BaseModel
         "EndTime" => null,
          /**String**/
         "Aggregate" => null,
-         /**Int**/
+         /**String**/
         "Period" => null,
     ];
 
