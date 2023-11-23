@@ -11,6 +11,9 @@ class DescribeShareImageAccountListResponse extends BaseModel
          /** **/
          public  $RequestId;
 
+         /** 返回状态**/
+         public  $Return;
+
          public function __construct()
          {
 
@@ -26,6 +29,9 @@ class DescribeShareImageAccountListResponse extends BaseModel
             }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
+                $this->Return = $param["Return"];
             }
 
         }

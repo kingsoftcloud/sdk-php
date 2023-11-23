@@ -1,21 +1,21 @@
 <?php
-namespace  Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Kce\V20230306\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeShareImageResponse extends BaseModel
+class DescribeMonitorMetricsListResponse extends BaseModel
 {
-         /**Object **/
-         public  $SharePermissionSet;
-
-         /** **/
+         /** 请求id**/
          public  $RequestId;
 
-         /** **/
+         /** 分页标识**/
+         public  $Marker;
+
+         /** 指标数量**/
          public  $TotalCount;
 
-         /** **/
-         public  $NextToken;
+         /**Object 指标列表**/
+         public  $MetricsSet;
 
          public function __construct()
          {
@@ -27,17 +27,17 @@ class DescribeShareImageResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("SharePermissionSet",$param) and $param["SharePermissionSet"] !== null) {
-                $this->SharePermissionSet = $param["SharePermissionSet"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
+                $this->Marker = $param["Marker"];
             }
             if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
                 $this->TotalCount = $param["TotalCount"];
             }
-            if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
-                $this->NextToken = $param["NextToken"];
+            if (array_key_exists("MetricsSet",$param) and $param["MetricsSet"] !== null) {
+                $this->MetricsSet = $param["MetricsSet"];
             }
 
         }

@@ -1,21 +1,21 @@
 <?php
-namespace  Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Kce\V20230306\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeShareImageResponse extends BaseModel
+class DescribeAssociateClusterListResponse extends BaseModel
 {
-         /**Object **/
-         public  $SharePermissionSet;
-
-         /** **/
+         /** 请求id**/
          public  $RequestId;
 
-         /** **/
+         /** 分页标识**/
+         public  $Marker;
+
+         /** 关联的集群数量**/
          public  $TotalCount;
 
-         /** **/
-         public  $NextToken;
+         /**Object **/
+         public  $ClusterSet;
 
          public function __construct()
          {
@@ -27,17 +27,17 @@ class DescribeShareImageResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("SharePermissionSet",$param) and $param["SharePermissionSet"] !== null) {
-                $this->SharePermissionSet = $param["SharePermissionSet"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
+                $this->Marker = $param["Marker"];
             }
             if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
                 $this->TotalCount = $param["TotalCount"];
             }
-            if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
-                $this->NextToken = $param["NextToken"];
+            if (array_key_exists("ClusterSet",$param) and $param["ClusterSet"] !== null) {
+                $this->ClusterSet = $param["ClusterSet"];
             }
 
         }

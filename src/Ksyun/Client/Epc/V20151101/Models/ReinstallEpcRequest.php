@@ -59,6 +59,8 @@ class ReinstallEpcRequest extends BaseModel
         "AvailabilityZone" => null,
          /**String**/
         "GpuImageDriverId" => null,
+         /**String**/
+        "containerAgent" => null,
     ];
 
 
@@ -252,6 +254,13 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["GpuImageDriverId"] = $param["GpuImageDriverId"] ? "true" : "false";
             } else {
                 $this->RequestParams["GpuImageDriverId"] = $param["GpuImageDriverId"];
+            }
+        }
+        if (array_key_exists("containerAgent",$param) and $param["containerAgent"] !== null) {
+            if(is_bool($param["containerAgent"])){
+                $this->RequestParams["containerAgent"] = $param["containerAgent"] ? "true" : "false";
+            } else {
+                $this->RequestParams["containerAgent"] = $param["containerAgent"];
             }
         }
 
