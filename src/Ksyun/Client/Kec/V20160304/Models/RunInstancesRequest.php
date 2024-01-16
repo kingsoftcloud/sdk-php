@@ -75,6 +75,8 @@ class RunInstancesRequest extends BaseModel
         "Password" => null,
          /**Boolean**/
         "FailureAutoDelete" => null,
+         /**String**/
+        "DataGuardId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -83,6 +85,8 @@ class RunInstancesRequest extends BaseModel
     public $NetworkInterface = [];
       /**特殊参数类型:Filter**/
     public $KeyId = [];
+      /**特殊参数类型:Filter**/
+    public $Tag = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -342,6 +346,17 @@ class RunInstancesRequest extends BaseModel
                 $this->RequestParams["FailureAutoDelete"] = $param["FailureAutoDelete"] ? "true" : "false";
             } else {
                 $this->RequestParams["FailureAutoDelete"] = $param["FailureAutoDelete"];
+            }
+        }
+        if (array_key_exists("Tag",$param) and $param["Tag"] !== null) {
+            $res = $this->formatFilterParams("Tag",$param["Tag"]);
+            $this->_unserialize("Tag",$res);
+        }
+        if (array_key_exists("DataGuardId",$param) and $param["DataGuardId"] !== null) {
+            if(is_bool($param["DataGuardId"])){
+                $this->RequestParams["DataGuardId"] = $param["DataGuardId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DataGuardId"] = $param["DataGuardId"];
             }
         }
 
