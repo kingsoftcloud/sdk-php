@@ -4,11 +4,11 @@ namespace  Ksyun\Client\Epc\V20151101\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class RebootEpcRequest extends BaseModel
+class CancelImageExportRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "HostId" => null,
+        "ImageId" => null,
     ];
 
 
@@ -22,11 +22,11 @@ class RebootEpcRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
-            if(is_bool($param["HostId"])){
-                $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
+        if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
+            if(is_bool($param["ImageId"])){
+                $this->RequestParams["ImageId"] = $param["ImageId"] ? "true" : "false";
             } else {
-                $this->RequestParams["HostId"] = $param["HostId"];
+                $this->RequestParams["ImageId"] = $param["ImageId"];
             }
         }
 
