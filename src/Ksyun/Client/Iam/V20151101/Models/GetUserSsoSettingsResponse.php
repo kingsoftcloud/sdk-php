@@ -3,13 +3,14 @@ namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class CreateUserResponse extends BaseModel
+class GetUserSsoSettingsResponse extends BaseModel
 {
-         /** **/
-         public  $CreateUserResult;
-
-         /** **/
+         /** 	
+请求 ID**/
          public  $RequestId;
+
+         /** 用户 SSO 配置信息**/
+         public  $UserSsoSettings;
 
          public function __construct()
          {
@@ -21,11 +22,11 @@ class CreateUserResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("CreateUserResult",$param) and $param["CreateUserResult"] !== null) {
-                $this->CreateUserResult = $param["CreateUserResult"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("UserSsoSettings",$param) and $param["UserSsoSettings"] !== null) {
+                $this->UserSsoSettings = $param["UserSsoSettings"];
             }
 
         }
