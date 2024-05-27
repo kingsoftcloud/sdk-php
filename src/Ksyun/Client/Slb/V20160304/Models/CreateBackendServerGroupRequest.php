@@ -10,6 +10,8 @@ class CreateBackendServerGroupRequest extends BaseModel
          /**String**/
         "VpcId" => null,
          /**String**/
+        "Protocol" => null,
+         /**String**/
         "BackendServerGroupName" => null,
          /**String**/
         "BackendServerGroupType" => null,
@@ -29,8 +31,6 @@ class CreateBackendServerGroupRequest extends BaseModel
         "UrlPath" => null,
          /**String**/
         "Region" => null,
-         /**String**/
-        "Type" => null,
     ];
 
 
@@ -49,6 +49,13 @@ class CreateBackendServerGroupRequest extends BaseModel
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
+            }
+        }
+        if (array_key_exists("Protocol",$param) and $param["Protocol"] !== null) {
+            if(is_bool($param["Protocol"])){
+                $this->RequestParams["Protocol"] = $param["Protocol"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Protocol"] = $param["Protocol"];
             }
         }
         if (array_key_exists("BackendServerGroupName",$param) and $param["BackendServerGroupName"] !== null) {
@@ -119,13 +126,6 @@ class CreateBackendServerGroupRequest extends BaseModel
                 $this->RequestParams["Region"] = $param["Region"] ? "true" : "false";
             } else {
                 $this->RequestParams["Region"] = $param["Region"];
-            }
-        }
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            if(is_bool($param["Type"])){
-                $this->RequestParams["Type"] = $param["Type"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Type"] = $param["Type"];
             }
         }
 

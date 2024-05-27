@@ -1,24 +1,24 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class SetAlbAccessLogRequest extends BaseModel
+class UpdateProjectInfoRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "AlbId" => null,
+         /**Int**/
+        "ProjectId" => null,
          /**String**/
         "ProjectName" => null,
          /**String**/
-        "LogPoolName" => null,
+        "ProjectDesc" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -26,11 +26,11 @@ class SetAlbAccessLogRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AlbId",$param) and $param["AlbId"] !== null) {
-            if(is_bool($param["AlbId"])){
-                $this->RequestParams["AlbId"] = $param["AlbId"] ? "true" : "false";
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
+                $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
-                $this->RequestParams["AlbId"] = $param["AlbId"];
+                $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
         if (array_key_exists("ProjectName",$param) and $param["ProjectName"] !== null) {
@@ -40,11 +40,11 @@ class SetAlbAccessLogRequest extends BaseModel
                 $this->RequestParams["ProjectName"] = $param["ProjectName"];
             }
         }
-        if (array_key_exists("LogPoolName",$param) and $param["LogPoolName"] !== null) {
-            if(is_bool($param["LogPoolName"])){
-                $this->RequestParams["LogPoolName"] = $param["LogPoolName"] ? "true" : "false";
+        if (array_key_exists("ProjectDesc",$param) and $param["ProjectDesc"] !== null) {
+            if(is_bool($param["ProjectDesc"])){
+                $this->RequestParams["ProjectDesc"] = $param["ProjectDesc"] ? "true" : "false";
             } else {
-                $this->RequestParams["LogPoolName"] = $param["LogPoolName"];
+                $this->RequestParams["ProjectDesc"] = $param["ProjectDesc"];
             }
         }
 

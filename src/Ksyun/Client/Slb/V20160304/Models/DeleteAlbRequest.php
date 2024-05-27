@@ -7,8 +7,6 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteAlbRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "AlbId" => null,
     ];
 
 
@@ -21,13 +19,6 @@ class DeleteAlbRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("AlbId",$param) and $param["AlbId"] !== null) {
-            if(is_bool($param["AlbId"])){
-                $this->RequestParams["AlbId"] = $param["AlbId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["AlbId"] = $param["AlbId"];
-            }
         }
 
     }

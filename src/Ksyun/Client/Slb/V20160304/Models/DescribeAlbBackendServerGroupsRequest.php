@@ -4,21 +4,17 @@ namespace  Ksyun\Client\Slb\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribePrivateLinkServerRequest extends BaseModel
+class DescribeAlbBackendServerGroupsRequest extends BaseModel
 {
     public $RequestParams = [
          /**Int**/
         "MaxResults" => null,
          /**String**/
         "NextToken" => null,
-         /**Object**/
-        "Fillter.N" => null,
     ];
 
      /**特殊参数类型:Filter**/
-    public $PrivateLinkServerId = [];
-      /**特殊参数类型:Filter**/
-    public $ProjectId = [];
+    public $Filter = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -30,13 +26,9 @@ class DescribePrivateLinkServerRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PrivateLinkServerId",$param) and $param["PrivateLinkServerId"] !== null) {
-            $res = $this->formatFilterParams("PrivateLinkServerId",$param["PrivateLinkServerId"]);
-            $this->_unserialize("PrivateLinkServerId",$res);
-        }
-        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
-            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
-            $this->_unserialize("ProjectId",$res);
+        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
+            $res = $this->formatFilterParams("Filter",$param["Filter"]);
+            $this->_unserialize("Filter",$res);
         }
         if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
             if(is_bool($param["MaxResults"])){
@@ -50,13 +42,6 @@ class DescribePrivateLinkServerRequest extends BaseModel
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
-            }
-        }
-        if (array_key_exists("Fillter.N",$param) and $param["Fillter.N"] !== null) {
-            if(is_bool($param["Fillter.N"])){
-                $this->RequestParams["Fillter.N"] = $param["Fillter.N"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Fillter.N"] = $param["Fillter.N"];
             }
         }
 

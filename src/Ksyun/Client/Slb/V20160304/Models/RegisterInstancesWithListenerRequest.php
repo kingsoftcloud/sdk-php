@@ -23,6 +23,8 @@ class RegisterInstancesWithListenerRequest extends BaseModel
         "Tag" => null,
          /**String**/
         "MasterSlaveType" => null,
+         /**String**/
+        "NetworkInterfaceId" => null,
     ];
 
 
@@ -90,6 +92,13 @@ class RegisterInstancesWithListenerRequest extends BaseModel
                 $this->RequestParams["MasterSlaveType"] = $param["MasterSlaveType"] ? "true" : "false";
             } else {
                 $this->RequestParams["MasterSlaveType"] = $param["MasterSlaveType"];
+            }
+        }
+        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
+            if(is_bool($param["NetworkInterfaceId"])){
+                $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
             }
         }
 

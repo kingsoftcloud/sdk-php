@@ -22,6 +22,8 @@ class ConfigureHealthCheckRequest extends BaseModel
          /**Int**/
         "UnhealthyThreshold" => null,
          /**String**/
+        "HealthProtocol" => null,
+         /**String**/
         "HttpMethod" => null,
          /**String**/
         "UrlPath" => null,
@@ -91,6 +93,13 @@ class ConfigureHealthCheckRequest extends BaseModel
                 $this->RequestParams["UnhealthyThreshold"] = $param["UnhealthyThreshold"] ? "true" : "false";
             } else {
                 $this->RequestParams["UnhealthyThreshold"] = $param["UnhealthyThreshold"];
+            }
+        }
+        if (array_key_exists("HealthProtocol",$param) and $param["HealthProtocol"] !== null) {
+            if(is_bool($param["HealthProtocol"])){
+                $this->RequestParams["HealthProtocol"] = $param["HealthProtocol"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HealthProtocol"] = $param["HealthProtocol"];
             }
         }
         if (array_key_exists("HttpMethod",$param) and $param["HttpMethod"] !== null) {

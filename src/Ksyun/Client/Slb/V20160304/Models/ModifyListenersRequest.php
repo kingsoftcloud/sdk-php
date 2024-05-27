@@ -12,6 +12,8 @@ class ModifyListenersRequest extends BaseModel
          /**String**/
         "ListenerName" => null,
          /**String**/
+        "BindType" => null,
+         /**String**/
         "ListenerState" => null,
          /**String**/
         "Method" => null,
@@ -62,6 +64,13 @@ class ModifyListenersRequest extends BaseModel
                 $this->RequestParams["ListenerName"] = $param["ListenerName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ListenerName"] = $param["ListenerName"];
+            }
+        }
+        if (array_key_exists("BindType",$param) and $param["BindType"] !== null) {
+            if(is_bool($param["BindType"])){
+                $this->RequestParams["BindType"] = $param["BindType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["BindType"] = $param["BindType"];
             }
         }
         if (array_key_exists("ListenerState",$param) and $param["ListenerState"] !== null) {

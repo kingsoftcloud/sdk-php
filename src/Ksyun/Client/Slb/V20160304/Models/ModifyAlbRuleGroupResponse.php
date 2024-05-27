@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class ModifyAlbRuleGroupResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /**Object 转发策略的信息**/
          public  $AlbRuleGroup;
 
          public function __construct()

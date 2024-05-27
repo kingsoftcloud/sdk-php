@@ -4,9 +4,11 @@ namespace  Ksyun\Client\Slb\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class ModifyInstancesWithListenerRequest extends BaseModel
+class DeregisterAlbBackendServerRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "BackendServerId" => null,
     ];
 
 
@@ -19,6 +21,13 @@ class ModifyInstancesWithListenerRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("BackendServerId",$param) and $param["BackendServerId"] !== null) {
+            if(is_bool($param["BackendServerId"])){
+                $this->RequestParams["BackendServerId"] = $param["BackendServerId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["BackendServerId"] = $param["BackendServerId"];
+            }
         }
 
     }

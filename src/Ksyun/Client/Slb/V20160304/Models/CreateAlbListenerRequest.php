@@ -26,6 +26,10 @@ class CreateAlbListenerRequest extends BaseModel
          /**String**/
         "AlbListenerState" => null,
          /**String**/
+        "RedirectAlbListenerId" => null,
+         /**String**/
+        "RedirectHttpCode" => null,
+         /**String**/
         "SessionState" => null,
          /**Int**/
         "SessionPersistencePeriod" => null,
@@ -36,7 +40,9 @@ class CreateAlbListenerRequest extends BaseModel
          /**Boolean**/
         "EnableHttp2" => null,
          /**String**/
-        "HttpProtocol" => null,
+        "BackendServerGroupId" => null,
+         /**Object**/
+        "FixedResponseConfig" => null,
     ];
 
 
@@ -113,6 +119,20 @@ class CreateAlbListenerRequest extends BaseModel
                 $this->RequestParams["AlbListenerState"] = $param["AlbListenerState"];
             }
         }
+        if (array_key_exists("RedirectAlbListenerId",$param) and $param["RedirectAlbListenerId"] !== null) {
+            if(is_bool($param["RedirectAlbListenerId"])){
+                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"];
+            }
+        }
+        if (array_key_exists("RedirectHttpCode",$param) and $param["RedirectHttpCode"] !== null) {
+            if(is_bool($param["RedirectHttpCode"])){
+                $this->RequestParams["RedirectHttpCode"] = $param["RedirectHttpCode"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RedirectHttpCode"] = $param["RedirectHttpCode"];
+            }
+        }
         if (array_key_exists("SessionState",$param) and $param["SessionState"] !== null) {
             if(is_bool($param["SessionState"])){
                 $this->RequestParams["SessionState"] = $param["SessionState"] ? "true" : "false";
@@ -148,11 +168,18 @@ class CreateAlbListenerRequest extends BaseModel
                 $this->RequestParams["EnableHttp2"] = $param["EnableHttp2"];
             }
         }
-        if (array_key_exists("HttpProtocol",$param) and $param["HttpProtocol"] !== null) {
-            if(is_bool($param["HttpProtocol"])){
-                $this->RequestParams["HttpProtocol"] = $param["HttpProtocol"] ? "true" : "false";
+        if (array_key_exists("BackendServerGroupId",$param) and $param["BackendServerGroupId"] !== null) {
+            if(is_bool($param["BackendServerGroupId"])){
+                $this->RequestParams["BackendServerGroupId"] = $param["BackendServerGroupId"] ? "true" : "false";
             } else {
-                $this->RequestParams["HttpProtocol"] = $param["HttpProtocol"];
+                $this->RequestParams["BackendServerGroupId"] = $param["BackendServerGroupId"];
+            }
+        }
+        if (array_key_exists("FixedResponseConfig",$param) and $param["FixedResponseConfig"] !== null) {
+            if(is_bool($param["FixedResponseConfig"])){
+                $this->RequestParams["FixedResponseConfig"] = $param["FixedResponseConfig"] ? "true" : "false";
+            } else {
+                $this->RequestParams["FixedResponseConfig"] = $param["FixedResponseConfig"];
             }
         }
 

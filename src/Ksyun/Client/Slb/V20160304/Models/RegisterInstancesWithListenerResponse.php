@@ -35,6 +35,9 @@ class RegisterInstancesWithListenerResponse extends BaseModel
          /** RealServer的主备类型，仅MasterSlave监听器有此参数**/
          public  $MasterSlaveType;
 
+         /** 弹性网卡ID**/
+         public  $NetworkInterfaceId;
+
          public function __construct()
          {
 
@@ -74,6 +77,9 @@ class RegisterInstancesWithListenerResponse extends BaseModel
             }
             if (array_key_exists("MasterSlaveType",$param) and $param["MasterSlaveType"] !== null) {
                 $this->MasterSlaveType = $param["MasterSlaveType"];
+            }
+            if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
+                $this->NetworkInterfaceId = $param["NetworkInterfaceId"];
             }
 
         }

@@ -18,6 +18,8 @@ class ModifyAlbRuleGroupRequest extends BaseModel
          /**String**/
         "Method" => null,
          /**String**/
+        "Type" => null,
+         /**String**/
         "SessionState" => null,
          /**Int**/
         "SessionPersistencePeriod" => null,
@@ -42,9 +44,11 @@ class ModifyAlbRuleGroupRequest extends BaseModel
          /**Array**/
         "AlbRuleSet" => null,
          /**String**/
-        "RedirectHttpCode" => null,
-         /**String**/
         "RedirectAlbListenerId" => null,
+         /**String**/
+        "RedirectHttpCode" => null,
+         /**Object**/
+        "FixedResponseConfig" => null,
     ];
 
 
@@ -91,6 +95,13 @@ class ModifyAlbRuleGroupRequest extends BaseModel
                 $this->RequestParams["Method"] = $param["Method"] ? "true" : "false";
             } else {
                 $this->RequestParams["Method"] = $param["Method"];
+            }
+        }
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            if(is_bool($param["Type"])){
+                $this->RequestParams["Type"] = $param["Type"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Type"] = $param["Type"];
             }
         }
         if (array_key_exists("SessionState",$param) and $param["SessionState"] !== null) {
@@ -177,6 +188,13 @@ class ModifyAlbRuleGroupRequest extends BaseModel
                 $this->RequestParams["AlbRuleSet"] = $param["AlbRuleSet"];
             }
         }
+        if (array_key_exists("RedirectAlbListenerId",$param) and $param["RedirectAlbListenerId"] !== null) {
+            if(is_bool($param["RedirectAlbListenerId"])){
+                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"];
+            }
+        }
         if (array_key_exists("RedirectHttpCode",$param) and $param["RedirectHttpCode"] !== null) {
             if(is_bool($param["RedirectHttpCode"])){
                 $this->RequestParams["RedirectHttpCode"] = $param["RedirectHttpCode"] ? "true" : "false";
@@ -184,11 +202,11 @@ class ModifyAlbRuleGroupRequest extends BaseModel
                 $this->RequestParams["RedirectHttpCode"] = $param["RedirectHttpCode"];
             }
         }
-        if (array_key_exists("RedirectAlbListenerId",$param) and $param["RedirectAlbListenerId"] !== null) {
-            if(is_bool($param["RedirectAlbListenerId"])){
-                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"] ? "true" : "false";
+        if (array_key_exists("FixedResponseConfig",$param) and $param["FixedResponseConfig"] !== null) {
+            if(is_bool($param["FixedResponseConfig"])){
+                $this->RequestParams["FixedResponseConfig"] = $param["FixedResponseConfig"] ? "true" : "false";
             } else {
-                $this->RequestParams["RedirectAlbListenerId"] = $param["RedirectAlbListenerId"];
+                $this->RequestParams["FixedResponseConfig"] = $param["FixedResponseConfig"];
             }
         }
 

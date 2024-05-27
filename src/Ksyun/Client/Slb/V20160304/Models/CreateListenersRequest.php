@@ -15,6 +15,8 @@ class CreateListenersRequest extends BaseModel
         "ListenerState" => null,
          /**String**/
         "ListenerProtocol" => null,
+         /**String**/
+        "BindType" => null,
          /**Int**/
         "ListenerPort" => null,
          /**String**/
@@ -82,6 +84,13 @@ class CreateListenersRequest extends BaseModel
                 $this->RequestParams["ListenerProtocol"] = $param["ListenerProtocol"] ? "true" : "false";
             } else {
                 $this->RequestParams["ListenerProtocol"] = $param["ListenerProtocol"];
+            }
+        }
+        if (array_key_exists("BindType",$param) and $param["BindType"] !== null) {
+            if(is_bool($param["BindType"])){
+                $this->RequestParams["BindType"] = $param["BindType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["BindType"] = $param["BindType"];
             }
         }
         if (array_key_exists("ListenerPort",$param) and $param["ListenerPort"] !== null) {
