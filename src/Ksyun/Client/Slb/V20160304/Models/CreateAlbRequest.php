@@ -23,6 +23,14 @@ class CreateAlbRequest extends BaseModel
         "AllocationId" => null,
          /**String**/
         "ChargeType" => null,
+         /**String**/
+        "SubnetId" => null,
+         /**String**/
+        "PrivateIpAddress" => null,
+         /**Boolean**/
+        "EnabledQuic" => null,
+         /**Boolean**/
+        "EnableHpa" => null,
     ];
 
 
@@ -90,6 +98,34 @@ class CreateAlbRequest extends BaseModel
                 $this->RequestParams["ChargeType"] = $param["ChargeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"];
+            }
+        }
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            if(is_bool($param["SubnetId"])){
+                $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SubnetId"] = $param["SubnetId"];
+            }
+        }
+        if (array_key_exists("PrivateIpAddress",$param) and $param["PrivateIpAddress"] !== null) {
+            if(is_bool($param["PrivateIpAddress"])){
+                $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"];
+            }
+        }
+        if (array_key_exists("EnabledQuic",$param) and $param["EnabledQuic"] !== null) {
+            if(is_bool($param["EnabledQuic"])){
+                $this->RequestParams["EnabledQuic"] = $param["EnabledQuic"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnabledQuic"] = $param["EnabledQuic"];
+            }
+        }
+        if (array_key_exists("EnableHpa",$param) and $param["EnableHpa"] !== null) {
+            if(is_bool($param["EnableHpa"])){
+                $this->RequestParams["EnableHpa"] = $param["EnableHpa"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableHpa"] = $param["EnableHpa"];
             }
         }
 

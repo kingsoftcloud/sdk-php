@@ -18,15 +18,15 @@ class CreateLoadBalancerRequest extends BaseModel
          /**String**/
         "PrivateIpAddress" => null,
          /**String**/
+        "DeleteProtection" => null,
+         /**String**/
+        "ModificationProtection" => null,
+         /**String**/
         "IpVersion" => null,
          /**String**/
         "LbType" => null,
          /**String**/
         "ProjectId" => null,
-         /**String**/
-        "DeleteProtection" => null,
-         /**String**/
-        "ModificationProtection" => null,
     ];
 
 
@@ -75,6 +75,20 @@ class CreateLoadBalancerRequest extends BaseModel
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"];
             }
         }
+        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
+            if(is_bool($param["DeleteProtection"])){
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
+            }
+        }
+        if (array_key_exists("ModificationProtection",$param) and $param["ModificationProtection"] !== null) {
+            if(is_bool($param["ModificationProtection"])){
+                $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"];
+            }
+        }
         if (array_key_exists("IpVersion",$param) and $param["IpVersion"] !== null) {
             if(is_bool($param["IpVersion"])){
                 $this->RequestParams["IpVersion"] = $param["IpVersion"] ? "true" : "false";
@@ -94,20 +108,6 @@ class CreateLoadBalancerRequest extends BaseModel
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
-            }
-        }
-        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
-            if(is_bool($param["DeleteProtection"])){
-                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
-            } else {
-                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
-            }
-        }
-        if (array_key_exists("ModificationProtection",$param) and $param["ModificationProtection"] !== null) {
-            if(is_bool($param["ModificationProtection"])){
-                $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"];
             }
         }
 

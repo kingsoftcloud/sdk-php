@@ -59,6 +59,10 @@ class DescribeAlbsRequest extends BaseModel
             $res = $this->formatFilterParams("TagKV",$param["TagKV"]);
             $this->_unserialize("TagKV",$res);
         }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
+            $this->_unserialize("ProjectId",$res);
+        }
         if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
             if(is_bool($param["MaxResults"])){
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
@@ -72,10 +76,6 @@ class DescribeAlbsRequest extends BaseModel
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
             }
-        }
-        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
-            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
-            $this->_unserialize("ProjectId",$res);
         }
 
     }

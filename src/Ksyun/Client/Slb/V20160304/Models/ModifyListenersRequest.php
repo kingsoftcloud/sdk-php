@@ -39,6 +39,10 @@ class ModifyListenersRequest extends BaseModel
         "CertificateId" => null,
          /**String**/
         "RedirectListenerId" => null,
+         /**String**/
+        "CaCertificateId" => null,
+         /**Boolean**/
+        "CaEnabled" => null,
     ];
 
 
@@ -162,6 +166,20 @@ class ModifyListenersRequest extends BaseModel
                 $this->RequestParams["RedirectListenerId"] = $param["RedirectListenerId"] ? "true" : "false";
             } else {
                 $this->RequestParams["RedirectListenerId"] = $param["RedirectListenerId"];
+            }
+        }
+        if (array_key_exists("CaCertificateId",$param) and $param["CaCertificateId"] !== null) {
+            if(is_bool($param["CaCertificateId"])){
+                $this->RequestParams["CaCertificateId"] = $param["CaCertificateId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CaCertificateId"] = $param["CaCertificateId"];
+            }
+        }
+        if (array_key_exists("CaEnabled",$param) and $param["CaEnabled"] !== null) {
+            if(is_bool($param["CaEnabled"])){
+                $this->RequestParams["CaEnabled"] = $param["CaEnabled"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CaEnabled"] = $param["CaEnabled"];
             }
         }
 

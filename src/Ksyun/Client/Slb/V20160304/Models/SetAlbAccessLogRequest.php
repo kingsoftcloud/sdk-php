@@ -12,7 +12,7 @@ class SetAlbAccessLogRequest extends BaseModel
          /**String**/
         "ProjectName" => null,
          /**String**/
-        "LogPoolName" => null,
+        "LogpoolName" => null,
     ];
 
 
@@ -40,11 +40,11 @@ class SetAlbAccessLogRequest extends BaseModel
                 $this->RequestParams["ProjectName"] = $param["ProjectName"];
             }
         }
-        if (array_key_exists("LogPoolName",$param) and $param["LogPoolName"] !== null) {
-            if(is_bool($param["LogPoolName"])){
-                $this->RequestParams["LogPoolName"] = $param["LogPoolName"] ? "true" : "false";
+        if (array_key_exists("LogpoolName",$param) and $param["LogpoolName"] !== null) {
+            if(is_bool($param["LogpoolName"])){
+                $this->RequestParams["LogpoolName"] = $param["LogpoolName"] ? "true" : "false";
             } else {
-                $this->RequestParams["LogPoolName"] = $param["LogPoolName"];
+                $this->RequestParams["LogpoolName"] = $param["LogpoolName"];
             }
         }
 
