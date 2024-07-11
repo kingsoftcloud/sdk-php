@@ -1,10 +1,10 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20220101\Models;
+namespace  Ksyun\Client\Monitor\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CreateAlarmPolicyRequest extends BaseModel
+class DescribeMonitorProductListRequest extends BaseModel
 {
     public $RequestParams = [
     ];
@@ -12,7 +12,7 @@ class CreateAlarmPolicyRequest extends BaseModel
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
