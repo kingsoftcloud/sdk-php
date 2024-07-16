@@ -5,19 +5,21 @@ use Ksyun\Common\BaseModel;
 
 class CreateInstanceTokenResponse extends BaseModel
 {
-         /** **/
+         /** 登录用户名称**/
          public  $Username;
 
-         /** **/
+         /** 实例访问凭证**/
          public  $tokenId;
 
-         /** **/
+         /** 实例访问凭证的id
+
+**/
          public  $Token;
 
-         /** **/
+         /** 实例访问凭证过期时间**/
          public  $ExpireTime;
 
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
 
          public function __construct()

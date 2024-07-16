@@ -5,16 +5,16 @@ use Ksyun\Common\BaseModel;
 
 class DescribeNamespaceResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /** 每个分页的最大条目数**/
          public  $MaxResults;
 
-         /** **/
+         /** 当前页码**/
          public  $Marker;
 
-         /** **/
+         /** 条目总数**/
          public  $TotalCount;
 
          /**Object **/

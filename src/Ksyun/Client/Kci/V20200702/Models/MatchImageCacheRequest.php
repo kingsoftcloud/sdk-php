@@ -1,15 +1,17 @@
 <?php
-namespace  Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kci\V20200702\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeAllRepositoryRequest extends BaseModel
+class MatchImageCacheRequest extends BaseModel
 {
     public $RequestParams = [
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $Image = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -19,6 +21,10 @@ class DescribeAllRepositoryRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("Image",$param) and $param["Image"] !== null) {
+            $res = $this->formatFilterParams("Image",$param["Image"]);
+            $this->_unserialize("Image",$res);
         }
 
     }

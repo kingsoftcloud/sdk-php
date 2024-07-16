@@ -5,19 +5,21 @@ use Ksyun\Common\BaseModel;
 
 class DescribeInstanceTokenResponse extends BaseModel
 {
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
 
-         /** **/
+         /** 访问凭证数量
+**/
          public  $TotalCount;
 
-         /** **/
+         /** 分页标识，如果调用未返回全部实例，标记下次调用的返回值的起点，如果已返回全部实例，则其值为0
+**/
          public  $Marker;
 
-         /** **/
+         /** 单次调用返回的最大数**/
          public  $MaxResults;
 
-         /**Object **/
+         /**Object 响应实体类**/
          public  $TokenSet;
 
          public function __construct()

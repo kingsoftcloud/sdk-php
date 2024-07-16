@@ -5,8 +5,11 @@ use Ksyun\Common\BaseModel;
 
 class GetRetentionTriggerResponse extends BaseModel
 {
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
+
+         /** 返回响应体**/
+         public  $Data;
 
          public function __construct()
          {
@@ -20,6 +23,9 @@ class GetRetentionTriggerResponse extends BaseModel
             }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+                $this->Data = $param["Data"];
             }
 
         }

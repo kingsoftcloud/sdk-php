@@ -1,12 +1,14 @@
 <?php
-namespace  Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kci\V20200702\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class GetMetadataRequest extends BaseModel
+class DescribeContainerGroupCountRequest extends BaseModel
 {
     public $RequestParams = [
+         /**Object**/
+        "Label" => null,
     ];
 
 
@@ -19,6 +21,13 @@ class GetMetadataRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("Label",$param) and $param["Label"] !== null) {
+            if(is_bool($param["Label"])){
+                $this->RequestParams["Label"] = $param["Label"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Label"] = $param["Label"];
+            }
         }
 
     }

@@ -29,16 +29,14 @@ class CreateClusterRequest extends BaseModel
         "ReserveSubnetId" => null,
          /**String**/
         "PublicApiServer" => null,
+         /**Boolean**/
+        "ExposePublicApiServer" => null,
          /**String**/
         "MaxPodPerNode" => null,
          /**Boolean**/
         "MasterEtcdSeparate" => null,
          /**Object**/
         "ControlPlaneLog" => null,
-         /**Object**/
-        "ServerlessClusterMaster" => null,
-         /**Boolean**/
-        "ExposePublicApiServer" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -137,6 +135,13 @@ class CreateClusterRequest extends BaseModel
                 $this->RequestParams["PublicApiServer"] = $param["PublicApiServer"];
             }
         }
+        if (array_key_exists("ExposePublicApiServer",$param) and $param["ExposePublicApiServer"] !== null) {
+            if(is_bool($param["ExposePublicApiServer"])){
+                $this->RequestParams["ExposePublicApiServer"] = $param["ExposePublicApiServer"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ExposePublicApiServer"] = $param["ExposePublicApiServer"];
+            }
+        }
         if (array_key_exists("MaxPodPerNode",$param) and $param["MaxPodPerNode"] !== null) {
             if(is_bool($param["MaxPodPerNode"])){
                 $this->RequestParams["MaxPodPerNode"] = $param["MaxPodPerNode"] ? "true" : "false";
@@ -172,20 +177,6 @@ class CreateClusterRequest extends BaseModel
                 $this->RequestParams["ControlPlaneLog"] = $param["ControlPlaneLog"] ? "true" : "false";
             } else {
                 $this->RequestParams["ControlPlaneLog"] = $param["ControlPlaneLog"];
-            }
-        }
-        if (array_key_exists("ServerlessClusterMaster",$param) and $param["ServerlessClusterMaster"] !== null) {
-            if(is_bool($param["ServerlessClusterMaster"])){
-                $this->RequestParams["ServerlessClusterMaster"] = $param["ServerlessClusterMaster"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ServerlessClusterMaster"] = $param["ServerlessClusterMaster"];
-            }
-        }
-        if (array_key_exists("ExposePublicApiServer",$param) and $param["ExposePublicApiServer"] !== null) {
-            if(is_bool($param["ExposePublicApiServer"])){
-                $this->RequestParams["ExposePublicApiServer"] = $param["ExposePublicApiServer"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ExposePublicApiServer"] = $param["ExposePublicApiServer"];
             }
         }
 

@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class DescribeInternalEndpointDnsResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /**Object **/
+         /**Object 私网链接响应数据体**/
          public  $InternalEndpointDnsSet;
 
          public function __construct()

@@ -5,7 +5,7 @@ use Ksyun\Common\BaseModel;
 
 class StartImageScanResponse extends BaseModel
 {
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
 
          public function __construct()

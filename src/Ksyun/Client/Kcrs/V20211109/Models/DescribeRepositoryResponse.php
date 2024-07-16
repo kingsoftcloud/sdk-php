@@ -5,19 +5,19 @@ use Ksyun\Common\BaseModel;
 
 class DescribeRepositoryResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /** 单次调用返回的最大实例数**/
          public  $MaxResults;
 
-         /** **/
+         /** 分页标识，如果调用未返回全部实例，标记下次调用的返回值的起点，如果已返回全部实例，则其值为0**/
          public  $Marker;
 
-         /** **/
+         /** 镜像仓库数量**/
          public  $TotalCount;
 
-         /**Object **/
+         /**Object 响应实体类**/
          public  $RepoSet;
 
          public function __construct()

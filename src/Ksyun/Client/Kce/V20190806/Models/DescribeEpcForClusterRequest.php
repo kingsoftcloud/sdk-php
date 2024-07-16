@@ -11,7 +11,7 @@ class DescribeEpcForClusterRequest extends BaseModel
         "ClusterId" => null,
          /**Int**/
         "Marker" => null,
-         /**String**/
+         /**Int**/
         "MaxResults" => null,
     ];
 

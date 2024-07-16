@@ -5,8 +5,8 @@ use Ksyun\Common\BaseModel;
 
 class GetRetentionPolicyLogResponse extends BaseModel
 {
-         /** **/
-         public  $RequestId;
+         /** 结果字符串**/
+         public  $Data;
 
          public function __construct()
          {
@@ -18,8 +18,8 @@ class GetRetentionPolicyLogResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
+            if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+                $this->Data = $param["Data"];
             }
 
         }

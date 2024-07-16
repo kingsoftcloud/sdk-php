@@ -11,25 +11,11 @@ class CreateWebhookTriggerRequest extends BaseModel
         "InstanceId" => null,
          /**String**/
         "Namespace" => null,
-         /**String**/
+         /**Object**/
         "Trigger" => null,
-         /**String**/
-        "TriggerName" => null,
-         /**String**/
-        "TriggerUrl" => null,
-         /**String**/
-        "Enabled" => null,
-         /**String**/
-        "Key" => null,
     ];
 
-     /**特殊参数类型:Filter**/
-    public $EventType = [];
-      /**特殊参数类型:Filter**/
-    public $Header = [];
-      /**特殊参数类型:Filter**/
-    public $Value = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/json");
@@ -60,46 +46,6 @@ class CreateWebhookTriggerRequest extends BaseModel
             } else {
                 $this->RequestParams["Trigger"] = $param["Trigger"];
             }
-        }
-        if (array_key_exists("TriggerName",$param) and $param["TriggerName"] !== null) {
-            if(is_bool($param["TriggerName"])){
-                $this->RequestParams["TriggerName"] = $param["TriggerName"] ? "true" : "false";
-            } else {
-                $this->RequestParams["TriggerName"] = $param["TriggerName"];
-            }
-        }
-        if (array_key_exists("EventType",$param) and $param["EventType"] !== null) {
-            $res = $this->formatFilterParams("EventType",$param["EventType"]);
-            $this->_unserialize("EventType",$res);
-        }
-        if (array_key_exists("TriggerUrl",$param) and $param["TriggerUrl"] !== null) {
-            if(is_bool($param["TriggerUrl"])){
-                $this->RequestParams["TriggerUrl"] = $param["TriggerUrl"] ? "true" : "false";
-            } else {
-                $this->RequestParams["TriggerUrl"] = $param["TriggerUrl"];
-            }
-        }
-        if (array_key_exists("Header",$param) and $param["Header"] !== null) {
-            $res = $this->formatFilterParams("Header",$param["Header"]);
-            $this->_unserialize("Header",$res);
-        }
-        if (array_key_exists("Enabled",$param) and $param["Enabled"] !== null) {
-            if(is_bool($param["Enabled"])){
-                $this->RequestParams["Enabled"] = $param["Enabled"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Enabled"] = $param["Enabled"];
-            }
-        }
-        if (array_key_exists("Key",$param) and $param["Key"] !== null) {
-            if(is_bool($param["Key"])){
-                $this->RequestParams["Key"] = $param["Key"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Key"] = $param["Key"];
-            }
-        }
-        if (array_key_exists("Value",$param) and $param["Value"] !== null) {
-            $res = $this->formatFilterParams("Value",$param["Value"]);
-            $this->_unserialize("Value",$res);
         }
 
     }

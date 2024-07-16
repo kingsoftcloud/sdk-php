@@ -1,9 +1,9 @@
 <?php
-namespace  Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kce\V20230306\Models;
 
 use Ksyun\Common\BaseModel;
 
-class GetMetadataResponse extends BaseModel
+class CreateMonitorCollectionConfigResponse extends BaseModel
 {
          /** **/
          public  $RequestId;

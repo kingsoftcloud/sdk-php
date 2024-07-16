@@ -5,19 +5,19 @@ use Ksyun\Common\BaseModel;
 
 class DescribeInstanceResponse extends BaseModel
 {
-         /** **/
+         /** 总数**/
          public  $TotalCount;
 
          /**Object **/
          public  $InstanceSet;
 
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /** 每个分页的最大条目数**/
          public  $MaxResults;
 
-         /** **/
+         /** 当前分页**/
          public  $Marker;
 
          public function __construct()

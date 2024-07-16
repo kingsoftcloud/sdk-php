@@ -9,9 +9,7 @@ class DescribeInstanceImageRequest extends BaseModel
     public $RequestParams = [
     ];
 
-     /**特殊参数类型:Filter**/
-    public $ImageId = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -21,10 +19,6 @@ class DescribeInstanceImageRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
-            $res = $this->formatFilterParams("ImageId",$param["ImageId"]);
-            $this->_unserialize("ImageId",$res);
         }
 
     }

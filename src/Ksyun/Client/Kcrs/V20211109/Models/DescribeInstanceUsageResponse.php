@@ -5,19 +5,19 @@ use Ksyun\Common\BaseModel;
 
 class DescribeInstanceUsageResponse extends BaseModel
 {
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
 
-         /** **/
+         /** 命名空间配额数量**/
          public  $NamespaceQuota;
 
-         /** **/
+         /** 已创建的命名空间数量	**/
          public  $NamespaceUsage;
 
-         /** **/
+         /** 镜像仓库配额数量	**/
          public  $RepoQuota;
 
-         /** **/
+         /** 已创建的镜像仓库数量	**/
          public  $RepoUsage;
 
          public function __construct()

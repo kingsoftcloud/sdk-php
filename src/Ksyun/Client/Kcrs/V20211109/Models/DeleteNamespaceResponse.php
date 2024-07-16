@@ -5,7 +5,7 @@ use Ksyun\Common\BaseModel;
 
 class DeleteNamespaceResponse extends BaseModel
 {
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
 
          public function __construct()

@@ -3,13 +3,10 @@ namespace  Ksyun\Client\Kce\V20190806\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ForceRemoveClusterInstanceResponse extends BaseModel
+class EditEventCollectingResponse extends BaseModel
 {
-         /** 请求id**/
+         /** **/
          public  $RequestId;
-
-         /**Object 调用结果**/
-         public  $InstanceSet;
 
          public function __construct()
          {
@@ -23,9 +20,6 @@ class ForceRemoveClusterInstanceResponse extends BaseModel
             }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("InstanceSet",$param) and $param["InstanceSet"] !== null) {
-                $this->InstanceSet = $param["InstanceSet"];
             }
 
         }

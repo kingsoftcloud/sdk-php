@@ -7,6 +7,16 @@ use Ksyun\Common\Http\HttpOptions;
 class GetRetentionPolicyLogDetailRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "InstanceId" => null,
+         /**String**/
+        "Namespace" => null,
+         /**String**/
+        "ExecutionId" => null,
+         /**Int**/
+        "Page" => null,
+         /**Int**/
+        "PageSize" => null,
     ];
 
 
@@ -19,6 +29,41 @@ class GetRetentionPolicyLogDetailRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
+                $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstanceId"] = $param["InstanceId"];
+            }
+        }
+        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
+            if(is_bool($param["Namespace"])){
+                $this->RequestParams["Namespace"] = $param["Namespace"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Namespace"] = $param["Namespace"];
+            }
+        }
+        if (array_key_exists("ExecutionId",$param) and $param["ExecutionId"] !== null) {
+            if(is_bool($param["ExecutionId"])){
+                $this->RequestParams["ExecutionId"] = $param["ExecutionId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ExecutionId"] = $param["ExecutionId"];
+            }
+        }
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
+                $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Page"] = $param["Page"];
+            }
+        }
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            if(is_bool($param["PageSize"])){
+                $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PageSize"] = $param["PageSize"];
+            }
         }
 
     }

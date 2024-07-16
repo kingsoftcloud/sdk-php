@@ -1,12 +1,14 @@
 <?php
-namespace  Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kce\V20230101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class GetNamespacePolicyRequest extends BaseModel
+class DescribeComponentListRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "K8sVersion" => null,
     ];
 
 
@@ -19,6 +21,13 @@ class GetNamespacePolicyRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("K8sVersion",$param) and $param["K8sVersion"] !== null) {
+            if(is_bool($param["K8sVersion"])){
+                $this->RequestParams["K8sVersion"] = $param["K8sVersion"] ? "true" : "false";
+            } else {
+                $this->RequestParams["K8sVersion"] = $param["K8sVersion"];
+            }
         }
 
     }

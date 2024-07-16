@@ -5,22 +5,25 @@ use Ksyun\Common\BaseModel;
 
 class DescribeImageScanResponse extends BaseModel
 {
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
 
-         /** **/
+         /** 镜像安全扫描状态
+**/
          public  $Status;
 
-         /** **/
+         /** 镜像安全扫描结果数量
+**/
          public  $TotalCount;
 
-         /** **/
+         /** 扫描完成时间**/
          public  $FinishTime;
 
-         /** **/
+         /** 安全漏洞等级数量**/
          public  $Summary;
 
-         /** **/
+         /** 镜像安全扫描结果详细信息
+**/
          public  $VulnerabilitySet;
 
          public function __construct()

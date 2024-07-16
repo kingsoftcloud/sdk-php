@@ -1,9 +1,9 @@
 <?php
-namespace  Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kce\V20230101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeAllRepositoryResponse extends BaseModel
+class DescribeComponentListResponse extends BaseModel
 {
          public function __construct()
          {

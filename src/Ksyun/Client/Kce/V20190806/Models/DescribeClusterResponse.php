@@ -14,7 +14,7 @@ class DescribeClusterResponse extends BaseModel
          /** 集群数量**/
          public  $TotalCount;
 
-         /** 单词调用返回的最大实例数**/
+         /** 单次调用返回的最大实例数**/
          public  $MaxResults;
 
          /** 分页标识，如果调用未返回全部实例，标记下次调用的返回值的起点，如果已返回全部实例，则其值为0**/

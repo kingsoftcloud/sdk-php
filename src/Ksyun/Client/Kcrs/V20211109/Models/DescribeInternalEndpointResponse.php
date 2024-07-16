@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class DescribeInternalEndpointResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /** 总条目数**/
          public  $TotalCount;
 
          /**Object **/

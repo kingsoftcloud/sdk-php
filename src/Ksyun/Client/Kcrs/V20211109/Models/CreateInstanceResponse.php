@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class CreateInstanceResponse extends BaseModel
 {
-         /** **/
+         /** 请求Id**/
          public  $RequestId;
 
-         /** **/
+         /** 实例Id**/
          public  $InstanceId;
 
          public function __construct()

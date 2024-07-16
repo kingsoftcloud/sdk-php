@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class DescribeNamespaceExistResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /** 是否存在**/
          public  $Exist;
 
          public function __construct()

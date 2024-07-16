@@ -9,7 +9,7 @@ class DeleteInstanceRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "InstanceId" => null,
-         /**String**/
+         /**Boolean**/
         "DeleteBucket" => null,
     ];
 

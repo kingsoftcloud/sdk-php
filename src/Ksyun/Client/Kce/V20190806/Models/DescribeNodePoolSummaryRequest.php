@@ -4,16 +4,14 @@ namespace  Ksyun\Client\Kce\V20190806\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class ForceRemoveClusterInstanceRequest extends BaseModel
+class DescribeNodePoolSummaryRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "ClusterId" => null,
     ];
 
-     /**特殊参数类型:Filter**/
-    public $InstanceId = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -30,10 +28,6 @@ class ForceRemoveClusterInstanceRequest extends BaseModel
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
             }
-        }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            $res = $this->formatFilterParams("InstanceId",$param["InstanceId"]);
-            $this->_unserialize("InstanceId",$res);
         }
 
     }

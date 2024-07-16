@@ -5,7 +5,7 @@ use Ksyun\Common\BaseModel;
 
 class DeleteInternalEndpointDnsResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
          public function __construct()
