@@ -4,7 +4,7 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeSubnetAvailableAddressesRequest extends BaseModel
+class CreateDcNatIpRequest extends BaseModel
 {
     public $RequestParams = [
     ];

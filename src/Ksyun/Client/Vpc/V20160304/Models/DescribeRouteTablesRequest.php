@@ -4,11 +4,9 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeVpnGatewayRoutesRequest extends BaseModel
+class DescribeRouteTablesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "VpnGatewayId" => null,
          /**Int**/
         "MaxResults" => null,
          /**String**/
@@ -16,6 +14,8 @@ class DescribeVpnGatewayRoutesRequest extends BaseModel
     ];
 
      /**特殊参数类型:Filter**/
+    public $RouteTableId = [];
+      /**特殊参数类型:Filter**/
     public $Filter = [];
  
     public function __construct(HttpOptions $httpOptions)
@@ -28,12 +28,9 @@ class DescribeVpnGatewayRoutesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpnGatewayId",$param) and $param["VpnGatewayId"] !== null) {
-            if(is_bool($param["VpnGatewayId"])){
-                $this->RequestParams["VpnGatewayId"] = $param["VpnGatewayId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["VpnGatewayId"] = $param["VpnGatewayId"];
-            }
+        if (array_key_exists("RouteTableId",$param) and $param["RouteTableId"] !== null) {
+            $res = $this->formatFilterParams("RouteTableId",$param["RouteTableId"]);
+            $this->_unserialize("RouteTableId",$res);
         }
         if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
             $res = $this->formatFilterParams("Filter",$param["Filter"]);

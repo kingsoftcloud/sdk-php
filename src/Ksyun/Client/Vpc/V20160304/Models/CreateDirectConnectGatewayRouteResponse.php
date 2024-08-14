@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DeleteVpnGatewayRouteResponse extends BaseModel
+class CreateDirectConnectGatewayRouteResponse extends BaseModel
 {
          /** 请求ID**/
          public  $RequestId;
 
-         /** 返回结果**/
-         public  $Return;
+         /**Object 边界网关路由的信息**/
+         public  $DirectConnectGatewayRoute;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class DeleteVpnGatewayRouteResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
+            if (array_key_exists("DirectConnectGatewayRoute",$param) and $param["DirectConnectGatewayRoute"] !== null) {
+                $this->DirectConnectGatewayRoute = $param["DirectConnectGatewayRoute"];
             }
 
         }

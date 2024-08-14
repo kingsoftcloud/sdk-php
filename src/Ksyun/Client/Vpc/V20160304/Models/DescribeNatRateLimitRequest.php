@@ -4,17 +4,15 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class AssociateNatRequest extends BaseModel
+class DescribeNatRateLimitRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "NatId" => null,
-         /**String**/
-        "SubnetId" => null,
     ];
 
      /**特殊参数类型:Filter**/
-    public $NatIpId = [];
+    public $Filter = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -33,16 +31,9 @@ class AssociateNatRequest extends BaseModel
                 $this->RequestParams["NatId"] = $param["NatId"];
             }
         }
-        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
-            if(is_bool($param["SubnetId"])){
-                $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["SubnetId"] = $param["SubnetId"];
-            }
-        }
-        if (array_key_exists("NatIpId",$param) and $param["NatIpId"] !== null) {
-            $res = $this->formatFilterParams("NatIpId",$param["NatIpId"]);
-            $this->_unserialize("NatIpId",$res);
+        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
+            $res = $this->formatFilterParams("Filter",$param["Filter"]);
+            $this->_unserialize("Filter",$res);
         }
 
     }

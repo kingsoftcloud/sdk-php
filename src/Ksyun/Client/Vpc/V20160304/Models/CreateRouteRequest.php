@@ -23,6 +23,16 @@ class CreateRouteRequest extends BaseModel
         "VpnTunnelId" => null,
          /**String**/
         "NetworkInterfaceId" => null,
+         /**String**/
+        "HaVipId" => null,
+         /**String**/
+        "HaVipMasterNetworkInterfaceId" => null,
+         /**String**/
+        "CenId" => null,
+         /**String**/
+        "Description" => null,
+         /**String**/
+        "RouteTableId" => null,
     ];
 
 
@@ -90,6 +100,41 @@ class CreateRouteRequest extends BaseModel
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
+            }
+        }
+        if (array_key_exists("HaVipId",$param) and $param["HaVipId"] !== null) {
+            if(is_bool($param["HaVipId"])){
+                $this->RequestParams["HaVipId"] = $param["HaVipId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HaVipId"] = $param["HaVipId"];
+            }
+        }
+        if (array_key_exists("HaVipMasterNetworkInterfaceId",$param) and $param["HaVipMasterNetworkInterfaceId"] !== null) {
+            if(is_bool($param["HaVipMasterNetworkInterfaceId"])){
+                $this->RequestParams["HaVipMasterNetworkInterfaceId"] = $param["HaVipMasterNetworkInterfaceId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HaVipMasterNetworkInterfaceId"] = $param["HaVipMasterNetworkInterfaceId"];
+            }
+        }
+        if (array_key_exists("CenId",$param) and $param["CenId"] !== null) {
+            if(is_bool($param["CenId"])){
+                $this->RequestParams["CenId"] = $param["CenId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CenId"] = $param["CenId"];
+            }
+        }
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
+                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Description"] = $param["Description"];
+            }
+        }
+        if (array_key_exists("RouteTableId",$param) and $param["RouteTableId"] !== null) {
+            if(is_bool($param["RouteTableId"])){
+                $this->RequestParams["RouteTableId"] = $param["RouteTableId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RouteTableId"] = $param["RouteTableId"];
             }
         }
 

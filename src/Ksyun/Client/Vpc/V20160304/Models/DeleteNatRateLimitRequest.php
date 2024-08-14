@@ -4,9 +4,11 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeSubnetAvailableAddressesRequest extends BaseModel
+class DeleteNatRateLimitRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "NatRateLimitId" => null,
     ];
 
 
@@ -19,6 +21,13 @@ class DescribeSubnetAvailableAddressesRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("NatRateLimitId",$param) and $param["NatRateLimitId"] !== null) {
+            if(is_bool($param["NatRateLimitId"])){
+                $this->RequestParams["NatRateLimitId"] = $param["NatRateLimitId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NatRateLimitId"] = $param["NatRateLimitId"];
+            }
         }
 
     }

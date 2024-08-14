@@ -8,7 +8,7 @@ class CreateVpnGatewayRouteResponse extends BaseModel
          /** 请求ID**/
          public  $RequestId;
 
-         /** VPN网关路由id**/
+         /** 路由Id**/
          public  $RouteId;
 
          public function __construct()

@@ -23,6 +23,8 @@ class CreateVpnTunnelRequest extends BaseModel
         "IkeEncryAlgorithm" => null,
          /**String**/
         "Type" => null,
+         /**Boolean**/
+        "OpenHealthCheck" => null,
          /**String**/
         "PreSharedKey" => null,
          /**Int**/
@@ -41,6 +43,14 @@ class CreateVpnTunnelRequest extends BaseModel
         "CustomerGreIp" => null,
          /**String**/
         "HaCustomerGreIp" => null,
+         /**String**/
+        "HaMode" => null,
+         /**String**/
+        "LocalPeerIp" => null,
+         /**String**/
+        "CustomerPeerIp" => null,
+         /**String**/
+        "IkeVersion" => null,
     ];
 
 
@@ -110,6 +120,13 @@ class CreateVpnTunnelRequest extends BaseModel
                 $this->RequestParams["Type"] = $param["Type"];
             }
         }
+        if (array_key_exists("OpenHealthCheck",$param) and $param["OpenHealthCheck"] !== null) {
+            if(is_bool($param["OpenHealthCheck"])){
+                $this->RequestParams["OpenHealthCheck"] = $param["OpenHealthCheck"] ? "true" : "false";
+            } else {
+                $this->RequestParams["OpenHealthCheck"] = $param["OpenHealthCheck"];
+            }
+        }
         if (array_key_exists("PreSharedKey",$param) and $param["PreSharedKey"] !== null) {
             if(is_bool($param["PreSharedKey"])){
                 $this->RequestParams["PreSharedKey"] = $param["PreSharedKey"] ? "true" : "false";
@@ -171,6 +188,34 @@ class CreateVpnTunnelRequest extends BaseModel
                 $this->RequestParams["HaCustomerGreIp"] = $param["HaCustomerGreIp"] ? "true" : "false";
             } else {
                 $this->RequestParams["HaCustomerGreIp"] = $param["HaCustomerGreIp"];
+            }
+        }
+        if (array_key_exists("HaMode",$param) and $param["HaMode"] !== null) {
+            if(is_bool($param["HaMode"])){
+                $this->RequestParams["HaMode"] = $param["HaMode"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HaMode"] = $param["HaMode"];
+            }
+        }
+        if (array_key_exists("LocalPeerIp",$param) and $param["LocalPeerIp"] !== null) {
+            if(is_bool($param["LocalPeerIp"])){
+                $this->RequestParams["LocalPeerIp"] = $param["LocalPeerIp"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LocalPeerIp"] = $param["LocalPeerIp"];
+            }
+        }
+        if (array_key_exists("CustomerPeerIp",$param) and $param["CustomerPeerIp"] !== null) {
+            if(is_bool($param["CustomerPeerIp"])){
+                $this->RequestParams["CustomerPeerIp"] = $param["CustomerPeerIp"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CustomerPeerIp"] = $param["CustomerPeerIp"];
+            }
+        }
+        if (array_key_exists("IkeVersion",$param) and $param["IkeVersion"] !== null) {
+            if(is_bool($param["IkeVersion"])){
+                $this->RequestParams["IkeVersion"] = $param["IkeVersion"] ? "true" : "false";
+            } else {
+                $this->RequestParams["IkeVersion"] = $param["IkeVersion"];
             }
         }
 

@@ -8,7 +8,7 @@ class QueryPeerTopVifMonitorRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "VpcId" => null,
+        "vpcId" => null,
          /**String**/
         "StartTime" => null,
          /**String**/
@@ -16,7 +16,7 @@ class QueryPeerTopVifMonitorRequest extends BaseModel
          /**String**/
         "SortType" => null,
          /**String**/
-        "Ip" => null,
+        "ip" => null,
     ];
 
 
@@ -30,11 +30,11 @@ class QueryPeerTopVifMonitorRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            if(is_bool($param["VpcId"])){
-                $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
+        if (array_key_exists("vpcId",$param) and $param["vpcId"] !== null) {
+            if(is_bool($param["vpcId"])){
+                $this->RequestParams["vpcId"] = $param["vpcId"] ? "true" : "false";
             } else {
-                $this->RequestParams["VpcId"] = $param["VpcId"];
+                $this->RequestParams["vpcId"] = $param["vpcId"];
             }
         }
         if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
@@ -58,11 +58,11 @@ class QueryPeerTopVifMonitorRequest extends BaseModel
                 $this->RequestParams["SortType"] = $param["SortType"];
             }
         }
-        if (array_key_exists("Ip",$param) and $param["Ip"] !== null) {
-            if(is_bool($param["Ip"])){
-                $this->RequestParams["Ip"] = $param["Ip"] ? "true" : "false";
+        if (array_key_exists("ip",$param) and $param["ip"] !== null) {
+            if(is_bool($param["ip"])){
+                $this->RequestParams["ip"] = $param["ip"] ? "true" : "false";
             } else {
-                $this->RequestParams["Ip"] = $param["Ip"];
+                $this->RequestParams["ip"] = $param["ip"];
             }
         }
 

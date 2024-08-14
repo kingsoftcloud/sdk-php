@@ -13,6 +13,8 @@ class ModifyPrivateIpAddressAttributeRequest extends BaseModel
         "PrivateIpAddress" => null,
          /**String**/
         "Status" => null,
+         /**String**/
+        "AllocateStatus" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class ModifyPrivateIpAddressAttributeRequest extends BaseModel
                 $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
             } else {
                 $this->RequestParams["Status"] = $param["Status"];
+            }
+        }
+        if (array_key_exists("AllocateStatus",$param) and $param["AllocateStatus"] !== null) {
+            if(is_bool($param["AllocateStatus"])){
+                $this->RequestParams["AllocateStatus"] = $param["AllocateStatus"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AllocateStatus"] = $param["AllocateStatus"];
             }
         }
 

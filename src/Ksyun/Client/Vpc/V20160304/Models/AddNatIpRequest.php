@@ -4,18 +4,16 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class AssociateNatRequest extends BaseModel
+class AddNatIpRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "NatId" => null,
-         /**String**/
-        "SubnetId" => null,
+         /**Int**/
+        "AddNumber" => null,
     ];
 
-     /**特殊参数类型:Filter**/
-    public $NatIpId = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -33,16 +31,12 @@ class AssociateNatRequest extends BaseModel
                 $this->RequestParams["NatId"] = $param["NatId"];
             }
         }
-        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
-            if(is_bool($param["SubnetId"])){
-                $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
+        if (array_key_exists("AddNumber",$param) and $param["AddNumber"] !== null) {
+            if(is_bool($param["AddNumber"])){
+                $this->RequestParams["AddNumber"] = $param["AddNumber"] ? "true" : "false";
             } else {
-                $this->RequestParams["SubnetId"] = $param["SubnetId"];
+                $this->RequestParams["AddNumber"] = $param["AddNumber"];
             }
-        }
-        if (array_key_exists("NatIpId",$param) and $param["NatIpId"] !== null) {
-            $res = $this->formatFilterParams("NatIpId",$param["NatIpId"]);
-            $this->_unserialize("NatIpId",$res);
         }
 
     }

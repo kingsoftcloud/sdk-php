@@ -3,12 +3,12 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DeleteVpnGatewayRouteResponse extends BaseModel
+class BatchDeleteNatRateLimitResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** 返回结果**/
+         /** **/
          public  $Return;
 
          public function __construct()

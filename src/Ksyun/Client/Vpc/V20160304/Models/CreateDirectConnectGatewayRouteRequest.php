@@ -4,19 +4,21 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CreateVpnGatewayRouteRequest extends BaseModel
+class CreateDirectConnectGatewayRouteRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "VpnGatewayId" => null,
+        "DirectConnectGatewayId" => null,
          /**String**/
         "DestinationCidrBlock" => null,
          /**String**/
-        "NextHopInstanceId" => null,
-         /**String**/
         "NextHopType" => null,
+         /**Int**/
+        "Priority" => null,
          /**String**/
-        "Description" => null,
+        "NextHopInstance" => null,
+         /**Boolean**/
+        "EnableIpv6" => null,
     ];
 
 
@@ -30,11 +32,11 @@ class CreateVpnGatewayRouteRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpnGatewayId",$param) and $param["VpnGatewayId"] !== null) {
-            if(is_bool($param["VpnGatewayId"])){
-                $this->RequestParams["VpnGatewayId"] = $param["VpnGatewayId"] ? "true" : "false";
+        if (array_key_exists("DirectConnectGatewayId",$param) and $param["DirectConnectGatewayId"] !== null) {
+            if(is_bool($param["DirectConnectGatewayId"])){
+                $this->RequestParams["DirectConnectGatewayId"] = $param["DirectConnectGatewayId"] ? "true" : "false";
             } else {
-                $this->RequestParams["VpnGatewayId"] = $param["VpnGatewayId"];
+                $this->RequestParams["DirectConnectGatewayId"] = $param["DirectConnectGatewayId"];
             }
         }
         if (array_key_exists("DestinationCidrBlock",$param) and $param["DestinationCidrBlock"] !== null) {
@@ -44,13 +46,6 @@ class CreateVpnGatewayRouteRequest extends BaseModel
                 $this->RequestParams["DestinationCidrBlock"] = $param["DestinationCidrBlock"];
             }
         }
-        if (array_key_exists("NextHopInstanceId",$param) and $param["NextHopInstanceId"] !== null) {
-            if(is_bool($param["NextHopInstanceId"])){
-                $this->RequestParams["NextHopInstanceId"] = $param["NextHopInstanceId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["NextHopInstanceId"] = $param["NextHopInstanceId"];
-            }
-        }
         if (array_key_exists("NextHopType",$param) and $param["NextHopType"] !== null) {
             if(is_bool($param["NextHopType"])){
                 $this->RequestParams["NextHopType"] = $param["NextHopType"] ? "true" : "false";
@@ -58,11 +53,25 @@ class CreateVpnGatewayRouteRequest extends BaseModel
                 $this->RequestParams["NextHopType"] = $param["NextHopType"];
             }
         }
-        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
-            if(is_bool($param["Description"])){
-                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
+        if (array_key_exists("Priority",$param) and $param["Priority"] !== null) {
+            if(is_bool($param["Priority"])){
+                $this->RequestParams["Priority"] = $param["Priority"] ? "true" : "false";
             } else {
-                $this->RequestParams["Description"] = $param["Description"];
+                $this->RequestParams["Priority"] = $param["Priority"];
+            }
+        }
+        if (array_key_exists("NextHopInstance",$param) and $param["NextHopInstance"] !== null) {
+            if(is_bool($param["NextHopInstance"])){
+                $this->RequestParams["NextHopInstance"] = $param["NextHopInstance"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NextHopInstance"] = $param["NextHopInstance"];
+            }
+        }
+        if (array_key_exists("EnableIpv6",$param) and $param["EnableIpv6"] !== null) {
+            if(is_bool($param["EnableIpv6"])){
+                $this->RequestParams["EnableIpv6"] = $param["EnableIpv6"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableIpv6"] = $param["EnableIpv6"];
             }
         }
 

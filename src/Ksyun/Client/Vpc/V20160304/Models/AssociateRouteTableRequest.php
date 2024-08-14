@@ -4,18 +4,16 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class AssociateNatRequest extends BaseModel
+class AssociateRouteTableRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "NatId" => null,
-         /**String**/
         "SubnetId" => null,
+         /**String**/
+        "RouteTableId" => null,
     ];
 
-     /**特殊参数类型:Filter**/
-    public $NatIpId = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -26,13 +24,6 @@ class AssociateNatRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NatId",$param) and $param["NatId"] !== null) {
-            if(is_bool($param["NatId"])){
-                $this->RequestParams["NatId"] = $param["NatId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["NatId"] = $param["NatId"];
-            }
-        }
         if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
             if(is_bool($param["SubnetId"])){
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
@@ -40,9 +31,12 @@ class AssociateNatRequest extends BaseModel
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
             }
         }
-        if (array_key_exists("NatIpId",$param) and $param["NatIpId"] !== null) {
-            $res = $this->formatFilterParams("NatIpId",$param["NatIpId"]);
-            $this->_unserialize("NatIpId",$res);
+        if (array_key_exists("RouteTableId",$param) and $param["RouteTableId"] !== null) {
+            if(is_bool($param["RouteTableId"])){
+                $this->RequestParams["RouteTableId"] = $param["RouteTableId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RouteTableId"] = $param["RouteTableId"];
+            }
         }
 
     }

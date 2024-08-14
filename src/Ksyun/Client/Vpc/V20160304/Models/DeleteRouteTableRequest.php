@@ -4,9 +4,11 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeSubnetAvailableAddressesRequest extends BaseModel
+class DeleteRouteTableRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "RouteTableId" => null,
     ];
 
 
@@ -19,6 +21,13 @@ class DescribeSubnetAvailableAddressesRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("RouteTableId",$param) and $param["RouteTableId"] !== null) {
+            if(is_bool($param["RouteTableId"])){
+                $this->RequestParams["RouteTableId"] = $param["RouteTableId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RouteTableId"] = $param["RouteTableId"];
+            }
         }
 
     }

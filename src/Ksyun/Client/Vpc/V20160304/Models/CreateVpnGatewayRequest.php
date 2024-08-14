@@ -19,6 +19,8 @@ class CreateVpnGatewayRequest extends BaseModel
         "ChargeType" => null,
          /**Int**/
         "PurchaseTime" => null,
+         /**String**/
+        "VpnGatewayVersion" => null,
     ];
 
 
@@ -72,6 +74,13 @@ class CreateVpnGatewayRequest extends BaseModel
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"];
+            }
+        }
+        if (array_key_exists("VpnGatewayVersion",$param) and $param["VpnGatewayVersion"] !== null) {
+            if(is_bool($param["VpnGatewayVersion"])){
+                $this->RequestParams["VpnGatewayVersion"] = $param["VpnGatewayVersion"] ? "true" : "false";
+            } else {
+                $this->RequestParams["VpnGatewayVersion"] = $param["VpnGatewayVersion"];
             }
         }
 

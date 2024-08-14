@@ -3,7 +3,7 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeVpnGatewayRoutesResponse extends BaseModel
+class DescribeNatRateLimitResponse extends BaseModel
 {
          /** 请求ID**/
          public  $RequestId;
@@ -11,8 +11,8 @@ class DescribeVpnGatewayRoutesResponse extends BaseModel
          /** 获取另一页返回结果的 token.**/
          public  $NextToken;
 
-         /**Object Vpn网关路由信息**/
-         public  $VpnGatewayRouteSet;
+         /**Object Nat关联的网卡信息**/
+         public  $NatNetworkInterfaceSet;
 
          public function __construct()
          {
@@ -30,8 +30,8 @@ class DescribeVpnGatewayRoutesResponse extends BaseModel
             if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
                 $this->NextToken = $param["NextToken"];
             }
-            if (array_key_exists("VpnGatewayRouteSet",$param) and $param["VpnGatewayRouteSet"] !== null) {
-                $this->VpnGatewayRouteSet = $param["VpnGatewayRouteSet"];
+            if (array_key_exists("NatNetworkInterfaceSet",$param) and $param["NatNetworkInterfaceSet"] !== null) {
+                $this->NatNetworkInterfaceSet = $param["NatNetworkInterfaceSet"];
             }
 
         }
