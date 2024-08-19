@@ -31,6 +31,8 @@ class CreateProcessRequest extends BaseModel
         "Confirm" => null,
          /**Int**/
         "ProcessSource" => null,
+         /**Int**/
+        "autoNocCase" => null,
     ];
 
 
@@ -126,6 +128,13 @@ class CreateProcessRequest extends BaseModel
                 $this->RequestParams["ProcessSource"] = $param["ProcessSource"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProcessSource"] = $param["ProcessSource"];
+            }
+        }
+        if (array_key_exists("autoNocCase",$param) and $param["autoNocCase"] !== null) {
+            if(is_bool($param["autoNocCase"])){
+                $this->RequestParams["autoNocCase"] = $param["autoNocCase"] ? "true" : "false";
+            } else {
+                $this->RequestParams["autoNocCase"] = $param["autoNocCase"];
             }
         }
 

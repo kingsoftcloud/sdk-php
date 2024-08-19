@@ -18,8 +18,6 @@ class ReinstallEpcRequest extends BaseModel
          /**String**/
         "NetworkInterfaceMode" => null,
          /**String**/
-        "SecurityAgent" => null,
-         /**String**/
         "CloudMonitorAgent" => null,
          /**String**/
         "Raid" => null,
@@ -44,7 +42,7 @@ class ReinstallEpcRequest extends BaseModel
          /**String**/
         "NvmeDataDiskCatalogueSuffix" => null,
          /**String**/
-        "bondAttribute" => null,
+        "BondAttribute" => null,
          /**String**/
         "KesAgent" => null,
          /**String**/
@@ -60,7 +58,7 @@ class ReinstallEpcRequest extends BaseModel
          /**String**/
         "GpuImageDriverId" => null,
          /**String**/
-        "containerAgent" => null,
+        "ContainerAgent" => null,
     ];
 
 
@@ -107,13 +105,6 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["NetworkInterfaceMode"] = $param["NetworkInterfaceMode"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceMode"] = $param["NetworkInterfaceMode"];
-            }
-        }
-        if (array_key_exists("SecurityAgent",$param) and $param["SecurityAgent"] !== null) {
-            if(is_bool($param["SecurityAgent"])){
-                $this->RequestParams["SecurityAgent"] = $param["SecurityAgent"] ? "true" : "false";
-            } else {
-                $this->RequestParams["SecurityAgent"] = $param["SecurityAgent"];
             }
         }
         if (array_key_exists("CloudMonitorAgent",$param) and $param["CloudMonitorAgent"] !== null) {
@@ -200,11 +191,11 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["NvmeDataDiskCatalogueSuffix"] = $param["NvmeDataDiskCatalogueSuffix"];
             }
         }
-        if (array_key_exists("bondAttribute",$param) and $param["bondAttribute"] !== null) {
-            if(is_bool($param["bondAttribute"])){
-                $this->RequestParams["bondAttribute"] = $param["bondAttribute"] ? "true" : "false";
+        if (array_key_exists("BondAttribute",$param) and $param["BondAttribute"] !== null) {
+            if(is_bool($param["BondAttribute"])){
+                $this->RequestParams["BondAttribute"] = $param["BondAttribute"] ? "true" : "false";
             } else {
-                $this->RequestParams["bondAttribute"] = $param["bondAttribute"];
+                $this->RequestParams["BondAttribute"] = $param["BondAttribute"];
             }
         }
         if (array_key_exists("KesAgent",$param) and $param["KesAgent"] !== null) {
@@ -256,11 +247,11 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["GpuImageDriverId"] = $param["GpuImageDriverId"];
             }
         }
-        if (array_key_exists("containerAgent",$param) and $param["containerAgent"] !== null) {
-            if(is_bool($param["containerAgent"])){
-                $this->RequestParams["containerAgent"] = $param["containerAgent"] ? "true" : "false";
+        if (array_key_exists("ContainerAgent",$param) and $param["ContainerAgent"] !== null) {
+            if(is_bool($param["ContainerAgent"])){
+                $this->RequestParams["ContainerAgent"] = $param["ContainerAgent"] ? "true" : "false";
             } else {
-                $this->RequestParams["containerAgent"] = $param["containerAgent"];
+                $this->RequestParams["ContainerAgent"] = $param["ContainerAgent"];
             }
         }
 

@@ -42,8 +42,6 @@ class CreateEpcRequest extends BaseModel
          /**String**/
         "Password" => null,
          /**String**/
-        "SecurityAgent" => null,
-         /**String**/
         "CloudMonitorAgent" => null,
          /**String**/
         "ExtensionSubnetId" => null,
@@ -84,7 +82,7 @@ class CreateEpcRequest extends BaseModel
          /**String**/
         "NvmeDataDiskCatalogueSuffix" => null,
          /**String**/
-        "bondAttribute" => null,
+        "BondAttribute" => null,
          /**String**/
         "ContainerAgent" => null,
          /**String**/
@@ -103,6 +101,10 @@ class CreateEpcRequest extends BaseModel
         "SystemVolumeSize" => null,
          /**String**/
         "RoceNetwork" => null,
+         /**String**/
+        "ZoneId" => null,
+         /**String**/
+        "ZoneType" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -239,13 +241,6 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["Password"] = $param["Password"] ? "true" : "false";
             } else {
                 $this->RequestParams["Password"] = $param["Password"];
-            }
-        }
-        if (array_key_exists("SecurityAgent",$param) and $param["SecurityAgent"] !== null) {
-            if(is_bool($param["SecurityAgent"])){
-                $this->RequestParams["SecurityAgent"] = $param["SecurityAgent"] ? "true" : "false";
-            } else {
-                $this->RequestParams["SecurityAgent"] = $param["SecurityAgent"];
             }
         }
         if (array_key_exists("CloudMonitorAgent",$param) and $param["CloudMonitorAgent"] !== null) {
@@ -388,11 +383,11 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["NvmeDataDiskCatalogueSuffix"] = $param["NvmeDataDiskCatalogueSuffix"];
             }
         }
-        if (array_key_exists("bondAttribute",$param) and $param["bondAttribute"] !== null) {
-            if(is_bool($param["bondAttribute"])){
-                $this->RequestParams["bondAttribute"] = $param["bondAttribute"] ? "true" : "false";
+        if (array_key_exists("BondAttribute",$param) and $param["BondAttribute"] !== null) {
+            if(is_bool($param["BondAttribute"])){
+                $this->RequestParams["BondAttribute"] = $param["BondAttribute"] ? "true" : "false";
             } else {
-                $this->RequestParams["bondAttribute"] = $param["bondAttribute"];
+                $this->RequestParams["BondAttribute"] = $param["BondAttribute"];
             }
         }
         if (array_key_exists("ContainerAgent",$param) and $param["ContainerAgent"] !== null) {
@@ -456,6 +451,20 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["RoceNetwork"] = $param["RoceNetwork"] ? "true" : "false";
             } else {
                 $this->RequestParams["RoceNetwork"] = $param["RoceNetwork"];
+            }
+        }
+        if (array_key_exists("ZoneId",$param) and $param["ZoneId"] !== null) {
+            if(is_bool($param["ZoneId"])){
+                $this->RequestParams["ZoneId"] = $param["ZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ZoneId"] = $param["ZoneId"];
+            }
+        }
+        if (array_key_exists("ZoneType",$param) and $param["ZoneType"] !== null) {
+            if(is_bool($param["ZoneType"])){
+                $this->RequestParams["ZoneType"] = $param["ZoneType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ZoneType"] = $param["ZoneType"];
             }
         }
 
