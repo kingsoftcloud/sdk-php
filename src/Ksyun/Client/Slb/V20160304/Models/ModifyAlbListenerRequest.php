@@ -18,6 +18,14 @@ class ModifyAlbListenerRequest extends BaseModel
          /**String**/
         "CertificateId" => null,
          /**String**/
+        "CaCertificateId" => null,
+         /**Boolean**/
+        "CaEnabled" => null,
+         /**String**/
+        "QuicListenerId" => null,
+         /**Boolean**/
+        "EnableQuicUpgrade" => null,
+         /**String**/
         "TlsCipherPolicy" => null,
          /**String**/
         "AlbListenerAclId" => null,
@@ -79,6 +87,34 @@ class ModifyAlbListenerRequest extends BaseModel
                 $this->RequestParams["CertificateId"] = $param["CertificateId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CertificateId"] = $param["CertificateId"];
+            }
+        }
+        if (array_key_exists("CaCertificateId",$param) and $param["CaCertificateId"] !== null) {
+            if(is_bool($param["CaCertificateId"])){
+                $this->RequestParams["CaCertificateId"] = $param["CaCertificateId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CaCertificateId"] = $param["CaCertificateId"];
+            }
+        }
+        if (array_key_exists("CaEnabled",$param) and $param["CaEnabled"] !== null) {
+            if(is_bool($param["CaEnabled"])){
+                $this->RequestParams["CaEnabled"] = $param["CaEnabled"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CaEnabled"] = $param["CaEnabled"];
+            }
+        }
+        if (array_key_exists("QuicListenerId",$param) and $param["QuicListenerId"] !== null) {
+            if(is_bool($param["QuicListenerId"])){
+                $this->RequestParams["QuicListenerId"] = $param["QuicListenerId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["QuicListenerId"] = $param["QuicListenerId"];
+            }
+        }
+        if (array_key_exists("EnableQuicUpgrade",$param) and $param["EnableQuicUpgrade"] !== null) {
+            if(is_bool($param["EnableQuicUpgrade"])){
+                $this->RequestParams["EnableQuicUpgrade"] = $param["EnableQuicUpgrade"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableQuicUpgrade"] = $param["EnableQuicUpgrade"];
             }
         }
         if (array_key_exists("TlsCipherPolicy",$param) and $param["TlsCipherPolicy"] !== null) {

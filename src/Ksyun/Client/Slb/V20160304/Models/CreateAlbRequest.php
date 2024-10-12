@@ -31,6 +31,10 @@ class CreateAlbRequest extends BaseModel
         "EnabledQuic" => null,
          /**Boolean**/
         "EnableHpa" => null,
+         /**Boolean**/
+        "DeleteProtection" => null,
+         /**Boolean**/
+        "ModificationProtection" => null,
     ];
 
 
@@ -126,6 +130,20 @@ class CreateAlbRequest extends BaseModel
                 $this->RequestParams["EnableHpa"] = $param["EnableHpa"] ? "true" : "false";
             } else {
                 $this->RequestParams["EnableHpa"] = $param["EnableHpa"];
+            }
+        }
+        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
+            if(is_bool($param["DeleteProtection"])){
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
+            }
+        }
+        if (array_key_exists("ModificationProtection",$param) and $param["ModificationProtection"] !== null) {
+            if(is_bool($param["ModificationProtection"])){
+                $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"];
             }
         }
 

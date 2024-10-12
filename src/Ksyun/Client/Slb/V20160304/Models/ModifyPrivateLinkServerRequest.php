@@ -13,6 +13,8 @@ class ModifyPrivateLinkServerRequest extends BaseModel
         "PrivateLinkServerName" => null,
          /**String**/
         "Description" => null,
+         /**String**/
+        "DeleteProtection" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class ModifyPrivateLinkServerRequest extends BaseModel
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
+            }
+        }
+        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
+            if(is_bool($param["DeleteProtection"])){
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
             }
         }
 

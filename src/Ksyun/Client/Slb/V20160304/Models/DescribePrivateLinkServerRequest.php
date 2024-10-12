@@ -11,8 +11,6 @@ class DescribePrivateLinkServerRequest extends BaseModel
         "MaxResults" => null,
          /**String**/
         "NextToken" => null,
-         /**Object**/
-        "Fillter.N" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -50,13 +48,6 @@ class DescribePrivateLinkServerRequest extends BaseModel
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
-            }
-        }
-        if (array_key_exists("Fillter.N",$param) and $param["Fillter.N"] !== null) {
-            if(is_bool($param["Fillter.N"])){
-                $this->RequestParams["Fillter.N"] = $param["Fillter.N"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Fillter.N"] = $param["Fillter.N"];
             }
         }
 

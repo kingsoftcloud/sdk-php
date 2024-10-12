@@ -15,6 +15,8 @@ class AssociatePrivateLinkServerRequest extends BaseModel
         "ListenerPort" => null,
          /**String**/
         "ProjectId" => null,
+         /**String**/
+        "DeleteProtection" => null,
     ];
 
 
@@ -54,6 +56,13 @@ class AssociatePrivateLinkServerRequest extends BaseModel
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
+            }
+        }
+        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
+            if(is_bool($param["DeleteProtection"])){
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
             }
         }
 
