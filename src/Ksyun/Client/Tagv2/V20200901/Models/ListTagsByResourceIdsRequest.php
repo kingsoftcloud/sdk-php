@@ -4,19 +4,19 @@ namespace  Ksyun\Client\Tagv2\V20200901\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class ReplaceResourcesTagsRequest extends BaseModel
+class ListTagsByResourceIdsRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "ResourceType" => null,
-         /**Array**/
-        "ReplaceTags" => null,
+         /**String**/
+        "ResourceUuids" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -31,11 +31,11 @@ class ReplaceResourcesTagsRequest extends BaseModel
                 $this->RequestParams["ResourceType"] = $param["ResourceType"];
             }
         }
-        if (array_key_exists("ReplaceTags",$param) and $param["ReplaceTags"] !== null) {
-            if(is_bool($param["ReplaceTags"])){
-                $this->RequestParams["ReplaceTags"] = $param["ReplaceTags"] ? "true" : "false";
+        if (array_key_exists("ResourceUuids",$param) and $param["ResourceUuids"] !== null) {
+            if(is_bool($param["ResourceUuids"])){
+                $this->RequestParams["ResourceUuids"] = $param["ResourceUuids"] ? "true" : "false";
             } else {
-                $this->RequestParams["ReplaceTags"] = $param["ReplaceTags"];
+                $this->RequestParams["ResourceUuids"] = $param["ResourceUuids"];
             }
         }
 
