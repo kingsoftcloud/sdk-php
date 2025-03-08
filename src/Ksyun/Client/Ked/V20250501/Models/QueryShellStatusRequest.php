@@ -4,19 +4,19 @@ namespace  Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CloudDeskmanageRequest extends BaseModel
+class QueryShellStatusRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
-        "instanceIds" => null,
          /**String**/
-        "action1" => null,
+        "instanceIds" => null,
+         /**Int**/
+        "planId" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -31,11 +31,11 @@ class CloudDeskmanageRequest extends BaseModel
                 $this->RequestParams["instanceIds"] = $param["instanceIds"];
             }
         }
-        if (array_key_exists("action1",$param) and $param["action1"] !== null) {
-            if(is_bool($param["action1"])){
-                $this->RequestParams["action1"] = $param["action1"] ? "true" : "false";
+        if (array_key_exists("planId",$param) and $param["planId"] !== null) {
+            if(is_bool($param["planId"])){
+                $this->RequestParams["planId"] = $param["planId"] ? "true" : "false";
             } else {
-                $this->RequestParams["action1"] = $param["action1"];
+                $this->RequestParams["planId"] = $param["planId"];
             }
         }
 

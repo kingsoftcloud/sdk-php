@@ -4,13 +4,13 @@ namespace  Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CloudDeskmanageRequest extends BaseModel
+class CreateCloudDeskgetTokenRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
-        "instanceIds" => null,
          /**String**/
-        "action1" => null,
+        "username" => null,
+         /**String**/
+        "password" => null,
     ];
 
 
@@ -24,18 +24,18 @@ class CloudDeskmanageRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("instanceIds",$param) and $param["instanceIds"] !== null) {
-            if(is_bool($param["instanceIds"])){
-                $this->RequestParams["instanceIds"] = $param["instanceIds"] ? "true" : "false";
+        if (array_key_exists("username",$param) and $param["username"] !== null) {
+            if(is_bool($param["username"])){
+                $this->RequestParams["username"] = $param["username"] ? "true" : "false";
             } else {
-                $this->RequestParams["instanceIds"] = $param["instanceIds"];
+                $this->RequestParams["username"] = $param["username"];
             }
         }
-        if (array_key_exists("action1",$param) and $param["action1"] !== null) {
-            if(is_bool($param["action1"])){
-                $this->RequestParams["action1"] = $param["action1"] ? "true" : "false";
+        if (array_key_exists("password",$param) and $param["password"] !== null) {
+            if(is_bool($param["password"])){
+                $this->RequestParams["password"] = $param["password"] ? "true" : "false";
             } else {
-                $this->RequestParams["action1"] = $param["action1"];
+                $this->RequestParams["password"] = $param["password"];
             }
         }
 

@@ -4,13 +4,15 @@ namespace  Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CloudDeskmanageRequest extends BaseModel
+class QueryCloudDesksubmitShellRequest extends BaseModel
 {
     public $RequestParams = [
          /**Array**/
         "instanceIds" => null,
          /**String**/
-        "action1" => null,
+        "name" => null,
+         /**String**/
+        "shellContent" => null,
     ];
 
 
@@ -31,11 +33,18 @@ class CloudDeskmanageRequest extends BaseModel
                 $this->RequestParams["instanceIds"] = $param["instanceIds"];
             }
         }
-        if (array_key_exists("action1",$param) and $param["action1"] !== null) {
-            if(is_bool($param["action1"])){
-                $this->RequestParams["action1"] = $param["action1"] ? "true" : "false";
+        if (array_key_exists("name",$param) and $param["name"] !== null) {
+            if(is_bool($param["name"])){
+                $this->RequestParams["name"] = $param["name"] ? "true" : "false";
             } else {
-                $this->RequestParams["action1"] = $param["action1"];
+                $this->RequestParams["name"] = $param["name"];
+            }
+        }
+        if (array_key_exists("shellContent",$param) and $param["shellContent"] !== null) {
+            if(is_bool($param["shellContent"])){
+                $this->RequestParams["shellContent"] = $param["shellContent"] ? "true" : "false";
+            } else {
+                $this->RequestParams["shellContent"] = $param["shellContent"];
             }
         }
 

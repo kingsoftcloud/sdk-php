@@ -4,17 +4,17 @@ namespace  Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class StrategyrulebatchEditRequest extends BaseModel
+class QueryRuledetailRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
+         /**String**/
         "securityGroupId" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])

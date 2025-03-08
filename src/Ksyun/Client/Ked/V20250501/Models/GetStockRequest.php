@@ -4,17 +4,17 @@ namespace  Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class StrategyrulebatchEditRequest extends BaseModel
+class GetStockRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
-        "securityGroupId" => null,
+         /**String**/
+        "edgeNodeId" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -22,11 +22,11 @@ class StrategyrulebatchEditRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("securityGroupId",$param) and $param["securityGroupId"] !== null) {
-            if(is_bool($param["securityGroupId"])){
-                $this->RequestParams["securityGroupId"] = $param["securityGroupId"] ? "true" : "false";
+        if (array_key_exists("edgeNodeId",$param) and $param["edgeNodeId"] !== null) {
+            if(is_bool($param["edgeNodeId"])){
+                $this->RequestParams["edgeNodeId"] = $param["edgeNodeId"] ? "true" : "false";
             } else {
-                $this->RequestParams["securityGroupId"] = $param["securityGroupId"];
+                $this->RequestParams["edgeNodeId"] = $param["edgeNodeId"];
             }
         }
 
