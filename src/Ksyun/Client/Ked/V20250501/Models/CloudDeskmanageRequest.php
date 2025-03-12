@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class CloudDeskmanageRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
+        /**Array**/
         "instanceIds" => null,
-         /**String**/
+        /**String**/
         "action1" => null,
     ];
 
@@ -24,15 +25,15 @@ class CloudDeskmanageRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("instanceIds",$param) and $param["instanceIds"] !== null) {
-            if(is_bool($param["instanceIds"])){
+        if (array_key_exists("instanceIds", $param) and $param["instanceIds"] !== null) {
+            if (is_bool($param["instanceIds"])) {
                 $this->RequestParams["instanceIds"] = $param["instanceIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceIds"] = $param["instanceIds"];
             }
         }
-        if (array_key_exists("action1",$param) and $param["action1"] !== null) {
-            if(is_bool($param["action1"])){
+        if (array_key_exists("action1", $param) and $param["action1"] !== null) {
+            if (is_bool($param["action1"])) {
                 $this->RequestParams["action1"] = $param["action1"] ? "true" : "false";
             } else {
                 $this->RequestParams["action1"] = $param["action1"];
@@ -41,12 +42,12 @@ class CloudDeskmanageRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

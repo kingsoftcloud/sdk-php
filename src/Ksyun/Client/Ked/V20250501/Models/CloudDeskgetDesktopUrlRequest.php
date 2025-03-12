@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class CloudDeskgetDesktopUrlRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "token" => null,
-         /**String**/
+        /**String**/
         "instanceId" => null,
     ];
 
@@ -24,15 +25,15 @@ class CloudDeskgetDesktopUrlRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("token",$param) and $param["token"] !== null) {
-            if(is_bool($param["token"])){
+        if (array_key_exists("token", $param) and $param["token"] !== null) {
+            if (is_bool($param["token"])) {
                 $this->RequestParams["token"] = $param["token"] ? "true" : "false";
             } else {
                 $this->RequestParams["token"] = $param["token"];
             }
         }
-        if (array_key_exists("instanceId",$param) and $param["instanceId"] !== null) {
-            if(is_bool($param["instanceId"])){
+        if (array_key_exists("instanceId", $param) and $param["instanceId"] !== null) {
+            if (is_bool($param["instanceId"])) {
                 $this->RequestParams["instanceId"] = $param["instanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceId"] = $param["instanceId"];
@@ -41,12 +42,12 @@ class CloudDeskgetDesktopUrlRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

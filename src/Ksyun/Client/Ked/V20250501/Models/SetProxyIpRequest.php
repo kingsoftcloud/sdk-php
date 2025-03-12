@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class SetProxyIpRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
+        /**Array**/
         "instanceIds" => null,
-         /**String**/
+        /**String**/
         "province" => null,
-         /**String**/
+        /**String**/
         "isp" => null,
-         /**String**/
+        /**String**/
         "city" => null,
     ];
 
@@ -28,29 +29,29 @@ class SetProxyIpRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("instanceIds",$param) and $param["instanceIds"] !== null) {
-            if(is_bool($param["instanceIds"])){
+        if (array_key_exists("instanceIds", $param) and $param["instanceIds"] !== null) {
+            if (is_bool($param["instanceIds"])) {
                 $this->RequestParams["instanceIds"] = $param["instanceIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceIds"] = $param["instanceIds"];
             }
         }
-        if (array_key_exists("province",$param) and $param["province"] !== null) {
-            if(is_bool($param["province"])){
+        if (array_key_exists("province", $param) and $param["province"] !== null) {
+            if (is_bool($param["province"])) {
                 $this->RequestParams["province"] = $param["province"] ? "true" : "false";
             } else {
                 $this->RequestParams["province"] = $param["province"];
             }
         }
-        if (array_key_exists("isp",$param) and $param["isp"] !== null) {
-            if(is_bool($param["isp"])){
+        if (array_key_exists("isp", $param) and $param["isp"] !== null) {
+            if (is_bool($param["isp"])) {
                 $this->RequestParams["isp"] = $param["isp"] ? "true" : "false";
             } else {
                 $this->RequestParams["isp"] = $param["isp"];
             }
         }
-        if (array_key_exists("city",$param) and $param["city"] !== null) {
-            if(is_bool($param["city"])){
+        if (array_key_exists("city", $param) and $param["city"] !== null) {
+            if (is_bool($param["city"])) {
                 $this->RequestParams["city"] = $param["city"] ? "true" : "false";
             } else {
                 $this->RequestParams["city"] = $param["city"];
@@ -59,12 +60,12 @@ class SetProxyIpRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

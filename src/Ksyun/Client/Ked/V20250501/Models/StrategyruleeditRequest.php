@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class StrategyruleeditRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Object**/
+        /**Object**/
         "policies" => null,
-         /**String**/
+        /**String**/
         "securityGroupId" => null,
     ];
 
@@ -24,15 +25,15 @@ class StrategyruleeditRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("policies",$param) and $param["policies"] !== null) {
-            if(is_bool($param["policies"])){
+        if (array_key_exists("policies", $param) and $param["policies"] !== null) {
+            if (is_bool($param["policies"])) {
                 $this->RequestParams["policies"] = $param["policies"] ? "true" : "false";
             } else {
                 $this->RequestParams["policies"] = $param["policies"];
             }
         }
-        if (array_key_exists("securityGroupId",$param) and $param["securityGroupId"] !== null) {
-            if(is_bool($param["securityGroupId"])){
+        if (array_key_exists("securityGroupId", $param) and $param["securityGroupId"] !== null) {
+            if (is_bool($param["securityGroupId"])) {
                 $this->RequestParams["securityGroupId"] = $param["securityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["securityGroupId"] = $param["securityGroupId"];
@@ -41,12 +42,12 @@ class StrategyruleeditRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

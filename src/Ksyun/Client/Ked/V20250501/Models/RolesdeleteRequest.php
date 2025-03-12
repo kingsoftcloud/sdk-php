@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class RolesdeleteRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "id" => null,
     ];
 
@@ -22,8 +23,8 @@ class RolesdeleteRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("id",$param) and $param["id"] !== null) {
-            if(is_bool($param["id"])){
+        if (array_key_exists("id", $param) and $param["id"] !== null) {
+            if (is_bool($param["id"])) {
                 $this->RequestParams["id"] = $param["id"] ? "true" : "false";
             } else {
                 $this->RequestParams["id"] = $param["id"];
@@ -32,12 +33,12 @@ class RolesdeleteRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

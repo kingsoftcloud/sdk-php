@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class GetStockRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "edgeNodeId" => null,
     ];
 
@@ -22,8 +23,8 @@ class GetStockRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("edgeNodeId",$param) and $param["edgeNodeId"] !== null) {
-            if(is_bool($param["edgeNodeId"])){
+        if (array_key_exists("edgeNodeId", $param) and $param["edgeNodeId"] !== null) {
+            if (is_bool($param["edgeNodeId"])) {
                 $this->RequestParams["edgeNodeId"] = $param["edgeNodeId"] ? "true" : "false";
             } else {
                 $this->RequestParams["edgeNodeId"] = $param["edgeNodeId"];
@@ -32,12 +33,12 @@ class GetStockRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class QueryCloudDesksubmitShellRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
+        /**Array**/
         "instanceIds" => null,
-         /**String**/
+        /**String**/
         "name" => null,
-         /**String**/
+        /**String**/
         "shellContent" => null,
     ];
 
@@ -26,22 +27,22 @@ class QueryCloudDesksubmitShellRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("instanceIds",$param) and $param["instanceIds"] !== null) {
-            if(is_bool($param["instanceIds"])){
+        if (array_key_exists("instanceIds", $param) and $param["instanceIds"] !== null) {
+            if (is_bool($param["instanceIds"])) {
                 $this->RequestParams["instanceIds"] = $param["instanceIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceIds"] = $param["instanceIds"];
             }
         }
-        if (array_key_exists("name",$param) and $param["name"] !== null) {
-            if(is_bool($param["name"])){
+        if (array_key_exists("name", $param) and $param["name"] !== null) {
+            if (is_bool($param["name"])) {
                 $this->RequestParams["name"] = $param["name"] ? "true" : "false";
             } else {
                 $this->RequestParams["name"] = $param["name"];
             }
         }
-        if (array_key_exists("shellContent",$param) and $param["shellContent"] !== null) {
-            if(is_bool($param["shellContent"])){
+        if (array_key_exists("shellContent", $param) and $param["shellContent"] !== null) {
+            if (is_bool($param["shellContent"])) {
                 $this->RequestParams["shellContent"] = $param["shellContent"] ? "true" : "false";
             } else {
                 $this->RequestParams["shellContent"] = $param["shellContent"];
@@ -50,12 +51,12 @@ class QueryCloudDesksubmitShellRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

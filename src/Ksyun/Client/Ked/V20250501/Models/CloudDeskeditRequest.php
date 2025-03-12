@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class CloudDeskeditRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "instanceId" => null,
-         /**String**/
+        /**String**/
         "name" => null,
-         /**Int**/
+        /**Int**/
         "id" => null,
     ];
 
@@ -26,22 +27,22 @@ class CloudDeskeditRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("instanceId",$param) and $param["instanceId"] !== null) {
-            if(is_bool($param["instanceId"])){
+        if (array_key_exists("instanceId", $param) and $param["instanceId"] !== null) {
+            if (is_bool($param["instanceId"])) {
                 $this->RequestParams["instanceId"] = $param["instanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceId"] = $param["instanceId"];
             }
         }
-        if (array_key_exists("name",$param) and $param["name"] !== null) {
-            if(is_bool($param["name"])){
+        if (array_key_exists("name", $param) and $param["name"] !== null) {
+            if (is_bool($param["name"])) {
                 $this->RequestParams["name"] = $param["name"] ? "true" : "false";
             } else {
                 $this->RequestParams["name"] = $param["name"];
             }
         }
-        if (array_key_exists("id",$param) and $param["id"] !== null) {
-            if(is_bool($param["id"])){
+        if (array_key_exists("id", $param) and $param["id"] !== null) {
+            if (is_bool($param["id"])) {
                 $this->RequestParams["id"] = $param["id"] ? "true" : "false";
             } else {
                 $this->RequestParams["id"] = $param["id"];
@@ -50,12 +51,12 @@ class CloudDeskeditRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

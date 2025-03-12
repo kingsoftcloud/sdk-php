@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,18 +8,18 @@ use Ksyun\Common\Http\HttpOptions;
 class CloudDesklistRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "page" => null,
-         /**Int**/
+        /**Int**/
         "size" => null,
-         /**String**/
+        /**String**/
         "connected" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -26,22 +27,22 @@ class CloudDesklistRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("page",$param) and $param["page"] !== null) {
-            if(is_bool($param["page"])){
+        if (array_key_exists("page", $param) and $param["page"] !== null) {
+            if (is_bool($param["page"])) {
                 $this->RequestParams["page"] = $param["page"] ? "true" : "false";
             } else {
                 $this->RequestParams["page"] = $param["page"];
             }
         }
-        if (array_key_exists("size",$param) and $param["size"] !== null) {
-            if(is_bool($param["size"])){
+        if (array_key_exists("size", $param) and $param["size"] !== null) {
+            if (is_bool($param["size"])) {
                 $this->RequestParams["size"] = $param["size"] ? "true" : "false";
             } else {
                 $this->RequestParams["size"] = $param["size"];
             }
         }
-        if (array_key_exists("connected",$param) and $param["connected"] !== null) {
-            if(is_bool($param["connected"])){
+        if (array_key_exists("connected", $param) and $param["connected"] !== null) {
+            if (is_bool($param["connected"])) {
                 $this->RequestParams["connected"] = $param["connected"] ? "true" : "false";
             } else {
                 $this->RequestParams["connected"] = $param["connected"];
@@ -50,12 +51,12 @@ class CloudDesklistRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

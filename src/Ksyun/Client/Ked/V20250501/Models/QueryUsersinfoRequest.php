@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class QueryUsersinfoRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "username" => null,
-         /**String**/
+        /**String**/
         "phone" => null,
-         /**String**/
+        /**String**/
         "email" => null,
     ];
 
@@ -26,22 +27,22 @@ class QueryUsersinfoRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("username",$param) and $param["username"] !== null) {
-            if(is_bool($param["username"])){
+        if (array_key_exists("username", $param) and $param["username"] !== null) {
+            if (is_bool($param["username"])) {
                 $this->RequestParams["username"] = $param["username"] ? "true" : "false";
             } else {
                 $this->RequestParams["username"] = $param["username"];
             }
         }
-        if (array_key_exists("phone",$param) and $param["phone"] !== null) {
-            if(is_bool($param["phone"])){
+        if (array_key_exists("phone", $param) and $param["phone"] !== null) {
+            if (is_bool($param["phone"])) {
                 $this->RequestParams["phone"] = $param["phone"] ? "true" : "false";
             } else {
                 $this->RequestParams["phone"] = $param["phone"];
             }
         }
-        if (array_key_exists("email",$param) and $param["email"] !== null) {
-            if(is_bool($param["email"])){
+        if (array_key_exists("email", $param) and $param["email"] !== null) {
+            if (is_bool($param["email"])) {
                 $this->RequestParams["email"] = $param["email"] ? "true" : "false";
             } else {
                 $this->RequestParams["email"] = $param["email"];
@@ -50,12 +51,12 @@ class QueryUsersinfoRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class GetProxyConfigRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "instanceId" => null,
     ];
 
@@ -22,8 +23,8 @@ class GetProxyConfigRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("instanceId",$param) and $param["instanceId"] !== null) {
-            if(is_bool($param["instanceId"])){
+        if (array_key_exists("instanceId", $param) and $param["instanceId"] !== null) {
+            if (is_bool($param["instanceId"])) {
                 $this->RequestParams["instanceId"] = $param["instanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceId"] = $param["instanceId"];
@@ -32,12 +33,12 @@ class GetProxyConfigRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

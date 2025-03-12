@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class StrategyrulecreateRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "name" => null,
-         /**String**/
+        /**String**/
         "description" => null,
-         /**Array**/
+        /**Array**/
         "policies" => null,
     ];
 
@@ -26,22 +27,22 @@ class StrategyrulecreateRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("name",$param) and $param["name"] !== null) {
-            if(is_bool($param["name"])){
+        if (array_key_exists("name", $param) and $param["name"] !== null) {
+            if (is_bool($param["name"])) {
                 $this->RequestParams["name"] = $param["name"] ? "true" : "false";
             } else {
                 $this->RequestParams["name"] = $param["name"];
             }
         }
-        if (array_key_exists("description",$param) and $param["description"] !== null) {
-            if(is_bool($param["description"])){
+        if (array_key_exists("description", $param) and $param["description"] !== null) {
+            if (is_bool($param["description"])) {
                 $this->RequestParams["description"] = $param["description"] ? "true" : "false";
             } else {
                 $this->RequestParams["description"] = $param["description"];
             }
         }
-        if (array_key_exists("policies",$param) and $param["policies"] !== null) {
-            if(is_bool($param["policies"])){
+        if (array_key_exists("policies", $param) and $param["policies"] !== null) {
+            if (is_bool($param["policies"])) {
                 $this->RequestParams["policies"] = $param["policies"] ? "true" : "false";
             } else {
                 $this->RequestParams["policies"] = $param["policies"];
@@ -50,12 +51,12 @@ class StrategyrulecreateRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

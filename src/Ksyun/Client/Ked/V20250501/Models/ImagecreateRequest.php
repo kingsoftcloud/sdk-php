@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Ked\V20250501\Models;
+
+namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ImagecreateRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "imageName" => null,
-         /**String**/
+        /**String**/
         "description" => null,
-         /**String**/
+        /**String**/
         "instanceId" => null,
     ];
 
@@ -26,22 +27,22 @@ class ImagecreateRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("imageName",$param) and $param["imageName"] !== null) {
-            if(is_bool($param["imageName"])){
+        if (array_key_exists("imageName", $param) and $param["imageName"] !== null) {
+            if (is_bool($param["imageName"])) {
                 $this->RequestParams["imageName"] = $param["imageName"] ? "true" : "false";
             } else {
                 $this->RequestParams["imageName"] = $param["imageName"];
             }
         }
-        if (array_key_exists("description",$param) and $param["description"] !== null) {
-            if(is_bool($param["description"])){
+        if (array_key_exists("description", $param) and $param["description"] !== null) {
+            if (is_bool($param["description"])) {
                 $this->RequestParams["description"] = $param["description"] ? "true" : "false";
             } else {
                 $this->RequestParams["description"] = $param["description"];
             }
         }
-        if (array_key_exists("instanceId",$param) and $param["instanceId"] !== null) {
-            if(is_bool($param["instanceId"])){
+        if (array_key_exists("instanceId", $param) and $param["instanceId"] !== null) {
+            if (is_bool($param["instanceId"])) {
                 $this->RequestParams["instanceId"] = $param["instanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceId"] = $param["instanceId"];
@@ -50,12 +51,12 @@ class ImagecreateRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 
