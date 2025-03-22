@@ -5,11 +5,11 @@ namespace Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CloudDeskeditRequest extends BaseModel
+class UpdateLabelRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
-        "instanceId" => null,
+        /**Int**/
+        "id" => null,
         /**String**/
         "name" => null,
     ];
@@ -25,11 +25,11 @@ class CloudDeskeditRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("instanceId", $param) and $param["instanceId"] !== null) {
-            if (is_bool($param["instanceId"])) {
-                $this->RequestParams["instanceId"] = $param["instanceId"] ? "true" : "false";
+        if (array_key_exists("id", $param) and $param["id"] !== null) {
+            if (is_bool($param["id"])) {
+                $this->RequestParams["id"] = $param["id"] ? "true" : "false";
             } else {
-                $this->RequestParams["instanceId"] = $param["instanceId"];
+                $this->RequestParams["id"] = $param["id"];
             }
         }
         if (array_key_exists("name", $param) and $param["name"] !== null) {

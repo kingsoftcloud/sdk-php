@@ -14,6 +14,12 @@ class CloudDesklistRequest extends BaseModel
         "size" => null,
         /**String**/
         "connected" => null,
+        /**String**/
+        "labelIds" => null,
+        /**String**/
+        "name" => null,
+        /**String**/
+        "userName" => null,
     ];
 
 
@@ -46,6 +52,27 @@ class CloudDesklistRequest extends BaseModel
                 $this->RequestParams["connected"] = $param["connected"] ? "true" : "false";
             } else {
                 $this->RequestParams["connected"] = $param["connected"];
+            }
+        }
+        if (array_key_exists("labelIds", $param) and $param["labelIds"] !== null) {
+            if (is_bool($param["labelIds"])) {
+                $this->RequestParams["labelIds"] = $param["labelIds"] ? "true" : "false";
+            } else {
+                $this->RequestParams["labelIds"] = $param["labelIds"];
+            }
+        }
+        if (array_key_exists("name", $param) and $param["name"] !== null) {
+            if (is_bool($param["name"])) {
+                $this->RequestParams["name"] = $param["name"] ? "true" : "false";
+            } else {
+                $this->RequestParams["name"] = $param["name"];
+            }
+        }
+        if (array_key_exists("userName", $param) and $param["userName"] !== null) {
+            if (is_bool($param["userName"])) {
+                $this->RequestParams["userName"] = $param["userName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["userName"] = $param["userName"];
             }
         }
 

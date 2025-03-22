@@ -14,6 +14,8 @@ class ImageeditRequest extends BaseModel
         "imageId" => null,
         /**String**/
         "imageName" => null,
+        /**String**/
+        "description" => null,
     ];
 
 
@@ -46,6 +48,13 @@ class ImageeditRequest extends BaseModel
                 $this->RequestParams["imageName"] = $param["imageName"] ? "true" : "false";
             } else {
                 $this->RequestParams["imageName"] = $param["imageName"];
+            }
+        }
+        if (array_key_exists("description", $param) and $param["description"] !== null) {
+            if (is_bool($param["description"])) {
+                $this->RequestParams["description"] = $param["description"] ? "true" : "false";
+            } else {
+                $this->RequestParams["description"] = $param["description"];
             }
         }
 

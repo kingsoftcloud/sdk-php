@@ -5,11 +5,11 @@ namespace Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class GetStockRequest extends BaseModel
+class ListLabelRequest extends BaseModel
 {
     public $RequestParams = [
         /**String**/
-        "edgeNodeId" => null,
+        "name" => null,
     ];
 
 
@@ -23,11 +23,11 @@ class GetStockRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("edgeNodeId", $param) and $param["edgeNodeId"] !== null) {
-            if (is_bool($param["edgeNodeId"])) {
-                $this->RequestParams["edgeNodeId"] = $param["edgeNodeId"] ? "true" : "false";
+        if (array_key_exists("name", $param) and $param["name"] !== null) {
+            if (is_bool($param["name"])) {
+                $this->RequestParams["name"] = $param["name"] ? "true" : "false";
             } else {
-                $this->RequestParams["edgeNodeId"] = $param["edgeNodeId"];
+                $this->RequestParams["name"] = $param["name"];
             }
         }
 

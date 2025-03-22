@@ -5,19 +5,17 @@ namespace Ksyun\Client\Ked\V20250501\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CloudDeskeditRequest extends BaseModel
+class GetDetailRequest extends BaseModel
 {
     public $RequestParams = [
         /**String**/
         "instanceId" => null,
-        /**String**/
-        "name" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -30,13 +28,6 @@ class CloudDeskeditRequest extends BaseModel
                 $this->RequestParams["instanceId"] = $param["instanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["instanceId"] = $param["instanceId"];
-            }
-        }
-        if (array_key_exists("name", $param) and $param["name"] !== null) {
-            if (is_bool($param["name"])) {
-                $this->RequestParams["name"] = $param["name"] ? "true" : "false";
-            } else {
-                $this->RequestParams["name"] = $param["name"];
             }
         }
 

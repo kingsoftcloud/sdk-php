@@ -4,7 +4,7 @@ namespace Ksyun\Client\Ked\V20250501\Models;
 
 use Ksyun\Common\BaseModel;
 
-class GetStockResponse extends BaseModel
+class UpdateLabelResponse extends BaseModel
 {
     /** **/
     public $requestId;
@@ -16,9 +16,6 @@ class GetStockResponse extends BaseModel
     public $message;
 
     /** **/
-    public $detail;
-
-    /**Object **/
     public $data;
 
     public function __construct()
@@ -39,9 +36,6 @@ class GetStockResponse extends BaseModel
         }
         if (array_key_exists("message", $param) and $param["message"] !== null) {
             $this->message = $param["message"];
-        }
-        if (array_key_exists("detail", $param) and $param["detail"] !== null) {
-            $this->detail = $param["detail"];
         }
         if (array_key_exists("data", $param) and $param["data"] !== null) {
             $this->data = $param["data"];
