@@ -67,6 +67,20 @@ class HttpConnection
             }
         } elseif ($contentType == HttpOptions::$CONTENT_TYPE_JSON) {
             if ($body) {
+                // 提取action和version参数
+                $version = isset($body['Version']) ? $body['Version'] : null;
+                $action = isset($body['Action']) ? $body['Action'] : null;
+                // 从body中移除action和version参数
+                unset($body['Action'], $body['Version']);
+                // 将action和version添加到URL的查询参数中
+                $queryParams = [];
+                if ($action) {
+                    $queryParams['Action'] = $action;
+                }
+                if ($version) {
+                    $queryParams['Version'] = $version;
+                }
+                $uri = $uri->withQuery(http_build_query($queryParams));
                 $body = Utils::streamFor(json_encode($body, JSON_UNESCAPED_UNICODE));
                 $request = new Request('POST', $uri, $headers, $body);
                 $signedRequest = $signer->signRequest($request, $credentials);
