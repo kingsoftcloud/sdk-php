@@ -207,7 +207,6 @@ abstract class BaseClient
                 $headers[$key] = $header;
             }
         }
-        $headers = array_unique($headers);
 
         return $connect->getRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $query, $headers);
     }
@@ -229,7 +228,6 @@ abstract class BaseClient
                 $headers[$key] = $header;
             }
         }
-        $headers = array_unique($headers);
 
         return $connect->postRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $headers, $body);
     }
