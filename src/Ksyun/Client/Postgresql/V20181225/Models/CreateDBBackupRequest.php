@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Postgresql\V20181225\Models;
+
+namespace Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateDBBackupRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DBInstanceIdentifier" => null,
-         /**String**/
+        /**String**/
         "DBBackupName" => null,
-         /**String**/
+        /**String**/
         "Description" => null,
     ];
 
@@ -26,22 +27,22 @@ class CreateDBBackupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
-            if(is_bool($param["DBInstanceIdentifier"])){
+        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
+            if (is_bool($param["DBInstanceIdentifier"])) {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("DBBackupName",$param) and $param["DBBackupName"] !== null) {
-            if(is_bool($param["DBBackupName"])){
+        if (array_key_exists("DBBackupName", $param) and $param["DBBackupName"] !== null) {
+            if (is_bool($param["DBBackupName"])) {
                 $this->RequestParams["DBBackupName"] = $param["DBBackupName"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBBackupName"] = $param["DBBackupName"];
             }
         }
-        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
-            if(is_bool($param["Description"])){
+        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
+            if (is_bool($param["Description"])) {
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
@@ -50,12 +51,12 @@ class CreateDBBackupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

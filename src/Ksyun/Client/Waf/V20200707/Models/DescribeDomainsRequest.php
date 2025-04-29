@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Waf\V20200707\Models;
+
+namespace Ksyun\Client\Waf\V20200707\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeDomainsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ResourceRecord" => null,
     ];
 
@@ -22,8 +23,8 @@ class DescribeDomainsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ResourceRecord",$param) and $param["ResourceRecord"] !== null) {
-            if(is_bool($param["ResourceRecord"])){
+        if (array_key_exists("ResourceRecord", $param) and $param["ResourceRecord"] !== null) {
+            if (is_bool($param["ResourceRecord"])) {
                 $this->RequestParams["ResourceRecord"] = $param["ResourceRecord"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceRecord"] = $param["ResourceRecord"];
@@ -32,12 +33,12 @@ class DescribeDomainsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

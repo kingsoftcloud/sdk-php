@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteAlbRuleGroupRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "AlbRuleGroupId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteAlbRuleGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AlbRuleGroupId",$param) and $param["AlbRuleGroupId"] !== null) {
-            if(is_bool($param["AlbRuleGroupId"])){
+        if (array_key_exists("AlbRuleGroupId", $param) and $param["AlbRuleGroupId"] !== null) {
+            if (is_bool($param["AlbRuleGroupId"])) {
                 $this->RequestParams["AlbRuleGroupId"] = $param["AlbRuleGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbRuleGroupId"] = $param["AlbRuleGroupId"];
@@ -32,12 +33,12 @@ class DeleteAlbRuleGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

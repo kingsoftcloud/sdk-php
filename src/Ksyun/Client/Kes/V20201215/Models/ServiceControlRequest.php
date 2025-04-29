@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kes\V20201215\Models;
+
+namespace Ksyun\Client\Kes\V20201215\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ServiceControlRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ClusterId" => null,
-         /**String**/
+        /**String**/
         "ControlType" => null,
-         /**String**/
+        /**String**/
         "Rolling" => null,
     ];
 
@@ -26,22 +27,22 @@ class ServiceControlRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
-            if(is_bool($param["ClusterId"])){
+        if (array_key_exists("ClusterId", $param) and $param["ClusterId"] !== null) {
+            if (is_bool($param["ClusterId"])) {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
             }
         }
-        if (array_key_exists("ControlType",$param) and $param["ControlType"] !== null) {
-            if(is_bool($param["ControlType"])){
+        if (array_key_exists("ControlType", $param) and $param["ControlType"] !== null) {
+            if (is_bool($param["ControlType"])) {
                 $this->RequestParams["ControlType"] = $param["ControlType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ControlType"] = $param["ControlType"];
             }
         }
-        if (array_key_exists("Rolling",$param) and $param["Rolling"] !== null) {
-            if(is_bool($param["Rolling"])){
+        if (array_key_exists("Rolling", $param) and $param["Rolling"] !== null) {
+            if (is_bool($param["Rolling"])) {
                 $this->RequestParams["Rolling"] = $param["Rolling"] ? "true" : "false";
             } else {
                 $this->RequestParams["Rolling"] = $param["Rolling"];
@@ -50,12 +51,12 @@ class ServiceControlRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

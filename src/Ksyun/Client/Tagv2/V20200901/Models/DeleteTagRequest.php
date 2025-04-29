@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Tagv2\V20200901\Models;
+
+namespace Ksyun\Client\Tagv2\V20200901\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteTagRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
+        /**Array**/
         "Tags" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteTagRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
-            if(is_bool($param["Tags"])){
+        if (array_key_exists("Tags", $param) and $param["Tags"] !== null) {
+            if (is_bool($param["Tags"])) {
                 $this->RequestParams["Tags"] = $param["Tags"] ? "true" : "false";
             } else {
                 $this->RequestParams["Tags"] = $param["Tags"];
@@ -32,12 +33,12 @@ class DeleteTagRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

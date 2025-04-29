@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Pdns\V20160304\Models;
+
+namespace Ksyun\Client\Pdns\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class CreatePdnsZoneRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ZoneName" => null,
-         /**Int**/
+        /**Int**/
         "ZoneTtl" => null,
-         /**String**/
+        /**String**/
         "ProjectId" => null,
-         /**String**/
+        /**String**/
         "ChargeType" => null,
     ];
 
@@ -28,29 +29,29 @@ class CreatePdnsZoneRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ZoneName",$param) and $param["ZoneName"] !== null) {
-            if(is_bool($param["ZoneName"])){
+        if (array_key_exists("ZoneName", $param) and $param["ZoneName"] !== null) {
+            if (is_bool($param["ZoneName"])) {
                 $this->RequestParams["ZoneName"] = $param["ZoneName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ZoneName"] = $param["ZoneName"];
             }
         }
-        if (array_key_exists("ZoneTtl",$param) and $param["ZoneTtl"] !== null) {
-            if(is_bool($param["ZoneTtl"])){
+        if (array_key_exists("ZoneTtl", $param) and $param["ZoneTtl"] !== null) {
+            if (is_bool($param["ZoneTtl"])) {
                 $this->RequestParams["ZoneTtl"] = $param["ZoneTtl"] ? "true" : "false";
             } else {
                 $this->RequestParams["ZoneTtl"] = $param["ZoneTtl"];
             }
         }
-        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
-            if(is_bool($param["ProjectId"])){
+        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
+            if (is_bool($param["ProjectId"])) {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
-        if (array_key_exists("ChargeType",$param) and $param["ChargeType"] !== null) {
-            if(is_bool($param["ChargeType"])){
+        if (array_key_exists("ChargeType", $param) and $param["ChargeType"] !== null) {
+            if (is_bool($param["ChargeType"])) {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"];
@@ -59,12 +60,12 @@ class CreatePdnsZoneRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

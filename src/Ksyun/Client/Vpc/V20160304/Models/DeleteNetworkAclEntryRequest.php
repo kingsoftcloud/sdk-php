@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteNetworkAclEntryRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "NetworkAclId" => null,
-         /**String**/
+        /**String**/
         "NetworkAclEntryId" => null,
     ];
 
@@ -24,15 +25,15 @@ class DeleteNetworkAclEntryRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NetworkAclId",$param) and $param["NetworkAclId"] !== null) {
-            if(is_bool($param["NetworkAclId"])){
+        if (array_key_exists("NetworkAclId", $param) and $param["NetworkAclId"] !== null) {
+            if (is_bool($param["NetworkAclId"])) {
                 $this->RequestParams["NetworkAclId"] = $param["NetworkAclId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkAclId"] = $param["NetworkAclId"];
             }
         }
-        if (array_key_exists("NetworkAclEntryId",$param) and $param["NetworkAclEntryId"] !== null) {
-            if(is_bool($param["NetworkAclEntryId"])){
+        if (array_key_exists("NetworkAclEntryId", $param) and $param["NetworkAclEntryId"] !== null) {
+            if (is_bool($param["NetworkAclEntryId"])) {
                 $this->RequestParams["NetworkAclEntryId"] = $param["NetworkAclEntryId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkAclEntryId"] = $param["NetworkAclEntryId"];
@@ -41,12 +42,12 @@ class DeleteNetworkAclEntryRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class AddAlbRuleRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "AlbRuleGroupId" => null,
-         /**String**/
+        /**String**/
         "AlbRuleType" => null,
-         /**String**/
+        /**String**/
         "AlbRuleValue" => null,
     ];
 
@@ -26,22 +27,22 @@ class AddAlbRuleRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AlbRuleGroupId",$param) and $param["AlbRuleGroupId"] !== null) {
-            if(is_bool($param["AlbRuleGroupId"])){
+        if (array_key_exists("AlbRuleGroupId", $param) and $param["AlbRuleGroupId"] !== null) {
+            if (is_bool($param["AlbRuleGroupId"])) {
                 $this->RequestParams["AlbRuleGroupId"] = $param["AlbRuleGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbRuleGroupId"] = $param["AlbRuleGroupId"];
             }
         }
-        if (array_key_exists("AlbRuleType",$param) and $param["AlbRuleType"] !== null) {
-            if(is_bool($param["AlbRuleType"])){
+        if (array_key_exists("AlbRuleType", $param) and $param["AlbRuleType"] !== null) {
+            if (is_bool($param["AlbRuleType"])) {
                 $this->RequestParams["AlbRuleType"] = $param["AlbRuleType"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbRuleType"] = $param["AlbRuleType"];
             }
         }
-        if (array_key_exists("AlbRuleValue",$param) and $param["AlbRuleValue"] !== null) {
-            if(is_bool($param["AlbRuleValue"])){
+        if (array_key_exists("AlbRuleValue", $param) and $param["AlbRuleValue"] !== null) {
+            if (is_bool($param["AlbRuleValue"])) {
                 $this->RequestParams["AlbRuleValue"] = $param["AlbRuleValue"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbRuleValue"] = $param["AlbRuleValue"];
@@ -50,12 +51,12 @@ class AddAlbRuleRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

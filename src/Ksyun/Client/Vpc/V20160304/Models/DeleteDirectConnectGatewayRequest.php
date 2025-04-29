@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteDirectConnectGatewayRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DirectConnectGatewayId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteDirectConnectGatewayRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DirectConnectGatewayId",$param) and $param["DirectConnectGatewayId"] !== null) {
-            if(is_bool($param["DirectConnectGatewayId"])){
+        if (array_key_exists("DirectConnectGatewayId", $param) and $param["DirectConnectGatewayId"] !== null) {
+            if (is_bool($param["DirectConnectGatewayId"])) {
                 $this->RequestParams["DirectConnectGatewayId"] = $param["DirectConnectGatewayId"] ? "true" : "false";
             } else {
                 $this->RequestParams["DirectConnectGatewayId"] = $param["DirectConnectGatewayId"];
@@ -32,12 +33,12 @@ class DeleteDirectConnectGatewayRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

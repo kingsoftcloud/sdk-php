@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteNetworkInterfaceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "NetworkInterfaceId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteNetworkInterfaceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
-            if(is_bool($param["NetworkInterfaceId"])){
+        if (array_key_exists("NetworkInterfaceId", $param) and $param["NetworkInterfaceId"] !== null) {
+            if (is_bool($param["NetworkInterfaceId"])) {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
@@ -32,12 +33,12 @@ class DeleteNetworkInterfaceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

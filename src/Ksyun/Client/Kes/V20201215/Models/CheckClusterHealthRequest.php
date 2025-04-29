@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kes\V20201215\Models;
+
+namespace Ksyun\Client\Kes\V20201215\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class CheckClusterHealthRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "cluster_id" => null,
-         /**Array**/
+        /**Array**/
         "check_list" => null,
     ];
 
@@ -24,15 +25,15 @@ class CheckClusterHealthRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("cluster_id",$param) and $param["cluster_id"] !== null) {
-            if(is_bool($param["cluster_id"])){
+        if (array_key_exists("cluster_id", $param) and $param["cluster_id"] !== null) {
+            if (is_bool($param["cluster_id"])) {
                 $this->RequestParams["cluster_id"] = $param["cluster_id"] ? "true" : "false";
             } else {
                 $this->RequestParams["cluster_id"] = $param["cluster_id"];
             }
         }
-        if (array_key_exists("check_list",$param) and $param["check_list"] !== null) {
-            if(is_bool($param["check_list"])){
+        if (array_key_exists("check_list", $param) and $param["check_list"] !== null) {
+            if (is_bool($param["check_list"])) {
                 $this->RequestParams["check_list"] = $param["check_list"] ? "true" : "false";
             } else {
                 $this->RequestParams["check_list"] = $param["check_list"];
@@ -41,12 +42,12 @@ class CheckClusterHealthRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

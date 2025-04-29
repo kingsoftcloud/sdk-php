@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeImagesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ImageId" => null,
-         /**String**/
+        /**String**/
         "ImageType" => null,
     ];
 
@@ -24,15 +25,15 @@ class DescribeImagesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
-            if(is_bool($param["ImageId"])){
+        if (array_key_exists("ImageId", $param) and $param["ImageId"] !== null) {
+            if (is_bool($param["ImageId"])) {
                 $this->RequestParams["ImageId"] = $param["ImageId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageId"] = $param["ImageId"];
             }
         }
-        if (array_key_exists("ImageType",$param) and $param["ImageType"] !== null) {
-            if(is_bool($param["ImageType"])){
+        if (array_key_exists("ImageType", $param) and $param["ImageType"] !== null) {
+            if (is_bool($param["ImageType"])) {
                 $this->RequestParams["ImageType"] = $param["ImageType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageType"] = $param["ImageType"];
@@ -41,12 +42,12 @@ class DescribeImagesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

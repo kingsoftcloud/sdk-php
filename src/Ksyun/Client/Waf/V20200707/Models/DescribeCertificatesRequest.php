@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Waf\V20200707\Models;
+
+namespace Ksyun\Client\Waf\V20200707\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeCertificatesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "Request" => null,
     ];
 
@@ -22,8 +23,8 @@ class DescribeCertificatesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Request",$param) and $param["Request"] !== null) {
-            if(is_bool($param["Request"])){
+        if (array_key_exists("Request", $param) and $param["Request"] !== null) {
+            if (is_bool($param["Request"])) {
                 $this->RequestParams["Request"] = $param["Request"] ? "true" : "false";
             } else {
                 $this->RequestParams["Request"] = $param["Request"];
@@ -32,12 +33,12 @@ class DescribeCertificatesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kcrs\V20211109\Models;
+
+namespace Ksyun\Client\Kcrs\V20211109\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class RunRetentionPolicyRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "InstanceId" => null,
-         /**String**/
+        /**String**/
         "Namespace" => null,
-         /**Boolean**/
+        /**Boolean**/
         "TestRun" => null,
     ];
 
@@ -26,22 +27,22 @@ class RunRetentionPolicyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            if(is_bool($param["InstanceId"])){
+        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
+            if (is_bool($param["InstanceId"])) {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
-            if(is_bool($param["Namespace"])){
+        if (array_key_exists("Namespace", $param) and $param["Namespace"] !== null) {
+            if (is_bool($param["Namespace"])) {
                 $this->RequestParams["Namespace"] = $param["Namespace"] ? "true" : "false";
             } else {
                 $this->RequestParams["Namespace"] = $param["Namespace"];
             }
         }
-        if (array_key_exists("TestRun",$param) and $param["TestRun"] !== null) {
-            if(is_bool($param["TestRun"])){
+        if (array_key_exists("TestRun", $param) and $param["TestRun"] !== null) {
+            if (is_bool($param["TestRun"])) {
                 $this->RequestParams["TestRun"] = $param["TestRun"] ? "true" : "false";
             } else {
                 $this->RequestParams["TestRun"] = $param["TestRun"];
@@ -50,12 +51,12 @@ class RunRetentionPolicyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

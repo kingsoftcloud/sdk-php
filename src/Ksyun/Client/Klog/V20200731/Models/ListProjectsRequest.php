@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Klog\V20200731\Models;
+
+namespace Ksyun\Client\Klog\V20200731\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ListProjectsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "Page" => null,
-         /**Int**/
+        /**Int**/
         "Size" => null,
     ];
 
@@ -24,15 +25,15 @@ class ListProjectsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
-            if(is_bool($param["Page"])){
+        if (array_key_exists("Page", $param) and $param["Page"] !== null) {
+            if (is_bool($param["Page"])) {
                 $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
             } else {
                 $this->RequestParams["Page"] = $param["Page"];
             }
         }
-        if (array_key_exists("Size",$param) and $param["Size"] !== null) {
-            if(is_bool($param["Size"])){
+        if (array_key_exists("Size", $param) and $param["Size"] !== null) {
+            if (is_bool($param["Size"])) {
                 $this->RequestParams["Size"] = $param["Size"] ? "true" : "false";
             } else {
                 $this->RequestParams["Size"] = $param["Size"];
@@ -41,12 +42,12 @@ class ListProjectsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

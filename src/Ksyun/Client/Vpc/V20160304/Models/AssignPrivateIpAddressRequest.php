@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,15 +8,15 @@ use Ksyun\Common\Http\HttpOptions;
 class AssignPrivateIpAddressRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "NetworkInterfaceId" => null,
-         /**Int**/
+        /**Int**/
         "SecondaryPrivateIpAddressCount" => null,
     ];
 
-     /**特殊参数类型:Filter**/
+    /**特殊参数类型:Filter**/
     public $PrivateIpAddress = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -26,19 +27,19 @@ class AssignPrivateIpAddressRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
-            if(is_bool($param["NetworkInterfaceId"])){
+        if (array_key_exists("NetworkInterfaceId", $param) and $param["NetworkInterfaceId"] !== null) {
+            if (is_bool($param["NetworkInterfaceId"])) {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
             }
         }
-        if (array_key_exists("PrivateIpAddress",$param) and $param["PrivateIpAddress"] !== null) {
-            $res = $this->formatFilterParams("PrivateIpAddress",$param["PrivateIpAddress"]);
-            $this->_unserialize("PrivateIpAddress",$res);
+        if (array_key_exists("PrivateIpAddress", $param) and $param["PrivateIpAddress"] !== null) {
+            $res = $this->formatFilterParams("PrivateIpAddress", $param["PrivateIpAddress"]);
+            $this->_unserialize("PrivateIpAddress", $res);
         }
-        if (array_key_exists("SecondaryPrivateIpAddressCount",$param) and $param["SecondaryPrivateIpAddressCount"] !== null) {
-            if(is_bool($param["SecondaryPrivateIpAddressCount"])){
+        if (array_key_exists("SecondaryPrivateIpAddressCount", $param) and $param["SecondaryPrivateIpAddressCount"] !== null) {
+            if (is_bool($param["SecondaryPrivateIpAddressCount"])) {
                 $this->RequestParams["SecondaryPrivateIpAddressCount"] = $param["SecondaryPrivateIpAddressCount"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecondaryPrivateIpAddressCount"] = $param["SecondaryPrivateIpAddressCount"];
@@ -47,12 +48,12 @@ class AssignPrivateIpAddressRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

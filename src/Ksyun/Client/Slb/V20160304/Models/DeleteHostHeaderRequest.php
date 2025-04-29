@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteHostHeaderRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "HostHeaderId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteHostHeaderRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostHeaderId",$param) and $param["HostHeaderId"] !== null) {
-            if(is_bool($param["HostHeaderId"])){
+        if (array_key_exists("HostHeaderId", $param) and $param["HostHeaderId"] !== null) {
+            if (is_bool($param["HostHeaderId"])) {
                 $this->RequestParams["HostHeaderId"] = $param["HostHeaderId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostHeaderId"] = $param["HostHeaderId"];
@@ -32,12 +33,12 @@ class DeleteHostHeaderRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

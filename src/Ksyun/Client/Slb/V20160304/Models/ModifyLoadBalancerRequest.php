@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyLoadBalancerRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "LoadBalancerId" => null,
-         /**String**/
+        /**String**/
         "LoadBalancerName" => null,
-         /**String**/
+        /**String**/
         "LoadBalancerState" => null,
     ];
 
@@ -26,22 +27,22 @@ class ModifyLoadBalancerRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LoadBalancerId",$param) and $param["LoadBalancerId"] !== null) {
-            if(is_bool($param["LoadBalancerId"])){
+        if (array_key_exists("LoadBalancerId", $param) and $param["LoadBalancerId"] !== null) {
+            if (is_bool($param["LoadBalancerId"])) {
                 $this->RequestParams["LoadBalancerId"] = $param["LoadBalancerId"] ? "true" : "false";
             } else {
                 $this->RequestParams["LoadBalancerId"] = $param["LoadBalancerId"];
             }
         }
-        if (array_key_exists("LoadBalancerName",$param) and $param["LoadBalancerName"] !== null) {
-            if(is_bool($param["LoadBalancerName"])){
+        if (array_key_exists("LoadBalancerName", $param) and $param["LoadBalancerName"] !== null) {
+            if (is_bool($param["LoadBalancerName"])) {
                 $this->RequestParams["LoadBalancerName"] = $param["LoadBalancerName"] ? "true" : "false";
             } else {
                 $this->RequestParams["LoadBalancerName"] = $param["LoadBalancerName"];
             }
         }
-        if (array_key_exists("LoadBalancerState",$param) and $param["LoadBalancerState"] !== null) {
-            if(is_bool($param["LoadBalancerState"])){
+        if (array_key_exists("LoadBalancerState", $param) and $param["LoadBalancerState"] !== null) {
+            if (is_bool($param["LoadBalancerState"])) {
                 $this->RequestParams["LoadBalancerState"] = $param["LoadBalancerState"] ? "true" : "false";
             } else {
                 $this->RequestParams["LoadBalancerState"] = $param["LoadBalancerState"];
@@ -50,12 +51,12 @@ class ModifyLoadBalancerRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

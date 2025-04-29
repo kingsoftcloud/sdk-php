@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyDedicatedClusterNameRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DedicatedClusterId" => null,
-         /**String**/
+        /**String**/
         "DedicatedClusterName" => null,
     ];
 
@@ -24,15 +25,15 @@ class ModifyDedicatedClusterNameRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DedicatedClusterId",$param) and $param["DedicatedClusterId"] !== null) {
-            if(is_bool($param["DedicatedClusterId"])){
+        if (array_key_exists("DedicatedClusterId", $param) and $param["DedicatedClusterId"] !== null) {
+            if (is_bool($param["DedicatedClusterId"])) {
                 $this->RequestParams["DedicatedClusterId"] = $param["DedicatedClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["DedicatedClusterId"] = $param["DedicatedClusterId"];
             }
         }
-        if (array_key_exists("DedicatedClusterName",$param) and $param["DedicatedClusterName"] !== null) {
-            if(is_bool($param["DedicatedClusterName"])){
+        if (array_key_exists("DedicatedClusterName", $param) and $param["DedicatedClusterName"] !== null) {
+            if (is_bool($param["DedicatedClusterName"])) {
                 $this->RequestParams["DedicatedClusterName"] = $param["DedicatedClusterName"] ? "true" : "false";
             } else {
                 $this->RequestParams["DedicatedClusterName"] = $param["DedicatedClusterName"];
@@ -41,12 +42,12 @@ class ModifyDedicatedClusterNameRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

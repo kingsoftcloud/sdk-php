@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Resourcemanager\V20210320\Models;
+
+namespace Ksyun\Client\Resourcemanager\V20210320\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteFolderRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "FolderId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteFolderRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FolderId",$param) and $param["FolderId"] !== null) {
-            if(is_bool($param["FolderId"])){
+        if (array_key_exists("FolderId", $param) and $param["FolderId"] !== null) {
+            if (is_bool($param["FolderId"])) {
                 $this->RequestParams["FolderId"] = $param["FolderId"] ? "true" : "false";
             } else {
                 $this->RequestParams["FolderId"] = $param["FolderId"];
@@ -32,12 +33,12 @@ class DeleteFolderRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

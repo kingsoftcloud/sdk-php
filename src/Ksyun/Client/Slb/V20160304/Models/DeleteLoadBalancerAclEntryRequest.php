@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteLoadBalancerAclEntryRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "LoadBalancerAclEntryId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteLoadBalancerAclEntryRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LoadBalancerAclEntryId",$param) and $param["LoadBalancerAclEntryId"] !== null) {
-            if(is_bool($param["LoadBalancerAclEntryId"])){
+        if (array_key_exists("LoadBalancerAclEntryId", $param) and $param["LoadBalancerAclEntryId"] !== null) {
+            if (is_bool($param["LoadBalancerAclEntryId"])) {
                 $this->RequestParams["LoadBalancerAclEntryId"] = $param["LoadBalancerAclEntryId"] ? "true" : "false";
             } else {
                 $this->RequestParams["LoadBalancerAclEntryId"] = $param["LoadBalancerAclEntryId"];
@@ -32,12 +33,12 @@ class DeleteLoadBalancerAclEntryRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

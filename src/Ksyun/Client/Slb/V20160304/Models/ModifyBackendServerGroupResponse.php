@@ -1,32 +1,33 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
 class ModifyBackendServerGroupResponse extends BaseModel
 {
-         /** 请求ID**/
-         public  $RequestId;
+    /** 请求ID**/
+    public $RequestId;
 
-         /**Object 服务器组的信息**/
-         public  $BackendServerGroup;
+    /**Object 服务器组的信息**/
+    public $BackendServerGroup;
 
-         public function __construct()
-         {
+    public function __construct()
+    {
 
-         }
+    }
 
-        public function unserialize($param)
-        {
-            if ($param === null) {
-                return;
-            }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("BackendServerGroup",$param) and $param["BackendServerGroup"] !== null) {
-                $this->BackendServerGroup = $param["BackendServerGroup"];
-            }
-
+    public function unserialize($param)
+    {
+        if ($param === null) {
+            return;
         }
+        if (array_key_exists("RequestId", $param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
+        }
+        if (array_key_exists("BackendServerGroup", $param) and $param["BackendServerGroup"] !== null) {
+            $this->BackendServerGroup = $param["BackendServerGroup"];
+        }
+
+    }
 }

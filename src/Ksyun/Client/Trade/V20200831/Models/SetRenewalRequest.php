@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Trade\V20200831\Models;
+
+namespace Ksyun\Client\Trade\V20200831\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class SetRenewalRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "InstanceIds" => null,
-         /**Int**/
+        /**Int**/
         "RenewStrategy" => null,
-         /**Int**/
+        /**Int**/
         "RenewDuration" => null,
     ];
 
@@ -26,22 +27,22 @@ class SetRenewalRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
-            if(is_bool($param["InstanceIds"])){
+        if (array_key_exists("InstanceIds", $param) and $param["InstanceIds"] !== null) {
+            if (is_bool($param["InstanceIds"])) {
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"];
             }
         }
-        if (array_key_exists("RenewStrategy",$param) and $param["RenewStrategy"] !== null) {
-            if(is_bool($param["RenewStrategy"])){
+        if (array_key_exists("RenewStrategy", $param) and $param["RenewStrategy"] !== null) {
+            if (is_bool($param["RenewStrategy"])) {
                 $this->RequestParams["RenewStrategy"] = $param["RenewStrategy"] ? "true" : "false";
             } else {
                 $this->RequestParams["RenewStrategy"] = $param["RenewStrategy"];
             }
         }
-        if (array_key_exists("RenewDuration",$param) and $param["RenewDuration"] !== null) {
-            if(is_bool($param["RenewDuration"])){
+        if (array_key_exists("RenewDuration", $param) and $param["RenewDuration"] !== null) {
+            if (is_bool($param["RenewDuration"])) {
                 $this->RequestParams["RenewDuration"] = $param["RenewDuration"] ? "true" : "false";
             } else {
                 $this->RequestParams["RenewDuration"] = $param["RenewDuration"];
@@ -50,12 +51,12 @@ class SetRenewalRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

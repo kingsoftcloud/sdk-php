@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,61 +8,61 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyScalingConfigurationRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ScalingConfigurationId" => null,
-         /**String**/
+        /**String**/
         "ScalingConfigurationName" => null,
-         /**String**/
+        /**String**/
         "ImageId" => null,
-         /**String**/
+        /**String**/
         "Password" => null,
-         /**String**/
+        /**String**/
         "InstanceType" => null,
-         /**String**/
+        /**String**/
         "ChargeType" => null,
-         /**Int**/
+        /**Int**/
         "DataDiskGb" => null,
-         /**Int**/
+        /**Int**/
         "ProjectId" => null,
-         /**Boolean**/
+        /**Boolean**/
         "KeepImageLogin" => null,
-         /**Int**/
+        /**Int**/
         "SystemDisk.DiskSize" => null,
-         /**Int**/
+        /**Int**/
         "AddressBandWidth" => null,
-         /**String**/
+        /**String**/
         "BandWidthShareId" => null,
-         /**String**/
+        /**String**/
         "LineId" => null,
-         /**Int**/
+        /**Int**/
         "AddressProjectId" => null,
-         /**String**/
+        /**String**/
         "InstanceName" => null,
-         /**String**/
+        /**String**/
         "InstanceNameSuffix" => null,
-         /**String**/
+        /**String**/
         "UserData" => null,
-         /**Boolean**/
+        /**Boolean**/
         "InstanceNameTimeSuffix" => null,
-         /**Boolean**/
+        /**Boolean**/
         "LoginSetAfter" => null,
-         /**Boolean**/
+        /**Boolean**/
         "IpBindAfter" => null,
-         /**Boolean**/
+        /**Boolean**/
         "InstanceNameRandom" => null,
-         /**String**/
+        /**String**/
         "SystemDisk.DiskType" => null,
-         /**String**/
+        /**String**/
         "SystemDisk.ResizeType" => null,
     ];
 
-     /**特殊参数类型:Filter**/
+    /**特殊参数类型:Filter**/
     public $KeyId = [];
-      /**特殊参数类型:Filter**/
+    /**特殊参数类型:Filter**/
     public $DataDisk = [];
-      /**特殊参数类型:Filter**/
+    /**特殊参数类型:Filter**/
     public $Tag = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -72,174 +73,174 @@ class ModifyScalingConfigurationRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ScalingConfigurationId",$param) and $param["ScalingConfigurationId"] !== null) {
-            if(is_bool($param["ScalingConfigurationId"])){
+        if (array_key_exists("ScalingConfigurationId", $param) and $param["ScalingConfigurationId"] !== null) {
+            if (is_bool($param["ScalingConfigurationId"])) {
                 $this->RequestParams["ScalingConfigurationId"] = $param["ScalingConfigurationId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ScalingConfigurationId"] = $param["ScalingConfigurationId"];
             }
         }
-        if (array_key_exists("ScalingConfigurationName",$param) and $param["ScalingConfigurationName"] !== null) {
-            if(is_bool($param["ScalingConfigurationName"])){
+        if (array_key_exists("ScalingConfigurationName", $param) and $param["ScalingConfigurationName"] !== null) {
+            if (is_bool($param["ScalingConfigurationName"])) {
                 $this->RequestParams["ScalingConfigurationName"] = $param["ScalingConfigurationName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ScalingConfigurationName"] = $param["ScalingConfigurationName"];
             }
         }
-        if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
-            if(is_bool($param["ImageId"])){
+        if (array_key_exists("ImageId", $param) and $param["ImageId"] !== null) {
+            if (is_bool($param["ImageId"])) {
                 $this->RequestParams["ImageId"] = $param["ImageId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageId"] = $param["ImageId"];
             }
         }
-        if (array_key_exists("Password",$param) and $param["Password"] !== null) {
-            if(is_bool($param["Password"])){
+        if (array_key_exists("Password", $param) and $param["Password"] !== null) {
+            if (is_bool($param["Password"])) {
                 $this->RequestParams["Password"] = $param["Password"] ? "true" : "false";
             } else {
                 $this->RequestParams["Password"] = $param["Password"];
             }
         }
-        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
-            if(is_bool($param["InstanceType"])){
+        if (array_key_exists("InstanceType", $param) and $param["InstanceType"] !== null) {
+            if (is_bool($param["InstanceType"])) {
                 $this->RequestParams["InstanceType"] = $param["InstanceType"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceType"] = $param["InstanceType"];
             }
         }
-        if (array_key_exists("ChargeType",$param) and $param["ChargeType"] !== null) {
-            if(is_bool($param["ChargeType"])){
+        if (array_key_exists("ChargeType", $param) and $param["ChargeType"] !== null) {
+            if (is_bool($param["ChargeType"])) {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"];
             }
         }
-        if (array_key_exists("DataDiskGb",$param) and $param["DataDiskGb"] !== null) {
-            if(is_bool($param["DataDiskGb"])){
+        if (array_key_exists("DataDiskGb", $param) and $param["DataDiskGb"] !== null) {
+            if (is_bool($param["DataDiskGb"])) {
                 $this->RequestParams["DataDiskGb"] = $param["DataDiskGb"] ? "true" : "false";
             } else {
                 $this->RequestParams["DataDiskGb"] = $param["DataDiskGb"];
             }
         }
-        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
-            if(is_bool($param["ProjectId"])){
+        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
+            if (is_bool($param["ProjectId"])) {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
-        if (array_key_exists("KeepImageLogin",$param) and $param["KeepImageLogin"] !== null) {
-            if(is_bool($param["KeepImageLogin"])){
+        if (array_key_exists("KeepImageLogin", $param) and $param["KeepImageLogin"] !== null) {
+            if (is_bool($param["KeepImageLogin"])) {
                 $this->RequestParams["KeepImageLogin"] = $param["KeepImageLogin"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeepImageLogin"] = $param["KeepImageLogin"];
             }
         }
-        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
-            $res = $this->formatFilterParams("KeyId",$param["KeyId"]);
-            $this->_unserialize("KeyId",$res);
+        if (array_key_exists("KeyId", $param) and $param["KeyId"] !== null) {
+            $res = $this->formatFilterParams("KeyId", $param["KeyId"]);
+            $this->_unserialize("KeyId", $res);
         }
-        if (array_key_exists("DataDisk",$param) and $param["DataDisk"] !== null) {
-            $res = $this->formatFilterParams("DataDisk",$param["DataDisk"]);
-            $this->_unserialize("DataDisk",$res);
+        if (array_key_exists("DataDisk", $param) and $param["DataDisk"] !== null) {
+            $res = $this->formatFilterParams("DataDisk", $param["DataDisk"]);
+            $this->_unserialize("DataDisk", $res);
         }
-        if (array_key_exists("SystemDisk.DiskSize",$param) and $param["SystemDisk.DiskSize"] !== null) {
-            if(is_bool($param["SystemDisk.DiskSize"])){
+        if (array_key_exists("SystemDisk.DiskSize", $param) and $param["SystemDisk.DiskSize"] !== null) {
+            if (is_bool($param["SystemDisk.DiskSize"])) {
                 $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemDisk.DiskSize"] = $param["SystemDisk.DiskSize"];
             }
         }
-        if (array_key_exists("AddressBandWidth",$param) and $param["AddressBandWidth"] !== null) {
-            if(is_bool($param["AddressBandWidth"])){
+        if (array_key_exists("AddressBandWidth", $param) and $param["AddressBandWidth"] !== null) {
+            if (is_bool($param["AddressBandWidth"])) {
                 $this->RequestParams["AddressBandWidth"] = $param["AddressBandWidth"] ? "true" : "false";
             } else {
                 $this->RequestParams["AddressBandWidth"] = $param["AddressBandWidth"];
             }
         }
-        if (array_key_exists("BandWidthShareId",$param) and $param["BandWidthShareId"] !== null) {
-            if(is_bool($param["BandWidthShareId"])){
+        if (array_key_exists("BandWidthShareId", $param) and $param["BandWidthShareId"] !== null) {
+            if (is_bool($param["BandWidthShareId"])) {
                 $this->RequestParams["BandWidthShareId"] = $param["BandWidthShareId"] ? "true" : "false";
             } else {
                 $this->RequestParams["BandWidthShareId"] = $param["BandWidthShareId"];
             }
         }
-        if (array_key_exists("LineId",$param) and $param["LineId"] !== null) {
-            if(is_bool($param["LineId"])){
+        if (array_key_exists("LineId", $param) and $param["LineId"] !== null) {
+            if (is_bool($param["LineId"])) {
                 $this->RequestParams["LineId"] = $param["LineId"] ? "true" : "false";
             } else {
                 $this->RequestParams["LineId"] = $param["LineId"];
             }
         }
-        if (array_key_exists("AddressProjectId",$param) and $param["AddressProjectId"] !== null) {
-            if(is_bool($param["AddressProjectId"])){
+        if (array_key_exists("AddressProjectId", $param) and $param["AddressProjectId"] !== null) {
+            if (is_bool($param["AddressProjectId"])) {
                 $this->RequestParams["AddressProjectId"] = $param["AddressProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AddressProjectId"] = $param["AddressProjectId"];
             }
         }
-        if (array_key_exists("InstanceName",$param) and $param["InstanceName"] !== null) {
-            if(is_bool($param["InstanceName"])){
+        if (array_key_exists("InstanceName", $param) and $param["InstanceName"] !== null) {
+            if (is_bool($param["InstanceName"])) {
                 $this->RequestParams["InstanceName"] = $param["InstanceName"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceName"] = $param["InstanceName"];
             }
         }
-        if (array_key_exists("InstanceNameSuffix",$param) and $param["InstanceNameSuffix"] !== null) {
-            if(is_bool($param["InstanceNameSuffix"])){
+        if (array_key_exists("InstanceNameSuffix", $param) and $param["InstanceNameSuffix"] !== null) {
+            if (is_bool($param["InstanceNameSuffix"])) {
                 $this->RequestParams["InstanceNameSuffix"] = $param["InstanceNameSuffix"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceNameSuffix"] = $param["InstanceNameSuffix"];
             }
         }
-        if (array_key_exists("UserData",$param) and $param["UserData"] !== null) {
-            if(is_bool($param["UserData"])){
+        if (array_key_exists("UserData", $param) and $param["UserData"] !== null) {
+            if (is_bool($param["UserData"])) {
                 $this->RequestParams["UserData"] = $param["UserData"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserData"] = $param["UserData"];
             }
         }
-        if (array_key_exists("InstanceNameTimeSuffix",$param) and $param["InstanceNameTimeSuffix"] !== null) {
-            if(is_bool($param["InstanceNameTimeSuffix"])){
+        if (array_key_exists("InstanceNameTimeSuffix", $param) and $param["InstanceNameTimeSuffix"] !== null) {
+            if (is_bool($param["InstanceNameTimeSuffix"])) {
                 $this->RequestParams["InstanceNameTimeSuffix"] = $param["InstanceNameTimeSuffix"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceNameTimeSuffix"] = $param["InstanceNameTimeSuffix"];
             }
         }
-        if (array_key_exists("Tag",$param) and $param["Tag"] !== null) {
-            $res = $this->formatFilterParams("Tag",$param["Tag"]);
-            $this->_unserialize("Tag",$res);
+        if (array_key_exists("Tag", $param) and $param["Tag"] !== null) {
+            $res = $this->formatFilterParams("Tag", $param["Tag"]);
+            $this->_unserialize("Tag", $res);
         }
-        if (array_key_exists("LoginSetAfter",$param) and $param["LoginSetAfter"] !== null) {
-            if(is_bool($param["LoginSetAfter"])){
+        if (array_key_exists("LoginSetAfter", $param) and $param["LoginSetAfter"] !== null) {
+            if (is_bool($param["LoginSetAfter"])) {
                 $this->RequestParams["LoginSetAfter"] = $param["LoginSetAfter"] ? "true" : "false";
             } else {
                 $this->RequestParams["LoginSetAfter"] = $param["LoginSetAfter"];
             }
         }
-        if (array_key_exists("IpBindAfter",$param) and $param["IpBindAfter"] !== null) {
-            if(is_bool($param["IpBindAfter"])){
+        if (array_key_exists("IpBindAfter", $param) and $param["IpBindAfter"] !== null) {
+            if (is_bool($param["IpBindAfter"])) {
                 $this->RequestParams["IpBindAfter"] = $param["IpBindAfter"] ? "true" : "false";
             } else {
                 $this->RequestParams["IpBindAfter"] = $param["IpBindAfter"];
             }
         }
-        if (array_key_exists("InstanceNameRandom",$param) and $param["InstanceNameRandom"] !== null) {
-            if(is_bool($param["InstanceNameRandom"])){
+        if (array_key_exists("InstanceNameRandom", $param) and $param["InstanceNameRandom"] !== null) {
+            if (is_bool($param["InstanceNameRandom"])) {
                 $this->RequestParams["InstanceNameRandom"] = $param["InstanceNameRandom"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceNameRandom"] = $param["InstanceNameRandom"];
             }
         }
-        if (array_key_exists("SystemDisk.DiskType",$param) and $param["SystemDisk.DiskType"] !== null) {
-            if(is_bool($param["SystemDisk.DiskType"])){
+        if (array_key_exists("SystemDisk.DiskType", $param) and $param["SystemDisk.DiskType"] !== null) {
+            if (is_bool($param["SystemDisk.DiskType"])) {
                 $this->RequestParams["SystemDisk.DiskType"] = $param["SystemDisk.DiskType"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemDisk.DiskType"] = $param["SystemDisk.DiskType"];
             }
         }
-        if (array_key_exists("SystemDisk.ResizeType",$param) and $param["SystemDisk.ResizeType"] !== null) {
-            if(is_bool($param["SystemDisk.ResizeType"])){
+        if (array_key_exists("SystemDisk.ResizeType", $param) and $param["SystemDisk.ResizeType"] !== null) {
+            if (is_bool($param["SystemDisk.ResizeType"])) {
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["SystemDisk.ResizeType"] = $param["SystemDisk.ResizeType"];
@@ -248,12 +249,12 @@ class ModifyScalingConfigurationRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

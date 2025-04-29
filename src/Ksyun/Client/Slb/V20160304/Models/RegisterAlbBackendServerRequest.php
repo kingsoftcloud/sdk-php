@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,17 +8,17 @@ use Ksyun\Common\Http\HttpOptions;
 class RegisterAlbBackendServerRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "BackendServerGroupId" => null,
-         /**String**/
+        /**String**/
         "BackendServerIp" => null,
-         /**Int**/
+        /**Int**/
         "Port" => null,
-         /**Int**/
+        /**Int**/
         "Weight" => null,
-         /**String**/
+        /**String**/
         "NetworkInterfaceId" => null,
-         /**String**/
+        /**String**/
         "DirectConnectGatewayId" => null,
     ];
 
@@ -32,43 +33,43 @@ class RegisterAlbBackendServerRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("BackendServerGroupId",$param) and $param["BackendServerGroupId"] !== null) {
-            if(is_bool($param["BackendServerGroupId"])){
+        if (array_key_exists("BackendServerGroupId", $param) and $param["BackendServerGroupId"] !== null) {
+            if (is_bool($param["BackendServerGroupId"])) {
                 $this->RequestParams["BackendServerGroupId"] = $param["BackendServerGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["BackendServerGroupId"] = $param["BackendServerGroupId"];
             }
         }
-        if (array_key_exists("BackendServerIp",$param) and $param["BackendServerIp"] !== null) {
-            if(is_bool($param["BackendServerIp"])){
+        if (array_key_exists("BackendServerIp", $param) and $param["BackendServerIp"] !== null) {
+            if (is_bool($param["BackendServerIp"])) {
                 $this->RequestParams["BackendServerIp"] = $param["BackendServerIp"] ? "true" : "false";
             } else {
                 $this->RequestParams["BackendServerIp"] = $param["BackendServerIp"];
             }
         }
-        if (array_key_exists("Port",$param) and $param["Port"] !== null) {
-            if(is_bool($param["Port"])){
+        if (array_key_exists("Port", $param) and $param["Port"] !== null) {
+            if (is_bool($param["Port"])) {
                 $this->RequestParams["Port"] = $param["Port"] ? "true" : "false";
             } else {
                 $this->RequestParams["Port"] = $param["Port"];
             }
         }
-        if (array_key_exists("Weight",$param) and $param["Weight"] !== null) {
-            if(is_bool($param["Weight"])){
+        if (array_key_exists("Weight", $param) and $param["Weight"] !== null) {
+            if (is_bool($param["Weight"])) {
                 $this->RequestParams["Weight"] = $param["Weight"] ? "true" : "false";
             } else {
                 $this->RequestParams["Weight"] = $param["Weight"];
             }
         }
-        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
-            if(is_bool($param["NetworkInterfaceId"])){
+        if (array_key_exists("NetworkInterfaceId", $param) and $param["NetworkInterfaceId"] !== null) {
+            if (is_bool($param["NetworkInterfaceId"])) {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
             }
         }
-        if (array_key_exists("DirectConnectGatewayId",$param) and $param["DirectConnectGatewayId"] !== null) {
-            if(is_bool($param["DirectConnectGatewayId"])){
+        if (array_key_exists("DirectConnectGatewayId", $param) and $param["DirectConnectGatewayId"] !== null) {
+            if (is_bool($param["DirectConnectGatewayId"])) {
                 $this->RequestParams["DirectConnectGatewayId"] = $param["DirectConnectGatewayId"] ? "true" : "false";
             } else {
                 $this->RequestParams["DirectConnectGatewayId"] = $param["DirectConnectGatewayId"];
@@ -77,12 +78,12 @@ class RegisterAlbBackendServerRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

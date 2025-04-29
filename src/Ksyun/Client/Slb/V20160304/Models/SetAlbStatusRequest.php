@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class SetAlbStatusRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "AlbId" => null,
-         /**String**/
+        /**String**/
         "State" => null,
     ];
 
@@ -24,15 +25,15 @@ class SetAlbStatusRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AlbId",$param) and $param["AlbId"] !== null) {
-            if(is_bool($param["AlbId"])){
+        if (array_key_exists("AlbId", $param) and $param["AlbId"] !== null) {
+            if (is_bool($param["AlbId"])) {
                 $this->RequestParams["AlbId"] = $param["AlbId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbId"] = $param["AlbId"];
             }
         }
-        if (array_key_exists("State",$param) and $param["State"] !== null) {
-            if(is_bool($param["State"])){
+        if (array_key_exists("State", $param) and $param["State"] !== null) {
+            if (is_bool($param["State"])) {
                 $this->RequestParams["State"] = $param["State"] ? "true" : "false";
             } else {
                 $this->RequestParams["State"] = $param["State"];
@@ -41,12 +42,12 @@ class SetAlbStatusRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

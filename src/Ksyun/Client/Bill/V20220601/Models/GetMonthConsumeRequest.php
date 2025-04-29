@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Bill\V20220601\Models;
+
+namespace Ksyun\Client\Bill\V20220601\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class GetMonthConsumeRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "BillMonth" => null,
     ];
 
@@ -22,8 +23,8 @@ class GetMonthConsumeRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("BillMonth",$param) and $param["BillMonth"] !== null) {
-            if(is_bool($param["BillMonth"])){
+        if (array_key_exists("BillMonth", $param) and $param["BillMonth"] !== null) {
+            if (is_bool($param["BillMonth"])) {
                 $this->RequestParams["BillMonth"] = $param["BillMonth"] ? "true" : "false";
             } else {
                 $this->RequestParams["BillMonth"] = $param["BillMonth"];
@@ -32,12 +33,12 @@ class GetMonthConsumeRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

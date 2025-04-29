@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kad\V20161122\Models;
+
+namespace Ksyun\Client\Kad\V20161122\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteForwardSourceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ForwardSourceId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteForwardSourceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ForwardSourceId",$param) and $param["ForwardSourceId"] !== null) {
-            if(is_bool($param["ForwardSourceId"])){
+        if (array_key_exists("ForwardSourceId", $param) and $param["ForwardSourceId"] !== null) {
+            if (is_bool($param["ForwardSourceId"])) {
                 $this->RequestParams["ForwardSourceId"] = $param["ForwardSourceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ForwardSourceId"] = $param["ForwardSourceId"];
@@ -32,12 +33,12 @@ class DeleteForwardSourceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

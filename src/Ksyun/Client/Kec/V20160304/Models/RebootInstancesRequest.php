@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class RebootInstancesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Boolean**/
+        /**Boolean**/
         "ForceReboot" => null,
     ];
 
-     /**特殊参数类型:Filter**/
+    /**特殊参数类型:Filter**/
     public $InstanceId = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -24,12 +25,12 @@ class RebootInstancesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            $res = $this->formatFilterParams("InstanceId",$param["InstanceId"]);
-            $this->_unserialize("InstanceId",$res);
+        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
+            $res = $this->formatFilterParams("InstanceId", $param["InstanceId"]);
+            $this->_unserialize("InstanceId", $res);
         }
-        if (array_key_exists("ForceReboot",$param) and $param["ForceReboot"] !== null) {
-            if(is_bool($param["ForceReboot"])){
+        if (array_key_exists("ForceReboot", $param) and $param["ForceReboot"] !== null) {
+            if (is_bool($param["ForceReboot"])) {
                 $this->RequestParams["ForceReboot"] = $param["ForceReboot"] ? "true" : "false";
             } else {
                 $this->RequestParams["ForceReboot"] = $param["ForceReboot"];
@@ -38,12 +39,12 @@ class RebootInstancesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Sks\V20151101\Models;
+
+namespace Ksyun\Client\Sks\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ImportKeyRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "KeyName" => null,
-         /**String**/
+        /**String**/
         "PublicKey" => null,
-         /**String**/
+        /**String**/
         "Description" => null,
     ];
 
@@ -26,22 +27,22 @@ class ImportKeyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("KeyName",$param) and $param["KeyName"] !== null) {
-            if(is_bool($param["KeyName"])){
+        if (array_key_exists("KeyName", $param) and $param["KeyName"] !== null) {
+            if (is_bool($param["KeyName"])) {
                 $this->RequestParams["KeyName"] = $param["KeyName"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeyName"] = $param["KeyName"];
             }
         }
-        if (array_key_exists("PublicKey",$param) and $param["PublicKey"] !== null) {
-            if(is_bool($param["PublicKey"])){
+        if (array_key_exists("PublicKey", $param) and $param["PublicKey"] !== null) {
+            if (is_bool($param["PublicKey"])) {
                 $this->RequestParams["PublicKey"] = $param["PublicKey"] ? "true" : "false";
             } else {
                 $this->RequestParams["PublicKey"] = $param["PublicKey"];
             }
         }
-        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
-            if(is_bool($param["Description"])){
+        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
+            if (is_bool($param["Description"])) {
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
@@ -50,12 +51,12 @@ class ImportKeyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

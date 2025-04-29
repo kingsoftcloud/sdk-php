@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Clickhouse\V20210101\Models;
+
+namespace Ksyun\Client\Clickhouse\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class ListRegionRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "ProductType" => null,
     ];
 
@@ -22,8 +23,8 @@ class ListRegionRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProductType",$param) and $param["ProductType"] !== null) {
-            if(is_bool($param["ProductType"])){
+        if (array_key_exists("ProductType", $param) and $param["ProductType"] !== null) {
+            if (is_bool($param["ProductType"])) {
                 $this->RequestParams["ProductType"] = $param["ProductType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProductType"] = $param["ProductType"];
@@ -32,12 +33,12 @@ class ListRegionRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

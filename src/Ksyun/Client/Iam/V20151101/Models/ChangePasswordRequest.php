@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Iam\V20151101\Models;
+
+namespace Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ChangePasswordRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "OldPassword" => null,
-         /**String**/
+        /**String**/
         "NewPassword" => null,
     ];
 
@@ -24,15 +25,15 @@ class ChangePasswordRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("OldPassword",$param) and $param["OldPassword"] !== null) {
-            if(is_bool($param["OldPassword"])){
+        if (array_key_exists("OldPassword", $param) and $param["OldPassword"] !== null) {
+            if (is_bool($param["OldPassword"])) {
                 $this->RequestParams["OldPassword"] = $param["OldPassword"] ? "true" : "false";
             } else {
                 $this->RequestParams["OldPassword"] = $param["OldPassword"];
             }
         }
-        if (array_key_exists("NewPassword",$param) and $param["NewPassword"] !== null) {
-            if(is_bool($param["NewPassword"])){
+        if (array_key_exists("NewPassword", $param) and $param["NewPassword"] !== null) {
+            if (is_bool($param["NewPassword"])) {
                 $this->RequestParams["NewPassword"] = $param["NewPassword"] ? "true" : "false";
             } else {
                 $this->RequestParams["NewPassword"] = $param["NewPassword"];
@@ -41,12 +42,12 @@ class ChangePasswordRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

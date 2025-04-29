@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Krds\V20200825\Models;
+
+namespace Ksyun\Client\Krds\V20200825\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class SecurityGroupRelationRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "RelationAction" => null,
-         /**String**/
+        /**String**/
         "SecurityGroupId" => null,
-         /**String**/
+        /**String**/
         "DBInstanceIdentifier" => null,
     ];
 
@@ -26,22 +27,22 @@ class SecurityGroupRelationRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RelationAction",$param) and $param["RelationAction"] !== null) {
-            if(is_bool($param["RelationAction"])){
+        if (array_key_exists("RelationAction", $param) and $param["RelationAction"] !== null) {
+            if (is_bool($param["RelationAction"])) {
                 $this->RequestParams["RelationAction"] = $param["RelationAction"] ? "true" : "false";
             } else {
                 $this->RequestParams["RelationAction"] = $param["RelationAction"];
             }
         }
-        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
-            if(is_bool($param["SecurityGroupId"])){
+        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
+            if (is_bool($param["SecurityGroupId"])) {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
             }
         }
-        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
-            if(is_bool($param["DBInstanceIdentifier"])){
+        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
+            if (is_bool($param["DBInstanceIdentifier"])) {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
@@ -50,12 +51,12 @@ class SecurityGroupRelationRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

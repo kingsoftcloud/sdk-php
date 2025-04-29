@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeLocalVolumeSnapshotsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "Action" => null,
-         /**String**/
+        /**String**/
         "Version" => null,
-         /**String**/
+        /**String**/
         "LocalVolumeName" => null,
-         /**String**/
+        /**String**/
         "SourceLocalVolumeId" => null,
     ];
 
@@ -28,29 +29,29 @@ class DescribeLocalVolumeSnapshotsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Action",$param) and $param["Action"] !== null) {
-            if(is_bool($param["Action"])){
+        if (array_key_exists("Action", $param) and $param["Action"] !== null) {
+            if (is_bool($param["Action"])) {
                 $this->RequestParams["Action"] = $param["Action"] ? "true" : "false";
             } else {
                 $this->RequestParams["Action"] = $param["Action"];
             }
         }
-        if (array_key_exists("Version",$param) and $param["Version"] !== null) {
-            if(is_bool($param["Version"])){
+        if (array_key_exists("Version", $param) and $param["Version"] !== null) {
+            if (is_bool($param["Version"])) {
                 $this->RequestParams["Version"] = $param["Version"] ? "true" : "false";
             } else {
                 $this->RequestParams["Version"] = $param["Version"];
             }
         }
-        if (array_key_exists("LocalVolumeName",$param) and $param["LocalVolumeName"] !== null) {
-            if(is_bool($param["LocalVolumeName"])){
+        if (array_key_exists("LocalVolumeName", $param) and $param["LocalVolumeName"] !== null) {
+            if (is_bool($param["LocalVolumeName"])) {
                 $this->RequestParams["LocalVolumeName"] = $param["LocalVolumeName"] ? "true" : "false";
             } else {
                 $this->RequestParams["LocalVolumeName"] = $param["LocalVolumeName"];
             }
         }
-        if (array_key_exists("SourceLocalVolumeId",$param) and $param["SourceLocalVolumeId"] !== null) {
-            if(is_bool($param["SourceLocalVolumeId"])){
+        if (array_key_exists("SourceLocalVolumeId", $param) and $param["SourceLocalVolumeId"] !== null) {
+            if (is_bool($param["SourceLocalVolumeId"])) {
                 $this->RequestParams["SourceLocalVolumeId"] = $param["SourceLocalVolumeId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SourceLocalVolumeId"] = $param["SourceLocalVolumeId"];
@@ -59,12 +60,12 @@ class DescribeLocalVolumeSnapshotsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

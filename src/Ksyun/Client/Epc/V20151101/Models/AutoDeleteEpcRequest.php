@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Epc\V20151101\Models;
+
+namespace Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class AutoDeleteEpcRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "HostId" => null,
-         /**String**/
+        /**String**/
         "AutoDeleteTime" => null,
-         /**String**/
+        /**String**/
         "AutoDeleteEip" => null,
     ];
 
@@ -26,22 +27,22 @@ class AutoDeleteEpcRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
-            if(is_bool($param["HostId"])){
+        if (array_key_exists("HostId", $param) and $param["HostId"] !== null) {
+            if (is_bool($param["HostId"])) {
                 $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostId"] = $param["HostId"];
             }
         }
-        if (array_key_exists("AutoDeleteTime",$param) and $param["AutoDeleteTime"] !== null) {
-            if(is_bool($param["AutoDeleteTime"])){
+        if (array_key_exists("AutoDeleteTime", $param) and $param["AutoDeleteTime"] !== null) {
+            if (is_bool($param["AutoDeleteTime"])) {
                 $this->RequestParams["AutoDeleteTime"] = $param["AutoDeleteTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["AutoDeleteTime"] = $param["AutoDeleteTime"];
             }
         }
-        if (array_key_exists("AutoDeleteEip",$param) and $param["AutoDeleteEip"] !== null) {
-            if(is_bool($param["AutoDeleteEip"])){
+        if (array_key_exists("AutoDeleteEip", $param) and $param["AutoDeleteEip"] !== null) {
+            if (is_bool($param["AutoDeleteEip"])) {
                 $this->RequestParams["AutoDeleteEip"] = $param["AutoDeleteEip"] ? "true" : "false";
             } else {
                 $this->RequestParams["AutoDeleteEip"] = $param["AutoDeleteEip"];
@@ -50,12 +51,12 @@ class AutoDeleteEpcRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Mongodb\V20170101\Models;
+
+namespace Ksyun\Client\Mongodb\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeRegionsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "Action" => null,
     ];
 
@@ -22,8 +23,8 @@ class DescribeRegionsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Action",$param) and $param["Action"] !== null) {
-            if(is_bool($param["Action"])){
+        if (array_key_exists("Action", $param) and $param["Action"] !== null) {
+            if (is_bool($param["Action"])) {
                 $this->RequestParams["Action"] = $param["Action"] ? "true" : "false";
             } else {
                 $this->RequestParams["Action"] = $param["Action"];
@@ -32,12 +33,12 @@ class DescribeRegionsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

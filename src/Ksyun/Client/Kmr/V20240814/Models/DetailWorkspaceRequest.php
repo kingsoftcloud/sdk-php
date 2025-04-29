@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kmr\V20240814\Models;
+
+namespace Ksyun\Client\Kmr\V20240814\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DetailWorkspaceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "WorkspaceId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DetailWorkspaceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("WorkspaceId",$param) and $param["WorkspaceId"] !== null) {
-            if(is_bool($param["WorkspaceId"])){
+        if (array_key_exists("WorkspaceId", $param) and $param["WorkspaceId"] !== null) {
+            if (is_bool($param["WorkspaceId"])) {
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"];
@@ -32,12 +33,12 @@ class DetailWorkspaceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

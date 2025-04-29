@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Resourcemanager\V20210320\Models;
+
+namespace Ksyun\Client\Resourcemanager\V20210320\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class UpdateAccountRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "MemberId" => null,
-         /**String**/
+        /**String**/
         "NewDisplayName" => null,
-         /**String**/
+        /**String**/
         "FolderId" => null,
     ];
 
@@ -26,22 +27,22 @@ class UpdateAccountRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("MemberId",$param) and $param["MemberId"] !== null) {
-            if(is_bool($param["MemberId"])){
+        if (array_key_exists("MemberId", $param) and $param["MemberId"] !== null) {
+            if (is_bool($param["MemberId"])) {
                 $this->RequestParams["MemberId"] = $param["MemberId"] ? "true" : "false";
             } else {
                 $this->RequestParams["MemberId"] = $param["MemberId"];
             }
         }
-        if (array_key_exists("NewDisplayName",$param) and $param["NewDisplayName"] !== null) {
-            if(is_bool($param["NewDisplayName"])){
+        if (array_key_exists("NewDisplayName", $param) and $param["NewDisplayName"] !== null) {
+            if (is_bool($param["NewDisplayName"])) {
                 $this->RequestParams["NewDisplayName"] = $param["NewDisplayName"] ? "true" : "false";
             } else {
                 $this->RequestParams["NewDisplayName"] = $param["NewDisplayName"];
             }
         }
-        if (array_key_exists("FolderId",$param) and $param["FolderId"] !== null) {
-            if(is_bool($param["FolderId"])){
+        if (array_key_exists("FolderId", $param) and $param["FolderId"] !== null) {
+            if (is_bool($param["FolderId"])) {
                 $this->RequestParams["FolderId"] = $param["FolderId"] ? "true" : "false";
             } else {
                 $this->RequestParams["FolderId"] = $param["FolderId"];
@@ -50,12 +51,12 @@ class UpdateAccountRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

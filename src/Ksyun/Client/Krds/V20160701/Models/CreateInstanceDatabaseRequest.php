@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Krds\V20160701\Models;
+
+namespace Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateInstanceDatabaseRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DBInstanceIdentifier" => null,
-         /**String**/
+        /**String**/
         "InstanceDatabaseName" => null,
-         /**String**/
+        /**String**/
         "InstanceDatabaseCollation" => null,
-         /**String**/
+        /**String**/
         "InstanceDatabaseDescription" => null,
     ];
 
@@ -28,29 +29,29 @@ class CreateInstanceDatabaseRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
-            if(is_bool($param["DBInstanceIdentifier"])){
+        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
+            if (is_bool($param["DBInstanceIdentifier"])) {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("InstanceDatabaseName",$param) and $param["InstanceDatabaseName"] !== null) {
-            if(is_bool($param["InstanceDatabaseName"])){
+        if (array_key_exists("InstanceDatabaseName", $param) and $param["InstanceDatabaseName"] !== null) {
+            if (is_bool($param["InstanceDatabaseName"])) {
                 $this->RequestParams["InstanceDatabaseName"] = $param["InstanceDatabaseName"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceDatabaseName"] = $param["InstanceDatabaseName"];
             }
         }
-        if (array_key_exists("InstanceDatabaseCollation",$param) and $param["InstanceDatabaseCollation"] !== null) {
-            if(is_bool($param["InstanceDatabaseCollation"])){
+        if (array_key_exists("InstanceDatabaseCollation", $param) and $param["InstanceDatabaseCollation"] !== null) {
+            if (is_bool($param["InstanceDatabaseCollation"])) {
                 $this->RequestParams["InstanceDatabaseCollation"] = $param["InstanceDatabaseCollation"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceDatabaseCollation"] = $param["InstanceDatabaseCollation"];
             }
         }
-        if (array_key_exists("InstanceDatabaseDescription",$param) and $param["InstanceDatabaseDescription"] !== null) {
-            if(is_bool($param["InstanceDatabaseDescription"])){
+        if (array_key_exists("InstanceDatabaseDescription", $param) and $param["InstanceDatabaseDescription"] !== null) {
+            if (is_bool($param["InstanceDatabaseDescription"])) {
                 $this->RequestParams["InstanceDatabaseDescription"] = $param["InstanceDatabaseDescription"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceDatabaseDescription"] = $param["InstanceDatabaseDescription"];
@@ -59,12 +60,12 @@ class CreateInstanceDatabaseRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

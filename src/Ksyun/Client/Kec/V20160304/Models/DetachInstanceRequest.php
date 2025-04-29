@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class DetachInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ScalingGroupId" => null,
     ];
 
-     /**特殊参数类型:Filter**/
+    /**特殊参数类型:Filter**/
     public $ScalingInstanceId = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -24,26 +25,26 @@ class DetachInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ScalingGroupId",$param) and $param["ScalingGroupId"] !== null) {
-            if(is_bool($param["ScalingGroupId"])){
+        if (array_key_exists("ScalingGroupId", $param) and $param["ScalingGroupId"] !== null) {
+            if (is_bool($param["ScalingGroupId"])) {
                 $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"];
             }
         }
-        if (array_key_exists("ScalingInstanceId",$param) and $param["ScalingInstanceId"] !== null) {
-            $res = $this->formatFilterParams("ScalingInstanceId",$param["ScalingInstanceId"]);
-            $this->_unserialize("ScalingInstanceId",$res);
+        if (array_key_exists("ScalingInstanceId", $param) and $param["ScalingInstanceId"] !== null) {
+            $res = $this->formatFilterParams("ScalingInstanceId", $param["ScalingInstanceId"]);
+            $this->_unserialize("ScalingInstanceId", $res);
         }
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

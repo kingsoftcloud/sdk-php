@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteNatRateLimitRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "NatRateLimitId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteNatRateLimitRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NatRateLimitId",$param) and $param["NatRateLimitId"] !== null) {
-            if(is_bool($param["NatRateLimitId"])){
+        if (array_key_exists("NatRateLimitId", $param) and $param["NatRateLimitId"] !== null) {
+            if (is_bool($param["NatRateLimitId"])) {
                 $this->RequestParams["NatRateLimitId"] = $param["NatRateLimitId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NatRateLimitId"] = $param["NatRateLimitId"];
@@ -32,12 +33,12 @@ class DeleteNatRateLimitRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

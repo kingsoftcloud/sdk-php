@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyHostHeaderRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "HostHeaderId" => null,
-         /**String**/
+        /**String**/
         "CertificateId" => null,
     ];
 
@@ -24,15 +25,15 @@ class ModifyHostHeaderRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostHeaderId",$param) and $param["HostHeaderId"] !== null) {
-            if(is_bool($param["HostHeaderId"])){
+        if (array_key_exists("HostHeaderId", $param) and $param["HostHeaderId"] !== null) {
+            if (is_bool($param["HostHeaderId"])) {
                 $this->RequestParams["HostHeaderId"] = $param["HostHeaderId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostHeaderId"] = $param["HostHeaderId"];
             }
         }
-        if (array_key_exists("CertificateId",$param) and $param["CertificateId"] !== null) {
-            if(is_bool($param["CertificateId"])){
+        if (array_key_exists("CertificateId", $param) and $param["CertificateId"] !== null) {
+            if (is_bool($param["CertificateId"])) {
                 $this->RequestParams["CertificateId"] = $param["CertificateId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CertificateId"] = $param["CertificateId"];
@@ -41,12 +42,12 @@ class ModifyHostHeaderRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

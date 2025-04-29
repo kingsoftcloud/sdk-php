@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kmr\V20210902\Models;
+
+namespace Ksyun\Client\Kmr\V20210902\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class BindTagsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ClusterId" => null,
-         /**Array**/
+        /**Array**/
         "Tags" => null,
     ];
 
@@ -24,15 +25,15 @@ class BindTagsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
-            if(is_bool($param["ClusterId"])){
+        if (array_key_exists("ClusterId", $param) and $param["ClusterId"] !== null) {
+            if (is_bool($param["ClusterId"])) {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
             }
         }
-        if (array_key_exists("Tags",$param) and $param["Tags"] !== null) {
-            if(is_bool($param["Tags"])){
+        if (array_key_exists("Tags", $param) and $param["Tags"] !== null) {
+            if (is_bool($param["Tags"])) {
                 $this->RequestParams["Tags"] = $param["Tags"] ? "true" : "false";
             } else {
                 $this->RequestParams["Tags"] = $param["Tags"];
@@ -41,12 +42,12 @@ class BindTagsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

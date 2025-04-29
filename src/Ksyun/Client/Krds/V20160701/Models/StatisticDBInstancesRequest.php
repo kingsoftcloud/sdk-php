@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Krds\V20160701\Models;
+
+namespace Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class StatisticDBInstancesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "ExpiryDateLessThan" => null,
     ];
 
@@ -22,8 +23,8 @@ class StatisticDBInstancesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ExpiryDateLessThan",$param) and $param["ExpiryDateLessThan"] !== null) {
-            if(is_bool($param["ExpiryDateLessThan"])){
+        if (array_key_exists("ExpiryDateLessThan", $param) and $param["ExpiryDateLessThan"] !== null) {
+            if (is_bool($param["ExpiryDateLessThan"])) {
                 $this->RequestParams["ExpiryDateLessThan"] = $param["ExpiryDateLessThan"] ? "true" : "false";
             } else {
                 $this->RequestParams["ExpiryDateLessThan"] = $param["ExpiryDateLessThan"];
@@ -32,12 +33,12 @@ class StatisticDBInstancesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

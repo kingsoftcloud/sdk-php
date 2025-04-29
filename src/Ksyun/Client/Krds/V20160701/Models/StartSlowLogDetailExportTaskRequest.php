@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Krds\V20160701\Models;
+
+namespace Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class StartSlowLogDetailExportTaskRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DBInstanceIdentifier" => null,
-         /**String**/
+        /**String**/
         "AuditBeginTime" => null,
-         /**String**/
+        /**String**/
         "AuditEndTime" => null,
-         /**String**/
+        /**String**/
         "AccessSqlStatement" => null,
     ];
 
@@ -28,29 +29,29 @@ class StartSlowLogDetailExportTaskRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
-            if(is_bool($param["DBInstanceIdentifier"])){
+        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
+            if (is_bool($param["DBInstanceIdentifier"])) {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("AuditBeginTime",$param) and $param["AuditBeginTime"] !== null) {
-            if(is_bool($param["AuditBeginTime"])){
+        if (array_key_exists("AuditBeginTime", $param) and $param["AuditBeginTime"] !== null) {
+            if (is_bool($param["AuditBeginTime"])) {
                 $this->RequestParams["AuditBeginTime"] = $param["AuditBeginTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["AuditBeginTime"] = $param["AuditBeginTime"];
             }
         }
-        if (array_key_exists("AuditEndTime",$param) and $param["AuditEndTime"] !== null) {
-            if(is_bool($param["AuditEndTime"])){
+        if (array_key_exists("AuditEndTime", $param) and $param["AuditEndTime"] !== null) {
+            if (is_bool($param["AuditEndTime"])) {
                 $this->RequestParams["AuditEndTime"] = $param["AuditEndTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["AuditEndTime"] = $param["AuditEndTime"];
             }
         }
-        if (array_key_exists("AccessSqlStatement",$param) and $param["AccessSqlStatement"] !== null) {
-            if(is_bool($param["AccessSqlStatement"])){
+        if (array_key_exists("AccessSqlStatement", $param) and $param["AccessSqlStatement"] !== null) {
+            if (is_bool($param["AccessSqlStatement"])) {
                 $this->RequestParams["AccessSqlStatement"] = $param["AccessSqlStatement"] ? "true" : "false";
             } else {
                 $this->RequestParams["AccessSqlStatement"] = $param["AccessSqlStatement"];
@@ -59,12 +60,12 @@ class StartSlowLogDetailExportTaskRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

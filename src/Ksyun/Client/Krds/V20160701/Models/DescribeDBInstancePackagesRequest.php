@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Krds\V20160701\Models;
+
+namespace Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeDBInstancePackagesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "RegionCode" => null,
     ];
 
@@ -22,8 +23,8 @@ class DescribeDBInstancePackagesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RegionCode",$param) and $param["RegionCode"] !== null) {
-            if(is_bool($param["RegionCode"])){
+        if (array_key_exists("RegionCode", $param) and $param["RegionCode"] !== null) {
+            if (is_bool($param["RegionCode"])) {
                 $this->RequestParams["RegionCode"] = $param["RegionCode"] ? "true" : "false";
             } else {
                 $this->RequestParams["RegionCode"] = $param["RegionCode"];
@@ -32,12 +33,12 @@ class DescribeDBInstancePackagesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

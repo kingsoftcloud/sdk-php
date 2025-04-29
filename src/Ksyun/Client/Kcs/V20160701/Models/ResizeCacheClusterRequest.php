@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kcs\V20160701\Models;
+
+namespace Ksyun\Client\Kcs\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,15 +8,15 @@ use Ksyun\Common\Http\HttpOptions;
 class ResizeCacheClusterRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "AvailableZone" => null,
-         /**String**/
+        /**String**/
         "CacheId" => null,
-         /**Int**/
+        /**Int**/
         "Capacity" => null,
-         /**Int**/
+        /**Int**/
         "ShardSize" => null,
-         /**Int**/
+        /**Int**/
         "ShardNum" => null,
     ];
 
@@ -30,36 +31,36 @@ class ResizeCacheClusterRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AvailableZone",$param) and $param["AvailableZone"] !== null) {
-            if(is_bool($param["AvailableZone"])){
+        if (array_key_exists("AvailableZone", $param) and $param["AvailableZone"] !== null) {
+            if (is_bool($param["AvailableZone"])) {
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"] ? "true" : "false";
             } else {
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"];
             }
         }
-        if (array_key_exists("CacheId",$param) and $param["CacheId"] !== null) {
-            if(is_bool($param["CacheId"])){
+        if (array_key_exists("CacheId", $param) and $param["CacheId"] !== null) {
+            if (is_bool($param["CacheId"])) {
                 $this->RequestParams["CacheId"] = $param["CacheId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CacheId"] = $param["CacheId"];
             }
         }
-        if (array_key_exists("Capacity",$param) and $param["Capacity"] !== null) {
-            if(is_bool($param["Capacity"])){
+        if (array_key_exists("Capacity", $param) and $param["Capacity"] !== null) {
+            if (is_bool($param["Capacity"])) {
                 $this->RequestParams["Capacity"] = $param["Capacity"] ? "true" : "false";
             } else {
                 $this->RequestParams["Capacity"] = $param["Capacity"];
             }
         }
-        if (array_key_exists("ShardSize",$param) and $param["ShardSize"] !== null) {
-            if(is_bool($param["ShardSize"])){
+        if (array_key_exists("ShardSize", $param) and $param["ShardSize"] !== null) {
+            if (is_bool($param["ShardSize"])) {
                 $this->RequestParams["ShardSize"] = $param["ShardSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["ShardSize"] = $param["ShardSize"];
             }
         }
-        if (array_key_exists("ShardNum",$param) and $param["ShardNum"] !== null) {
-            if(is_bool($param["ShardNum"])){
+        if (array_key_exists("ShardNum", $param) and $param["ShardNum"] !== null) {
+            if (is_bool($param["ShardNum"])) {
                 $this->RequestParams["ShardNum"] = $param["ShardNum"] ? "true" : "false";
             } else {
                 $this->RequestParams["ShardNum"] = $param["ShardNum"];
@@ -68,12 +69,12 @@ class ResizeCacheClusterRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateAlbListenerCertGroupRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "AlbListenerId" => null,
     ];
 
@@ -22,8 +23,8 @@ class CreateAlbListenerCertGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AlbListenerId",$param) and $param["AlbListenerId"] !== null) {
-            if(is_bool($param["AlbListenerId"])){
+        if (array_key_exists("AlbListenerId", $param) and $param["AlbListenerId"] !== null) {
+            if (is_bool($param["AlbListenerId"])) {
                 $this->RequestParams["AlbListenerId"] = $param["AlbListenerId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbListenerId"] = $param["AlbListenerId"];
@@ -32,12 +33,12 @@ class CreateAlbListenerCertGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteVpnGatewayRouteRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "VpnGatewayRouteId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteVpnGatewayRouteRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpnGatewayRouteId",$param) and $param["VpnGatewayRouteId"] !== null) {
-            if(is_bool($param["VpnGatewayRouteId"])){
+        if (array_key_exists("VpnGatewayRouteId", $param) and $param["VpnGatewayRouteId"] !== null) {
+            if (is_bool($param["VpnGatewayRouteId"])) {
                 $this->RequestParams["VpnGatewayRouteId"] = $param["VpnGatewayRouteId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpnGatewayRouteId"] = $param["VpnGatewayRouteId"];
@@ -32,12 +33,12 @@ class DeleteVpnGatewayRouteRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

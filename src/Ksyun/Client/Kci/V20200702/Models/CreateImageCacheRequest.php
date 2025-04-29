@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kci\V20200702\Models;
+
+namespace Ksyun\Client\Kci\V20200702\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,27 +8,27 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateImageCacheRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ImageCacheName" => null,
-         /**String**/
+        /**String**/
         "SubnetId" => null,
-         /**String**/
+        /**String**/
         "SecurityGroupId" => null,
-         /**Int**/
+        /**Int**/
         "ImageCacheSize" => null,
-         /**Int**/
+        /**Int**/
         "RetentionDays" => null,
-         /**Array**/
+        /**Array**/
         "ImageRegistryCredential" => null,
-         /**String**/
+        /**String**/
         "ImageCacheType" => null,
-         /**Boolean**/
+        /**Boolean**/
         "EnableWarm" => null,
     ];
 
-     /**特殊参数类型:Filter**/
+    /**特殊参数类型:Filter**/
     public $Image = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -38,61 +39,61 @@ class CreateImageCacheRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ImageCacheName",$param) and $param["ImageCacheName"] !== null) {
-            if(is_bool($param["ImageCacheName"])){
+        if (array_key_exists("ImageCacheName", $param) and $param["ImageCacheName"] !== null) {
+            if (is_bool($param["ImageCacheName"])) {
                 $this->RequestParams["ImageCacheName"] = $param["ImageCacheName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageCacheName"] = $param["ImageCacheName"];
             }
         }
-        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
-            if(is_bool($param["SubnetId"])){
+        if (array_key_exists("SubnetId", $param) and $param["SubnetId"] !== null) {
+            if (is_bool($param["SubnetId"])) {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
             }
         }
-        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
-            if(is_bool($param["SecurityGroupId"])){
+        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
+            if (is_bool($param["SecurityGroupId"])) {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
             }
         }
-        if (array_key_exists("ImageCacheSize",$param) and $param["ImageCacheSize"] !== null) {
-            if(is_bool($param["ImageCacheSize"])){
+        if (array_key_exists("ImageCacheSize", $param) and $param["ImageCacheSize"] !== null) {
+            if (is_bool($param["ImageCacheSize"])) {
                 $this->RequestParams["ImageCacheSize"] = $param["ImageCacheSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageCacheSize"] = $param["ImageCacheSize"];
             }
         }
-        if (array_key_exists("RetentionDays",$param) and $param["RetentionDays"] !== null) {
-            if(is_bool($param["RetentionDays"])){
+        if (array_key_exists("RetentionDays", $param) and $param["RetentionDays"] !== null) {
+            if (is_bool($param["RetentionDays"])) {
                 $this->RequestParams["RetentionDays"] = $param["RetentionDays"] ? "true" : "false";
             } else {
                 $this->RequestParams["RetentionDays"] = $param["RetentionDays"];
             }
         }
-        if (array_key_exists("Image",$param) and $param["Image"] !== null) {
-            $res = $this->formatFilterParams("Image",$param["Image"]);
-            $this->_unserialize("Image",$res);
+        if (array_key_exists("Image", $param) and $param["Image"] !== null) {
+            $res = $this->formatFilterParams("Image", $param["Image"]);
+            $this->_unserialize("Image", $res);
         }
-        if (array_key_exists("ImageRegistryCredential",$param) and $param["ImageRegistryCredential"] !== null) {
-            if(is_bool($param["ImageRegistryCredential"])){
+        if (array_key_exists("ImageRegistryCredential", $param) and $param["ImageRegistryCredential"] !== null) {
+            if (is_bool($param["ImageRegistryCredential"])) {
                 $this->RequestParams["ImageRegistryCredential"] = $param["ImageRegistryCredential"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageRegistryCredential"] = $param["ImageRegistryCredential"];
             }
         }
-        if (array_key_exists("ImageCacheType",$param) and $param["ImageCacheType"] !== null) {
-            if(is_bool($param["ImageCacheType"])){
+        if (array_key_exists("ImageCacheType", $param) and $param["ImageCacheType"] !== null) {
+            if (is_bool($param["ImageCacheType"])) {
                 $this->RequestParams["ImageCacheType"] = $param["ImageCacheType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageCacheType"] = $param["ImageCacheType"];
             }
         }
-        if (array_key_exists("EnableWarm",$param) and $param["EnableWarm"] !== null) {
-            if(is_bool($param["EnableWarm"])){
+        if (array_key_exists("EnableWarm", $param) and $param["EnableWarm"] !== null) {
+            if (is_bool($param["EnableWarm"])) {
                 $this->RequestParams["EnableWarm"] = $param["EnableWarm"] ? "true" : "false";
             } else {
                 $this->RequestParams["EnableWarm"] = $param["EnableWarm"];
@@ -101,12 +102,12 @@ class CreateImageCacheRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

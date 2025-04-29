@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Memcached\V20180627\Models;
+
+namespace Ksyun\Client\Memcached\V20180627\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class UpdatePasswordRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "CacheId" => null,
-         /**String**/
+        /**String**/
         "Password" => null,
-         /**String**/
+        /**String**/
         "Engine" => null,
     ];
 
@@ -26,22 +27,22 @@ class UpdatePasswordRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CacheId",$param) and $param["CacheId"] !== null) {
-            if(is_bool($param["CacheId"])){
+        if (array_key_exists("CacheId", $param) and $param["CacheId"] !== null) {
+            if (is_bool($param["CacheId"])) {
                 $this->RequestParams["CacheId"] = $param["CacheId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CacheId"] = $param["CacheId"];
             }
         }
-        if (array_key_exists("Password",$param) and $param["Password"] !== null) {
-            if(is_bool($param["Password"])){
+        if (array_key_exists("Password", $param) and $param["Password"] !== null) {
+            if (is_bool($param["Password"])) {
                 $this->RequestParams["Password"] = $param["Password"] ? "true" : "false";
             } else {
                 $this->RequestParams["Password"] = $param["Password"];
             }
         }
-        if (array_key_exists("Engine",$param) and $param["Engine"] !== null) {
-            if(is_bool($param["Engine"])){
+        if (array_key_exists("Engine", $param) and $param["Engine"] !== null) {
+            if (is_bool($param["Engine"])) {
                 $this->RequestParams["Engine"] = $param["Engine"] ? "true" : "false";
             } else {
                 $this->RequestParams["Engine"] = $param["Engine"];
@@ -50,12 +51,12 @@ class UpdatePasswordRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

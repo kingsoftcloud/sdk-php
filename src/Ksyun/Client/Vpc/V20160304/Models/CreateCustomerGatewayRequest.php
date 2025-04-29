@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateCustomerGatewayRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "CustomerGatewayName" => null,
-         /**String**/
+        /**String**/
         "CustomerGatewayAddress" => null,
-         /**String**/
+        /**String**/
         "HaCustomerGatewayAddress" => null,
     ];
 
@@ -26,22 +27,22 @@ class CreateCustomerGatewayRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CustomerGatewayName",$param) and $param["CustomerGatewayName"] !== null) {
-            if(is_bool($param["CustomerGatewayName"])){
+        if (array_key_exists("CustomerGatewayName", $param) and $param["CustomerGatewayName"] !== null) {
+            if (is_bool($param["CustomerGatewayName"])) {
                 $this->RequestParams["CustomerGatewayName"] = $param["CustomerGatewayName"] ? "true" : "false";
             } else {
                 $this->RequestParams["CustomerGatewayName"] = $param["CustomerGatewayName"];
             }
         }
-        if (array_key_exists("CustomerGatewayAddress",$param) and $param["CustomerGatewayAddress"] !== null) {
-            if(is_bool($param["CustomerGatewayAddress"])){
+        if (array_key_exists("CustomerGatewayAddress", $param) and $param["CustomerGatewayAddress"] !== null) {
+            if (is_bool($param["CustomerGatewayAddress"])) {
                 $this->RequestParams["CustomerGatewayAddress"] = $param["CustomerGatewayAddress"] ? "true" : "false";
             } else {
                 $this->RequestParams["CustomerGatewayAddress"] = $param["CustomerGatewayAddress"];
             }
         }
-        if (array_key_exists("HaCustomerGatewayAddress",$param) and $param["HaCustomerGatewayAddress"] !== null) {
-            if(is_bool($param["HaCustomerGatewayAddress"])){
+        if (array_key_exists("HaCustomerGatewayAddress", $param) and $param["HaCustomerGatewayAddress"] !== null) {
+            if (is_bool($param["HaCustomerGatewayAddress"])) {
                 $this->RequestParams["HaCustomerGatewayAddress"] = $param["HaCustomerGatewayAddress"] ? "true" : "false";
             } else {
                 $this->RequestParams["HaCustomerGatewayAddress"] = $param["HaCustomerGatewayAddress"];
@@ -50,12 +51,12 @@ class CreateCustomerGatewayRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

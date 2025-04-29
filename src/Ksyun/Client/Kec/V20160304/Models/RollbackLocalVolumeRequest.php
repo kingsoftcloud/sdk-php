@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class RollbackLocalVolumeRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "LocalVolumeSnapshotId" => null,
     ];
 
@@ -22,8 +23,8 @@ class RollbackLocalVolumeRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LocalVolumeSnapshotId",$param) and $param["LocalVolumeSnapshotId"] !== null) {
-            if(is_bool($param["LocalVolumeSnapshotId"])){
+        if (array_key_exists("LocalVolumeSnapshotId", $param) and $param["LocalVolumeSnapshotId"] !== null) {
+            if (is_bool($param["LocalVolumeSnapshotId"])) {
                 $this->RequestParams["LocalVolumeSnapshotId"] = $param["LocalVolumeSnapshotId"] ? "true" : "false";
             } else {
                 $this->RequestParams["LocalVolumeSnapshotId"] = $param["LocalVolumeSnapshotId"];
@@ -32,12 +33,12 @@ class RollbackLocalVolumeRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Epc\V20151101\Models;
+
+namespace Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateImageRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "HostId" => null,
-         /**String**/
+        /**String**/
         "ImageName" => null,
-         /**String**/
+        /**String**/
         "ImageMode" => null,
-         /**String**/
+        /**String**/
         "ImageInitialization" => null,
     ];
 
@@ -28,29 +29,29 @@ class CreateImageRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
-            if(is_bool($param["HostId"])){
+        if (array_key_exists("HostId", $param) and $param["HostId"] !== null) {
+            if (is_bool($param["HostId"])) {
                 $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostId"] = $param["HostId"];
             }
         }
-        if (array_key_exists("ImageName",$param) and $param["ImageName"] !== null) {
-            if(is_bool($param["ImageName"])){
+        if (array_key_exists("ImageName", $param) and $param["ImageName"] !== null) {
+            if (is_bool($param["ImageName"])) {
                 $this->RequestParams["ImageName"] = $param["ImageName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageName"] = $param["ImageName"];
             }
         }
-        if (array_key_exists("ImageMode",$param) and $param["ImageMode"] !== null) {
-            if(is_bool($param["ImageMode"])){
+        if (array_key_exists("ImageMode", $param) and $param["ImageMode"] !== null) {
+            if (is_bool($param["ImageMode"])) {
                 $this->RequestParams["ImageMode"] = $param["ImageMode"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageMode"] = $param["ImageMode"];
             }
         }
-        if (array_key_exists("ImageInitialization",$param) and $param["ImageInitialization"] !== null) {
-            if(is_bool($param["ImageInitialization"])){
+        if (array_key_exists("ImageInitialization", $param) and $param["ImageInitialization"] !== null) {
+            if (is_bool($param["ImageInitialization"])) {
                 $this->RequestParams["ImageInitialization"] = $param["ImageInitialization"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageInitialization"] = $param["ImageInitialization"];
@@ -59,12 +60,12 @@ class CreateImageRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

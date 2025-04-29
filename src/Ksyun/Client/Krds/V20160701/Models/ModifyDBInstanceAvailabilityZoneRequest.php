@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Krds\V20160701\Models;
+
+namespace Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyDBInstanceAvailabilityZoneRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DBInstanceIdentifier" => null,
-         /**String**/
+        /**String**/
         "AvailabilityZone.1" => null,
-         /**String**/
+        /**String**/
         "AvailabilityZone.2" => null,
     ];
 
@@ -26,22 +27,22 @@ class ModifyDBInstanceAvailabilityZoneRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
-            if(is_bool($param["DBInstanceIdentifier"])){
+        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
+            if (is_bool($param["DBInstanceIdentifier"])) {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("AvailabilityZone.1",$param) and $param["AvailabilityZone.1"] !== null) {
-            if(is_bool($param["AvailabilityZone.1"])){
+        if (array_key_exists("AvailabilityZone.1", $param) and $param["AvailabilityZone.1"] !== null) {
+            if (is_bool($param["AvailabilityZone.1"])) {
                 $this->RequestParams["AvailabilityZone.1"] = $param["AvailabilityZone.1"] ? "true" : "false";
             } else {
                 $this->RequestParams["AvailabilityZone.1"] = $param["AvailabilityZone.1"];
             }
         }
-        if (array_key_exists("AvailabilityZone.2",$param) and $param["AvailabilityZone.2"] !== null) {
-            if(is_bool($param["AvailabilityZone.2"])){
+        if (array_key_exists("AvailabilityZone.2", $param) and $param["AvailabilityZone.2"] !== null) {
+            if (is_bool($param["AvailabilityZone.2"])) {
                 $this->RequestParams["AvailabilityZone.2"] = $param["AvailabilityZone.2"] ? "true" : "false";
             } else {
                 $this->RequestParams["AvailabilityZone.2"] = $param["AvailabilityZone.2"];
@@ -50,12 +51,12 @@ class ModifyDBInstanceAvailabilityZoneRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

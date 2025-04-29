@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class AddSecondaryCidrBlockRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "VpcId" => null,
-         /**String**/
+        /**String**/
         "CidrBlock" => null,
     ];
 
@@ -24,15 +25,15 @@ class AddSecondaryCidrBlockRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            if(is_bool($param["VpcId"])){
+        if (array_key_exists("VpcId", $param) and $param["VpcId"] !== null) {
+            if (is_bool($param["VpcId"])) {
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
             }
         }
-        if (array_key_exists("CidrBlock",$param) and $param["CidrBlock"] !== null) {
-            if(is_bool($param["CidrBlock"])){
+        if (array_key_exists("CidrBlock", $param) and $param["CidrBlock"] !== null) {
+            if (is_bool($param["CidrBlock"])) {
                 $this->RequestParams["CidrBlock"] = $param["CidrBlock"] ? "true" : "false";
             } else {
                 $this->RequestParams["CidrBlock"] = $param["CidrBlock"];
@@ -41,12 +42,12 @@ class AddSecondaryCidrBlockRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

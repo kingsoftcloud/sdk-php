@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20210101\Models;
+
+namespace Ksyun\Client\Monitor\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class UpdateAlertUserStatusRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
+        /**Array**/
         "UserId" => null,
-         /**Int**/
+        /**Int**/
         "UserStatus" => null,
     ];
 
@@ -24,15 +25,15 @@ class UpdateAlertUserStatusRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
-            if(is_bool($param["UserId"])){
+        if (array_key_exists("UserId", $param) and $param["UserId"] !== null) {
+            if (is_bool($param["UserId"])) {
                 $this->RequestParams["UserId"] = $param["UserId"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserId"] = $param["UserId"];
             }
         }
-        if (array_key_exists("UserStatus",$param) and $param["UserStatus"] !== null) {
-            if(is_bool($param["UserStatus"])){
+        if (array_key_exists("UserStatus", $param) and $param["UserStatus"] !== null) {
+            if (is_bool($param["UserStatus"])) {
                 $this->RequestParams["UserStatus"] = $param["UserStatus"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserStatus"] = $param["UserStatus"];
@@ -41,12 +42,12 @@ class UpdateAlertUserStatusRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

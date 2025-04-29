@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Cen\V20160304\Models;
+
+namespace Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,15 +8,15 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateCenRegionBandwidthRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "CenId" => null,
-         /**String**/
+        /**String**/
         "RegionA" => null,
-         /**String**/
+        /**String**/
         "RegionB" => null,
-         /**String**/
+        /**String**/
         "CenBandWidthPackageId" => null,
-         /**Int**/
+        /**Int**/
         "BandWidth" => null,
     ];
 
@@ -30,36 +31,36 @@ class CreateCenRegionBandwidthRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenId",$param) and $param["CenId"] !== null) {
-            if(is_bool($param["CenId"])){
+        if (array_key_exists("CenId", $param) and $param["CenId"] !== null) {
+            if (is_bool($param["CenId"])) {
                 $this->RequestParams["CenId"] = $param["CenId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenId"] = $param["CenId"];
             }
         }
-        if (array_key_exists("RegionA",$param) and $param["RegionA"] !== null) {
-            if(is_bool($param["RegionA"])){
+        if (array_key_exists("RegionA", $param) and $param["RegionA"] !== null) {
+            if (is_bool($param["RegionA"])) {
                 $this->RequestParams["RegionA"] = $param["RegionA"] ? "true" : "false";
             } else {
                 $this->RequestParams["RegionA"] = $param["RegionA"];
             }
         }
-        if (array_key_exists("RegionB",$param) and $param["RegionB"] !== null) {
-            if(is_bool($param["RegionB"])){
+        if (array_key_exists("RegionB", $param) and $param["RegionB"] !== null) {
+            if (is_bool($param["RegionB"])) {
                 $this->RequestParams["RegionB"] = $param["RegionB"] ? "true" : "false";
             } else {
                 $this->RequestParams["RegionB"] = $param["RegionB"];
             }
         }
-        if (array_key_exists("CenBandWidthPackageId",$param) and $param["CenBandWidthPackageId"] !== null) {
-            if(is_bool($param["CenBandWidthPackageId"])){
+        if (array_key_exists("CenBandWidthPackageId", $param) and $param["CenBandWidthPackageId"] !== null) {
+            if (is_bool($param["CenBandWidthPackageId"])) {
                 $this->RequestParams["CenBandWidthPackageId"] = $param["CenBandWidthPackageId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenBandWidthPackageId"] = $param["CenBandWidthPackageId"];
             }
         }
-        if (array_key_exists("BandWidth",$param) and $param["BandWidth"] !== null) {
-            if(is_bool($param["BandWidth"])){
+        if (array_key_exists("BandWidth", $param) and $param["BandWidth"] !== null) {
+            if (is_bool($param["BandWidth"])) {
                 $this->RequestParams["BandWidth"] = $param["BandWidth"] ? "true" : "false";
             } else {
                 $this->RequestParams["BandWidth"] = $param["BandWidth"];
@@ -68,12 +69,12 @@ class CreateCenRegionBandwidthRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

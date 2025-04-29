@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Cen\V20160304\Models;
+
+namespace Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,15 +8,15 @@ use Ksyun\Common\Http\HttpOptions;
 class AttachCenInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "CenId" => null,
-         /**String**/
+        /**String**/
         "InstanceType" => null,
-         /**String**/
+        /**String**/
         "CenRegion" => null,
-         /**String**/
+        /**String**/
         "CenInstanceId" => null,
-         /**String**/
+        /**String**/
         "InstanceAccountId" => null,
     ];
 
@@ -30,36 +31,36 @@ class AttachCenInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenId",$param) and $param["CenId"] !== null) {
-            if(is_bool($param["CenId"])){
+        if (array_key_exists("CenId", $param) and $param["CenId"] !== null) {
+            if (is_bool($param["CenId"])) {
                 $this->RequestParams["CenId"] = $param["CenId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenId"] = $param["CenId"];
             }
         }
-        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
-            if(is_bool($param["InstanceType"])){
+        if (array_key_exists("InstanceType", $param) and $param["InstanceType"] !== null) {
+            if (is_bool($param["InstanceType"])) {
                 $this->RequestParams["InstanceType"] = $param["InstanceType"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceType"] = $param["InstanceType"];
             }
         }
-        if (array_key_exists("CenRegion",$param) and $param["CenRegion"] !== null) {
-            if(is_bool($param["CenRegion"])){
+        if (array_key_exists("CenRegion", $param) and $param["CenRegion"] !== null) {
+            if (is_bool($param["CenRegion"])) {
                 $this->RequestParams["CenRegion"] = $param["CenRegion"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenRegion"] = $param["CenRegion"];
             }
         }
-        if (array_key_exists("CenInstanceId",$param) and $param["CenInstanceId"] !== null) {
-            if(is_bool($param["CenInstanceId"])){
+        if (array_key_exists("CenInstanceId", $param) and $param["CenInstanceId"] !== null) {
+            if (is_bool($param["CenInstanceId"])) {
                 $this->RequestParams["CenInstanceId"] = $param["CenInstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenInstanceId"] = $param["CenInstanceId"];
             }
         }
-        if (array_key_exists("InstanceAccountId",$param) and $param["InstanceAccountId"] !== null) {
-            if(is_bool($param["InstanceAccountId"])){
+        if (array_key_exists("InstanceAccountId", $param) and $param["InstanceAccountId"] !== null) {
+            if (is_bool($param["InstanceAccountId"])) {
                 $this->RequestParams["InstanceAccountId"] = $param["InstanceAccountId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceAccountId"] = $param["InstanceAccountId"];
@@ -68,12 +69,12 @@ class AttachCenInstanceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

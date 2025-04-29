@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Sks\V20151101\Models;
+
+namespace Ksyun\Client\Sks\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyKeyRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "KeyName" => null,
-         /**String**/
+        /**String**/
         "KeyId" => null,
     ];
 
@@ -24,15 +25,15 @@ class ModifyKeyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("KeyName",$param) and $param["KeyName"] !== null) {
-            if(is_bool($param["KeyName"])){
+        if (array_key_exists("KeyName", $param) and $param["KeyName"] !== null) {
+            if (is_bool($param["KeyName"])) {
                 $this->RequestParams["KeyName"] = $param["KeyName"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeyName"] = $param["KeyName"];
             }
         }
-        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
-            if(is_bool($param["KeyId"])){
+        if (array_key_exists("KeyId", $param) and $param["KeyId"] !== null) {
+            if (is_bool($param["KeyId"])) {
                 $this->RequestParams["KeyId"] = $param["KeyId"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeyId"] = $param["KeyId"];
@@ -41,12 +42,12 @@ class ModifyKeyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

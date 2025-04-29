@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class SetAlbAccessLogRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "AlbId" => null,
-         /**String**/
+        /**String**/
         "ProjectName" => null,
-         /**String**/
+        /**String**/
         "LogpoolName" => null,
     ];
 
@@ -26,22 +27,22 @@ class SetAlbAccessLogRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AlbId",$param) and $param["AlbId"] !== null) {
-            if(is_bool($param["AlbId"])){
+        if (array_key_exists("AlbId", $param) and $param["AlbId"] !== null) {
+            if (is_bool($param["AlbId"])) {
                 $this->RequestParams["AlbId"] = $param["AlbId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AlbId"] = $param["AlbId"];
             }
         }
-        if (array_key_exists("ProjectName",$param) and $param["ProjectName"] !== null) {
-            if(is_bool($param["ProjectName"])){
+        if (array_key_exists("ProjectName", $param) and $param["ProjectName"] !== null) {
+            if (is_bool($param["ProjectName"])) {
                 $this->RequestParams["ProjectName"] = $param["ProjectName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectName"] = $param["ProjectName"];
             }
         }
-        if (array_key_exists("LogpoolName",$param) and $param["LogpoolName"] !== null) {
-            if(is_bool($param["LogpoolName"])){
+        if (array_key_exists("LogpoolName", $param) and $param["LogpoolName"] !== null) {
+            if (is_bool($param["LogpoolName"])) {
                 $this->RequestParams["LogpoolName"] = $param["LogpoolName"] ? "true" : "false";
             } else {
                 $this->RequestParams["LogpoolName"] = $param["LogpoolName"];
@@ -50,12 +51,12 @@ class SetAlbAccessLogRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

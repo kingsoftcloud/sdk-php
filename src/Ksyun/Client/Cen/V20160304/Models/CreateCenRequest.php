@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Cen\V20160304\Models;
+
+namespace Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateCenRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "CenName" => null,
     ];
 
@@ -22,8 +23,8 @@ class CreateCenRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenName",$param) and $param["CenName"] !== null) {
-            if(is_bool($param["CenName"])){
+        if (array_key_exists("CenName", $param) and $param["CenName"] !== null) {
+            if (is_bool($param["CenName"])) {
                 $this->RequestParams["CenName"] = $param["CenName"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenName"] = $param["CenName"];
@@ -32,12 +33,12 @@ class CreateCenRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

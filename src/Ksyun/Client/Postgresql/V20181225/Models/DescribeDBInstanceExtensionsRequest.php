@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Postgresql\V20181225\Models;
+
+namespace Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeDBInstanceExtensionsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DBInstanceIdentifier" => null,
-         /**String**/
+        /**String**/
         "KeyWord" => null,
     ];
 
@@ -24,15 +25,15 @@ class DescribeDBInstanceExtensionsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
-            if(is_bool($param["DBInstanceIdentifier"])){
+        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
+            if (is_bool($param["DBInstanceIdentifier"])) {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("KeyWord",$param) and $param["KeyWord"] !== null) {
-            if(is_bool($param["KeyWord"])){
+        if (array_key_exists("KeyWord", $param) and $param["KeyWord"] !== null) {
+            if (is_bool($param["KeyWord"])) {
                 $this->RequestParams["KeyWord"] = $param["KeyWord"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeyWord"] = $param["KeyWord"];
@@ -41,12 +42,12 @@ class DescribeDBInstanceExtensionsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Iam\V20151101\Models;
+
+namespace Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class GetAccountAllProjectsByParamsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "Ps" => null,
-         /**Int**/
+        /**Int**/
         "Pn" => null,
-         /**String**/
+        /**String**/
         "ParamUserName" => null,
-         /**String**/
+        /**String**/
         "ParamAccessKey" => null,
     ];
 
@@ -28,29 +29,29 @@ class GetAccountAllProjectsByParamsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Ps",$param) and $param["Ps"] !== null) {
-            if(is_bool($param["Ps"])){
+        if (array_key_exists("Ps", $param) and $param["Ps"] !== null) {
+            if (is_bool($param["Ps"])) {
                 $this->RequestParams["Ps"] = $param["Ps"] ? "true" : "false";
             } else {
                 $this->RequestParams["Ps"] = $param["Ps"];
             }
         }
-        if (array_key_exists("Pn",$param) and $param["Pn"] !== null) {
-            if(is_bool($param["Pn"])){
+        if (array_key_exists("Pn", $param) and $param["Pn"] !== null) {
+            if (is_bool($param["Pn"])) {
                 $this->RequestParams["Pn"] = $param["Pn"] ? "true" : "false";
             } else {
                 $this->RequestParams["Pn"] = $param["Pn"];
             }
         }
-        if (array_key_exists("ParamUserName",$param) and $param["ParamUserName"] !== null) {
-            if(is_bool($param["ParamUserName"])){
+        if (array_key_exists("ParamUserName", $param) and $param["ParamUserName"] !== null) {
+            if (is_bool($param["ParamUserName"])) {
                 $this->RequestParams["ParamUserName"] = $param["ParamUserName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ParamUserName"] = $param["ParamUserName"];
             }
         }
-        if (array_key_exists("ParamAccessKey",$param) and $param["ParamAccessKey"] !== null) {
-            if(is_bool($param["ParamAccessKey"])){
+        if (array_key_exists("ParamAccessKey", $param) and $param["ParamAccessKey"] !== null) {
+            if (is_bool($param["ParamAccessKey"])) {
                 $this->RequestParams["ParamAccessKey"] = $param["ParamAccessKey"] ? "true" : "false";
             } else {
                 $this->RequestParams["ParamAccessKey"] = $param["ParamAccessKey"];
@@ -59,12 +60,12 @@ class GetAccountAllProjectsByParamsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

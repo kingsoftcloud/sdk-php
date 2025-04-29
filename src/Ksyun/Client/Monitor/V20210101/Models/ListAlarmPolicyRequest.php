@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20210101\Models;
+
+namespace Ksyun\Client\Monitor\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ListAlarmPolicyRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "PageIndex" => null,
-         /**Int**/
+        /**Int**/
         "PageSize" => null,
     ];
 
@@ -24,15 +25,15 @@ class ListAlarmPolicyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PageIndex",$param) and $param["PageIndex"] !== null) {
-            if(is_bool($param["PageIndex"])){
+        if (array_key_exists("PageIndex", $param) and $param["PageIndex"] !== null) {
+            if (is_bool($param["PageIndex"])) {
                 $this->RequestParams["PageIndex"] = $param["PageIndex"] ? "true" : "false";
             } else {
                 $this->RequestParams["PageIndex"] = $param["PageIndex"];
             }
         }
-        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
-            if(is_bool($param["PageSize"])){
+        if (array_key_exists("PageSize", $param) and $param["PageSize"] !== null) {
+            if (is_bool($param["PageSize"])) {
                 $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["PageSize"] = $param["PageSize"];
@@ -41,12 +42,12 @@ class ListAlarmPolicyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

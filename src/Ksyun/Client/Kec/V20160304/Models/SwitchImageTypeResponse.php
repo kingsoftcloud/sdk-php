@@ -1,32 +1,33 @@
 <?php
-namespace  Ksyun\Client\Kec\V20160304\Models;
+
+namespace Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
 class SwitchImageTypeResponse extends BaseModel
 {
-         /** **/
-         public  $RequestId;
+    /** **/
+    public $RequestId;
 
-         /**Object **/
-         public  $ImageErrorResponses;
+    /**Object **/
+    public $ImageErrorResponses;
 
-         public function __construct()
-         {
+    public function __construct()
+    {
 
-         }
+    }
 
-        public function unserialize($param)
-        {
-            if ($param === null) {
-                return;
-            }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("ImageErrorResponses",$param) and $param["ImageErrorResponses"] !== null) {
-                $this->ImageErrorResponses = $param["ImageErrorResponses"];
-            }
-
+    public function unserialize($param)
+    {
+        if ($param === null) {
+            return;
         }
+        if (array_key_exists("RequestId", $param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
+        }
+        if (array_key_exists("ImageErrorResponses", $param) and $param["ImageErrorResponses"] !== null) {
+            $this->ImageErrorResponses = $param["ImageErrorResponses"];
+        }
+
+    }
 }

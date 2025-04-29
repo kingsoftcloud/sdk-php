@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Cen\V20160304\Models;
+
+namespace Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DetachCenInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "CenId" => null,
-         /**String**/
+        /**String**/
         "CenInstanceId" => null,
     ];
 
@@ -24,15 +25,15 @@ class DetachCenInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenId",$param) and $param["CenId"] !== null) {
-            if(is_bool($param["CenId"])){
+        if (array_key_exists("CenId", $param) and $param["CenId"] !== null) {
+            if (is_bool($param["CenId"])) {
                 $this->RequestParams["CenId"] = $param["CenId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenId"] = $param["CenId"];
             }
         }
-        if (array_key_exists("CenInstanceId",$param) and $param["CenInstanceId"] !== null) {
-            if(is_bool($param["CenInstanceId"])){
+        if (array_key_exists("CenInstanceId", $param) and $param["CenInstanceId"] !== null) {
+            if (is_bool($param["CenInstanceId"])) {
                 $this->RequestParams["CenInstanceId"] = $param["CenInstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenInstanceId"] = $param["CenInstanceId"];
@@ -41,12 +42,12 @@ class DetachCenInstanceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

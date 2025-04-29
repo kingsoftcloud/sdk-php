@@ -7,7 +7,6 @@ use Ksyun\Common\Http\HttpOptions;
 use Ksyun\Common\Credential;
 
 
-
 class KingpayClient extends BaseClient
 {
     /**
@@ -31,14 +30,14 @@ class KingpayClient extends BaseClient
      * @param HttpOptions|null $profile
      * @throws KsyunSDKException
      */
-    function __construct($credential, $region, $profile=null)
+    function __construct($credential, $region, $profile = null)
     {
         parent::__construct($this->endpoint, $this->version, $credential, $region, $profile);
     }
 
     public function returnResponse($action, $response)
     {
-        $respClass = "Ksyun\Client"."\\".ucfirst("kingpay")."\\"."V20240501\\Models"."\\".ucfirst($action)."Response";
+        $respClass = "Ksyun\Client" . "\\" . ucfirst("kingpay") . "\\" . "V20240501\\Models" . "\\" . ucfirst($action) . "Response";
         $obj = new $respClass();
         $obj->unserialize($response);
         return $obj;

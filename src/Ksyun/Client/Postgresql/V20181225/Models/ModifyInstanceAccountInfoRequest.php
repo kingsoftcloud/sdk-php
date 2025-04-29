@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Postgresql\V20181225\Models;
+
+namespace Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,13 +8,13 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyInstanceAccountInfoRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DBInstanceIdentifier" => null,
-         /**String**/
+        /**String**/
         "InstanceAccountName" => null,
-         /**String**/
+        /**String**/
         "InstanceAccountPassword" => null,
-         /**String**/
+        /**String**/
         "InstanceAccountDescription" => null,
     ];
 
@@ -28,29 +29,29 @@ class ModifyInstanceAccountInfoRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
-            if(is_bool($param["DBInstanceIdentifier"])){
+        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
+            if (is_bool($param["DBInstanceIdentifier"])) {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("InstanceAccountName",$param) and $param["InstanceAccountName"] !== null) {
-            if(is_bool($param["InstanceAccountName"])){
+        if (array_key_exists("InstanceAccountName", $param) and $param["InstanceAccountName"] !== null) {
+            if (is_bool($param["InstanceAccountName"])) {
                 $this->RequestParams["InstanceAccountName"] = $param["InstanceAccountName"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceAccountName"] = $param["InstanceAccountName"];
             }
         }
-        if (array_key_exists("InstanceAccountPassword",$param) and $param["InstanceAccountPassword"] !== null) {
-            if(is_bool($param["InstanceAccountPassword"])){
+        if (array_key_exists("InstanceAccountPassword", $param) and $param["InstanceAccountPassword"] !== null) {
+            if (is_bool($param["InstanceAccountPassword"])) {
                 $this->RequestParams["InstanceAccountPassword"] = $param["InstanceAccountPassword"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceAccountPassword"] = $param["InstanceAccountPassword"];
             }
         }
-        if (array_key_exists("InstanceAccountDescription",$param) and $param["InstanceAccountDescription"] !== null) {
-            if(is_bool($param["InstanceAccountDescription"])){
+        if (array_key_exists("InstanceAccountDescription", $param) and $param["InstanceAccountDescription"] !== null) {
+            if (is_bool($param["InstanceAccountDescription"])) {
                 $this->RequestParams["InstanceAccountDescription"] = $param["InstanceAccountDescription"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceAccountDescription"] = $param["InstanceAccountDescription"];
@@ -59,12 +60,12 @@ class ModifyInstanceAccountInfoRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

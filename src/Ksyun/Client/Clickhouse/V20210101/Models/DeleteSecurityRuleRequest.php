@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Clickhouse\V20210101\Models;
+
+namespace Ksyun\Client\Clickhouse\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteSecurityRuleRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+        /**Int**/
         "ProductType" => null,
-         /**String**/
+        /**String**/
         "SecurityGroupId" => null,
-         /**String**/
+        /**String**/
         "RuleIds" => null,
     ];
 
@@ -26,22 +27,22 @@ class DeleteSecurityRuleRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProductType",$param) and $param["ProductType"] !== null) {
-            if(is_bool($param["ProductType"])){
+        if (array_key_exists("ProductType", $param) and $param["ProductType"] !== null) {
+            if (is_bool($param["ProductType"])) {
                 $this->RequestParams["ProductType"] = $param["ProductType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProductType"] = $param["ProductType"];
             }
         }
-        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
-            if(is_bool($param["SecurityGroupId"])){
+        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
+            if (is_bool($param["SecurityGroupId"])) {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
             }
         }
-        if (array_key_exists("RuleIds",$param) and $param["RuleIds"] !== null) {
-            if(is_bool($param["RuleIds"])){
+        if (array_key_exists("RuleIds", $param) and $param["RuleIds"] !== null) {
+            if (is_bool($param["RuleIds"])) {
                 $this->RequestParams["RuleIds"] = $param["RuleIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["RuleIds"] = $param["RuleIds"];
@@ -50,12 +51,12 @@ class DeleteSecurityRuleRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

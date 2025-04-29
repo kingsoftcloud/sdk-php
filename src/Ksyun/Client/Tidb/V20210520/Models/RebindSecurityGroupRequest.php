@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Tidb\V20210520\Models;
+
+namespace Ksyun\Client\Tidb\V20210520\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class RebindSecurityGroupRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "SecurityGroupId" => null,
-         /**String**/
+        /**String**/
         "InstanceId" => null,
     ];
 
@@ -24,15 +25,15 @@ class RebindSecurityGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
-            if(is_bool($param["SecurityGroupId"])){
+        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
+            if (is_bool($param["SecurityGroupId"])) {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
             }
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            if(is_bool($param["InstanceId"])){
+        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
+            if (is_bool($param["InstanceId"])) {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
@@ -41,12 +42,12 @@ class RebindSecurityGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

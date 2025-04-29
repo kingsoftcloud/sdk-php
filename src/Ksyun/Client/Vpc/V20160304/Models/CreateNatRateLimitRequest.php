@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Vpc\V20160304\Models;
+
+namespace Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateNatRateLimitRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "NetworkInterfaceId" => null,
-         /**Int**/
+        /**Int**/
         "BandwidthLimit" => null,
-         /**Int**/
+        /**Int**/
         "inBandwidthLimit" => null,
     ];
 
@@ -26,22 +27,22 @@ class CreateNatRateLimitRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
-            if(is_bool($param["NetworkInterfaceId"])){
+        if (array_key_exists("NetworkInterfaceId", $param) and $param["NetworkInterfaceId"] !== null) {
+            if (is_bool($param["NetworkInterfaceId"])) {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
             }
         }
-        if (array_key_exists("BandwidthLimit",$param) and $param["BandwidthLimit"] !== null) {
-            if(is_bool($param["BandwidthLimit"])){
+        if (array_key_exists("BandwidthLimit", $param) and $param["BandwidthLimit"] !== null) {
+            if (is_bool($param["BandwidthLimit"])) {
                 $this->RequestParams["BandwidthLimit"] = $param["BandwidthLimit"] ? "true" : "false";
             } else {
                 $this->RequestParams["BandwidthLimit"] = $param["BandwidthLimit"];
             }
         }
-        if (array_key_exists("inBandwidthLimit",$param) and $param["inBandwidthLimit"] !== null) {
-            if(is_bool($param["inBandwidthLimit"])){
+        if (array_key_exists("inBandwidthLimit", $param) and $param["inBandwidthLimit"] !== null) {
+            if (is_bool($param["inBandwidthLimit"])) {
                 $this->RequestParams["inBandwidthLimit"] = $param["inBandwidthLimit"] ? "true" : "false";
             } else {
                 $this->RequestParams["inBandwidthLimit"] = $param["inBandwidthLimit"];
@@ -50,12 +51,12 @@ class CreateNatRateLimitRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

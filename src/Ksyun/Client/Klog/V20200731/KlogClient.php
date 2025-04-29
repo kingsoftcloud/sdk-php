@@ -7,7 +7,6 @@ use Ksyun\Common\Http\HttpOptions;
 use Ksyun\Common\Credential;
 
 
-
 class KlogClient extends BaseClient
 {
     /**
@@ -31,14 +30,14 @@ class KlogClient extends BaseClient
      * @param HttpOptions|null $profile
      * @throws KsyunSDKException
      */
-    function __construct($credential, $region, $profile=null)
+    function __construct($credential, $region, $profile = null)
     {
         parent::__construct($this->endpoint, $this->version, $credential, $region, $profile);
     }
 
     public function returnResponse($action, $response)
     {
-        $respClass = "Ksyun\Client"."\\".ucfirst("klog")."\\"."V20200731\\Models"."\\".ucfirst($action)."Response";
+        $respClass = "Ksyun\Client" . "\\" . ucfirst("klog") . "\\" . "V20200731\\Models" . "\\" . ucfirst($action) . "Response";
         $obj = new $respClass();
         $obj->unserialize($response);
         return $obj;

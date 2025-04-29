@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Krds\V20160701\Models;
+
+namespace Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteDBBackupRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "DBBackupIdentifier" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteDBBackupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBBackupIdentifier",$param) and $param["DBBackupIdentifier"] !== null) {
-            if(is_bool($param["DBBackupIdentifier"])){
+        if (array_key_exists("DBBackupIdentifier", $param) and $param["DBBackupIdentifier"] !== null) {
+            if (is_bool($param["DBBackupIdentifier"])) {
                 $this->RequestParams["DBBackupIdentifier"] = $param["DBBackupIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBBackupIdentifier"] = $param["DBBackupIdentifier"];
@@ -32,12 +33,12 @@ class DeleteDBBackupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

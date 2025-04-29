@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20220101\Models;
+
+namespace Ksyun\Client\Monitor\V20220101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteAlarmPolicyRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
+        /**Array**/
         "PolicyIds" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteAlarmPolicyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PolicyIds",$param) and $param["PolicyIds"] !== null) {
-            if(is_bool($param["PolicyIds"])){
+        if (array_key_exists("PolicyIds", $param) and $param["PolicyIds"] !== null) {
+            if (is_bool($param["PolicyIds"])) {
                 $this->RequestParams["PolicyIds"] = $param["PolicyIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["PolicyIds"] = $param["PolicyIds"];
@@ -32,12 +33,12 @@ class DeleteAlarmPolicyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Klog\V20200731\Models;
+
+namespace Ksyun\Client\Klog\V20200731\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteChartRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "ChartId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteChartRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ChartId",$param) and $param["ChartId"] !== null) {
-            if(is_bool($param["ChartId"])){
+        if (array_key_exists("ChartId", $param) and $param["ChartId"] !== null) {
+            if (is_bool($param["ChartId"])) {
                 $this->RequestParams["ChartId"] = $param["ChartId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ChartId"] = $param["ChartId"];
@@ -32,12 +33,12 @@ class DeleteChartRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

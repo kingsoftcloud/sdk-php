@@ -1,26 +1,27 @@
 <?php
-namespace  Ksyun\Client\Klog\V20200731\Models;
+
+namespace Ksyun\Client\Klog\V20200731\Models;
 
 use Ksyun\Common\BaseModel;
 
 class ListDashboardsResponse extends BaseModel
 {
-         /** Res**/
-         public  $Res;
+    /** Res**/
+    public $Res;
 
-         public function __construct()
-         {
+    public function __construct()
+    {
 
-         }
+    }
 
-        public function unserialize($param)
-        {
-            if ($param === null) {
-                return;
-            }
-            if (array_key_exists("Res",$param) and $param["Res"] !== null) {
-                $this->Res = $param["Res"];
-            }
-
+    public function unserialize($param)
+    {
+        if ($param === null) {
+            return;
         }
+        if (array_key_exists("Res", $param) and $param["Res"] !== null) {
+            $this->Res = $param["Res"];
+        }
+
+    }
 }

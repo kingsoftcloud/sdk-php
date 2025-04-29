@@ -1,32 +1,33 @@
 <?php
-namespace  Ksyun\Client\Iam\V20151101\Models;
+
+namespace Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
 class ListAccessKeysResponse extends BaseModel
 {
-         /** **/
-         public  $ListAccessKeyResult;
+    /** **/
+    public $ListAccessKeyResult;
 
-         /** **/
-         public  $RequestId;
+    /** **/
+    public $RequestId;
 
-         public function __construct()
-         {
+    public function __construct()
+    {
 
-         }
+    }
 
-        public function unserialize($param)
-        {
-            if ($param === null) {
-                return;
-            }
-            if (array_key_exists("ListAccessKeyResult",$param) and $param["ListAccessKeyResult"] !== null) {
-                $this->ListAccessKeyResult = $param["ListAccessKeyResult"];
-            }
-            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-                $this->RequestId = $param["RequestId"];
-            }
-
+    public function unserialize($param)
+    {
+        if ($param === null) {
+            return;
         }
+        if (array_key_exists("ListAccessKeyResult", $param) and $param["ListAccessKeyResult"] !== null) {
+            $this->ListAccessKeyResult = $param["ListAccessKeyResult"];
+        }
+        if (array_key_exists("RequestId", $param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
+        }
+
+    }
 }

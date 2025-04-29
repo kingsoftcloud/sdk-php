@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Tidb\V20210520\Models;
+
+namespace Ksyun\Client\Tidb\V20210520\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class UpdateSecurityRuleRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "RuleId" => null,
-         /**String**/
+        /**String**/
         "Description" => null,
-         /**String**/
+        /**String**/
         "Cidr" => null,
     ];
 
@@ -26,22 +27,22 @@ class UpdateSecurityRuleRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RuleId",$param) and $param["RuleId"] !== null) {
-            if(is_bool($param["RuleId"])){
+        if (array_key_exists("RuleId", $param) and $param["RuleId"] !== null) {
+            if (is_bool($param["RuleId"])) {
                 $this->RequestParams["RuleId"] = $param["RuleId"] ? "true" : "false";
             } else {
                 $this->RequestParams["RuleId"] = $param["RuleId"];
             }
         }
-        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
-            if(is_bool($param["Description"])){
+        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
+            if (is_bool($param["Description"])) {
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
             }
         }
-        if (array_key_exists("Cidr",$param) and $param["Cidr"] !== null) {
-            if(is_bool($param["Cidr"])){
+        if (array_key_exists("Cidr", $param) and $param["Cidr"] !== null) {
+            if (is_bool($param["Cidr"])) {
                 $this->RequestParams["Cidr"] = $param["Cidr"] ? "true" : "false";
             } else {
                 $this->RequestParams["Cidr"] = $param["Cidr"];
@@ -50,12 +51,12 @@ class UpdateSecurityRuleRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

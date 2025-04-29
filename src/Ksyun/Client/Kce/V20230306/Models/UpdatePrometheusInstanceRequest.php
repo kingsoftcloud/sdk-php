@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Kce\V20230306\Models;
+
+namespace Ksyun\Client\Kce\V20230306\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class UpdatePrometheusInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "InstanceId" => null,
-         /**String**/
+        /**String**/
         "InstanceName" => null,
-         /**Int**/
+        /**Int**/
         "DataRetentionTime" => null,
     ];
 
@@ -26,22 +27,22 @@ class UpdatePrometheusInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            if(is_bool($param["InstanceId"])){
+        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
+            if (is_bool($param["InstanceId"])) {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("InstanceName",$param) and $param["InstanceName"] !== null) {
-            if(is_bool($param["InstanceName"])){
+        if (array_key_exists("InstanceName", $param) and $param["InstanceName"] !== null) {
+            if (is_bool($param["InstanceName"])) {
                 $this->RequestParams["InstanceName"] = $param["InstanceName"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceName"] = $param["InstanceName"];
             }
         }
-        if (array_key_exists("DataRetentionTime",$param) and $param["DataRetentionTime"] !== null) {
-            if(is_bool($param["DataRetentionTime"])){
+        if (array_key_exists("DataRetentionTime", $param) and $param["DataRetentionTime"] !== null) {
+            if (is_bool($param["DataRetentionTime"])) {
                 $this->RequestParams["DataRetentionTime"] = $param["DataRetentionTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["DataRetentionTime"] = $param["DataRetentionTime"];
@@ -50,12 +51,12 @@ class UpdatePrometheusInstanceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

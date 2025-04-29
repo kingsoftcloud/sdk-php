@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Slb\V20160304\Models;
+
+namespace Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,25 +8,25 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateLoadBalancerRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "VpcId" => null,
-         /**String**/
+        /**String**/
         "LoadBalancerName" => null,
-         /**String**/
+        /**String**/
         "Type" => null,
-         /**String**/
+        /**String**/
         "SubnetId" => null,
-         /**String**/
+        /**String**/
         "PrivateIpAddress" => null,
-         /**String**/
+        /**String**/
         "DeleteProtection" => null,
-         /**String**/
+        /**String**/
         "ModificationProtection" => null,
-         /**String**/
+        /**String**/
         "IpVersion" => null,
-         /**String**/
+        /**String**/
         "LbType" => null,
-         /**String**/
+        /**String**/
         "ProjectId" => null,
     ];
 
@@ -40,71 +41,71 @@ class CreateLoadBalancerRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            if(is_bool($param["VpcId"])){
+        if (array_key_exists("VpcId", $param) and $param["VpcId"] !== null) {
+            if (is_bool($param["VpcId"])) {
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
             }
         }
-        if (array_key_exists("LoadBalancerName",$param) and $param["LoadBalancerName"] !== null) {
-            if(is_bool($param["LoadBalancerName"])){
+        if (array_key_exists("LoadBalancerName", $param) and $param["LoadBalancerName"] !== null) {
+            if (is_bool($param["LoadBalancerName"])) {
                 $this->RequestParams["LoadBalancerName"] = $param["LoadBalancerName"] ? "true" : "false";
             } else {
                 $this->RequestParams["LoadBalancerName"] = $param["LoadBalancerName"];
             }
         }
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            if(is_bool($param["Type"])){
+        if (array_key_exists("Type", $param) and $param["Type"] !== null) {
+            if (is_bool($param["Type"])) {
                 $this->RequestParams["Type"] = $param["Type"] ? "true" : "false";
             } else {
                 $this->RequestParams["Type"] = $param["Type"];
             }
         }
-        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
-            if(is_bool($param["SubnetId"])){
+        if (array_key_exists("SubnetId", $param) and $param["SubnetId"] !== null) {
+            if (is_bool($param["SubnetId"])) {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
             }
         }
-        if (array_key_exists("PrivateIpAddress",$param) and $param["PrivateIpAddress"] !== null) {
-            if(is_bool($param["PrivateIpAddress"])){
+        if (array_key_exists("PrivateIpAddress", $param) and $param["PrivateIpAddress"] !== null) {
+            if (is_bool($param["PrivateIpAddress"])) {
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"] ? "true" : "false";
             } else {
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"];
             }
         }
-        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
-            if(is_bool($param["DeleteProtection"])){
+        if (array_key_exists("DeleteProtection", $param) and $param["DeleteProtection"] !== null) {
+            if (is_bool($param["DeleteProtection"])) {
                 $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
             } else {
                 $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
             }
         }
-        if (array_key_exists("ModificationProtection",$param) and $param["ModificationProtection"] !== null) {
-            if(is_bool($param["ModificationProtection"])){
+        if (array_key_exists("ModificationProtection", $param) and $param["ModificationProtection"] !== null) {
+            if (is_bool($param["ModificationProtection"])) {
                 $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"] ? "true" : "false";
             } else {
                 $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"];
             }
         }
-        if (array_key_exists("IpVersion",$param) and $param["IpVersion"] !== null) {
-            if(is_bool($param["IpVersion"])){
+        if (array_key_exists("IpVersion", $param) and $param["IpVersion"] !== null) {
+            if (is_bool($param["IpVersion"])) {
                 $this->RequestParams["IpVersion"] = $param["IpVersion"] ? "true" : "false";
             } else {
                 $this->RequestParams["IpVersion"] = $param["IpVersion"];
             }
         }
-        if (array_key_exists("LbType",$param) and $param["LbType"] !== null) {
-            if(is_bool($param["LbType"])){
+        if (array_key_exists("LbType", $param) and $param["LbType"] !== null) {
+            if (is_bool($param["LbType"])) {
                 $this->RequestParams["LbType"] = $param["LbType"] ? "true" : "false";
             } else {
                 $this->RequestParams["LbType"] = $param["LbType"];
             }
         }
-        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
-            if(is_bool($param["ProjectId"])){
+        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
+            if (is_bool($param["ProjectId"])) {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
@@ -113,12 +114,12 @@ class CreateLoadBalancerRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

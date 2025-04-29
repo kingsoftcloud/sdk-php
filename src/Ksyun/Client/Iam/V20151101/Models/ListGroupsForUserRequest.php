@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Iam\V20151101\Models;
+
+namespace Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,11 +8,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ListGroupsForUserRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "UserName" => null,
-         /**String**/
+        /**String**/
         "MaxItems" => null,
-         /**String**/
+        /**String**/
         "Marker" => null,
     ];
 
@@ -26,22 +27,22 @@ class ListGroupsForUserRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("UserName",$param) and $param["UserName"] !== null) {
-            if(is_bool($param["UserName"])){
+        if (array_key_exists("UserName", $param) and $param["UserName"] !== null) {
+            if (is_bool($param["UserName"])) {
                 $this->RequestParams["UserName"] = $param["UserName"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserName"] = $param["UserName"];
             }
         }
-        if (array_key_exists("MaxItems",$param) and $param["MaxItems"] !== null) {
-            if(is_bool($param["MaxItems"])){
+        if (array_key_exists("MaxItems", $param) and $param["MaxItems"] !== null) {
+            if (is_bool($param["MaxItems"])) {
                 $this->RequestParams["MaxItems"] = $param["MaxItems"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxItems"] = $param["MaxItems"];
             }
         }
-        if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
-            if(is_bool($param["Marker"])){
+        if (array_key_exists("Marker", $param) and $param["Marker"] !== null) {
+            if (is_bool($param["Marker"])) {
                 $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
             } else {
                 $this->RequestParams["Marker"] = $param["Marker"];
@@ -50,12 +51,12 @@ class ListGroupsForUserRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

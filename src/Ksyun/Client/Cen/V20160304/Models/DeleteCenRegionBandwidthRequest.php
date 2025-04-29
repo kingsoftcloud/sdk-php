@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Cen\V20160304\Models;
+
+namespace Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,7 +8,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteCenRegionBandwidthRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "CenRegionBandwidthId" => null,
     ];
 
@@ -22,8 +23,8 @@ class DeleteCenRegionBandwidthRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenRegionBandwidthId",$param) and $param["CenRegionBandwidthId"] !== null) {
-            if(is_bool($param["CenRegionBandwidthId"])){
+        if (array_key_exists("CenRegionBandwidthId", $param) and $param["CenRegionBandwidthId"] !== null) {
+            if (is_bool($param["CenRegionBandwidthId"])) {
                 $this->RequestParams["CenRegionBandwidthId"] = $param["CenRegionBandwidthId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenRegionBandwidthId"] = $param["CenRegionBandwidthId"];
@@ -32,12 +33,12 @@ class DeleteCenRegionBandwidthRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

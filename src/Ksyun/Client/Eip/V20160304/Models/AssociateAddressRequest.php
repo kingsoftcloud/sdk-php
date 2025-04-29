@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Eip\V20160304\Models;
+
+namespace Ksyun\Client\Eip\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,17 +8,17 @@ use Ksyun\Common\Http\HttpOptions;
 class AssociateAddressRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "AllocationId" => null,
-         /**String**/
+        /**String**/
         "InstanceType" => null,
-         /**String**/
+        /**String**/
         "InstanceId" => null,
-         /**String**/
+        /**String**/
         "NetworkInterfaceId" => null,
-         /**String**/
+        /**String**/
         "Mode" => null,
-         /**String**/
+        /**String**/
         "PrivateIpAddress" => null,
     ];
 
@@ -32,43 +33,43 @@ class AssociateAddressRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AllocationId",$param) and $param["AllocationId"] !== null) {
-            if(is_bool($param["AllocationId"])){
+        if (array_key_exists("AllocationId", $param) and $param["AllocationId"] !== null) {
+            if (is_bool($param["AllocationId"])) {
                 $this->RequestParams["AllocationId"] = $param["AllocationId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AllocationId"] = $param["AllocationId"];
             }
         }
-        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
-            if(is_bool($param["InstanceType"])){
+        if (array_key_exists("InstanceType", $param) and $param["InstanceType"] !== null) {
+            if (is_bool($param["InstanceType"])) {
                 $this->RequestParams["InstanceType"] = $param["InstanceType"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceType"] = $param["InstanceType"];
             }
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            if(is_bool($param["InstanceId"])){
+        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
+            if (is_bool($param["InstanceId"])) {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
-            if(is_bool($param["NetworkInterfaceId"])){
+        if (array_key_exists("NetworkInterfaceId", $param) and $param["NetworkInterfaceId"] !== null) {
+            if (is_bool($param["NetworkInterfaceId"])) {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
             }
         }
-        if (array_key_exists("Mode",$param) and $param["Mode"] !== null) {
-            if(is_bool($param["Mode"])){
+        if (array_key_exists("Mode", $param) and $param["Mode"] !== null) {
+            if (is_bool($param["Mode"])) {
                 $this->RequestParams["Mode"] = $param["Mode"] ? "true" : "false";
             } else {
                 $this->RequestParams["Mode"] = $param["Mode"];
             }
         }
-        if (array_key_exists("PrivateIpAddress",$param) and $param["PrivateIpAddress"] !== null) {
-            if(is_bool($param["PrivateIpAddress"])){
+        if (array_key_exists("PrivateIpAddress", $param) and $param["PrivateIpAddress"] !== null) {
+            if (is_bool($param["PrivateIpAddress"])) {
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"] ? "true" : "false";
             } else {
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"];
@@ -77,12 +78,12 @@ class AssociateAddressRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

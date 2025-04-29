@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Cdn\V20200901\Models;
+
+namespace Ksyun\Client\Cdn\V20200901\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,19 +8,19 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateUsageDetailDataExportTaskRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "StartTime" => null,
-         /**String**/
+        /**String**/
         "EndTime" => null,
-         /**String**/
+        /**String**/
         "Type" => null,
-         /**String**/
+        /**String**/
         "CdnType" => null,
-         /**String**/
+        /**String**/
         "Domains" => null,
-         /**String**/
+        /**String**/
         "TaskName" => null,
-         /**String**/
+        /**String**/
         "Language" => null,
     ];
 
@@ -34,50 +35,50 @@ class CreateUsageDetailDataExportTaskRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
-            if(is_bool($param["StartTime"])){
+        if (array_key_exists("StartTime", $param) and $param["StartTime"] !== null) {
+            if (is_bool($param["StartTime"])) {
                 $this->RequestParams["StartTime"] = $param["StartTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["StartTime"] = $param["StartTime"];
             }
         }
-        if (array_key_exists("EndTime",$param) and $param["EndTime"] !== null) {
-            if(is_bool($param["EndTime"])){
+        if (array_key_exists("EndTime", $param) and $param["EndTime"] !== null) {
+            if (is_bool($param["EndTime"])) {
                 $this->RequestParams["EndTime"] = $param["EndTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["EndTime"] = $param["EndTime"];
             }
         }
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            if(is_bool($param["Type"])){
+        if (array_key_exists("Type", $param) and $param["Type"] !== null) {
+            if (is_bool($param["Type"])) {
                 $this->RequestParams["Type"] = $param["Type"] ? "true" : "false";
             } else {
                 $this->RequestParams["Type"] = $param["Type"];
             }
         }
-        if (array_key_exists("CdnType",$param) and $param["CdnType"] !== null) {
-            if(is_bool($param["CdnType"])){
+        if (array_key_exists("CdnType", $param) and $param["CdnType"] !== null) {
+            if (is_bool($param["CdnType"])) {
                 $this->RequestParams["CdnType"] = $param["CdnType"] ? "true" : "false";
             } else {
                 $this->RequestParams["CdnType"] = $param["CdnType"];
             }
         }
-        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
-            if(is_bool($param["Domains"])){
+        if (array_key_exists("Domains", $param) and $param["Domains"] !== null) {
+            if (is_bool($param["Domains"])) {
                 $this->RequestParams["Domains"] = $param["Domains"] ? "true" : "false";
             } else {
                 $this->RequestParams["Domains"] = $param["Domains"];
             }
         }
-        if (array_key_exists("TaskName",$param) and $param["TaskName"] !== null) {
-            if(is_bool($param["TaskName"])){
+        if (array_key_exists("TaskName", $param) and $param["TaskName"] !== null) {
+            if (is_bool($param["TaskName"])) {
                 $this->RequestParams["TaskName"] = $param["TaskName"] ? "true" : "false";
             } else {
                 $this->RequestParams["TaskName"] = $param["TaskName"];
             }
         }
-        if (array_key_exists("Language",$param) and $param["Language"] !== null) {
-            if(is_bool($param["Language"])){
+        if (array_key_exists("Language", $param) and $param["Language"] !== null) {
+            if (is_bool($param["Language"])) {
                 $this->RequestParams["Language"] = $param["Language"] ? "true" : "false";
             } else {
                 $this->RequestParams["Language"] = $param["Language"];
@@ -86,12 +87,12 @@ class CreateUsageDetailDataExportTaskRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 

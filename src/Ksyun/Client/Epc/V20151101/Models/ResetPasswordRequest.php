@@ -1,5 +1,6 @@
 <?php
-namespace  Ksyun\Client\Epc\V20151101\Models;
+
+namespace Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -7,9 +8,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ResetPasswordRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+        /**String**/
         "HostId" => null,
-         /**String**/
+        /**String**/
         "Password" => null,
     ];
 
@@ -24,15 +25,15 @@ class ResetPasswordRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
-            if(is_bool($param["HostId"])){
+        if (array_key_exists("HostId", $param) and $param["HostId"] !== null) {
+            if (is_bool($param["HostId"])) {
                 $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostId"] = $param["HostId"];
             }
         }
-        if (array_key_exists("Password",$param) and $param["Password"] !== null) {
-            if(is_bool($param["Password"])){
+        if (array_key_exists("Password", $param) and $param["Password"] !== null) {
+            if (is_bool($param["Password"])) {
                 $this->RequestParams["Password"] = $param["Password"] ? "true" : "false";
             } else {
                 $this->RequestParams["Password"] = $param["Password"];
@@ -41,12 +42,12 @@ class ResetPasswordRequest extends BaseModel
 
     }
 
-    private function _unserialize($name,$params)
+    private function _unserialize($name, $params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value){
+        foreach ($params as $key => $value) {
             $this->$name[$key] = $value;
         }
 
