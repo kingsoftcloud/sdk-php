@@ -12,6 +12,8 @@ class UseHotStandByEpcRequest extends BaseModel
         "HostId" => null,
         /**String**/
         "HotStandByHostId" => null,
+        /**String**/
+        "RetainInstanceInfo" => null,
     ];
 
 
@@ -37,6 +39,13 @@ class UseHotStandByEpcRequest extends BaseModel
                 $this->RequestParams["HotStandByHostId"] = $param["HotStandByHostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HotStandByHostId"] = $param["HotStandByHostId"];
+            }
+        }
+        if (array_key_exists("RetainInstanceInfo", $param) and $param["RetainInstanceInfo"] !== null) {
+            if (is_bool($param["RetainInstanceInfo"])) {
+                $this->RequestParams["RetainInstanceInfo"] = $param["RetainInstanceInfo"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RetainInstanceInfo"] = $param["RetainInstanceInfo"];
             }
         }
 

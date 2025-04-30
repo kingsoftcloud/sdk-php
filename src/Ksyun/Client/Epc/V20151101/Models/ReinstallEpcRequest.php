@@ -60,6 +60,12 @@ class ReinstallEpcRequest extends BaseModel
         "GpuImageDriverId" => null,
         /**String**/
         "ContainerAgent" => null,
+        /**String**/
+        "PasswordInherit" => null,
+        /**String**/
+        "DataDiskMount" => null,
+        /**String**/
+        "StorageRoceNetworkCardName" => null,
     ];
 
 
@@ -253,6 +259,27 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["ContainerAgent"] = $param["ContainerAgent"] ? "true" : "false";
             } else {
                 $this->RequestParams["ContainerAgent"] = $param["ContainerAgent"];
+            }
+        }
+        if (array_key_exists("PasswordInherit", $param) and $param["PasswordInherit"] !== null) {
+            if (is_bool($param["PasswordInherit"])) {
+                $this->RequestParams["PasswordInherit"] = $param["PasswordInherit"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PasswordInherit"] = $param["PasswordInherit"];
+            }
+        }
+        if (array_key_exists("DataDiskMount", $param) and $param["DataDiskMount"] !== null) {
+            if (is_bool($param["DataDiskMount"])) {
+                $this->RequestParams["DataDiskMount"] = $param["DataDiskMount"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DataDiskMount"] = $param["DataDiskMount"];
+            }
+        }
+        if (array_key_exists("StorageRoceNetworkCardName", $param) and $param["StorageRoceNetworkCardName"] !== null) {
+            if (is_bool($param["StorageRoceNetworkCardName"])) {
+                $this->RequestParams["StorageRoceNetworkCardName"] = $param["StorageRoceNetworkCardName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["StorageRoceNetworkCardName"] = $param["StorageRoceNetworkCardName"];
             }
         }
 

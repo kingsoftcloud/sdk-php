@@ -34,9 +34,19 @@ class CreateProcessRequest extends BaseModel
         "ProcessSource" => null,
         /**Int**/
         "autoNocCase" => null,
+        /**Int**/
+        "AuthorizeCableReplace" => null,
+        /**String**/
+        "EventId" => null,
     ];
 
-
+    /**特殊参数类型:Filter**/
+    public $LogFileName = [];
+    /**特殊参数类型:Filter**/
+    public $LogFile = [];
+    /**特殊参数类型:Filter**/
+    public $LogUrl = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -136,6 +146,32 @@ class CreateProcessRequest extends BaseModel
                 $this->RequestParams["autoNocCase"] = $param["autoNocCase"] ? "true" : "false";
             } else {
                 $this->RequestParams["autoNocCase"] = $param["autoNocCase"];
+            }
+        }
+        if (array_key_exists("LogFileName", $param) and $param["LogFileName"] !== null) {
+            $res = $this->formatFilterParams("LogFileName", $param["LogFileName"]);
+            $this->_unserialize("LogFileName", $res);
+        }
+        if (array_key_exists("LogFile", $param) and $param["LogFile"] !== null) {
+            $res = $this->formatFilterParams("LogFile", $param["LogFile"]);
+            $this->_unserialize("LogFile", $res);
+        }
+        if (array_key_exists("LogUrl", $param) and $param["LogUrl"] !== null) {
+            $res = $this->formatFilterParams("LogUrl", $param["LogUrl"]);
+            $this->_unserialize("LogUrl", $res);
+        }
+        if (array_key_exists("AuthorizeCableReplace", $param) and $param["AuthorizeCableReplace"] !== null) {
+            if (is_bool($param["AuthorizeCableReplace"])) {
+                $this->RequestParams["AuthorizeCableReplace"] = $param["AuthorizeCableReplace"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AuthorizeCableReplace"] = $param["AuthorizeCableReplace"];
+            }
+        }
+        if (array_key_exists("EventId", $param) and $param["EventId"] !== null) {
+            if (is_bool($param["EventId"])) {
+                $this->RequestParams["EventId"] = $param["EventId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EventId"] = $param["EventId"];
             }
         }
 
