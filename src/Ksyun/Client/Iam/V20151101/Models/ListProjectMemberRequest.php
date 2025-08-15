@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Iam\V20151101\Models;
+namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class ListProjectMemberRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "ProjectId" => null,
     ];
 
@@ -23,8 +22,8 @@ class ListProjectMemberRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            if (is_bool($param["ProjectId"])) {
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
@@ -33,12 +32,12 @@ class ListProjectMemberRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

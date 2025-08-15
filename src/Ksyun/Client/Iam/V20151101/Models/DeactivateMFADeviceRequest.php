@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Iam\V20151101\Models;
+namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DeactivateMFADeviceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "SerialNumber" => null,
-        /**String**/
+         /**String**/
         "UserName" => null,
     ];
 
@@ -25,15 +24,15 @@ class DeactivateMFADeviceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SerialNumber", $param) and $param["SerialNumber"] !== null) {
-            if (is_bool($param["SerialNumber"])) {
+        if (array_key_exists("SerialNumber",$param) and $param["SerialNumber"] !== null) {
+            if(is_bool($param["SerialNumber"])){
                 $this->RequestParams["SerialNumber"] = $param["SerialNumber"] ? "true" : "false";
             } else {
                 $this->RequestParams["SerialNumber"] = $param["SerialNumber"];
             }
         }
-        if (array_key_exists("UserName", $param) and $param["UserName"] !== null) {
-            if (is_bool($param["UserName"])) {
+        if (array_key_exists("UserName",$param) and $param["UserName"] !== null) {
+            if(is_bool($param["UserName"])){
                 $this->RequestParams["UserName"] = $param["UserName"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserName"] = $param["UserName"];
@@ -42,12 +41,12 @@ class DeactivateMFADeviceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

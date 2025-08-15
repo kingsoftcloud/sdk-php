@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Iam\V20240513\Models;
+namespace  Ksyun\Client\Iam\V20240513\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class GetProjectInstanceListNewRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "ProjectId" => null,
-        /**String**/
+         /**String**/
         "ProductLine" => null,
-        /**Int**/
+         /**Int**/
         "Ps" => null,
-        /**Int**/
+         /**Int**/
         "Pn" => null,
     ];
 
@@ -29,29 +28,29 @@ class GetProjectInstanceListNewRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            if (is_bool($param["ProjectId"])) {
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
-        if (array_key_exists("ProductLine", $param) and $param["ProductLine"] !== null) {
-            if (is_bool($param["ProductLine"])) {
+        if (array_key_exists("ProductLine",$param) and $param["ProductLine"] !== null) {
+            if(is_bool($param["ProductLine"])){
                 $this->RequestParams["ProductLine"] = $param["ProductLine"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProductLine"] = $param["ProductLine"];
             }
         }
-        if (array_key_exists("Ps", $param) and $param["Ps"] !== null) {
-            if (is_bool($param["Ps"])) {
+        if (array_key_exists("Ps",$param) and $param["Ps"] !== null) {
+            if(is_bool($param["Ps"])){
                 $this->RequestParams["Ps"] = $param["Ps"] ? "true" : "false";
             } else {
                 $this->RequestParams["Ps"] = $param["Ps"];
             }
         }
-        if (array_key_exists("Pn", $param) and $param["Pn"] !== null) {
-            if (is_bool($param["Pn"])) {
+        if (array_key_exists("Pn",$param) and $param["Pn"] !== null) {
+            if(is_bool($param["Pn"])){
                 $this->RequestParams["Pn"] = $param["Pn"] ? "true" : "false";
             } else {
                 $this->RequestParams["Pn"] = $param["Pn"];
@@ -60,12 +59,12 @@ class GetProjectInstanceListNewRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

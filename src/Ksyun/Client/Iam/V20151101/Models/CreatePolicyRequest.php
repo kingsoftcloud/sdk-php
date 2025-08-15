@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Iam\V20151101\Models;
+namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class CreatePolicyRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "PolicyName" => null,
-        /**String**/
+         /**String**/
         "Description" => null,
-        /**String**/
+         /**String**/
         "PolicyDocument" => null,
-        /**String**/
+         /**String**/
         "PolicyStruct" => null,
-        /**String**/
+         /**String**/
         "CreateMode" => null,
     ];
 
@@ -31,36 +30,36 @@ class CreatePolicyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PolicyName", $param) and $param["PolicyName"] !== null) {
-            if (is_bool($param["PolicyName"])) {
+        if (array_key_exists("PolicyName",$param) and $param["PolicyName"] !== null) {
+            if(is_bool($param["PolicyName"])){
                 $this->RequestParams["PolicyName"] = $param["PolicyName"] ? "true" : "false";
             } else {
                 $this->RequestParams["PolicyName"] = $param["PolicyName"];
             }
         }
-        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
-            if (is_bool($param["Description"])) {
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
             }
         }
-        if (array_key_exists("PolicyDocument", $param) and $param["PolicyDocument"] !== null) {
-            if (is_bool($param["PolicyDocument"])) {
+        if (array_key_exists("PolicyDocument",$param) and $param["PolicyDocument"] !== null) {
+            if(is_bool($param["PolicyDocument"])){
                 $this->RequestParams["PolicyDocument"] = $param["PolicyDocument"] ? "true" : "false";
             } else {
                 $this->RequestParams["PolicyDocument"] = $param["PolicyDocument"];
             }
         }
-        if (array_key_exists("PolicyStruct", $param) and $param["PolicyStruct"] !== null) {
-            if (is_bool($param["PolicyStruct"])) {
+        if (array_key_exists("PolicyStruct",$param) and $param["PolicyStruct"] !== null) {
+            if(is_bool($param["PolicyStruct"])){
                 $this->RequestParams["PolicyStruct"] = $param["PolicyStruct"] ? "true" : "false";
             } else {
                 $this->RequestParams["PolicyStruct"] = $param["PolicyStruct"];
             }
         }
-        if (array_key_exists("CreateMode", $param) and $param["CreateMode"] !== null) {
-            if (is_bool($param["CreateMode"])) {
+        if (array_key_exists("CreateMode",$param) and $param["CreateMode"] !== null) {
+            if(is_bool($param["CreateMode"])){
                 $this->RequestParams["CreateMode"] = $param["CreateMode"] ? "true" : "false";
             } else {
                 $this->RequestParams["CreateMode"] = $param["CreateMode"];
@@ -69,12 +68,12 @@ class CreatePolicyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Iam\V20151101\Models;
+namespace  Ksyun\Client\Iam\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class SetUserSsoSettingsRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "Status" => null,
-        /**String**/
+         /**String**/
         "Metadata" => null,
-        /**String**/
+         /**String**/
         "Domain" => null,
     ];
 
@@ -27,22 +26,22 @@ class SetUserSsoSettingsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Status", $param) and $param["Status"] !== null) {
-            if (is_bool($param["Status"])) {
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            if(is_bool($param["Status"])){
                 $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
             } else {
                 $this->RequestParams["Status"] = $param["Status"];
             }
         }
-        if (array_key_exists("Metadata", $param) and $param["Metadata"] !== null) {
-            if (is_bool($param["Metadata"])) {
+        if (array_key_exists("Metadata",$param) and $param["Metadata"] !== null) {
+            if(is_bool($param["Metadata"])){
                 $this->RequestParams["Metadata"] = $param["Metadata"] ? "true" : "false";
             } else {
                 $this->RequestParams["Metadata"] = $param["Metadata"];
             }
         }
-        if (array_key_exists("Domain", $param) and $param["Domain"] !== null) {
-            if (is_bool($param["Domain"])) {
+        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
+            if(is_bool($param["Domain"])){
                 $this->RequestParams["Domain"] = $param["Domain"] ? "true" : "false";
             } else {
                 $this->RequestParams["Domain"] = $param["Domain"];
@@ -51,12 +50,12 @@ class SetUserSsoSettingsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 
