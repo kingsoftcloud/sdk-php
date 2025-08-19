@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class AttachVolumeRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "HostId" => null,
-        /**String**/
+         /**String**/
         "VolumeId" => null,
     ];
 
@@ -25,15 +24,15 @@ class AttachVolumeRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostId", $param) and $param["HostId"] !== null) {
-            if (is_bool($param["HostId"])) {
+        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
+            if(is_bool($param["HostId"])){
                 $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostId"] = $param["HostId"];
             }
         }
-        if (array_key_exists("VolumeId", $param) and $param["VolumeId"] !== null) {
-            if (is_bool($param["VolumeId"])) {
+        if (array_key_exists("VolumeId",$param) and $param["VolumeId"] !== null) {
+            if(is_bool($param["VolumeId"])){
                 $this->RequestParams["VolumeId"] = $param["VolumeId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VolumeId"] = $param["VolumeId"];
@@ -42,12 +41,12 @@ class AttachVolumeRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

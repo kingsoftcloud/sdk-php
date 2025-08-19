@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteProcessRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "OperationProcessId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteProcessRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("OperationProcessId", $param) and $param["OperationProcessId"] !== null) {
-            if (is_bool($param["OperationProcessId"])) {
+        if (array_key_exists("OperationProcessId",$param) and $param["OperationProcessId"] !== null) {
+            if(is_bool($param["OperationProcessId"])){
                 $this->RequestParams["OperationProcessId"] = $param["OperationProcessId"] ? "true" : "false";
             } else {
                 $this->RequestParams["OperationProcessId"] = $param["OperationProcessId"];
@@ -33,12 +32,12 @@ class DeleteProcessRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

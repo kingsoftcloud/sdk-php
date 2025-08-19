@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ReplyProcessRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "OperationProcessId" => null,
-        /**String**/
+         /**String**/
         "Remarks" => null,
     ];
 
@@ -25,15 +24,15 @@ class ReplyProcessRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("OperationProcessId", $param) and $param["OperationProcessId"] !== null) {
-            if (is_bool($param["OperationProcessId"])) {
+        if (array_key_exists("OperationProcessId",$param) and $param["OperationProcessId"] !== null) {
+            if(is_bool($param["OperationProcessId"])){
                 $this->RequestParams["OperationProcessId"] = $param["OperationProcessId"] ? "true" : "false";
             } else {
                 $this->RequestParams["OperationProcessId"] = $param["OperationProcessId"];
             }
         }
-        if (array_key_exists("Remarks", $param) and $param["Remarks"] !== null) {
-            if (is_bool($param["Remarks"])) {
+        if (array_key_exists("Remarks",$param) and $param["Remarks"] !== null) {
+            if(is_bool($param["Remarks"])){
                 $this->RequestParams["Remarks"] = $param["Remarks"] ? "true" : "false";
             } else {
                 $this->RequestParams["Remarks"] = $param["Remarks"];
@@ -42,12 +41,12 @@ class ReplyProcessRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

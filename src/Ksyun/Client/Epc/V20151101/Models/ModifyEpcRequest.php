@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyEpcRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "HostId" => null,
-        /**String**/
+         /**String**/
         "HostName" => null,
-        /**String**/
+         /**String**/
         "Description" => null,
     ];
 
@@ -27,22 +26,22 @@ class ModifyEpcRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostId", $param) and $param["HostId"] !== null) {
-            if (is_bool($param["HostId"])) {
+        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
+            if(is_bool($param["HostId"])){
                 $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostId"] = $param["HostId"];
             }
         }
-        if (array_key_exists("HostName", $param) and $param["HostName"] !== null) {
-            if (is_bool($param["HostName"])) {
+        if (array_key_exists("HostName",$param) and $param["HostName"] !== null) {
+            if(is_bool($param["HostName"])){
                 $this->RequestParams["HostName"] = $param["HostName"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostName"] = $param["HostName"];
             }
         }
-        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
-            if (is_bool($param["Description"])) {
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
@@ -51,12 +50,12 @@ class ModifyEpcRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

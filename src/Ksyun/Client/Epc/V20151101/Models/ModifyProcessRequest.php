@@ -13,6 +13,8 @@ class ModifyProcessRequest extends BaseModel
         "Confirm" => null,
          /**String**/
         "Status" => null,
+         /**String**/
+        "Content" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class ModifyProcessRequest extends BaseModel
                 $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
             } else {
                 $this->RequestParams["Status"] = $param["Status"];
+            }
+        }
+        if (array_key_exists("Content",$param) and $param["Content"] !== null) {
+            if(is_bool($param["Content"])){
+                $this->RequestParams["Content"] = $param["Content"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Content"] = $param["Content"];
             }
         }
 

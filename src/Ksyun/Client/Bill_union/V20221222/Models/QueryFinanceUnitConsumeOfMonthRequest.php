@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Bill_union\V20221222\Models;
+namespace  Ksyun\Client\Bill_union\V20221222\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class QueryFinanceUnitConsumeOfMonthRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "CustomerBillMonth" => null,
-        /**Int**/
+         /**Int**/
         "Page" => null,
-        /**Int**/
+         /**Int**/
         "Size" => null,
     ];
 
@@ -27,22 +26,22 @@ class QueryFinanceUnitConsumeOfMonthRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CustomerBillMonth", $param) and $param["CustomerBillMonth"] !== null) {
-            if (is_bool($param["CustomerBillMonth"])) {
+        if (array_key_exists("CustomerBillMonth",$param) and $param["CustomerBillMonth"] !== null) {
+            if(is_bool($param["CustomerBillMonth"])){
                 $this->RequestParams["CustomerBillMonth"] = $param["CustomerBillMonth"] ? "true" : "false";
             } else {
                 $this->RequestParams["CustomerBillMonth"] = $param["CustomerBillMonth"];
             }
         }
-        if (array_key_exists("Page", $param) and $param["Page"] !== null) {
-            if (is_bool($param["Page"])) {
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
                 $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
             } else {
                 $this->RequestParams["Page"] = $param["Page"];
             }
         }
-        if (array_key_exists("Size", $param) and $param["Size"] !== null) {
-            if (is_bool($param["Size"])) {
+        if (array_key_exists("Size",$param) and $param["Size"] !== null) {
+            if(is_bool($param["Size"])){
                 $this->RequestParams["Size"] = $param["Size"] ? "true" : "false";
             } else {
                 $this->RequestParams["Size"] = $param["Size"];
@@ -51,12 +50,12 @@ class QueryFinanceUnitConsumeOfMonthRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

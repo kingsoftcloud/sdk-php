@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class UseHotStandByEpcRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "HostId" => null,
-        /**String**/
+         /**String**/
         "HotStandByHostId" => null,
-        /**String**/
+         /**String**/
         "RetainInstanceInfo" => null,
     ];
 
@@ -27,22 +26,22 @@ class UseHotStandByEpcRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HostId", $param) and $param["HostId"] !== null) {
-            if (is_bool($param["HostId"])) {
+        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
+            if(is_bool($param["HostId"])){
                 $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostId"] = $param["HostId"];
             }
         }
-        if (array_key_exists("HotStandByHostId", $param) and $param["HotStandByHostId"] !== null) {
-            if (is_bool($param["HotStandByHostId"])) {
+        if (array_key_exists("HotStandByHostId",$param) and $param["HotStandByHostId"] !== null) {
+            if(is_bool($param["HotStandByHostId"])){
                 $this->RequestParams["HotStandByHostId"] = $param["HotStandByHostId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HotStandByHostId"] = $param["HotStandByHostId"];
             }
         }
-        if (array_key_exists("RetainInstanceInfo", $param) and $param["RetainInstanceInfo"] !== null) {
-            if (is_bool($param["RetainInstanceInfo"])) {
+        if (array_key_exists("RetainInstanceInfo",$param) and $param["RetainInstanceInfo"] !== null) {
+            if(is_bool($param["RetainInstanceInfo"])){
                 $this->RequestParams["RetainInstanceInfo"] = $param["RetainInstanceInfo"] ? "true" : "false";
             } else {
                 $this->RequestParams["RetainInstanceInfo"] = $param["RetainInstanceInfo"];
@@ -51,12 +50,12 @@ class UseHotStandByEpcRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 
