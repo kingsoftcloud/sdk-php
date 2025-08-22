@@ -11,6 +11,8 @@ class DescribeImagesRequest extends BaseModel
         "MaxResults" => null,
          /**String**/
         "NextToken" => null,
+         /**String**/
+        "ImageId.N" => null,
     ];
 
 
@@ -36,6 +38,13 @@ class DescribeImagesRequest extends BaseModel
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
+            }
+        }
+        if (array_key_exists("ImageId.N",$param) and $param["ImageId.N"] !== null) {
+            if(is_bool($param["ImageId.N"])){
+                $this->RequestParams["ImageId.N"] = $param["ImageId.N"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ImageId.N"] = $param["ImageId.N"];
             }
         }
 
