@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteScheduledTaskRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ScalingScheduledTaskId" => null,
-        /**String**/
+         /**String**/
         "ScalingGroupId" => null,
     ];
 
@@ -25,15 +24,15 @@ class DeleteScheduledTaskRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ScalingScheduledTaskId", $param) and $param["ScalingScheduledTaskId"] !== null) {
-            if (is_bool($param["ScalingScheduledTaskId"])) {
+        if (array_key_exists("ScalingScheduledTaskId",$param) and $param["ScalingScheduledTaskId"] !== null) {
+            if(is_bool($param["ScalingScheduledTaskId"])){
                 $this->RequestParams["ScalingScheduledTaskId"] = $param["ScalingScheduledTaskId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ScalingScheduledTaskId"] = $param["ScalingScheduledTaskId"];
             }
         }
-        if (array_key_exists("ScalingGroupId", $param) and $param["ScalingGroupId"] !== null) {
-            if (is_bool($param["ScalingGroupId"])) {
+        if (array_key_exists("ScalingGroupId",$param) and $param["ScalingGroupId"] !== null) {
+            if(is_bool($param["ScalingGroupId"])){
                 $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"];
@@ -42,12 +41,12 @@ class DeleteScheduledTaskRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

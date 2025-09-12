@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyFileSystemRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "FileSystemId" => null,
-        /**String**/
+         /**String**/
         "FileSystemName" => null,
     ];
 
@@ -25,15 +24,15 @@ class ModifyFileSystemRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FileSystemId", $param) and $param["FileSystemId"] !== null) {
-            if (is_bool($param["FileSystemId"])) {
+        if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
+            if(is_bool($param["FileSystemId"])){
                 $this->RequestParams["FileSystemId"] = $param["FileSystemId"] ? "true" : "false";
             } else {
                 $this->RequestParams["FileSystemId"] = $param["FileSystemId"];
             }
         }
-        if (array_key_exists("FileSystemName", $param) and $param["FileSystemName"] !== null) {
-            if (is_bool($param["FileSystemName"])) {
+        if (array_key_exists("FileSystemName",$param) and $param["FileSystemName"] !== null) {
+            if(is_bool($param["FileSystemName"])){
                 $this->RequestParams["FileSystemName"] = $param["FileSystemName"] ? "true" : "false";
             } else {
                 $this->RequestParams["FileSystemName"] = $param["FileSystemName"];
@@ -42,12 +41,12 @@ class ModifyFileSystemRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

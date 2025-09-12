@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteDirectConnectInterfaceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "DirectConnectInterfaceId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteDirectConnectInterfaceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DirectConnectInterfaceId", $param) and $param["DirectConnectInterfaceId"] !== null) {
-            if (is_bool($param["DirectConnectInterfaceId"])) {
+        if (array_key_exists("DirectConnectInterfaceId",$param) and $param["DirectConnectInterfaceId"] !== null) {
+            if(is_bool($param["DirectConnectInterfaceId"])){
                 $this->RequestParams["DirectConnectInterfaceId"] = $param["DirectConnectInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["DirectConnectInterfaceId"] = $param["DirectConnectInterfaceId"];
@@ -33,12 +32,12 @@ class DeleteDirectConnectInterfaceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

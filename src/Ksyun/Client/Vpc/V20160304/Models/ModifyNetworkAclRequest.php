@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyNetworkAclRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "NetworkAclId" => null,
-        /**String**/
+         /**String**/
         "NetworkAclName" => null,
-        /**String**/
+         /**String**/
         "Description" => null,
     ];
 
@@ -27,22 +26,22 @@ class ModifyNetworkAclRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NetworkAclId", $param) and $param["NetworkAclId"] !== null) {
-            if (is_bool($param["NetworkAclId"])) {
+        if (array_key_exists("NetworkAclId",$param) and $param["NetworkAclId"] !== null) {
+            if(is_bool($param["NetworkAclId"])){
                 $this->RequestParams["NetworkAclId"] = $param["NetworkAclId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkAclId"] = $param["NetworkAclId"];
             }
         }
-        if (array_key_exists("NetworkAclName", $param) and $param["NetworkAclName"] !== null) {
-            if (is_bool($param["NetworkAclName"])) {
+        if (array_key_exists("NetworkAclName",$param) and $param["NetworkAclName"] !== null) {
+            if(is_bool($param["NetworkAclName"])){
                 $this->RequestParams["NetworkAclName"] = $param["NetworkAclName"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkAclName"] = $param["NetworkAclName"];
             }
         }
-        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
-            if (is_bool($param["Description"])) {
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
@@ -51,12 +50,12 @@ class ModifyNetworkAclRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

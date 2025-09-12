@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateDataGuardGroupRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "DataGuardName" => null,
     ];
 
@@ -23,8 +22,8 @@ class CreateDataGuardGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DataGuardName", $param) and $param["DataGuardName"] !== null) {
-            if (is_bool($param["DataGuardName"])) {
+        if (array_key_exists("DataGuardName",$param) and $param["DataGuardName"] !== null) {
+            if(is_bool($param["DataGuardName"])){
                 $this->RequestParams["DataGuardName"] = $param["DataGuardName"] ? "true" : "false";
             } else {
                 $this->RequestParams["DataGuardName"] = $param["DataGuardName"];
@@ -33,12 +32,12 @@ class CreateDataGuardGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class StopInstancesRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Boolean**/
+         /**Boolean**/
         "ForceStop" => null,
-        /**String**/
+         /**String**/
         "StoppedMode" => null,
     ];
 
-    /**特殊参数类型:Filter**/
+     /**特殊参数类型:Filter**/
     public $InstanceId = [];
-
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -27,19 +26,19 @@ class StopInstancesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            $res = $this->formatFilterParams("InstanceId", $param["InstanceId"]);
-            $this->_unserialize("InstanceId", $res);
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            $res = $this->formatFilterParams("InstanceId",$param["InstanceId"]);
+            $this->_unserialize("InstanceId",$res);
         }
-        if (array_key_exists("ForceStop", $param) and $param["ForceStop"] !== null) {
-            if (is_bool($param["ForceStop"])) {
+        if (array_key_exists("ForceStop",$param) and $param["ForceStop"] !== null) {
+            if(is_bool($param["ForceStop"])){
                 $this->RequestParams["ForceStop"] = $param["ForceStop"] ? "true" : "false";
             } else {
                 $this->RequestParams["ForceStop"] = $param["ForceStop"];
             }
         }
-        if (array_key_exists("StoppedMode", $param) and $param["StoppedMode"] !== null) {
-            if (is_bool($param["StoppedMode"])) {
+        if (array_key_exists("StoppedMode",$param) and $param["StoppedMode"] !== null) {
+            if(is_bool($param["StoppedMode"])){
                 $this->RequestParams["StoppedMode"] = $param["StoppedMode"] ? "true" : "false";
             } else {
                 $this->RequestParams["StoppedMode"] = $param["StoppedMode"];
@@ -48,12 +47,12 @@ class StopInstancesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

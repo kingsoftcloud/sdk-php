@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyDataGuardGroupsRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "DataGuardId" => null,
-        /**String**/
+         /**String**/
         "DataGuardName" => null,
     ];
 
@@ -25,15 +24,15 @@ class ModifyDataGuardGroupsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DataGuardId", $param) and $param["DataGuardId"] !== null) {
-            if (is_bool($param["DataGuardId"])) {
+        if (array_key_exists("DataGuardId",$param) and $param["DataGuardId"] !== null) {
+            if(is_bool($param["DataGuardId"])){
                 $this->RequestParams["DataGuardId"] = $param["DataGuardId"] ? "true" : "false";
             } else {
                 $this->RequestParams["DataGuardId"] = $param["DataGuardId"];
             }
         }
-        if (array_key_exists("DataGuardName", $param) and $param["DataGuardName"] !== null) {
-            if (is_bool($param["DataGuardName"])) {
+        if (array_key_exists("DataGuardName",$param) and $param["DataGuardName"] !== null) {
+            if(is_bool($param["DataGuardName"])){
                 $this->RequestParams["DataGuardName"] = $param["DataGuardName"] ? "true" : "false";
             } else {
                 $this->RequestParams["DataGuardName"] = $param["DataGuardName"];
@@ -42,12 +41,12 @@ class ModifyDataGuardGroupsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

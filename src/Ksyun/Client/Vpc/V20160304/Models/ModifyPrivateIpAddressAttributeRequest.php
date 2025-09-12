@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyPrivateIpAddressAttributeRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "SubnetId" => null,
-        /**String**/
+         /**String**/
         "PrivateIpAddress" => null,
-        /**String**/
+         /**String**/
         "Status" => null,
-        /**String**/
+         /**String**/
         "AllocateStatus" => null,
     ];
 
@@ -29,29 +28,29 @@ class ModifyPrivateIpAddressAttributeRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SubnetId", $param) and $param["SubnetId"] !== null) {
-            if (is_bool($param["SubnetId"])) {
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            if(is_bool($param["SubnetId"])){
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
             }
         }
-        if (array_key_exists("PrivateIpAddress", $param) and $param["PrivateIpAddress"] !== null) {
-            if (is_bool($param["PrivateIpAddress"])) {
+        if (array_key_exists("PrivateIpAddress",$param) and $param["PrivateIpAddress"] !== null) {
+            if(is_bool($param["PrivateIpAddress"])){
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"] ? "true" : "false";
             } else {
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"];
             }
         }
-        if (array_key_exists("Status", $param) and $param["Status"] !== null) {
-            if (is_bool($param["Status"])) {
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            if(is_bool($param["Status"])){
                 $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
             } else {
                 $this->RequestParams["Status"] = $param["Status"];
             }
         }
-        if (array_key_exists("AllocateStatus", $param) and $param["AllocateStatus"] !== null) {
-            if (is_bool($param["AllocateStatus"])) {
+        if (array_key_exists("AllocateStatus",$param) and $param["AllocateStatus"] !== null) {
+            if(is_bool($param["AllocateStatus"])){
                 $this->RequestParams["AllocateStatus"] = $param["AllocateStatus"] ? "true" : "false";
             } else {
                 $this->RequestParams["AllocateStatus"] = $param["AllocateStatus"];
@@ -60,12 +59,12 @@ class ModifyPrivateIpAddressAttributeRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

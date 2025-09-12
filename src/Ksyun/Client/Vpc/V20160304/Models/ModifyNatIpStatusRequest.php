@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyNatIpStatusRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "NatIpId" => null,
-        /**Boolean**/
+         /**Boolean**/
         "Enabled" => null,
     ];
 
@@ -25,15 +24,15 @@ class ModifyNatIpStatusRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NatIpId", $param) and $param["NatIpId"] !== null) {
-            if (is_bool($param["NatIpId"])) {
+        if (array_key_exists("NatIpId",$param) and $param["NatIpId"] !== null) {
+            if(is_bool($param["NatIpId"])){
                 $this->RequestParams["NatIpId"] = $param["NatIpId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NatIpId"] = $param["NatIpId"];
             }
         }
-        if (array_key_exists("Enabled", $param) and $param["Enabled"] !== null) {
-            if (is_bool($param["Enabled"])) {
+        if (array_key_exists("Enabled",$param) and $param["Enabled"] !== null) {
+            if(is_bool($param["Enabled"])){
                 $this->RequestParams["Enabled"] = $param["Enabled"] ? "true" : "false";
             } else {
                 $this->RequestParams["Enabled"] = $param["Enabled"];
@@ -42,12 +41,12 @@ class ModifyNatIpStatusRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

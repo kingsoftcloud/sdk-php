@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class DetachKeyRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "Action" => null,
     ];
 
-    /**特殊参数类型:Filter**/
+     /**特殊参数类型:Filter**/
     public $InstanceId = [];
-    /**特殊参数类型:Filter**/
+      /**特殊参数类型:Filter**/
     public $KeyId = [];
-
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -27,30 +26,30 @@ class DetachKeyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Action", $param) and $param["Action"] !== null) {
-            if (is_bool($param["Action"])) {
+        if (array_key_exists("Action",$param) and $param["Action"] !== null) {
+            if(is_bool($param["Action"])){
                 $this->RequestParams["Action"] = $param["Action"] ? "true" : "false";
             } else {
                 $this->RequestParams["Action"] = $param["Action"];
             }
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            $res = $this->formatFilterParams("InstanceId", $param["InstanceId"]);
-            $this->_unserialize("InstanceId", $res);
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            $res = $this->formatFilterParams("InstanceId",$param["InstanceId"]);
+            $this->_unserialize("InstanceId",$res);
         }
-        if (array_key_exists("KeyId", $param) and $param["KeyId"] !== null) {
-            $res = $this->formatFilterParams("KeyId", $param["KeyId"]);
-            $this->_unserialize("KeyId", $res);
+        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
+            $res = $this->formatFilterParams("KeyId",$param["KeyId"]);
+            $this->_unserialize("KeyId",$res);
         }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

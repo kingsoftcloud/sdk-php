@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class UnAssociateHaVipRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "NetworkInterfaceId" => null,
-        /**String**/
+         /**String**/
         "HaVipId" => null,
     ];
 
@@ -25,15 +24,15 @@ class UnAssociateHaVipRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NetworkInterfaceId", $param) and $param["NetworkInterfaceId"] !== null) {
-            if (is_bool($param["NetworkInterfaceId"])) {
+        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
+            if(is_bool($param["NetworkInterfaceId"])){
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
             }
         }
-        if (array_key_exists("HaVipId", $param) and $param["HaVipId"] !== null) {
-            if (is_bool($param["HaVipId"])) {
+        if (array_key_exists("HaVipId",$param) and $param["HaVipId"] !== null) {
+            if(is_bool($param["HaVipId"])){
                 $this->RequestParams["HaVipId"] = $param["HaVipId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HaVipId"] = $param["HaVipId"];
@@ -42,12 +41,12 @@ class UnAssociateHaVipRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

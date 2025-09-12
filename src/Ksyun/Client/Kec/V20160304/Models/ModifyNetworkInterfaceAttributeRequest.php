@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,23 +7,23 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyNetworkInterfaceAttributeRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "InstanceId" => null,
-        /**String**/
+         /**String**/
         "NetworkInterfaceId" => null,
-        /**String**/
+         /**String**/
         "SubnetId" => null,
-        /**String**/
-        "SecurityGroupId" => null,
-        /**String**/
+         /**String**/
         "PrivateIpAddress" => null,
-        /**String**/
+         /**String**/
         "DNS1" => null,
-        /**String**/
+         /**String**/
         "DNS2" => null,
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $SecurityGroupId = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -35,50 +34,47 @@ class ModifyNetworkInterfaceAttributeRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            if (is_bool($param["InstanceId"])) {
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("NetworkInterfaceId", $param) and $param["NetworkInterfaceId"] !== null) {
-            if (is_bool($param["NetworkInterfaceId"])) {
+        if (array_key_exists("NetworkInterfaceId",$param) and $param["NetworkInterfaceId"] !== null) {
+            if(is_bool($param["NetworkInterfaceId"])){
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceId"] = $param["NetworkInterfaceId"];
             }
         }
-        if (array_key_exists("SubnetId", $param) and $param["SubnetId"] !== null) {
-            if (is_bool($param["SubnetId"])) {
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            if(is_bool($param["SubnetId"])){
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
             }
         }
-        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
-            if (is_bool($param["SecurityGroupId"])) {
-                $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
-            }
+        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
+            $res = $this->formatFilterParams("SecurityGroupId",$param["SecurityGroupId"]);
+            $this->_unserialize("SecurityGroupId",$res);
         }
-        if (array_key_exists("PrivateIpAddress", $param) and $param["PrivateIpAddress"] !== null) {
-            if (is_bool($param["PrivateIpAddress"])) {
+        if (array_key_exists("PrivateIpAddress",$param) and $param["PrivateIpAddress"] !== null) {
+            if(is_bool($param["PrivateIpAddress"])){
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"] ? "true" : "false";
             } else {
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"];
             }
         }
-        if (array_key_exists("DNS1", $param) and $param["DNS1"] !== null) {
-            if (is_bool($param["DNS1"])) {
+        if (array_key_exists("DNS1",$param) and $param["DNS1"] !== null) {
+            if(is_bool($param["DNS1"])){
                 $this->RequestParams["DNS1"] = $param["DNS1"] ? "true" : "false";
             } else {
                 $this->RequestParams["DNS1"] = $param["DNS1"];
             }
         }
-        if (array_key_exists("DNS2", $param) and $param["DNS2"] !== null) {
-            if (is_bool($param["DNS2"])) {
+        if (array_key_exists("DNS2",$param) and $param["DNS2"] !== null) {
+            if(is_bool($param["DNS2"])){
                 $this->RequestParams["DNS2"] = $param["DNS2"] ? "true" : "false";
             } else {
                 $this->RequestParams["DNS2"] = $param["DNS2"];
@@ -87,12 +83,12 @@ class ModifyNetworkInterfaceAttributeRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

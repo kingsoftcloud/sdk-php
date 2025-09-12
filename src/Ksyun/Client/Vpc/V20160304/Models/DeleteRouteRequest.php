@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteRouteRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "RouteId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteRouteRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RouteId", $param) and $param["RouteId"] !== null) {
-            if (is_bool($param["RouteId"])) {
+        if (array_key_exists("RouteId",$param) and $param["RouteId"] !== null) {
+            if(is_bool($param["RouteId"])){
                 $this->RequestParams["RouteId"] = $param["RouteId"] ? "true" : "false";
             } else {
                 $this->RequestParams["RouteId"] = $param["RouteId"];
@@ -33,12 +32,12 @@ class DeleteRouteRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

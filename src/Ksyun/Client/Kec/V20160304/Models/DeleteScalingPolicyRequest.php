@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kec\V20160304\Models;
+namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteScalingPolicyRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ScalingGroupId" => null,
-        /**String**/
+         /**String**/
         "ScalingPolicyId" => null,
     ];
 
@@ -25,15 +24,15 @@ class DeleteScalingPolicyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ScalingGroupId", $param) and $param["ScalingGroupId"] !== null) {
-            if (is_bool($param["ScalingGroupId"])) {
+        if (array_key_exists("ScalingGroupId",$param) and $param["ScalingGroupId"] !== null) {
+            if(is_bool($param["ScalingGroupId"])){
                 $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ScalingGroupId"] = $param["ScalingGroupId"];
             }
         }
-        if (array_key_exists("ScalingPolicyId", $param) and $param["ScalingPolicyId"] !== null) {
-            if (is_bool($param["ScalingPolicyId"])) {
+        if (array_key_exists("ScalingPolicyId",$param) and $param["ScalingPolicyId"] !== null) {
+            if(is_bool($param["ScalingPolicyId"])){
                 $this->RequestParams["ScalingPolicyId"] = $param["ScalingPolicyId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ScalingPolicyId"] = $param["ScalingPolicyId"];
@@ -42,12 +41,12 @@ class DeleteScalingPolicyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

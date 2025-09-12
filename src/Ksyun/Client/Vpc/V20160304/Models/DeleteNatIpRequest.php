@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteNatIpRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "NatId" => null,
-        /**String**/
+         /**String**/
         "NatIpId" => null,
     ];
 
@@ -25,15 +24,15 @@ class DeleteNatIpRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NatId", $param) and $param["NatId"] !== null) {
-            if (is_bool($param["NatId"])) {
+        if (array_key_exists("NatId",$param) and $param["NatId"] !== null) {
+            if(is_bool($param["NatId"])){
                 $this->RequestParams["NatId"] = $param["NatId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NatId"] = $param["NatId"];
             }
         }
-        if (array_key_exists("NatIpId", $param) and $param["NatIpId"] !== null) {
-            if (is_bool($param["NatIpId"])) {
+        if (array_key_exists("NatIpId",$param) and $param["NatIpId"] !== null) {
+            if(is_bool($param["NatIpId"])){
                 $this->RequestParams["NatIpId"] = $param["NatIpId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NatIpId"] = $param["NatIpId"];
@@ -42,12 +41,12 @@ class DeleteNatIpRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteCustomerGatewayRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "CustomerGatewayId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteCustomerGatewayRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CustomerGatewayId", $param) and $param["CustomerGatewayId"] !== null) {
-            if (is_bool($param["CustomerGatewayId"])) {
+        if (array_key_exists("CustomerGatewayId",$param) and $param["CustomerGatewayId"] !== null) {
+            if(is_bool($param["CustomerGatewayId"])){
                 $this->RequestParams["CustomerGatewayId"] = $param["CustomerGatewayId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CustomerGatewayId"] = $param["CustomerGatewayId"];
@@ -33,12 +32,12 @@ class DeleteCustomerGatewayRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

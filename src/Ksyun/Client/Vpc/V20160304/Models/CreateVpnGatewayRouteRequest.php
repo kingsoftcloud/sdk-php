@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateVpnGatewayRouteRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "VpnGatewayId" => null,
-        /**String**/
+         /**String**/
         "DestinationCidrBlock" => null,
-        /**String**/
+         /**String**/
         "NextHopInstanceId" => null,
-        /**String**/
+         /**String**/
         "NextHopType" => null,
-        /**String**/
+         /**String**/
         "Description" => null,
     ];
 
@@ -31,36 +30,36 @@ class CreateVpnGatewayRouteRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpnGatewayId", $param) and $param["VpnGatewayId"] !== null) {
-            if (is_bool($param["VpnGatewayId"])) {
+        if (array_key_exists("VpnGatewayId",$param) and $param["VpnGatewayId"] !== null) {
+            if(is_bool($param["VpnGatewayId"])){
                 $this->RequestParams["VpnGatewayId"] = $param["VpnGatewayId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpnGatewayId"] = $param["VpnGatewayId"];
             }
         }
-        if (array_key_exists("DestinationCidrBlock", $param) and $param["DestinationCidrBlock"] !== null) {
-            if (is_bool($param["DestinationCidrBlock"])) {
+        if (array_key_exists("DestinationCidrBlock",$param) and $param["DestinationCidrBlock"] !== null) {
+            if(is_bool($param["DestinationCidrBlock"])){
                 $this->RequestParams["DestinationCidrBlock"] = $param["DestinationCidrBlock"] ? "true" : "false";
             } else {
                 $this->RequestParams["DestinationCidrBlock"] = $param["DestinationCidrBlock"];
             }
         }
-        if (array_key_exists("NextHopInstanceId", $param) and $param["NextHopInstanceId"] !== null) {
-            if (is_bool($param["NextHopInstanceId"])) {
+        if (array_key_exists("NextHopInstanceId",$param) and $param["NextHopInstanceId"] !== null) {
+            if(is_bool($param["NextHopInstanceId"])){
                 $this->RequestParams["NextHopInstanceId"] = $param["NextHopInstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextHopInstanceId"] = $param["NextHopInstanceId"];
             }
         }
-        if (array_key_exists("NextHopType", $param) and $param["NextHopType"] !== null) {
-            if (is_bool($param["NextHopType"])) {
+        if (array_key_exists("NextHopType",$param) and $param["NextHopType"] !== null) {
+            if(is_bool($param["NextHopType"])){
                 $this->RequestParams["NextHopType"] = $param["NextHopType"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextHopType"] = $param["NextHopType"];
             }
         }
-        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
-            if (is_bool($param["Description"])) {
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
@@ -69,12 +68,12 @@ class CreateVpnGatewayRouteRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

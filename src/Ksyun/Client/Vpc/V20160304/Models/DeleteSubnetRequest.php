@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteSubnetRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "SubnetId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteSubnetRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SubnetId", $param) and $param["SubnetId"] !== null) {
-            if (is_bool($param["SubnetId"])) {
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            if(is_bool($param["SubnetId"])){
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
@@ -33,12 +32,12 @@ class DeleteSubnetRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeVpnTunnelIpsecStatusRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "IsMaster" => null,
     ];
 
-    /**特殊参数类型:Filter**/
+     /**特殊参数类型:Filter**/
     public $VpnTunnelId = [];
-
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -25,26 +24,26 @@ class DescribeVpnTunnelIpsecStatusRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("IsMaster", $param) and $param["IsMaster"] !== null) {
-            if (is_bool($param["IsMaster"])) {
+        if (array_key_exists("IsMaster",$param) and $param["IsMaster"] !== null) {
+            if(is_bool($param["IsMaster"])){
                 $this->RequestParams["IsMaster"] = $param["IsMaster"] ? "true" : "false";
             } else {
                 $this->RequestParams["IsMaster"] = $param["IsMaster"];
             }
         }
-        if (array_key_exists("VpnTunnelId", $param) and $param["VpnTunnelId"] !== null) {
-            $res = $this->formatFilterParams("VpnTunnelId", $param["VpnTunnelId"]);
-            $this->_unserialize("VpnTunnelId", $res);
+        if (array_key_exists("VpnTunnelId",$param) and $param["VpnTunnelId"] !== null) {
+            $res = $this->formatFilterParams("VpnTunnelId",$param["VpnTunnelId"]);
+            $this->_unserialize("VpnTunnelId",$res);
         }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Vpc\V20160304\Models;
+namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyVpcRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "VpcName" => null,
-        /**String**/
+         /**String**/
         "VpcId" => null,
     ];
 
@@ -25,15 +24,15 @@ class ModifyVpcRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcName", $param) and $param["VpcName"] !== null) {
-            if (is_bool($param["VpcName"])) {
+        if (array_key_exists("VpcName",$param) and $param["VpcName"] !== null) {
+            if(is_bool($param["VpcName"])){
                 $this->RequestParams["VpcName"] = $param["VpcName"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcName"] = $param["VpcName"];
             }
         }
-        if (array_key_exists("VpcId", $param) and $param["VpcId"] !== null) {
-            if (is_bool($param["VpcId"])) {
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            if(is_bool($param["VpcId"])){
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
@@ -42,12 +41,12 @@ class ModifyVpcRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 
