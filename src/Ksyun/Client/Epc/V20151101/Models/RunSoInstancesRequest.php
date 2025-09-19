@@ -37,6 +37,10 @@ class RunSoInstancesRequest extends BaseModel
         "SuffixIndex" => null,
          /**Boolean**/
         "UniqueSuffix" => null,
+         /**Boolean**/
+        "InstallRunCommandAgent" => null,
+         /**Int**/
+        "Count" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -159,6 +163,20 @@ class RunSoInstancesRequest extends BaseModel
                 $this->RequestParams["UniqueSuffix"] = $param["UniqueSuffix"] ? "true" : "false";
             } else {
                 $this->RequestParams["UniqueSuffix"] = $param["UniqueSuffix"];
+            }
+        }
+        if (array_key_exists("InstallRunCommandAgent",$param) and $param["InstallRunCommandAgent"] !== null) {
+            if(is_bool($param["InstallRunCommandAgent"])){
+                $this->RequestParams["InstallRunCommandAgent"] = $param["InstallRunCommandAgent"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstallRunCommandAgent"] = $param["InstallRunCommandAgent"];
+            }
+        }
+        if (array_key_exists("Count",$param) and $param["Count"] !== null) {
+            if(is_bool($param["Count"])){
+                $this->RequestParams["Count"] = $param["Count"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Count"] = $param["Count"];
             }
         }
 
