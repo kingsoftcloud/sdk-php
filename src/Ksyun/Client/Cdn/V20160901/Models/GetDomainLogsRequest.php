@@ -4,7 +4,7 @@ namespace  Ksyun\Client\Cdn\V20160901\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class GetDomainPidDimensionUsageDataRequest extends BaseModel
+class GetDomainLogsRequest extends BaseModel
 {
     public $RequestParams = [
     ];

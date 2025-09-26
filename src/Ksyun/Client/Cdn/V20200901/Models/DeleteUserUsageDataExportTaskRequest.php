@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Cdn\V20200901\Models;
+namespace  Ksyun\Client\Cdn\V20200901\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteUserUsageDataExportTaskRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "TaskID" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteUserUsageDataExportTaskRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TaskID", $param) and $param["TaskID"] !== null) {
-            if (is_bool($param["TaskID"])) {
+        if (array_key_exists("TaskID",$param) and $param["TaskID"] !== null) {
+            if(is_bool($param["TaskID"])){
                 $this->RequestParams["TaskID"] = $param["TaskID"] ? "true" : "false";
             } else {
                 $this->RequestParams["TaskID"] = $param["TaskID"];
@@ -33,12 +32,12 @@ class DeleteUserUsageDataExportTaskRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

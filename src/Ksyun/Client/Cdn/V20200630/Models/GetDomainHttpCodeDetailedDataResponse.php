@@ -1,21 +1,26 @@
 <?php
-
-namespace Ksyun\Client\Cdn\V20200630\Models;
+namespace  Ksyun\Client\Cdn\V20200630\Models;
 
 use Ksyun\Common\BaseModel;
 
 class GetDomainHttpCodeDetailedDataResponse extends BaseModel
 {
-    public function __construct()
-    {
+         /** **/
+         public  $StartTime;
 
-    }
+         public function __construct()
+         {
 
-    public function unserialize($param)
-    {
-        if ($param === null) {
-            return;
+         }
+
+        public function unserialize($param)
+        {
+            if ($param === null) {
+                return;
+            }
+            if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
+                $this->StartTime = $param["StartTime"];
+            }
+
         }
-
-    }
 }

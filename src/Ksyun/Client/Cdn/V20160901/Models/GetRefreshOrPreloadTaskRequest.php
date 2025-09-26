@@ -4,21 +4,30 @@ namespace  Ksyun\Client\Cdn\V20160901\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class GetDomainPidDimensionUsageDataRequest extends BaseModel
+class GetRefreshOrPreloadTaskRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "DomainIds" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("DomainIds",$param) and $param["DomainIds"] !== null) {
+            if(is_bool($param["DomainIds"])){
+                $this->RequestParams["DomainIds"] = $param["DomainIds"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DomainIds"] = $param["DomainIds"];
+            }
         }
 
     }

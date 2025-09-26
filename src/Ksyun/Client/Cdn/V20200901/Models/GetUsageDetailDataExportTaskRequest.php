@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Cdn\V20200901\Models;
+namespace  Ksyun\Client\Cdn\V20200901\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class GetUsageDetailDataExportTaskRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "PageSize" => null,
-        /**String**/
+         /**String**/
         "PageNumber" => null,
     ];
 
@@ -25,15 +24,15 @@ class GetUsageDetailDataExportTaskRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PageSize", $param) and $param["PageSize"] !== null) {
-            if (is_bool($param["PageSize"])) {
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            if(is_bool($param["PageSize"])){
                 $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["PageSize"] = $param["PageSize"];
             }
         }
-        if (array_key_exists("PageNumber", $param) and $param["PageNumber"] !== null) {
-            if (is_bool($param["PageNumber"])) {
+        if (array_key_exists("PageNumber",$param) and $param["PageNumber"] !== null) {
+            if(is_bool($param["PageNumber"])){
                 $this->RequestParams["PageNumber"] = $param["PageNumber"] ? "true" : "false";
             } else {
                 $this->RequestParams["PageNumber"] = $param["PageNumber"];
@@ -42,12 +41,12 @@ class GetUsageDetailDataExportTaskRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 
