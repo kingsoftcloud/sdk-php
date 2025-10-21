@@ -59,7 +59,6 @@ abstract class BaseClient
      */
     function __construct($endpoint, $version, $credential, $region, $profile = null)
     {
-        $this->path = "/";
         $this->credential = $credential;
         $this->region = $region;
         if ($profile) {
@@ -67,6 +66,9 @@ abstract class BaseClient
         } else {
             $this->profile = new HttpOptions();
         }
+
+        // 从 HttpOptions 中获取自定义路径
+        $this->path = $this->profile->getPath();
 
         $this->getRefreshedEndpoint();
         $this->apiVersion = $version;

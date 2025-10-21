@@ -103,6 +103,11 @@ class HttpOptions
     private $headers;
 
     /**
+     * @var string 自定义请求路径
+     */
+    private $path;
+
+    /**
      * HttpProfile constructor.
      * @param string $protocol 请求协议
      * @param string $endpoint 请求接入点域名(xx.api.ksyun.com)
@@ -117,6 +122,7 @@ class HttpOptions
         $this->protocol = $protocol ? $protocol : HttpOptions::$REQ_HTTPS;
         $this->rootDomain = "api.ksyun.com";
         $this->keepAlive = false;
+        $this->path = "/";
     }
 
     /**
@@ -264,5 +270,51 @@ class HttpOptions
     public function getHeaders()
     {
         return $this->headers;
+    }
+
+    /**
+     * 设置自定义请求路径
+     * 自动规范化路径：
+     * 1. 移除查询参数（?后的内容）
+     * 2. 确保路径以 / 开头
+     * 3. 移除尾部的 /
+     * @param string $path 请求路径（如 /api/xx/xxx 或 api/xx/xxx）
+     */
+    public function setPath($path)
+    {
+        // 1. 移除查询参数
+        if (strpos($path, '?') !== false) {
+            $path = substr($path, 0, strpos($path, '?'));
+        }
+
+        // 2. 移除两端的空白
+        $path = trim($path);
+
+        // 3. 如果是空字符串，设置为 /
+        if ($path === '') {
+            $this->path = '/';
+            return;
+        }
+
+        // 4. 确保以 / 开头
+        if ($path[0] !== '/') {
+            $path = '/' . $path;
+        }
+
+        // 5. 移除尾部的 /（但保留单独的 / ）
+        if (strlen($path) > 1 && $path[strlen($path) - 1] === '/') {
+            $path = rtrim($path, '/');
+        }
+
+        $this->path = $path;
+    }
+
+    /**
+     * 获取自定义请求路径
+     * @return string 请求路径
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }
