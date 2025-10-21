@@ -15,6 +15,8 @@ class ModifySoImageAttributeRequest extends BaseModel
         "ImageId" => null,
          /**String**/
         "ImageName" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -54,6 +56,13 @@ class ModifySoImageAttributeRequest extends BaseModel
                 $this->RequestParams["ImageName"] = $param["ImageName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageName"] = $param["ImageName"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

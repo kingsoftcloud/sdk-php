@@ -13,6 +13,8 @@ class ModifySoKeyPairAttributeRequest extends BaseModel
         "KeyPairId" => null,
          /**String**/
         "KeyPairName" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class ModifySoKeyPairAttributeRequest extends BaseModel
                 $this->RequestParams["KeyPairName"] = $param["KeyPairName"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeyPairName"] = $param["KeyPairName"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

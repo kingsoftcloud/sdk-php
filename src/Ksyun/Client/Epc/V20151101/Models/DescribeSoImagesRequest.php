@@ -21,6 +21,8 @@ class DescribeSoImagesRequest extends BaseModel
         "Platform" => null,
          /**String**/
         "Visibility" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -93,6 +95,13 @@ class DescribeSoImagesRequest extends BaseModel
                 $this->RequestParams["Visibility"] = $param["Visibility"] ? "true" : "false";
             } else {
                 $this->RequestParams["Visibility"] = $param["Visibility"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

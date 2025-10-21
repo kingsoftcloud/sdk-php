@@ -7,6 +7,8 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteSoInstanceRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "SoZoneId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -25,6 +27,13 @@ class DeleteSoInstanceRequest extends BaseModel
         if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
             $res = $this->formatFilterParams("InstanceIds",$param["InstanceIds"]);
             $this->_unserialize("InstanceIds",$res);
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
+            }
         }
 
     }

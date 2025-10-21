@@ -13,6 +13,8 @@ class DescribeSoAvailableResourceRequest extends BaseModel
         "InstanceTypeId" => null,
          /**String**/
         "ZoneId" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class DescribeSoAvailableResourceRequest extends BaseModel
                 $this->RequestParams["ZoneId"] = $param["ZoneId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ZoneId"] = $param["ZoneId"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

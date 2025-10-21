@@ -17,6 +17,8 @@ class DescribeSoSubnetRequest extends BaseModel
         "NextToken" => null,
          /**Int**/
         "MaxResults" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -69,6 +71,13 @@ class DescribeSoSubnetRequest extends BaseModel
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxResults"] = $param["MaxResults"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

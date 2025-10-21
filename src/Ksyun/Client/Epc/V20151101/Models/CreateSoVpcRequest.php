@@ -15,6 +15,8 @@ class CreateSoVpcRequest extends BaseModel
         "CidrBlock" => null,
          /**String**/
         "AttachVpcId" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -60,6 +62,13 @@ class CreateSoVpcRequest extends BaseModel
                 $this->RequestParams["AttachVpcId"] = $param["AttachVpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AttachVpcId"] = $param["AttachVpcId"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

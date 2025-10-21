@@ -41,6 +41,8 @@ class RunSoInstancesRequest extends BaseModel
         "InstallRunCommandAgent" => null,
          /**Int**/
         "Count" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -177,6 +179,13 @@ class RunSoInstancesRequest extends BaseModel
                 $this->RequestParams["Count"] = $param["Count"] ? "true" : "false";
             } else {
                 $this->RequestParams["Count"] = $param["Count"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

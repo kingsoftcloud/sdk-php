@@ -15,6 +15,8 @@ class DescribeSoKeyPairsRequest extends BaseModel
         "MaxResults" => null,
          /**String**/
         "NextToken" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -66,6 +68,13 @@ class DescribeSoKeyPairsRequest extends BaseModel
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

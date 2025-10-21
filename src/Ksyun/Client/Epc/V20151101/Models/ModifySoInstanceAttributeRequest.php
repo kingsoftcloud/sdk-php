@@ -19,6 +19,8 @@ class ModifySoInstanceAttributeRequest extends BaseModel
         "InstanceName" => null,
          /**String**/
         "Password" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -72,6 +74,13 @@ class ModifySoInstanceAttributeRequest extends BaseModel
                 $this->RequestParams["Password"] = $param["Password"] ? "true" : "false";
             } else {
                 $this->RequestParams["Password"] = $param["Password"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

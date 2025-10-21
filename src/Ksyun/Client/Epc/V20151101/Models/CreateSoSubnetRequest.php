@@ -17,6 +17,8 @@ class CreateSoSubnetRequest extends BaseModel
         "Description" => null,
          /**String**/
         "CidrBlock" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -63,6 +65,13 @@ class CreateSoSubnetRequest extends BaseModel
                 $this->RequestParams["CidrBlock"] = $param["CidrBlock"] ? "true" : "false";
             } else {
                 $this->RequestParams["CidrBlock"] = $param["CidrBlock"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

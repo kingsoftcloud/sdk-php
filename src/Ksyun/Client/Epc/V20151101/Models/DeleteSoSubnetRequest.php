@@ -9,6 +9,8 @@ class DeleteSoSubnetRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "SubnetId" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -27,6 +29,13 @@ class DeleteSoSubnetRequest extends BaseModel
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

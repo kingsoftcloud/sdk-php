@@ -13,6 +13,8 @@ class ModifySoSubnetAttributesRequest extends BaseModel
         "SubnetName" => null,
          /**String**/
         "Description" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class ModifySoSubnetAttributesRequest extends BaseModel
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

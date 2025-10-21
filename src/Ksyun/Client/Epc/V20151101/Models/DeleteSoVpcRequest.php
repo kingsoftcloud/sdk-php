@@ -9,6 +9,8 @@ class DeleteSoVpcRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "VpcId" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
 
@@ -27,6 +29,13 @@ class DeleteSoVpcRequest extends BaseModel
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 

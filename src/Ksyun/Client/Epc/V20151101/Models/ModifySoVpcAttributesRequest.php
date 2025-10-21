@@ -13,6 +13,8 @@ class ModifySoVpcAttributesRequest extends BaseModel
         "Description" => null,
          /**String**/
         "VpcName" => null,
+         /**String**/
+        "SoZoneId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -51,6 +53,13 @@ class ModifySoVpcAttributesRequest extends BaseModel
                 $this->RequestParams["VpcName"] = $param["VpcName"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcName"] = $param["VpcName"];
+            }
+        }
+        if (array_key_exists("SoZoneId",$param) and $param["SoZoneId"] !== null) {
+            if(is_bool($param["SoZoneId"])){
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
             }
         }
 
