@@ -13,12 +13,14 @@ class DescribeBillSummaryByPayModeRequest extends BaseModel
         "BillEndMonth" => null,
          /**Int**/
         "SubAccount" => null,
+         /**Boolean**/
+        "FetchAllFinanceRelationData" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -45,6 +47,13 @@ class DescribeBillSummaryByPayModeRequest extends BaseModel
                 $this->RequestParams["SubAccount"] = $param["SubAccount"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubAccount"] = $param["SubAccount"];
+            }
+        }
+        if (array_key_exists("FetchAllFinanceRelationData",$param) and $param["FetchAllFinanceRelationData"] !== null) {
+            if(is_bool($param["FetchAllFinanceRelationData"])){
+                $this->RequestParams["FetchAllFinanceRelationData"] = $param["FetchAllFinanceRelationData"] ? "true" : "false";
+            } else {
+                $this->RequestParams["FetchAllFinanceRelationData"] = $param["FetchAllFinanceRelationData"];
             }
         }
 
