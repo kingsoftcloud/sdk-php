@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kmr\V20240814\Models;
+namespace  Ksyun\Client\Kmr\V20240814\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ListJobRunsRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "WorkspaceId" => null,
-        /**Int**/
+         /**Int**/
         "MaxResults" => null,
     ];
 
@@ -25,15 +24,15 @@ class ListJobRunsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("WorkspaceId", $param) and $param["WorkspaceId"] !== null) {
-            if (is_bool($param["WorkspaceId"])) {
+        if (array_key_exists("WorkspaceId",$param) and $param["WorkspaceId"] !== null) {
+            if(is_bool($param["WorkspaceId"])){
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"];
             }
         }
-        if (array_key_exists("MaxResults", $param) and $param["MaxResults"] !== null) {
-            if (is_bool($param["MaxResults"])) {
+        if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
+            if(is_bool($param["MaxResults"])){
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxResults"] = $param["MaxResults"];
@@ -42,12 +41,12 @@ class ListJobRunsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

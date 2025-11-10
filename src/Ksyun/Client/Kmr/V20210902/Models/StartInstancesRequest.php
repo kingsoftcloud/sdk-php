@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kmr\V20210902\Models;
+namespace  Ksyun\Client\Kmr\V20210902\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class StartInstancesRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ClusterId" => null,
-        /**Array**/
+         /**Array**/
         "InstanceIds" => null,
     ];
 
@@ -25,15 +24,15 @@ class StartInstancesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ClusterId", $param) and $param["ClusterId"] !== null) {
-            if (is_bool($param["ClusterId"])) {
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            if(is_bool($param["ClusterId"])){
                 $this->RequestParams["ClusterId"] = $param["ClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
             }
         }
-        if (array_key_exists("InstanceIds", $param) and $param["InstanceIds"] !== null) {
-            if (is_bool($param["InstanceIds"])) {
+        if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
+            if(is_bool($param["InstanceIds"])){
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"];
@@ -42,12 +41,12 @@ class StartInstancesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

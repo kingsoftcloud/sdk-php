@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kmr\V20210902\Models;
+namespace  Ksyun\Client\Kmr\V20210902\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteScaleStrategyRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ClusterId" => null,
-        /**String**/
+         /**String**/
         "StrategyId" => null,
-        /**String**/
+         /**String**/
         "StrategyModule" => null,
     ];
 
@@ -27,22 +26,22 @@ class DeleteScaleStrategyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ClusterId", $param) and $param["ClusterId"] !== null) {
-            if (is_bool($param["ClusterId"])) {
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            if(is_bool($param["ClusterId"])){
                 $this->RequestParams["ClusterId"] = $param["ClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
             }
         }
-        if (array_key_exists("StrategyId", $param) and $param["StrategyId"] !== null) {
-            if (is_bool($param["StrategyId"])) {
+        if (array_key_exists("StrategyId",$param) and $param["StrategyId"] !== null) {
+            if(is_bool($param["StrategyId"])){
                 $this->RequestParams["StrategyId"] = $param["StrategyId"] ? "true" : "false";
             } else {
                 $this->RequestParams["StrategyId"] = $param["StrategyId"];
             }
         }
-        if (array_key_exists("StrategyModule", $param) and $param["StrategyModule"] !== null) {
-            if (is_bool($param["StrategyModule"])) {
+        if (array_key_exists("StrategyModule",$param) and $param["StrategyModule"] !== null) {
+            if(is_bool($param["StrategyModule"])){
                 $this->RequestParams["StrategyModule"] = $param["StrategyModule"] ? "true" : "false";
             } else {
                 $this->RequestParams["StrategyModule"] = $param["StrategyModule"];
@@ -51,12 +50,12 @@ class DeleteScaleStrategyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

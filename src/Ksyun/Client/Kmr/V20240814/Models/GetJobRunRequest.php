@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kmr\V20240814\Models;
+namespace  Ksyun\Client\Kmr\V20240814\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class GetJobRunRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "WorkspaceId" => null,
-        /**String**/
+         /**String**/
         "JobRunId" => null,
     ];
 
@@ -25,15 +24,15 @@ class GetJobRunRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("WorkspaceId", $param) and $param["WorkspaceId"] !== null) {
-            if (is_bool($param["WorkspaceId"])) {
+        if (array_key_exists("WorkspaceId",$param) and $param["WorkspaceId"] !== null) {
+            if(is_bool($param["WorkspaceId"])){
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"];
             }
         }
-        if (array_key_exists("JobRunId", $param) and $param["JobRunId"] !== null) {
-            if (is_bool($param["JobRunId"])) {
+        if (array_key_exists("JobRunId",$param) and $param["JobRunId"] !== null) {
+            if(is_bool($param["JobRunId"])){
                 $this->RequestParams["JobRunId"] = $param["JobRunId"] ? "true" : "false";
             } else {
                 $this->RequestParams["JobRunId"] = $param["JobRunId"];
@@ -42,12 +41,12 @@ class GetJobRunRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

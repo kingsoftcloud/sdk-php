@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kmr\V20240814\Models;
+namespace  Ksyun\Client\Kmr\V20240814\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class StartJobRunRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "WorkspaceId" => null,
-        /**String**/
+         /**String**/
         "AccessKeyId" => null,
-        /**String**/
+         /**String**/
         "AccessKeySecret" => null,
-        /**String**/
+         /**String**/
         "ReleaseVersion" => null,
-        /**Object**/
+         /**Object**/
         "SparkSubmitData" => null,
     ];
 
@@ -31,36 +30,36 @@ class StartJobRunRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("WorkspaceId", $param) and $param["WorkspaceId"] !== null) {
-            if (is_bool($param["WorkspaceId"])) {
+        if (array_key_exists("WorkspaceId",$param) and $param["WorkspaceId"] !== null) {
+            if(is_bool($param["WorkspaceId"])){
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["WorkspaceId"] = $param["WorkspaceId"];
             }
         }
-        if (array_key_exists("AccessKeyId", $param) and $param["AccessKeyId"] !== null) {
-            if (is_bool($param["AccessKeyId"])) {
+        if (array_key_exists("AccessKeyId",$param) and $param["AccessKeyId"] !== null) {
+            if(is_bool($param["AccessKeyId"])){
                 $this->RequestParams["AccessKeyId"] = $param["AccessKeyId"] ? "true" : "false";
             } else {
                 $this->RequestParams["AccessKeyId"] = $param["AccessKeyId"];
             }
         }
-        if (array_key_exists("AccessKeySecret", $param) and $param["AccessKeySecret"] !== null) {
-            if (is_bool($param["AccessKeySecret"])) {
+        if (array_key_exists("AccessKeySecret",$param) and $param["AccessKeySecret"] !== null) {
+            if(is_bool($param["AccessKeySecret"])){
                 $this->RequestParams["AccessKeySecret"] = $param["AccessKeySecret"] ? "true" : "false";
             } else {
                 $this->RequestParams["AccessKeySecret"] = $param["AccessKeySecret"];
             }
         }
-        if (array_key_exists("ReleaseVersion", $param) and $param["ReleaseVersion"] !== null) {
-            if (is_bool($param["ReleaseVersion"])) {
+        if (array_key_exists("ReleaseVersion",$param) and $param["ReleaseVersion"] !== null) {
+            if(is_bool($param["ReleaseVersion"])){
                 $this->RequestParams["ReleaseVersion"] = $param["ReleaseVersion"] ? "true" : "false";
             } else {
                 $this->RequestParams["ReleaseVersion"] = $param["ReleaseVersion"];
             }
         }
-        if (array_key_exists("SparkSubmitData", $param) and $param["SparkSubmitData"] !== null) {
-            if (is_bool($param["SparkSubmitData"])) {
+        if (array_key_exists("SparkSubmitData",$param) and $param["SparkSubmitData"] !== null) {
+            if(is_bool($param["SparkSubmitData"])){
                 $this->RequestParams["SparkSubmitData"] = $param["SparkSubmitData"] ? "true" : "false";
             } else {
                 $this->RequestParams["SparkSubmitData"] = $param["SparkSubmitData"];
@@ -69,12 +68,12 @@ class StartJobRunRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

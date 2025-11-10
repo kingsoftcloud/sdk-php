@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kmr\V20210902\Models;
+namespace  Ksyun\Client\Kmr\V20210902\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class ScaleOutInstanceGroupsRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ClusterId" => null,
-        /**Array**/
+         /**Array**/
         "InstanceGroups" => null,
-        /**Int**/
+         /**Int**/
         "ProjectId" => null,
     ];
 
@@ -27,22 +26,22 @@ class ScaleOutInstanceGroupsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ClusterId", $param) and $param["ClusterId"] !== null) {
-            if (is_bool($param["ClusterId"])) {
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            if(is_bool($param["ClusterId"])){
                 $this->RequestParams["ClusterId"] = $param["ClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
             }
         }
-        if (array_key_exists("InstanceGroups", $param) and $param["InstanceGroups"] !== null) {
-            if (is_bool($param["InstanceGroups"])) {
+        if (array_key_exists("InstanceGroups",$param) and $param["InstanceGroups"] !== null) {
+            if(is_bool($param["InstanceGroups"])){
                 $this->RequestParams["InstanceGroups"] = $param["InstanceGroups"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceGroups"] = $param["InstanceGroups"];
             }
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            if (is_bool($param["ProjectId"])) {
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
@@ -51,12 +50,12 @@ class ScaleOutInstanceGroupsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 
