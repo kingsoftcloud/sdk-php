@@ -7,6 +7,10 @@ use Ksyun\Common\Http\HttpOptions;
 class ListProjectsRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "ProjectName" => null,
+         /**String**/
+        "Description" => null,
          /**Int**/
         "Page" => null,
          /**Int**/
@@ -23,6 +27,20 @@ class ListProjectsRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("ProjectName",$param) and $param["ProjectName"] !== null) {
+            if(is_bool($param["ProjectName"])){
+                $this->RequestParams["ProjectName"] = $param["ProjectName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProjectName"] = $param["ProjectName"];
+            }
+        }
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
+                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Description"] = $param["Description"];
+            }
         }
         if (array_key_exists("Page",$param) and $param["Page"] !== null) {
             if(is_bool($param["Page"])){
