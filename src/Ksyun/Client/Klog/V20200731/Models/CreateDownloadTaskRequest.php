@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Klog\V20200731\Models;
+namespace  Ksyun\Client\Klog\V20200731\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,14 +7,12 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateDownloadTaskRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
-        "From" => null,
-        /**String**/
-        "To" => null,
-        /**String**/
-        "LogPoolName" => null,
-        /**String**/
+         /**String**/
         "ProjectName" => null,
+         /**String**/
+        "LogPoolNames" => null,
+         /**Object**/
+        "Config" => null,
     ];
 
 
@@ -29,43 +26,36 @@ class CreateDownloadTaskRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("From", $param) and $param["From"] !== null) {
-            if (is_bool($param["From"])) {
-                $this->RequestParams["From"] = $param["From"] ? "true" : "false";
-            } else {
-                $this->RequestParams["From"] = $param["From"];
-            }
-        }
-        if (array_key_exists("To", $param) and $param["To"] !== null) {
-            if (is_bool($param["To"])) {
-                $this->RequestParams["To"] = $param["To"] ? "true" : "false";
-            } else {
-                $this->RequestParams["To"] = $param["To"];
-            }
-        }
-        if (array_key_exists("LogPoolName", $param) and $param["LogPoolName"] !== null) {
-            if (is_bool($param["LogPoolName"])) {
-                $this->RequestParams["LogPoolName"] = $param["LogPoolName"] ? "true" : "false";
-            } else {
-                $this->RequestParams["LogPoolName"] = $param["LogPoolName"];
-            }
-        }
-        if (array_key_exists("ProjectName", $param) and $param["ProjectName"] !== null) {
-            if (is_bool($param["ProjectName"])) {
+        if (array_key_exists("ProjectName",$param) and $param["ProjectName"] !== null) {
+            if(is_bool($param["ProjectName"])){
                 $this->RequestParams["ProjectName"] = $param["ProjectName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectName"] = $param["ProjectName"];
             }
         }
+        if (array_key_exists("LogPoolNames",$param) and $param["LogPoolNames"] !== null) {
+            if(is_bool($param["LogPoolNames"])){
+                $this->RequestParams["LogPoolNames"] = $param["LogPoolNames"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LogPoolNames"] = $param["LogPoolNames"];
+            }
+        }
+        if (array_key_exists("Config",$param) and $param["Config"] !== null) {
+            if(is_bool($param["Config"])){
+                $this->RequestParams["Config"] = $param["Config"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Config"] = $param["Config"];
+            }
+        }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 
