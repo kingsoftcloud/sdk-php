@@ -10,7 +10,7 @@ class ModifyNotebookRequest extends BaseModel
          /**String**/
         "NotebookId" => null,
          /**String**/
-        "DisplayName" => null,
+        "NotebookName" => null,
          /**String**/
         "Description" => null,
          /**String**/
@@ -21,22 +21,16 @@ class ModifyNotebookRequest extends BaseModel
         "GPUType" => null,
          /**Int**/
         "GPUNumber" => null,
+         /**Int**/
+        "CPUNum" => null,
+         /**Int**/
+        "Memory" => null,
          /**String**/
         "AccessType" => null,
-         /**String**/
-        "AllocationId" => null,
-         /**String**/
-        "EnableSsh" => null,
-         /**Int**/
-        "SshPort" => null,
          /**Boolean**/
         "EnablePublicNetworkSsh" => null,
          /**String**/
         "SshAuthorizedKeys" => null,
-         /**Int**/
-        "CpuNum" => null,
-         /**Int**/
-        "Memory" => null,
          /**Array**/
         "StorageConfigs" => null,
          /**Array**/
@@ -46,13 +40,15 @@ class ModifyNotebookRequest extends BaseModel
          /**String**/
         "RunOnCPU" => null,
          /**String**/
-        "NotebookName" => null,
+        "EnableSSH" => null,
          /**Int**/
         "SSHPort" => null,
          /**String**/
         "SSHAuthorizedKeys" => null,
-         /**Int**/
-        "CPUNum" => null,
+         /**Boolean**/
+        "EnablePublicNetworkSSH" => null,
+         /**String**/
+        "AllocationId" => null,
          /**String**/
         "ImageTagId" => null,
          /**String**/
@@ -61,10 +57,6 @@ class ModifyNotebookRequest extends BaseModel
         "ImageRepoId" => null,
          /**String**/
         "ImageRegistryId" => null,
-         /**String**/
-        "EnableSSH" => null,
-         /**Boolean**/
-        "EnablePublicNetworkSSH" => null,
     ];
 
 
@@ -85,11 +77,11 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["NotebookId"] = $param["NotebookId"];
             }
         }
-        if (array_key_exists("DisplayName",$param) and $param["DisplayName"] !== null) {
-            if(is_bool($param["DisplayName"])){
-                $this->RequestParams["DisplayName"] = $param["DisplayName"] ? "true" : "false";
+        if (array_key_exists("NotebookName",$param) and $param["NotebookName"] !== null) {
+            if(is_bool($param["NotebookName"])){
+                $this->RequestParams["NotebookName"] = $param["NotebookName"] ? "true" : "false";
             } else {
-                $this->RequestParams["DisplayName"] = $param["DisplayName"];
+                $this->RequestParams["NotebookName"] = $param["NotebookName"];
             }
         }
         if (array_key_exists("Description",$param) and $param["Description"] !== null) {
@@ -127,32 +119,25 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["GPUNumber"] = $param["GPUNumber"];
             }
         }
+        if (array_key_exists("CPUNum",$param) and $param["CPUNum"] !== null) {
+            if(is_bool($param["CPUNum"])){
+                $this->RequestParams["CPUNum"] = $param["CPUNum"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CPUNum"] = $param["CPUNum"];
+            }
+        }
+        if (array_key_exists("Memory",$param) and $param["Memory"] !== null) {
+            if(is_bool($param["Memory"])){
+                $this->RequestParams["Memory"] = $param["Memory"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Memory"] = $param["Memory"];
+            }
+        }
         if (array_key_exists("AccessType",$param) and $param["AccessType"] !== null) {
             if(is_bool($param["AccessType"])){
                 $this->RequestParams["AccessType"] = $param["AccessType"] ? "true" : "false";
             } else {
                 $this->RequestParams["AccessType"] = $param["AccessType"];
-            }
-        }
-        if (array_key_exists("AllocationId",$param) and $param["AllocationId"] !== null) {
-            if(is_bool($param["AllocationId"])){
-                $this->RequestParams["AllocationId"] = $param["AllocationId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["AllocationId"] = $param["AllocationId"];
-            }
-        }
-        if (array_key_exists("EnableSsh",$param) and $param["EnableSsh"] !== null) {
-            if(is_bool($param["EnableSsh"])){
-                $this->RequestParams["EnableSsh"] = $param["EnableSsh"] ? "true" : "false";
-            } else {
-                $this->RequestParams["EnableSsh"] = $param["EnableSsh"];
-            }
-        }
-        if (array_key_exists("SshPort",$param) and $param["SshPort"] !== null) {
-            if(is_bool($param["SshPort"])){
-                $this->RequestParams["SshPort"] = $param["SshPort"] ? "true" : "false";
-            } else {
-                $this->RequestParams["SshPort"] = $param["SshPort"];
             }
         }
         if (array_key_exists("EnablePublicNetworkSsh",$param) and $param["EnablePublicNetworkSsh"] !== null) {
@@ -167,20 +152,6 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["SshAuthorizedKeys"] = $param["SshAuthorizedKeys"] ? "true" : "false";
             } else {
                 $this->RequestParams["SshAuthorizedKeys"] = $param["SshAuthorizedKeys"];
-            }
-        }
-        if (array_key_exists("CpuNum",$param) and $param["CpuNum"] !== null) {
-            if(is_bool($param["CpuNum"])){
-                $this->RequestParams["CpuNum"] = $param["CpuNum"] ? "true" : "false";
-            } else {
-                $this->RequestParams["CpuNum"] = $param["CpuNum"];
-            }
-        }
-        if (array_key_exists("Memory",$param) and $param["Memory"] !== null) {
-            if(is_bool($param["Memory"])){
-                $this->RequestParams["Memory"] = $param["Memory"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Memory"] = $param["Memory"];
             }
         }
         if (array_key_exists("StorageConfigs",$param) and $param["StorageConfigs"] !== null) {
@@ -211,11 +182,11 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["RunOnCPU"] = $param["RunOnCPU"];
             }
         }
-        if (array_key_exists("NotebookName",$param) and $param["NotebookName"] !== null) {
-            if(is_bool($param["NotebookName"])){
-                $this->RequestParams["NotebookName"] = $param["NotebookName"] ? "true" : "false";
+        if (array_key_exists("EnableSSH",$param) and $param["EnableSSH"] !== null) {
+            if(is_bool($param["EnableSSH"])){
+                $this->RequestParams["EnableSSH"] = $param["EnableSSH"] ? "true" : "false";
             } else {
-                $this->RequestParams["NotebookName"] = $param["NotebookName"];
+                $this->RequestParams["EnableSSH"] = $param["EnableSSH"];
             }
         }
         if (array_key_exists("SSHPort",$param) and $param["SSHPort"] !== null) {
@@ -232,11 +203,18 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["SSHAuthorizedKeys"] = $param["SSHAuthorizedKeys"];
             }
         }
-        if (array_key_exists("CPUNum",$param) and $param["CPUNum"] !== null) {
-            if(is_bool($param["CPUNum"])){
-                $this->RequestParams["CPUNum"] = $param["CPUNum"] ? "true" : "false";
+        if (array_key_exists("EnablePublicNetworkSSH",$param) and $param["EnablePublicNetworkSSH"] !== null) {
+            if(is_bool($param["EnablePublicNetworkSSH"])){
+                $this->RequestParams["EnablePublicNetworkSSH"] = $param["EnablePublicNetworkSSH"] ? "true" : "false";
             } else {
-                $this->RequestParams["CPUNum"] = $param["CPUNum"];
+                $this->RequestParams["EnablePublicNetworkSSH"] = $param["EnablePublicNetworkSSH"];
+            }
+        }
+        if (array_key_exists("AllocationId",$param) and $param["AllocationId"] !== null) {
+            if(is_bool($param["AllocationId"])){
+                $this->RequestParams["AllocationId"] = $param["AllocationId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AllocationId"] = $param["AllocationId"];
             }
         }
         if (array_key_exists("ImageTagId",$param) and $param["ImageTagId"] !== null) {
@@ -265,20 +243,6 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["ImageRegistryId"] = $param["ImageRegistryId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageRegistryId"] = $param["ImageRegistryId"];
-            }
-        }
-        if (array_key_exists("EnableSSH",$param) and $param["EnableSSH"] !== null) {
-            if(is_bool($param["EnableSSH"])){
-                $this->RequestParams["EnableSSH"] = $param["EnableSSH"] ? "true" : "false";
-            } else {
-                $this->RequestParams["EnableSSH"] = $param["EnableSSH"];
-            }
-        }
-        if (array_key_exists("EnablePublicNetworkSSH",$param) and $param["EnablePublicNetworkSSH"] !== null) {
-            if(is_bool($param["EnablePublicNetworkSSH"])){
-                $this->RequestParams["EnablePublicNetworkSSH"] = $param["EnablePublicNetworkSSH"] ? "true" : "false";
-            } else {
-                $this->RequestParams["EnablePublicNetworkSSH"] = $param["EnablePublicNetworkSSH"];
             }
         }
 

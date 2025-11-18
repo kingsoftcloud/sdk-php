@@ -4,11 +4,11 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class StartNotebookRequest extends BaseModel
+class StartTrainJobRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "NotebookId" => null,
+        "TrainJobId" => null,
     ];
 
 
@@ -22,11 +22,11 @@ class StartNotebookRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NotebookId",$param) and $param["NotebookId"] !== null) {
-            if(is_bool($param["NotebookId"])){
-                $this->RequestParams["NotebookId"] = $param["NotebookId"] ? "true" : "false";
+        if (array_key_exists("TrainJobId",$param) and $param["TrainJobId"] !== null) {
+            if(is_bool($param["TrainJobId"])){
+                $this->RequestParams["TrainJobId"] = $param["TrainJobId"] ? "true" : "false";
             } else {
-                $this->RequestParams["NotebookId"] = $param["NotebookId"];
+                $this->RequestParams["TrainJobId"] = $param["TrainJobId"];
             }
         }
 
