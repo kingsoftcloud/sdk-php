@@ -25,6 +25,8 @@ class CreateTrainJobRequest extends BaseModel
         "ImageSource" => null,
          /**Object**/
         "FrameworkReplicas" => null,
+         /**String**/
+        "RestartPolicy" => null,
          /**Array**/
         "Envs" => null,
          /**Boolean**/
@@ -42,7 +44,7 @@ class CreateTrainJobRequest extends BaseModel
          /**Int**/
         "GPUNumber" => null,
          /**Int**/
-        "CpuNum" => null,
+        "CPUNum" => null,
          /**Int**/
         "Memory" => null,
          /**Array**/
@@ -54,7 +56,7 @@ class CreateTrainJobRequest extends BaseModel
          /**Boolean**/
         "SelfHealing" => null,
          /**Boolean**/
-        "RunOnCpu" => null,
+        "RunOnCPU" => null,
     ];
 
 
@@ -131,6 +133,13 @@ class CreateTrainJobRequest extends BaseModel
                 $this->RequestParams["FrameworkReplicas"] = $param["FrameworkReplicas"];
             }
         }
+        if (array_key_exists("RestartPolicy",$param) and $param["RestartPolicy"] !== null) {
+            if(is_bool($param["RestartPolicy"])){
+                $this->RequestParams["RestartPolicy"] = $param["RestartPolicy"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RestartPolicy"] = $param["RestartPolicy"];
+            }
+        }
         if (array_key_exists("Envs",$param) and $param["Envs"] !== null) {
             if(is_bool($param["Envs"])){
                 $this->RequestParams["Envs"] = $param["Envs"] ? "true" : "false";
@@ -187,11 +196,11 @@ class CreateTrainJobRequest extends BaseModel
                 $this->RequestParams["GPUNumber"] = $param["GPUNumber"];
             }
         }
-        if (array_key_exists("CpuNum",$param) and $param["CpuNum"] !== null) {
-            if(is_bool($param["CpuNum"])){
-                $this->RequestParams["CpuNum"] = $param["CpuNum"] ? "true" : "false";
+        if (array_key_exists("CPUNum",$param) and $param["CPUNum"] !== null) {
+            if(is_bool($param["CPUNum"])){
+                $this->RequestParams["CPUNum"] = $param["CPUNum"] ? "true" : "false";
             } else {
-                $this->RequestParams["CpuNum"] = $param["CpuNum"];
+                $this->RequestParams["CPUNum"] = $param["CPUNum"];
             }
         }
         if (array_key_exists("Memory",$param) and $param["Memory"] !== null) {
@@ -229,11 +238,11 @@ class CreateTrainJobRequest extends BaseModel
                 $this->RequestParams["SelfHealing"] = $param["SelfHealing"];
             }
         }
-        if (array_key_exists("RunOnCpu",$param) and $param["RunOnCpu"] !== null) {
-            if(is_bool($param["RunOnCpu"])){
-                $this->RequestParams["RunOnCpu"] = $param["RunOnCpu"] ? "true" : "false";
+        if (array_key_exists("RunOnCPU",$param) and $param["RunOnCPU"] !== null) {
+            if(is_bool($param["RunOnCPU"])){
+                $this->RequestParams["RunOnCPU"] = $param["RunOnCPU"] ? "true" : "false";
             } else {
-                $this->RequestParams["RunOnCpu"] = $param["RunOnCpu"];
+                $this->RequestParams["RunOnCPU"] = $param["RunOnCPU"];
             }
         }
 
