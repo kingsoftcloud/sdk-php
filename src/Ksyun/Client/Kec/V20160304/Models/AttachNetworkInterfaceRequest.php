@@ -16,8 +16,6 @@ class AttachNetworkInterfaceRequest extends BaseModel
          /**String**/
         "PrivateIpAddress" => null,
          /**String**/
-        "VpcIpv6" => null,
-         /**String**/
         "MacAddress" => null,
     ];
 
@@ -64,13 +62,6 @@ class AttachNetworkInterfaceRequest extends BaseModel
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"] ? "true" : "false";
             } else {
                 $this->RequestParams["PrivateIpAddress"] = $param["PrivateIpAddress"];
-            }
-        }
-        if (array_key_exists("VpcIpv6",$param) and $param["VpcIpv6"] !== null) {
-            if(is_bool($param["VpcIpv6"])){
-                $this->RequestParams["VpcIpv6"] = $param["VpcIpv6"] ? "true" : "false";
-            } else {
-                $this->RequestParams["VpcIpv6"] = $param["VpcIpv6"];
             }
         }
         if (array_key_exists("MacAddress",$param) and $param["MacAddress"] !== null) {
