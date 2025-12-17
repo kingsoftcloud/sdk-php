@@ -1,20 +1,20 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20210101\Models;
+namespace  Ksyun\Client\Kcf\V20211215\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeAlarmReceivesRequest extends BaseModel
+class DeleteFunctionRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
-        "PolicyId" => null,
+         /**String**/
+        "Id" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -22,11 +22,11 @@ class DescribeAlarmReceivesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PolicyId",$param) and $param["PolicyId"] !== null) {
-            if(is_bool($param["PolicyId"])){
-                $this->RequestParams["PolicyId"] = $param["PolicyId"] ? "true" : "false";
+        if (array_key_exists("Id",$param) and $param["Id"] !== null) {
+            if(is_bool($param["Id"])){
+                $this->RequestParams["Id"] = $param["Id"] ? "true" : "false";
             } else {
-                $this->RequestParams["PolicyId"] = $param["PolicyId"];
+                $this->RequestParams["Id"] = $param["Id"];
             }
         }
 

@@ -1,10 +1,10 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20210101\Models;
+namespace  Ksyun\Client\Kcf\V20211215\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class GetUserGroupRequest extends BaseModel
+class CheckFunctionServiceRequest extends BaseModel
 {
     public $RequestParams = [
     ];
@@ -12,7 +12,7 @@ class GetUserGroupRequest extends BaseModel
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])

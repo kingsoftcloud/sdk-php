@@ -1,24 +1,28 @@
 <?php
-namespace  Ksyun\Client\Monitor\V20210101\Models;
+namespace  Ksyun\Client\Monitor\V20250101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeSysEventGroupListRequest extends BaseModel
+class DescribeSystemEventAttributesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "Namespace" => null,
          /**Int**/
         "StartTime" => null,
          /**Int**/
         "EndTime" => null,
          /**String**/
+        "Namespace" => null,
+         /**String**/
+        "EventType" => null,
+         /**String**/
         "EventName" => null,
-         /**Array**/
-        "InstanceId" => null,
-         /**Boolean**/
-        "Order" => null,
+         /**String**/
+        "Level" => null,
+         /**String**/
+        "Status" => null,
+         /**String**/
+        "SearchKeywords" => null,
          /**Int**/
         "PageIndex" => null,
          /**Int**/
@@ -28,20 +32,13 @@ class DescribeSysEventGroupListRequest extends BaseModel
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
-            if(is_bool($param["Namespace"])){
-                $this->RequestParams["Namespace"] = $param["Namespace"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Namespace"] = $param["Namespace"];
-            }
         }
         if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
             if(is_bool($param["StartTime"])){
@@ -57,6 +54,20 @@ class DescribeSysEventGroupListRequest extends BaseModel
                 $this->RequestParams["EndTime"] = $param["EndTime"];
             }
         }
+        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
+            if(is_bool($param["Namespace"])){
+                $this->RequestParams["Namespace"] = $param["Namespace"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Namespace"] = $param["Namespace"];
+            }
+        }
+        if (array_key_exists("EventType",$param) and $param["EventType"] !== null) {
+            if(is_bool($param["EventType"])){
+                $this->RequestParams["EventType"] = $param["EventType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EventType"] = $param["EventType"];
+            }
+        }
         if (array_key_exists("EventName",$param) and $param["EventName"] !== null) {
             if(is_bool($param["EventName"])){
                 $this->RequestParams["EventName"] = $param["EventName"] ? "true" : "false";
@@ -64,18 +75,25 @@ class DescribeSysEventGroupListRequest extends BaseModel
                 $this->RequestParams["EventName"] = $param["EventName"];
             }
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            if(is_bool($param["InstanceId"])){
-                $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
+        if (array_key_exists("Level",$param) and $param["Level"] !== null) {
+            if(is_bool($param["Level"])){
+                $this->RequestParams["Level"] = $param["Level"] ? "true" : "false";
             } else {
-                $this->RequestParams["InstanceId"] = $param["InstanceId"];
+                $this->RequestParams["Level"] = $param["Level"];
             }
         }
-        if (array_key_exists("Order",$param) and $param["Order"] !== null) {
-            if(is_bool($param["Order"])){
-                $this->RequestParams["Order"] = $param["Order"] ? "true" : "false";
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            if(is_bool($param["Status"])){
+                $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
             } else {
-                $this->RequestParams["Order"] = $param["Order"];
+                $this->RequestParams["Status"] = $param["Status"];
+            }
+        }
+        if (array_key_exists("SearchKeywords",$param) and $param["SearchKeywords"] !== null) {
+            if(is_bool($param["SearchKeywords"])){
+                $this->RequestParams["SearchKeywords"] = $param["SearchKeywords"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SearchKeywords"] = $param["SearchKeywords"];
             }
         }
         if (array_key_exists("PageIndex",$param) and $param["PageIndex"] !== null) {
