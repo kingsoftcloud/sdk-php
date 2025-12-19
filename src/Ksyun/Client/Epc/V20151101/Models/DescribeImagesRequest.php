@@ -15,7 +15,9 @@ class DescribeImagesRequest extends BaseModel
         "ImageId.N" => null,
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $Filter = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -46,6 +48,10 @@ class DescribeImagesRequest extends BaseModel
             } else {
                 $this->RequestParams["ImageId.N"] = $param["ImageId.N"];
             }
+        }
+        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
+            $res = $this->formatFilterParams("Filter",$param["Filter"]);
+            $this->_unserialize("Filter",$res);
         }
 
     }

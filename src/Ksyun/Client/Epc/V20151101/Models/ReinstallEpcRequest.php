@@ -65,6 +65,8 @@ class ReinstallEpcRequest extends BaseModel
         "DataDiskMount" => null,
          /**String**/
         "StorageRoceNetworkCardName" => null,
+         /**String**/
+        "UserDefinedData" => null,
     ];
 
 
@@ -279,6 +281,13 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["StorageRoceNetworkCardName"] = $param["StorageRoceNetworkCardName"] ? "true" : "false";
             } else {
                 $this->RequestParams["StorageRoceNetworkCardName"] = $param["StorageRoceNetworkCardName"];
+            }
+        }
+        if (array_key_exists("UserDefinedData",$param) and $param["UserDefinedData"] !== null) {
+            if(is_bool($param["UserDefinedData"])){
+                $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"];
             }
         }
 

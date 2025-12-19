@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Epc\V20151101\Models;
+namespace  Ksyun\Client\Cdn\V20250503\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ActivateHotStandbyEpcResponse extends BaseModel
+class GetDomainAuthContentResponse extends BaseModel
 {
-         /** **/
-         public  $RequestId;
+         /** 本次校验的内容，如：cb4b37ef9e0fcbdce5dccf777452683a**/
+         public  $Content;
 
          /** **/
-         public  $Return;
+         public  $RequestId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class ActivateHotStandbyEpcResponse extends BaseModel
             if ($param === null) {
                 return;
             }
+            if (array_key_exists("Content",$param) and $param["Content"] !== null) {
+                $this->Content = $param["Content"];
+            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
             }
 
         }

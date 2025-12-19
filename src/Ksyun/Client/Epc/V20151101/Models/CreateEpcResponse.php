@@ -14,6 +14,12 @@ class CreateEpcResponse extends BaseModel
          /** **/
          public  $Host;
 
+         /** 存储集群名称**/
+         public  $SRoceCluster;
+
+         /** 计算Roce卡集群名称**/
+         public  $RoceCluster;
+
          public function __construct()
          {
 
@@ -32,6 +38,12 @@ class CreateEpcResponse extends BaseModel
             }
             if (array_key_exists("Host",$param) and $param["Host"] !== null) {
                 $this->Host = $param["Host"];
+            }
+            if (array_key_exists("SRoceCluster",$param) and $param["SRoceCluster"] !== null) {
+                $this->SRoceCluster = $param["SRoceCluster"];
+            }
+            if (array_key_exists("RoceCluster",$param) and $param["RoceCluster"] !== null) {
+                $this->RoceCluster = $param["RoceCluster"];
             }
 
         }

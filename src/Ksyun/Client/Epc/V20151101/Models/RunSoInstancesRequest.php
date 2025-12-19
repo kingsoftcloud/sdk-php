@@ -43,6 +43,8 @@ class RunSoInstancesRequest extends BaseModel
         "Count" => null,
          /**String**/
         "SoZoneId" => null,
+         /**String**/
+        "UserData" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -186,6 +188,13 @@ class RunSoInstancesRequest extends BaseModel
                 $this->RequestParams["SoZoneId"] = $param["SoZoneId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SoZoneId"] = $param["SoZoneId"];
+            }
+        }
+        if (array_key_exists("UserData",$param) and $param["UserData"] !== null) {
+            if(is_bool($param["UserData"])){
+                $this->RequestParams["UserData"] = $param["UserData"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UserData"] = $param["UserData"];
             }
         }
 

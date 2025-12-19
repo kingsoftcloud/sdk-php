@@ -125,6 +125,12 @@ class CreateEpcRequest extends BaseModel
         "UserData" => null,
          /**String**/
         "StorageRoceNetworkInterfaceMode" => null,
+         /**String**/
+        "RoceCluster" => null,
+         /**String**/
+        "SRoceCluster" => null,
+         /**String**/
+        "UserDefinedData" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -555,6 +561,27 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["StorageRoceNetworkInterfaceMode"] = $param["StorageRoceNetworkInterfaceMode"] ? "true" : "false";
             } else {
                 $this->RequestParams["StorageRoceNetworkInterfaceMode"] = $param["StorageRoceNetworkInterfaceMode"];
+            }
+        }
+        if (array_key_exists("RoceCluster",$param) and $param["RoceCluster"] !== null) {
+            if(is_bool($param["RoceCluster"])){
+                $this->RequestParams["RoceCluster"] = $param["RoceCluster"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RoceCluster"] = $param["RoceCluster"];
+            }
+        }
+        if (array_key_exists("SRoceCluster",$param) and $param["SRoceCluster"] !== null) {
+            if(is_bool($param["SRoceCluster"])){
+                $this->RequestParams["SRoceCluster"] = $param["SRoceCluster"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SRoceCluster"] = $param["SRoceCluster"];
+            }
+        }
+        if (array_key_exists("UserDefinedData",$param) and $param["UserDefinedData"] !== null) {
+            if(is_bool($param["UserDefinedData"])){
+                $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"];
             }
         }
 

@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ActivateHotStandbyEpcResponse extends BaseModel
+class DescribeAgentResponse extends BaseModel
 {
          /** **/
          public  $RequestId;
 
-         /** **/
-         public  $Return;
+         /**Object **/
+         public  $AgentInfo;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class ActivateHotStandbyEpcResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
-                $this->Return = $param["Return"];
+            if (array_key_exists("AgentInfo",$param) and $param["AgentInfo"] !== null) {
+                $this->AgentInfo = $param["AgentInfo"];
             }
 
         }

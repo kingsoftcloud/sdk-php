@@ -3,7 +3,7 @@ namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class ActivateHotStandbyEpcResponse extends BaseModel
+class InstallAgentResponse extends BaseModel
 {
          /** **/
          public  $RequestId;
