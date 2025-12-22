@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Clickhouse\V20210101\Models;
+namespace  Ksyun\Client\Clickhouse\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,16 +7,16 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Boolean**/
+         /**Boolean**/
         "DeleteDirectly" => null,
     ];
 
-    /**特殊参数类型:Filter**/
+     /**特殊参数类型:Filter**/
     public $InstanceIds = [];
-
+ 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -25,12 +24,12 @@ class DeleteInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceIds", $param) and $param["InstanceIds"] !== null) {
-            $res = $this->formatFilterParams("InstanceIds", $param["InstanceIds"]);
-            $this->_unserialize("InstanceIds", $res);
+        if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
+            $res = $this->formatFilterParams("InstanceIds",$param["InstanceIds"]);
+            $this->_unserialize("InstanceIds",$res);
         }
-        if (array_key_exists("DeleteDirectly", $param) and $param["DeleteDirectly"] !== null) {
-            if (is_bool($param["DeleteDirectly"])) {
+        if (array_key_exists("DeleteDirectly",$param) and $param["DeleteDirectly"] !== null) {
+            if(is_bool($param["DeleteDirectly"])){
                 $this->RequestParams["DeleteDirectly"] = $param["DeleteDirectly"] ? "true" : "false";
             } else {
                 $this->RequestParams["DeleteDirectly"] = $param["DeleteDirectly"];
@@ -39,12 +38,12 @@ class DeleteInstanceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

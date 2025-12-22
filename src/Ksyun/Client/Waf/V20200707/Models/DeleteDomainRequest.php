@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Waf\V20200707\Models;
+namespace  Ksyun\Client\Waf\V20200707\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteDomainRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ResourceRecordId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteDomainRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ResourceRecordId", $param) and $param["ResourceRecordId"] !== null) {
-            if (is_bool($param["ResourceRecordId"])) {
+        if (array_key_exists("ResourceRecordId",$param) and $param["ResourceRecordId"] !== null) {
+            if(is_bool($param["ResourceRecordId"])){
                 $this->RequestParams["ResourceRecordId"] = $param["ResourceRecordId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceRecordId"] = $param["ResourceRecordId"];
@@ -33,12 +32,12 @@ class DeleteDomainRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

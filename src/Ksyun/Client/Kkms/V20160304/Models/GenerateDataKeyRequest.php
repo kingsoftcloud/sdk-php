@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kkms\V20160304\Models;
+namespace  Ksyun\Client\Kkms\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class GenerateDataKeyRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "KeyId" => null,
-        /**String**/
+         /**String**/
         "KeySpec" => null,
-        /**Int**/
+         /**Int**/
         "NumberOfBytes" => null,
     ];
 
@@ -27,22 +26,22 @@ class GenerateDataKeyRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("KeyId", $param) and $param["KeyId"] !== null) {
-            if (is_bool($param["KeyId"])) {
+        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
+            if(is_bool($param["KeyId"])){
                 $this->RequestParams["KeyId"] = $param["KeyId"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeyId"] = $param["KeyId"];
             }
         }
-        if (array_key_exists("KeySpec", $param) and $param["KeySpec"] !== null) {
-            if (is_bool($param["KeySpec"])) {
+        if (array_key_exists("KeySpec",$param) and $param["KeySpec"] !== null) {
+            if(is_bool($param["KeySpec"])){
                 $this->RequestParams["KeySpec"] = $param["KeySpec"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeySpec"] = $param["KeySpec"];
             }
         }
-        if (array_key_exists("NumberOfBytes", $param) and $param["NumberOfBytes"] !== null) {
-            if (is_bool($param["NumberOfBytes"])) {
+        if (array_key_exists("NumberOfBytes",$param) and $param["NumberOfBytes"] !== null) {
+            if(is_bool($param["NumberOfBytes"])){
                 $this->RequestParams["NumberOfBytes"] = $param["NumberOfBytes"] ? "true" : "false";
             } else {
                 $this->RequestParams["NumberOfBytes"] = $param["NumberOfBytes"];
@@ -51,12 +50,12 @@ class GenerateDataKeyRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

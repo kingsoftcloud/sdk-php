@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Clickhouse\V20210101\Models;
+namespace  Ksyun\Client\Clickhouse\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,18 +7,18 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyDBParameterGroupRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "InstanceId" => null,
-        /**String**/
+         /**String**/
+        "Parameters" => null,
+         /**String**/
         "ConfigType" => null,
     ];
 
-    /**特殊参数类型:Filter**/
-    public $Parameters = [];
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -27,19 +26,22 @@ class ModifyDBParameterGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            if (is_bool($param["InstanceId"])) {
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("Parameters", $param) and $param["Parameters"] !== null) {
-            $res = $this->formatFilterParams("Parameters", $param["Parameters"]);
-            $this->_unserialize("Parameters", $res);
+        if (array_key_exists("Parameters",$param) and $param["Parameters"] !== null) {
+            if(is_bool($param["Parameters"])){
+                $this->RequestParams["Parameters"] = $param["Parameters"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Parameters"] = $param["Parameters"];
+            }
         }
-        if (array_key_exists("ConfigType", $param) and $param["ConfigType"] !== null) {
-            if (is_bool($param["ConfigType"])) {
+        if (array_key_exists("ConfigType",$param) and $param["ConfigType"] !== null) {
+            if(is_bool($param["ConfigType"])){
                 $this->RequestParams["ConfigType"] = $param["ConfigType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ConfigType"] = $param["ConfigType"];
@@ -48,12 +50,12 @@ class ModifyDBParameterGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

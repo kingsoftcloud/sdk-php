@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Postgresql\V20181225\Models;
+namespace  Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeSecurityGroupRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "SecurityGroupId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DescribeSecurityGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
-            if (is_bool($param["SecurityGroupId"])) {
+        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
+            if(is_bool($param["SecurityGroupId"])){
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
@@ -33,12 +32,12 @@ class DescribeSecurityGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

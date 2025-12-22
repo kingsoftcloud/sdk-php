@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Pdns\V20160304\Models;
+namespace  Ksyun\Client\Pdns\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateZoneRecordRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ZoneId" => null,
-        /**String**/
+         /**String**/
         "RecordName" => null,
-        /**String**/
+         /**String**/
         "Type" => null,
-        /**Int**/
+         /**Int**/
         "RecordTtl" => null,
-        /**String**/
+         /**String**/
         "RecordValue" => null,
     ];
 
@@ -31,36 +30,36 @@ class CreateZoneRecordRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ZoneId", $param) and $param["ZoneId"] !== null) {
-            if (is_bool($param["ZoneId"])) {
+        if (array_key_exists("ZoneId",$param) and $param["ZoneId"] !== null) {
+            if(is_bool($param["ZoneId"])){
                 $this->RequestParams["ZoneId"] = $param["ZoneId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ZoneId"] = $param["ZoneId"];
             }
         }
-        if (array_key_exists("RecordName", $param) and $param["RecordName"] !== null) {
-            if (is_bool($param["RecordName"])) {
+        if (array_key_exists("RecordName",$param) and $param["RecordName"] !== null) {
+            if(is_bool($param["RecordName"])){
                 $this->RequestParams["RecordName"] = $param["RecordName"] ? "true" : "false";
             } else {
                 $this->RequestParams["RecordName"] = $param["RecordName"];
             }
         }
-        if (array_key_exists("Type", $param) and $param["Type"] !== null) {
-            if (is_bool($param["Type"])) {
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            if(is_bool($param["Type"])){
                 $this->RequestParams["Type"] = $param["Type"] ? "true" : "false";
             } else {
                 $this->RequestParams["Type"] = $param["Type"];
             }
         }
-        if (array_key_exists("RecordTtl", $param) and $param["RecordTtl"] !== null) {
-            if (is_bool($param["RecordTtl"])) {
+        if (array_key_exists("RecordTtl",$param) and $param["RecordTtl"] !== null) {
+            if(is_bool($param["RecordTtl"])){
                 $this->RequestParams["RecordTtl"] = $param["RecordTtl"] ? "true" : "false";
             } else {
                 $this->RequestParams["RecordTtl"] = $param["RecordTtl"];
             }
         }
-        if (array_key_exists("RecordValue", $param) and $param["RecordValue"] !== null) {
-            if (is_bool($param["RecordValue"])) {
+        if (array_key_exists("RecordValue",$param) and $param["RecordValue"] !== null) {
+            if(is_bool($param["RecordValue"])){
                 $this->RequestParams["RecordValue"] = $param["RecordValue"] ? "true" : "false";
             } else {
                 $this->RequestParams["RecordValue"] = $param["RecordValue"];
@@ -69,12 +68,12 @@ class CreateZoneRecordRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,33 +1,32 @@
 <?php
-
-namespace Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
 class SetEnableAlbAccessLogResponse extends BaseModel
 {
-    /** 请求ID**/
-    public $RequestId;
+         /** 请求ID**/
+         public  $RequestId;
 
-    /** 操作是否成功**/
-    public $Return;
+         /**Object 独享型负载均衡的信息**/
+         public  $ApplicationLoadBalancer;
 
-    public function __construct()
-    {
+         public function __construct()
+         {
 
-    }
+         }
 
-    public function unserialize($param)
-    {
-        if ($param === null) {
-            return;
+        public function unserialize($param)
+        {
+            if ($param === null) {
+                return;
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("ApplicationLoadBalancer",$param) and $param["ApplicationLoadBalancer"] !== null) {
+                $this->ApplicationLoadBalancer = $param["ApplicationLoadBalancer"];
+            }
+
         }
-        if (array_key_exists("RequestId", $param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
-        }
-        if (array_key_exists("Return", $param) and $param["Return"] !== null) {
-            $this->Return = $param["Return"];
-        }
-
-    }
 }

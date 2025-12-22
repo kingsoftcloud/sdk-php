@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Mongodb\V20170101\Models;
+namespace  Ksyun\Client\Mongodb\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteClusterNodeRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "InstanceId" => null,
-        /**String**/
+         /**String**/
         "NodeId" => null,
     ];
 
@@ -25,15 +24,15 @@ class DeleteClusterNodeRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            if (is_bool($param["InstanceId"])) {
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("NodeId", $param) and $param["NodeId"] !== null) {
-            if (is_bool($param["NodeId"])) {
+        if (array_key_exists("NodeId",$param) and $param["NodeId"] !== null) {
+            if(is_bool($param["NodeId"])){
                 $this->RequestParams["NodeId"] = $param["NodeId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NodeId"] = $param["NodeId"];
@@ -42,12 +41,12 @@ class DeleteClusterNodeRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

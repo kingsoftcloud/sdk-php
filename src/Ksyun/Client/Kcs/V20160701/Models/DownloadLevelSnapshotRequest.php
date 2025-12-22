@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kcs\V20160701\Models;
+namespace  Ksyun\Client\Kcs\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DownloadLevelSnapshotRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "CacheId" => null,
-        /**String**/
+         /**String**/
         "SnapshotId" => null,
     ];
 
@@ -25,15 +24,15 @@ class DownloadLevelSnapshotRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CacheId", $param) and $param["CacheId"] !== null) {
-            if (is_bool($param["CacheId"])) {
+        if (array_key_exists("CacheId",$param) and $param["CacheId"] !== null) {
+            if(is_bool($param["CacheId"])){
                 $this->RequestParams["CacheId"] = $param["CacheId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CacheId"] = $param["CacheId"];
             }
         }
-        if (array_key_exists("SnapshotId", $param) and $param["SnapshotId"] !== null) {
-            if (is_bool($param["SnapshotId"])) {
+        if (array_key_exists("SnapshotId",$param) and $param["SnapshotId"] !== null) {
+            if(is_bool($param["SnapshotId"])){
                 $this->RequestParams["SnapshotId"] = $param["SnapshotId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SnapshotId"] = $param["SnapshotId"];
@@ -42,12 +41,12 @@ class DownloadLevelSnapshotRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

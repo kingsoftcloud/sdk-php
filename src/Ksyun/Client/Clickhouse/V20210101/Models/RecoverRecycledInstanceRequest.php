@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Clickhouse\V20210101\Models;
+namespace  Ksyun\Client\Clickhouse\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class RecoverRecycledInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Array**/
+         /**Array**/
         "InstanceIds" => null,
     ];
 
@@ -23,8 +22,8 @@ class RecoverRecycledInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceIds", $param) and $param["InstanceIds"] !== null) {
-            if (is_bool($param["InstanceIds"])) {
+        if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
+            if(is_bool($param["InstanceIds"])){
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"];
@@ -33,12 +32,12 @@ class RecoverRecycledInstanceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

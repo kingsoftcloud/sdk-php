@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kcs\V20160701\Models;
+namespace  Ksyun\Client\Kcs\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,17 +7,17 @@ use Ksyun\Common\Http\HttpOptions;
 class RestoreSnapshotRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "AvailableZone" => null,
-        /**String**/
+         /**String**/
         "Cacheld" => null,
-        /**String**/
+         /**String**/
         "Type" => null,
-        /**String**/
+         /**String**/
         "SnapshotId" => null,
-        /**String**/
+         /**String**/
         "BucketName" => null,
-        /**String**/
+         /**String**/
         "ObjectName" => null,
     ];
 
@@ -33,43 +32,43 @@ class RestoreSnapshotRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AvailableZone", $param) and $param["AvailableZone"] !== null) {
-            if (is_bool($param["AvailableZone"])) {
+        if (array_key_exists("AvailableZone",$param) and $param["AvailableZone"] !== null) {
+            if(is_bool($param["AvailableZone"])){
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"] ? "true" : "false";
             } else {
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"];
             }
         }
-        if (array_key_exists("Cacheld", $param) and $param["Cacheld"] !== null) {
-            if (is_bool($param["Cacheld"])) {
+        if (array_key_exists("Cacheld",$param) and $param["Cacheld"] !== null) {
+            if(is_bool($param["Cacheld"])){
                 $this->RequestParams["Cacheld"] = $param["Cacheld"] ? "true" : "false";
             } else {
                 $this->RequestParams["Cacheld"] = $param["Cacheld"];
             }
         }
-        if (array_key_exists("Type", $param) and $param["Type"] !== null) {
-            if (is_bool($param["Type"])) {
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            if(is_bool($param["Type"])){
                 $this->RequestParams["Type"] = $param["Type"] ? "true" : "false";
             } else {
                 $this->RequestParams["Type"] = $param["Type"];
             }
         }
-        if (array_key_exists("SnapshotId", $param) and $param["SnapshotId"] !== null) {
-            if (is_bool($param["SnapshotId"])) {
+        if (array_key_exists("SnapshotId",$param) and $param["SnapshotId"] !== null) {
+            if(is_bool($param["SnapshotId"])){
                 $this->RequestParams["SnapshotId"] = $param["SnapshotId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SnapshotId"] = $param["SnapshotId"];
             }
         }
-        if (array_key_exists("BucketName", $param) and $param["BucketName"] !== null) {
-            if (is_bool($param["BucketName"])) {
+        if (array_key_exists("BucketName",$param) and $param["BucketName"] !== null) {
+            if(is_bool($param["BucketName"])){
                 $this->RequestParams["BucketName"] = $param["BucketName"] ? "true" : "false";
             } else {
                 $this->RequestParams["BucketName"] = $param["BucketName"];
             }
         }
-        if (array_key_exists("ObjectName", $param) and $param["ObjectName"] !== null) {
-            if (is_bool($param["ObjectName"])) {
+        if (array_key_exists("ObjectName",$param) and $param["ObjectName"] !== null) {
+            if(is_bool($param["ObjectName"])){
                 $this->RequestParams["ObjectName"] = $param["ObjectName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ObjectName"] = $param["ObjectName"];
@@ -78,12 +77,12 @@ class RestoreSnapshotRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

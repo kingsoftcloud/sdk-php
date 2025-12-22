@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kce\V20230101\Models;
+namespace  Ksyun\Client\Kce\V20230101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeNetworkRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ClusterId" => null,
-        /**String**/
+         /**String**/
         "ClusterName" => null,
     ];
 
@@ -25,15 +24,15 @@ class DescribeNetworkRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ClusterId", $param) and $param["ClusterId"] !== null) {
-            if (is_bool($param["ClusterId"])) {
+        if (array_key_exists("ClusterId",$param) and $param["ClusterId"] !== null) {
+            if(is_bool($param["ClusterId"])){
                 $this->RequestParams["ClusterId"] = $param["ClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
             }
         }
-        if (array_key_exists("ClusterName", $param) and $param["ClusterName"] !== null) {
-            if (is_bool($param["ClusterName"])) {
+        if (array_key_exists("ClusterName",$param) and $param["ClusterName"] !== null) {
+            if(is_bool($param["ClusterName"])){
                 $this->RequestParams["ClusterName"] = $param["ClusterName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterName"] = $param["ClusterName"];
@@ -42,12 +41,12 @@ class DescribeNetworkRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

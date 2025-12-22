@@ -1,0 +1,54 @@
+<?php
+namespace  Ksyun\Client\Kcm\V20160304\Models;
+
+use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
+
+class ReIssueCertificateRequest extends BaseModel
+{
+    public $RequestParams = [
+         /**String**/
+        "CertificateId" => null,
+         /**String**/
+        "CsrSource" => null,
+    ];
+
+
+    public function __construct(HttpOptions $httpOptions)
+    {
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+    }
+
+    public function setParams($param = [])
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("CertificateId",$param) and $param["CertificateId"] !== null) {
+            if(is_bool($param["CertificateId"])){
+                $this->RequestParams["CertificateId"] = $param["CertificateId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CertificateId"] = $param["CertificateId"];
+            }
+        }
+        if (array_key_exists("CsrSource",$param) and $param["CsrSource"] !== null) {
+            if(is_bool($param["CsrSource"])){
+                $this->RequestParams["CsrSource"] = $param["CsrSource"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CsrSource"] = $param["CsrSource"];
+            }
+        }
+
+    }
+
+    private function _unserialize($name,$params)
+    {
+        if ($params === null) {
+            return;
+        }
+        foreach ($params as $key => $value){
+            $this->$name[$key] = $value;
+        }
+
+    }
+}

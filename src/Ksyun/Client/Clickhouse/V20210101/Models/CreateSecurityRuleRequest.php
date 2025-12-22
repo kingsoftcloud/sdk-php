@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Clickhouse\V20210101\Models;
+namespace  Ksyun\Client\Clickhouse\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateSecurityRuleRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "ProductType" => null,
-        /**String**/
+         /**String**/
         "SecurityGroupId" => null,
-        /**Array**/
+         /**Array**/
         "Cidrs" => null,
     ];
 
@@ -27,22 +26,22 @@ class CreateSecurityRuleRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProductType", $param) and $param["ProductType"] !== null) {
-            if (is_bool($param["ProductType"])) {
+        if (array_key_exists("ProductType",$param) and $param["ProductType"] !== null) {
+            if(is_bool($param["ProductType"])){
                 $this->RequestParams["ProductType"] = $param["ProductType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProductType"] = $param["ProductType"];
             }
         }
-        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
-            if (is_bool($param["SecurityGroupId"])) {
+        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
+            if(is_bool($param["SecurityGroupId"])){
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
             }
         }
-        if (array_key_exists("Cidrs", $param) and $param["Cidrs"] !== null) {
-            if (is_bool($param["Cidrs"])) {
+        if (array_key_exists("Cidrs",$param) and $param["Cidrs"] !== null) {
+            if(is_bool($param["Cidrs"])){
                 $this->RequestParams["Cidrs"] = $param["Cidrs"] ? "true" : "false";
             } else {
                 $this->RequestParams["Cidrs"] = $param["Cidrs"];
@@ -51,12 +50,12 @@ class CreateSecurityRuleRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

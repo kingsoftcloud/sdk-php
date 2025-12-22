@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Rabbitmq\V20191017\Models;
+namespace  Ksyun\Client\Rabbitmq\V20191017\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,21 +7,21 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeInstancesRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "InstanceId" => null,
-        /**String**/
+         /**String**/
         "InstanceName" => null,
-        /**String**/
+         /**String**/
         "VpcId" => null,
-        /**String**/
+         /**String**/
         "SubnetId" => null,
-        /**Int**/
+         /**Int**/
         "Offset" => null,
-        /**Int**/
+         /**Int**/
         "Limit" => null,
-        /**String**/
+         /**String**/
         "OrderBy" => null,
-        /**String**/
+         /**String**/
         "ProjectId" => null,
     ];
 
@@ -37,57 +36,57 @@ class DescribeInstancesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            if (is_bool($param["InstanceId"])) {
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("InstanceName", $param) and $param["InstanceName"] !== null) {
-            if (is_bool($param["InstanceName"])) {
+        if (array_key_exists("InstanceName",$param) and $param["InstanceName"] !== null) {
+            if(is_bool($param["InstanceName"])){
                 $this->RequestParams["InstanceName"] = $param["InstanceName"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceName"] = $param["InstanceName"];
             }
         }
-        if (array_key_exists("VpcId", $param) and $param["VpcId"] !== null) {
-            if (is_bool($param["VpcId"])) {
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            if(is_bool($param["VpcId"])){
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
             }
         }
-        if (array_key_exists("SubnetId", $param) and $param["SubnetId"] !== null) {
-            if (is_bool($param["SubnetId"])) {
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            if(is_bool($param["SubnetId"])){
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
             }
         }
-        if (array_key_exists("Offset", $param) and $param["Offset"] !== null) {
-            if (is_bool($param["Offset"])) {
+        if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
+            if(is_bool($param["Offset"])){
                 $this->RequestParams["Offset"] = $param["Offset"] ? "true" : "false";
             } else {
                 $this->RequestParams["Offset"] = $param["Offset"];
             }
         }
-        if (array_key_exists("Limit", $param) and $param["Limit"] !== null) {
-            if (is_bool($param["Limit"])) {
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            if(is_bool($param["Limit"])){
                 $this->RequestParams["Limit"] = $param["Limit"] ? "true" : "false";
             } else {
                 $this->RequestParams["Limit"] = $param["Limit"];
             }
         }
-        if (array_key_exists("OrderBy", $param) and $param["OrderBy"] !== null) {
-            if (is_bool($param["OrderBy"])) {
+        if (array_key_exists("OrderBy",$param) and $param["OrderBy"] !== null) {
+            if(is_bool($param["OrderBy"])){
                 $this->RequestParams["OrderBy"] = $param["OrderBy"] ? "true" : "false";
             } else {
                 $this->RequestParams["OrderBy"] = $param["OrderBy"];
             }
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            if (is_bool($param["ProjectId"])) {
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
@@ -96,12 +95,12 @@ class DescribeInstancesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kcs\V20160701\Models;
+namespace  Ksyun\Client\Kcs\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,20 +7,20 @@ use Ksyun\Common\Http\HttpOptions;
 class OpenDirectAccessToClusterRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "AvailableZone" => null,
-        /**String**/
+         /**String**/
         "CacheId" => null,
-        /**String**/
+         /**String**/
         "SubnetId" => null,
-        /**String**/
+         /**String**/
         "VpcId" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -29,29 +28,29 @@ class OpenDirectAccessToClusterRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AvailableZone", $param) and $param["AvailableZone"] !== null) {
-            if (is_bool($param["AvailableZone"])) {
+        if (array_key_exists("AvailableZone",$param) and $param["AvailableZone"] !== null) {
+            if(is_bool($param["AvailableZone"])){
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"] ? "true" : "false";
             } else {
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"];
             }
         }
-        if (array_key_exists("CacheId", $param) and $param["CacheId"] !== null) {
-            if (is_bool($param["CacheId"])) {
+        if (array_key_exists("CacheId",$param) and $param["CacheId"] !== null) {
+            if(is_bool($param["CacheId"])){
                 $this->RequestParams["CacheId"] = $param["CacheId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CacheId"] = $param["CacheId"];
             }
         }
-        if (array_key_exists("SubnetId", $param) and $param["SubnetId"] !== null) {
-            if (is_bool($param["SubnetId"])) {
+        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
+            if(is_bool($param["SubnetId"])){
                 $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubnetId"] = $param["SubnetId"];
             }
         }
-        if (array_key_exists("VpcId", $param) and $param["VpcId"] !== null) {
-            if (is_bool($param["VpcId"])) {
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            if(is_bool($param["VpcId"])){
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
@@ -60,12 +59,12 @@ class OpenDirectAccessToClusterRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

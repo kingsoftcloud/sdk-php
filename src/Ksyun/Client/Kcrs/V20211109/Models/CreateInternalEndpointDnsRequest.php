@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kcrs\V20211109\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateInternalEndpointDnsRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "InstanceId" => null,
-        /**String**/
+         /**String**/
         "VpcId" => null,
-        /**String**/
+         /**String**/
         "EniLBIp" => null,
-        /**String**/
+         /**String**/
         "InternalEndpointDns" => null,
     ];
 
@@ -29,29 +28,29 @@ class CreateInternalEndpointDnsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            if (is_bool($param["InstanceId"])) {
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("VpcId", $param) and $param["VpcId"] !== null) {
-            if (is_bool($param["VpcId"])) {
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            if(is_bool($param["VpcId"])){
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
             }
         }
-        if (array_key_exists("EniLBIp", $param) and $param["EniLBIp"] !== null) {
-            if (is_bool($param["EniLBIp"])) {
+        if (array_key_exists("EniLBIp",$param) and $param["EniLBIp"] !== null) {
+            if(is_bool($param["EniLBIp"])){
                 $this->RequestParams["EniLBIp"] = $param["EniLBIp"] ? "true" : "false";
             } else {
                 $this->RequestParams["EniLBIp"] = $param["EniLBIp"];
             }
         }
-        if (array_key_exists("InternalEndpointDns", $param) and $param["InternalEndpointDns"] !== null) {
-            if (is_bool($param["InternalEndpointDns"])) {
+        if (array_key_exists("InternalEndpointDns",$param) and $param["InternalEndpointDns"] !== null) {
+            if(is_bool($param["InternalEndpointDns"])){
                 $this->RequestParams["InternalEndpointDns"] = $param["InternalEndpointDns"] ? "true" : "false";
             } else {
                 $this->RequestParams["InternalEndpointDns"] = $param["InternalEndpointDns"];
@@ -60,12 +59,12 @@ class CreateInternalEndpointDnsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

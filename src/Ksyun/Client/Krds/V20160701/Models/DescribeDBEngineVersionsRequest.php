@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Krds\V20160701\Models;
+namespace  Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -13,7 +12,7 @@ class DescribeDBEngineVersionsRequest extends BaseModel
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -24,12 +23,12 @@ class DescribeDBEngineVersionsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

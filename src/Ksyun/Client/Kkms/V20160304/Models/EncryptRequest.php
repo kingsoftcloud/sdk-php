@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kkms\V20160304\Models;
+namespace  Ksyun\Client\Kkms\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class EncryptRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "KeyId" => null,
-        /**String**/
+         /**String**/
         "Plaintext" => null,
     ];
 
@@ -25,15 +24,15 @@ class EncryptRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("KeyId", $param) and $param["KeyId"] !== null) {
-            if (is_bool($param["KeyId"])) {
+        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
+            if(is_bool($param["KeyId"])){
                 $this->RequestParams["KeyId"] = $param["KeyId"] ? "true" : "false";
             } else {
                 $this->RequestParams["KeyId"] = $param["KeyId"];
             }
         }
-        if (array_key_exists("Plaintext", $param) and $param["Plaintext"] !== null) {
-            if (is_bool($param["Plaintext"])) {
+        if (array_key_exists("Plaintext",$param) and $param["Plaintext"] !== null) {
+            if(is_bool($param["Plaintext"])){
                 $this->RequestParams["Plaintext"] = $param["Plaintext"] ? "true" : "false";
             } else {
                 $this->RequestParams["Plaintext"] = $param["Plaintext"];
@@ -42,12 +41,12 @@ class EncryptRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

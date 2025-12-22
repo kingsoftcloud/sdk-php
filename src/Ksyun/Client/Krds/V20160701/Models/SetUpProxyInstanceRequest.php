@@ -1,0 +1,51 @@
+<?php
+namespace  Ksyun\Client\Krds\V20160701\Models;
+
+use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
+
+class SetUpProxyInstanceRequest extends BaseModel
+{
+    public $RequestParams = [
+         /**String**/
+        "DBInstanceIdentifier" => null,
+    ];
+
+     /**特殊参数类型:Filter**/
+    public $ReadOnlyInstanceList = [];
+ 
+    public function __construct(HttpOptions $httpOptions)
+    {
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+    }
+
+    public function setParams($param = [])
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
+            if(is_bool($param["DBInstanceIdentifier"])){
+                $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
+            }
+        }
+        if (array_key_exists("ReadOnlyInstanceList",$param) and $param["ReadOnlyInstanceList"] !== null) {
+            $res = $this->formatFilterParams("ReadOnlyInstanceList",$param["ReadOnlyInstanceList"]);
+            $this->_unserialize("ReadOnlyInstanceList",$res);
+        }
+
+    }
+
+    private function _unserialize($name,$params)
+    {
+        if ($params === null) {
+            return;
+        }
+        foreach ($params as $key => $value){
+            $this->$name[$key] = $value;
+        }
+
+    }
+}

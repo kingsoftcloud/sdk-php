@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class SetLBModificationProtectionRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "LoadBalancerId" => null,
-        /**String**/
+         /**String**/
         "ModificationProtection" => null,
     ];
 
@@ -25,15 +24,15 @@ class SetLBModificationProtectionRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LoadBalancerId", $param) and $param["LoadBalancerId"] !== null) {
-            if (is_bool($param["LoadBalancerId"])) {
+        if (array_key_exists("LoadBalancerId",$param) and $param["LoadBalancerId"] !== null) {
+            if(is_bool($param["LoadBalancerId"])){
                 $this->RequestParams["LoadBalancerId"] = $param["LoadBalancerId"] ? "true" : "false";
             } else {
                 $this->RequestParams["LoadBalancerId"] = $param["LoadBalancerId"];
             }
         }
-        if (array_key_exists("ModificationProtection", $param) and $param["ModificationProtection"] !== null) {
-            if (is_bool($param["ModificationProtection"])) {
+        if (array_key_exists("ModificationProtection",$param) and $param["ModificationProtection"] !== null) {
+            if(is_bool($param["ModificationProtection"])){
                 $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"] ? "true" : "false";
             } else {
                 $this->RequestParams["ModificationProtection"] = $param["ModificationProtection"];
@@ -42,12 +41,12 @@ class SetLBModificationProtectionRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

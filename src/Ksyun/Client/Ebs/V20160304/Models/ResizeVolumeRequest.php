@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Ebs\V20160304\Models;
+namespace  Ksyun\Client\Ebs\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,20 +7,20 @@ use Ksyun\Common\Http\HttpOptions;
 class ResizeVolumeRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "VolumeId" => null,
-        /**String**/
+         /**String**/
         "Size" => null,
-        /**Boolean**/
+         /**Boolean**/
         "OnlineResize" => null,
-        /**String**/
+         /**String**/
         "SubOrderId" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -29,29 +28,29 @@ class ResizeVolumeRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VolumeId", $param) and $param["VolumeId"] !== null) {
-            if (is_bool($param["VolumeId"])) {
+        if (array_key_exists("VolumeId",$param) and $param["VolumeId"] !== null) {
+            if(is_bool($param["VolumeId"])){
                 $this->RequestParams["VolumeId"] = $param["VolumeId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VolumeId"] = $param["VolumeId"];
             }
         }
-        if (array_key_exists("Size", $param) and $param["Size"] !== null) {
-            if (is_bool($param["Size"])) {
+        if (array_key_exists("Size",$param) and $param["Size"] !== null) {
+            if(is_bool($param["Size"])){
                 $this->RequestParams["Size"] = $param["Size"] ? "true" : "false";
             } else {
                 $this->RequestParams["Size"] = $param["Size"];
             }
         }
-        if (array_key_exists("OnlineResize", $param) and $param["OnlineResize"] !== null) {
-            if (is_bool($param["OnlineResize"])) {
+        if (array_key_exists("OnlineResize",$param) and $param["OnlineResize"] !== null) {
+            if(is_bool($param["OnlineResize"])){
                 $this->RequestParams["OnlineResize"] = $param["OnlineResize"] ? "true" : "false";
             } else {
                 $this->RequestParams["OnlineResize"] = $param["OnlineResize"];
             }
         }
-        if (array_key_exists("SubOrderId", $param) and $param["SubOrderId"] !== null) {
-            if (is_bool($param["SubOrderId"])) {
+        if (array_key_exists("SubOrderId",$param) and $param["SubOrderId"] !== null) {
+            if(is_bool($param["SubOrderId"])){
                 $this->RequestParams["SubOrderId"] = $param["SubOrderId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SubOrderId"] = $param["SubOrderId"];
@@ -60,12 +59,12 @@ class ResizeVolumeRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

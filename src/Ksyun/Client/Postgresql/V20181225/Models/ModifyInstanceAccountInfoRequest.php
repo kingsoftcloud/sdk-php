@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Postgresql\V20181225\Models;
+namespace  Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,14 +7,14 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyInstanceAccountInfoRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "DBInstanceIdentifier" => null,
-        /**String**/
-        "InstanceAccountName" => null,
-        /**String**/
-        "InstanceAccountPassword" => null,
-        /**String**/
-        "InstanceAccountDescription" => null,
+         /**String**/
+        "AccountName" => null,
+         /**String**/
+        "AccountPassword" => null,
+         /**String**/
+        "AccountDescription" => null,
     ];
 
 
@@ -29,43 +28,43 @@ class ModifyInstanceAccountInfoRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
-            if (is_bool($param["DBInstanceIdentifier"])) {
+        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
+            if(is_bool($param["DBInstanceIdentifier"])){
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("InstanceAccountName", $param) and $param["InstanceAccountName"] !== null) {
-            if (is_bool($param["InstanceAccountName"])) {
-                $this->RequestParams["InstanceAccountName"] = $param["InstanceAccountName"] ? "true" : "false";
+        if (array_key_exists("AccountName",$param) and $param["AccountName"] !== null) {
+            if(is_bool($param["AccountName"])){
+                $this->RequestParams["AccountName"] = $param["AccountName"] ? "true" : "false";
             } else {
-                $this->RequestParams["InstanceAccountName"] = $param["InstanceAccountName"];
+                $this->RequestParams["AccountName"] = $param["AccountName"];
             }
         }
-        if (array_key_exists("InstanceAccountPassword", $param) and $param["InstanceAccountPassword"] !== null) {
-            if (is_bool($param["InstanceAccountPassword"])) {
-                $this->RequestParams["InstanceAccountPassword"] = $param["InstanceAccountPassword"] ? "true" : "false";
+        if (array_key_exists("AccountPassword",$param) and $param["AccountPassword"] !== null) {
+            if(is_bool($param["AccountPassword"])){
+                $this->RequestParams["AccountPassword"] = $param["AccountPassword"] ? "true" : "false";
             } else {
-                $this->RequestParams["InstanceAccountPassword"] = $param["InstanceAccountPassword"];
+                $this->RequestParams["AccountPassword"] = $param["AccountPassword"];
             }
         }
-        if (array_key_exists("InstanceAccountDescription", $param) and $param["InstanceAccountDescription"] !== null) {
-            if (is_bool($param["InstanceAccountDescription"])) {
-                $this->RequestParams["InstanceAccountDescription"] = $param["InstanceAccountDescription"] ? "true" : "false";
+        if (array_key_exists("AccountDescription",$param) and $param["AccountDescription"] !== null) {
+            if(is_bool($param["AccountDescription"])){
+                $this->RequestParams["AccountDescription"] = $param["AccountDescription"] ? "true" : "false";
             } else {
-                $this->RequestParams["InstanceAccountDescription"] = $param["InstanceAccountDescription"];
+                $this->RequestParams["AccountDescription"] = $param["AccountDescription"];
             }
         }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Resourcemanager\V20210320\Models;
+namespace  Ksyun\Client\Resourcemanager\V20210320\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class ListAccountsForParentRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "FolderId" => null,
-        /**String**/
+         /**String**/
         "Search" => null,
-        /**Int**/
+         /**Int**/
         "Page" => null,
-        /**Int**/
+         /**Int**/
         "PageSize" => null,
     ];
 
@@ -29,29 +28,29 @@ class ListAccountsForParentRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FolderId", $param) and $param["FolderId"] !== null) {
-            if (is_bool($param["FolderId"])) {
+        if (array_key_exists("FolderId",$param) and $param["FolderId"] !== null) {
+            if(is_bool($param["FolderId"])){
                 $this->RequestParams["FolderId"] = $param["FolderId"] ? "true" : "false";
             } else {
                 $this->RequestParams["FolderId"] = $param["FolderId"];
             }
         }
-        if (array_key_exists("Search", $param) and $param["Search"] !== null) {
-            if (is_bool($param["Search"])) {
+        if (array_key_exists("Search",$param) and $param["Search"] !== null) {
+            if(is_bool($param["Search"])){
                 $this->RequestParams["Search"] = $param["Search"] ? "true" : "false";
             } else {
                 $this->RequestParams["Search"] = $param["Search"];
             }
         }
-        if (array_key_exists("Page", $param) and $param["Page"] !== null) {
-            if (is_bool($param["Page"])) {
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
                 $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
             } else {
                 $this->RequestParams["Page"] = $param["Page"];
             }
         }
-        if (array_key_exists("PageSize", $param) and $param["PageSize"] !== null) {
-            if (is_bool($param["PageSize"])) {
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            if(is_bool($param["PageSize"])){
                 $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["PageSize"] = $param["PageSize"];
@@ -60,12 +59,12 @@ class ListAccountsForParentRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

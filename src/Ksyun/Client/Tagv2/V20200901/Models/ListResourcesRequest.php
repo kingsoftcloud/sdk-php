@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Tagv2\V20200901\Models;
+namespace  Ksyun\Client\Tagv2\V20200901\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,28 +7,28 @@ use Ksyun\Common\Http\HttpOptions;
 class ListResourcesRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ResourceType" => null,
-        /**String**/
+         /**String**/
         "ProjectIds" => null,
-        /**String**/
+         /**String**/
         "RegionCodes" => null,
-        /**String**/
+         /**String**/
         "ResourceUuids" => null,
-        /**String**/
+         /**String**/
         "ResourceName" => null,
-        /**Array**/
+         /**Array**/
         "TagFilters" => null,
-        /**Int**/
+         /**Int**/
         "Page" => null,
-        /**Int**/
+         /**Int**/
         "PageSize" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -37,57 +36,57 @@ class ListResourcesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ResourceType", $param) and $param["ResourceType"] !== null) {
-            if (is_bool($param["ResourceType"])) {
+        if (array_key_exists("ResourceType",$param) and $param["ResourceType"] !== null) {
+            if(is_bool($param["ResourceType"])){
                 $this->RequestParams["ResourceType"] = $param["ResourceType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceType"] = $param["ResourceType"];
             }
         }
-        if (array_key_exists("ProjectIds", $param) and $param["ProjectIds"] !== null) {
-            if (is_bool($param["ProjectIds"])) {
+        if (array_key_exists("ProjectIds",$param) and $param["ProjectIds"] !== null) {
+            if(is_bool($param["ProjectIds"])){
                 $this->RequestParams["ProjectIds"] = $param["ProjectIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectIds"] = $param["ProjectIds"];
             }
         }
-        if (array_key_exists("RegionCodes", $param) and $param["RegionCodes"] !== null) {
-            if (is_bool($param["RegionCodes"])) {
+        if (array_key_exists("RegionCodes",$param) and $param["RegionCodes"] !== null) {
+            if(is_bool($param["RegionCodes"])){
                 $this->RequestParams["RegionCodes"] = $param["RegionCodes"] ? "true" : "false";
             } else {
                 $this->RequestParams["RegionCodes"] = $param["RegionCodes"];
             }
         }
-        if (array_key_exists("ResourceUuids", $param) and $param["ResourceUuids"] !== null) {
-            if (is_bool($param["ResourceUuids"])) {
+        if (array_key_exists("ResourceUuids",$param) and $param["ResourceUuids"] !== null) {
+            if(is_bool($param["ResourceUuids"])){
                 $this->RequestParams["ResourceUuids"] = $param["ResourceUuids"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceUuids"] = $param["ResourceUuids"];
             }
         }
-        if (array_key_exists("ResourceName", $param) and $param["ResourceName"] !== null) {
-            if (is_bool($param["ResourceName"])) {
+        if (array_key_exists("ResourceName",$param) and $param["ResourceName"] !== null) {
+            if(is_bool($param["ResourceName"])){
                 $this->RequestParams["ResourceName"] = $param["ResourceName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceName"] = $param["ResourceName"];
             }
         }
-        if (array_key_exists("TagFilters", $param) and $param["TagFilters"] !== null) {
-            if (is_bool($param["TagFilters"])) {
+        if (array_key_exists("TagFilters",$param) and $param["TagFilters"] !== null) {
+            if(is_bool($param["TagFilters"])){
                 $this->RequestParams["TagFilters"] = $param["TagFilters"] ? "true" : "false";
             } else {
                 $this->RequestParams["TagFilters"] = $param["TagFilters"];
             }
         }
-        if (array_key_exists("Page", $param) and $param["Page"] !== null) {
-            if (is_bool($param["Page"])) {
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
                 $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
             } else {
                 $this->RequestParams["Page"] = $param["Page"];
             }
         }
-        if (array_key_exists("PageSize", $param) and $param["PageSize"] !== null) {
-            if (is_bool($param["PageSize"])) {
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            if(is_bool($param["PageSize"])){
                 $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["PageSize"] = $param["PageSize"];
@@ -96,12 +95,12 @@ class ListResourcesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

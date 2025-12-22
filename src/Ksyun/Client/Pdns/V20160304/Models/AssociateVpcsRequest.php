@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Pdns\V20160304\Models;
+namespace  Ksyun\Client\Pdns\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class AssociateVpcsRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "Action" => null,
-        /**String**/
+         /**String**/
         "Version" => null,
-        /**String**/
+         /**String**/
         "VpcId" => null,
     ];
 
@@ -27,22 +26,22 @@ class AssociateVpcsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Action", $param) and $param["Action"] !== null) {
-            if (is_bool($param["Action"])) {
+        if (array_key_exists("Action",$param) and $param["Action"] !== null) {
+            if(is_bool($param["Action"])){
                 $this->RequestParams["Action"] = $param["Action"] ? "true" : "false";
             } else {
                 $this->RequestParams["Action"] = $param["Action"];
             }
         }
-        if (array_key_exists("Version", $param) and $param["Version"] !== null) {
-            if (is_bool($param["Version"])) {
+        if (array_key_exists("Version",$param) and $param["Version"] !== null) {
+            if(is_bool($param["Version"])){
                 $this->RequestParams["Version"] = $param["Version"] ? "true" : "false";
             } else {
                 $this->RequestParams["Version"] = $param["Version"];
             }
         }
-        if (array_key_exists("VpcId", $param) and $param["VpcId"] !== null) {
-            if (is_bool($param["VpcId"])) {
+        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
+            if(is_bool($param["VpcId"])){
                 $this->RequestParams["VpcId"] = $param["VpcId"] ? "true" : "false";
             } else {
                 $this->RequestParams["VpcId"] = $param["VpcId"];
@@ -51,12 +50,12 @@ class AssociateVpcsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

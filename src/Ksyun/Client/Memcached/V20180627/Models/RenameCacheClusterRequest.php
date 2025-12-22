@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Memcached\V20180627\Models;
+namespace  Ksyun\Client\Memcached\V20180627\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class RenameCacheClusterRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "CacheId" => null,
-        /**String**/
+         /**String**/
         "Name" => null,
-        /**String**/
+         /**String**/
         "Engine" => null,
     ];
 
@@ -27,22 +26,22 @@ class RenameCacheClusterRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CacheId", $param) and $param["CacheId"] !== null) {
-            if (is_bool($param["CacheId"])) {
+        if (array_key_exists("CacheId",$param) and $param["CacheId"] !== null) {
+            if(is_bool($param["CacheId"])){
                 $this->RequestParams["CacheId"] = $param["CacheId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CacheId"] = $param["CacheId"];
             }
         }
-        if (array_key_exists("Name", $param) and $param["Name"] !== null) {
-            if (is_bool($param["Name"])) {
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            if(is_bool($param["Name"])){
                 $this->RequestParams["Name"] = $param["Name"] ? "true" : "false";
             } else {
                 $this->RequestParams["Name"] = $param["Name"];
             }
         }
-        if (array_key_exists("Engine", $param) and $param["Engine"] !== null) {
-            if (is_bool($param["Engine"])) {
+        if (array_key_exists("Engine",$param) and $param["Engine"] !== null) {
+            if(is_bool($param["Engine"])){
                 $this->RequestParams["Engine"] = $param["Engine"] ? "true" : "false";
             } else {
                 $this->RequestParams["Engine"] = $param["Engine"];
@@ -51,12 +50,12 @@ class RenameCacheClusterRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

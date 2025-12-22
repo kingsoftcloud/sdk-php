@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kce\V20230101\Models;
+namespace  Ksyun\Client\Kce\V20230101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeAddonListRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "Name" => null,
-        /**Int**/
+         /**Int**/
         "MaxResults" => null,
-        /**Int**/
+         /**Int**/
         "Marker" => null,
     ];
 
@@ -27,22 +26,22 @@ class DescribeAddonListRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Name", $param) and $param["Name"] !== null) {
-            if (is_bool($param["Name"])) {
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            if(is_bool($param["Name"])){
                 $this->RequestParams["Name"] = $param["Name"] ? "true" : "false";
             } else {
                 $this->RequestParams["Name"] = $param["Name"];
             }
         }
-        if (array_key_exists("MaxResults", $param) and $param["MaxResults"] !== null) {
-            if (is_bool($param["MaxResults"])) {
+        if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
+            if(is_bool($param["MaxResults"])){
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxResults"] = $param["MaxResults"];
             }
         }
-        if (array_key_exists("Marker", $param) and $param["Marker"] !== null) {
-            if (is_bool($param["Marker"])) {
+        if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
+            if(is_bool($param["Marker"])){
                 $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
             } else {
                 $this->RequestParams["Marker"] = $param["Marker"];
@@ -51,12 +50,12 @@ class DescribeAddonListRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Krds\V20160701\Models;
+namespace  Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,18 +7,18 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyDBInstanceSpecRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "DBInstanceIdentifier" => null,
-        /**Int**/
+         /**Int**/
         "Mem" => null,
-        /**Int**/
+         /**Int**/
         "Disk" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -27,22 +26,22 @@ class ModifyDBInstanceSpecRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
-            if (is_bool($param["DBInstanceIdentifier"])) {
+        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
+            if(is_bool($param["DBInstanceIdentifier"])){
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("Mem", $param) and $param["Mem"] !== null) {
-            if (is_bool($param["Mem"])) {
+        if (array_key_exists("Mem",$param) and $param["Mem"] !== null) {
+            if(is_bool($param["Mem"])){
                 $this->RequestParams["Mem"] = $param["Mem"] ? "true" : "false";
             } else {
                 $this->RequestParams["Mem"] = $param["Mem"];
             }
         }
-        if (array_key_exists("Disk", $param) and $param["Disk"] !== null) {
-            if (is_bool($param["Disk"])) {
+        if (array_key_exists("Disk",$param) and $param["Disk"] !== null) {
+            if(is_bool($param["Disk"])){
                 $this->RequestParams["Disk"] = $param["Disk"] ? "true" : "false";
             } else {
                 $this->RequestParams["Disk"] = $param["Disk"];
@@ -51,12 +50,12 @@ class ModifyDBInstanceSpecRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

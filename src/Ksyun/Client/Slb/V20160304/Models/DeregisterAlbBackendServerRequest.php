@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeregisterAlbBackendServerRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "BackendServerId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeregisterAlbBackendServerRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("BackendServerId", $param) and $param["BackendServerId"] !== null) {
-            if (is_bool($param["BackendServerId"])) {
+        if (array_key_exists("BackendServerId",$param) and $param["BackendServerId"] !== null) {
+            if(is_bool($param["BackendServerId"])){
                 $this->RequestParams["BackendServerId"] = $param["BackendServerId"] ? "true" : "false";
             } else {
                 $this->RequestParams["BackendServerId"] = $param["BackendServerId"];
@@ -33,12 +32,12 @@ class DeregisterAlbBackendServerRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

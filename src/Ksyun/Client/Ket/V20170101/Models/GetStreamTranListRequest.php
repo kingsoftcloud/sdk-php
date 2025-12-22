@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Ket\V20170101\Models;
+namespace  Ksyun\Client\Ket\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class GetStreamTranListRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "UniqName" => null,
-        /**String**/
+         /**String**/
         "App" => null,
-        /**String**/
+         /**String**/
         "StreamID" => null,
     ];
 
@@ -27,22 +26,22 @@ class GetStreamTranListRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("UniqName", $param) and $param["UniqName"] !== null) {
-            if (is_bool($param["UniqName"])) {
+        if (array_key_exists("UniqName",$param) and $param["UniqName"] !== null) {
+            if(is_bool($param["UniqName"])){
                 $this->RequestParams["UniqName"] = $param["UniqName"] ? "true" : "false";
             } else {
                 $this->RequestParams["UniqName"] = $param["UniqName"];
             }
         }
-        if (array_key_exists("App", $param) and $param["App"] !== null) {
-            if (is_bool($param["App"])) {
+        if (array_key_exists("App",$param) and $param["App"] !== null) {
+            if(is_bool($param["App"])){
                 $this->RequestParams["App"] = $param["App"] ? "true" : "false";
             } else {
                 $this->RequestParams["App"] = $param["App"];
             }
         }
-        if (array_key_exists("StreamID", $param) and $param["StreamID"] !== null) {
-            if (is_bool($param["StreamID"])) {
+        if (array_key_exists("StreamID",$param) and $param["StreamID"] !== null) {
+            if(is_bool($param["StreamID"])){
                 $this->RequestParams["StreamID"] = $param["StreamID"] ? "true" : "false";
             } else {
                 $this->RequestParams["StreamID"] = $param["StreamID"];
@@ -51,12 +50,12 @@ class GetStreamTranListRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

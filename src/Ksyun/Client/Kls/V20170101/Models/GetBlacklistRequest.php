@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kls\V20170101\Models;
+namespace  Ksyun\Client\Kls\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class GetBlacklistRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "UniqueName" => null,
-        /**String**/
+         /**String**/
         "App" => null,
-        /**String**/
+         /**String**/
         "Pubdomain" => null,
     ];
 
@@ -27,22 +26,22 @@ class GetBlacklistRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("UniqueName", $param) and $param["UniqueName"] !== null) {
-            if (is_bool($param["UniqueName"])) {
+        if (array_key_exists("UniqueName",$param) and $param["UniqueName"] !== null) {
+            if(is_bool($param["UniqueName"])){
                 $this->RequestParams["UniqueName"] = $param["UniqueName"] ? "true" : "false";
             } else {
                 $this->RequestParams["UniqueName"] = $param["UniqueName"];
             }
         }
-        if (array_key_exists("App", $param) and $param["App"] !== null) {
-            if (is_bool($param["App"])) {
+        if (array_key_exists("App",$param) and $param["App"] !== null) {
+            if(is_bool($param["App"])){
                 $this->RequestParams["App"] = $param["App"] ? "true" : "false";
             } else {
                 $this->RequestParams["App"] = $param["App"];
             }
         }
-        if (array_key_exists("Pubdomain", $param) and $param["Pubdomain"] !== null) {
-            if (is_bool($param["Pubdomain"])) {
+        if (array_key_exists("Pubdomain",$param) and $param["Pubdomain"] !== null) {
+            if(is_bool($param["Pubdomain"])){
                 $this->RequestParams["Pubdomain"] = $param["Pubdomain"] ? "true" : "false";
             } else {
                 $this->RequestParams["Pubdomain"] = $param["Pubdomain"];
@@ -51,12 +50,12 @@ class GetBlacklistRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

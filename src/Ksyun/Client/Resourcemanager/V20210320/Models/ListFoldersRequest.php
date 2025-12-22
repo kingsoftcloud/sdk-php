@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Resourcemanager\V20210320\Models;
+namespace  Ksyun\Client\Resourcemanager\V20210320\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -24,12 +23,12 @@ class ListFoldersRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

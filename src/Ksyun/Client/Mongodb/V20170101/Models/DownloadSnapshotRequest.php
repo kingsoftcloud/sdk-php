@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Mongodb\V20170101\Models;
+namespace  Ksyun\Client\Mongodb\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,8 +7,10 @@ use Ksyun\Common\Http\HttpOptions;
 class DownloadSnapshotRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "SnapshotId" => null,
+         /**String**/
+        "InstanceId" => null,
     ];
 
 
@@ -23,22 +24,29 @@ class DownloadSnapshotRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SnapshotId", $param) and $param["SnapshotId"] !== null) {
-            if (is_bool($param["SnapshotId"])) {
+        if (array_key_exists("SnapshotId",$param) and $param["SnapshotId"] !== null) {
+            if(is_bool($param["SnapshotId"])){
                 $this->RequestParams["SnapshotId"] = $param["SnapshotId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SnapshotId"] = $param["SnapshotId"];
             }
         }
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
+                $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["InstanceId"] = $param["InstanceId"];
+            }
+        }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

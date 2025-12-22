@@ -1,27 +1,32 @@
 <?php
-
-namespace Ksyun\Client\Kcm\V20160304\Models;
+namespace  Ksyun\Client\Kcm\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
 class ListCertificatesResponse extends BaseModel
 {
-    /** **/
-    public $ListCertificatesResponse;
+         /** 请求ID**/
+         public  $RequestId;
 
-    public function __construct()
-    {
+         /**Object **/
+         public  $CertificateSet;
 
-    }
+         public function __construct()
+         {
 
-    public function unserialize($param)
-    {
-        if ($param === null) {
-            return;
+         }
+
+        public function unserialize($param)
+        {
+            if ($param === null) {
+                return;
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("CertificateSet",$param) and $param["CertificateSet"] !== null) {
+                $this->CertificateSet = $param["CertificateSet"];
+            }
+
         }
-        if (array_key_exists("ListCertificatesResponse", $param) and $param["ListCertificatesResponse"] !== null) {
-            $this->ListCertificatesResponse = $param["ListCertificatesResponse"];
-        }
-
-    }
 }

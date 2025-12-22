@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Cen\V20160304\Models;
+namespace  Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,10 +7,10 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyCenRegionBandwidthRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "CenRegionBandwidthId" => null,
-        /**String**/
-        "BandWidth" => null,
+         /**String**/
+        "InterBandWidth" => null,
     ];
 
 
@@ -25,29 +24,29 @@ class ModifyCenRegionBandwidthRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenRegionBandwidthId", $param) and $param["CenRegionBandwidthId"] !== null) {
-            if (is_bool($param["CenRegionBandwidthId"])) {
+        if (array_key_exists("CenRegionBandwidthId",$param) and $param["CenRegionBandwidthId"] !== null) {
+            if(is_bool($param["CenRegionBandwidthId"])){
                 $this->RequestParams["CenRegionBandwidthId"] = $param["CenRegionBandwidthId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenRegionBandwidthId"] = $param["CenRegionBandwidthId"];
             }
         }
-        if (array_key_exists("BandWidth", $param) and $param["BandWidth"] !== null) {
-            if (is_bool($param["BandWidth"])) {
-                $this->RequestParams["BandWidth"] = $param["BandWidth"] ? "true" : "false";
+        if (array_key_exists("InterBandWidth",$param) and $param["InterBandWidth"] !== null) {
+            if(is_bool($param["InterBandWidth"])){
+                $this->RequestParams["InterBandWidth"] = $param["InterBandWidth"] ? "true" : "false";
             } else {
-                $this->RequestParams["BandWidth"] = $param["BandWidth"];
+                $this->RequestParams["InterBandWidth"] = $param["InterBandWidth"];
             }
         }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

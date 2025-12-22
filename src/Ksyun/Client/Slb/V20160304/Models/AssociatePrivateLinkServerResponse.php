@@ -1,33 +1,32 @@
 <?php
-
-namespace Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
 class AssociatePrivateLinkServerResponse extends BaseModel
 {
-    /** 请求ID**/
-    public $RequestId;
+         /** 请求ID**/
+         public  $RequestId;
 
-    /**Object PrivateLink的信息**/
-    public $PrivateLink;
+         /** PrivateLink的信息**/
+         public  $PrivateLink;
 
-    public function __construct()
-    {
+         public function __construct()
+         {
 
-    }
+         }
 
-    public function unserialize($param)
-    {
-        if ($param === null) {
-            return;
+        public function unserialize($param)
+        {
+            if ($param === null) {
+                return;
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("PrivateLink",$param) and $param["PrivateLink"] !== null) {
+                $this->PrivateLink = $param["PrivateLink"];
+            }
+
         }
-        if (array_key_exists("RequestId", $param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
-        }
-        if (array_key_exists("PrivateLink", $param) and $param["PrivateLink"] !== null) {
-            $this->PrivateLink = $param["PrivateLink"];
-        }
-
-    }
 }

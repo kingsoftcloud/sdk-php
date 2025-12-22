@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Tagv2\V20200901\Models;
+namespace  Ksyun\Client\Tagv2\V20200901\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateTagAndAttachResourceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "TagKey" => null,
-        /**String**/
+         /**String**/
         "TagValue" => null,
-        /**String**/
+         /**String**/
         "ResourceType" => null,
-        /**String**/
+         /**String**/
         "ResourceUuid" => null,
     ];
 
@@ -29,29 +28,29 @@ class CreateTagAndAttachResourceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TagKey", $param) and $param["TagKey"] !== null) {
-            if (is_bool($param["TagKey"])) {
+        if (array_key_exists("TagKey",$param) and $param["TagKey"] !== null) {
+            if(is_bool($param["TagKey"])){
                 $this->RequestParams["TagKey"] = $param["TagKey"] ? "true" : "false";
             } else {
                 $this->RequestParams["TagKey"] = $param["TagKey"];
             }
         }
-        if (array_key_exists("TagValue", $param) and $param["TagValue"] !== null) {
-            if (is_bool($param["TagValue"])) {
+        if (array_key_exists("TagValue",$param) and $param["TagValue"] !== null) {
+            if(is_bool($param["TagValue"])){
                 $this->RequestParams["TagValue"] = $param["TagValue"] ? "true" : "false";
             } else {
                 $this->RequestParams["TagValue"] = $param["TagValue"];
             }
         }
-        if (array_key_exists("ResourceType", $param) and $param["ResourceType"] !== null) {
-            if (is_bool($param["ResourceType"])) {
+        if (array_key_exists("ResourceType",$param) and $param["ResourceType"] !== null) {
+            if(is_bool($param["ResourceType"])){
                 $this->RequestParams["ResourceType"] = $param["ResourceType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceType"] = $param["ResourceType"];
             }
         }
-        if (array_key_exists("ResourceUuid", $param) and $param["ResourceUuid"] !== null) {
-            if (is_bool($param["ResourceUuid"])) {
+        if (array_key_exists("ResourceUuid",$param) and $param["ResourceUuid"] !== null) {
+            if(is_bool($param["ResourceUuid"])){
                 $this->RequestParams["ResourceUuid"] = $param["ResourceUuid"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceUuid"] = $param["ResourceUuid"];
@@ -60,12 +59,12 @@ class CreateTagAndAttachResourceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

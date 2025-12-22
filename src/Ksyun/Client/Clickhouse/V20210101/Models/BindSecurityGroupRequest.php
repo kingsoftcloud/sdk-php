@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Clickhouse\V20210101\Models;
+namespace  Ksyun\Client\Clickhouse\V20210101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class BindSecurityGroupRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "ProductType" => null,
-        /**Array**/
+         /**Array**/
         "SecurityGroupIds" => null,
-        /**String**/
+         /**String**/
         "InstanceIds" => null,
     ];
 
@@ -27,22 +26,22 @@ class BindSecurityGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProductType", $param) and $param["ProductType"] !== null) {
-            if (is_bool($param["ProductType"])) {
+        if (array_key_exists("ProductType",$param) and $param["ProductType"] !== null) {
+            if(is_bool($param["ProductType"])){
                 $this->RequestParams["ProductType"] = $param["ProductType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProductType"] = $param["ProductType"];
             }
         }
-        if (array_key_exists("SecurityGroupIds", $param) and $param["SecurityGroupIds"] !== null) {
-            if (is_bool($param["SecurityGroupIds"])) {
+        if (array_key_exists("SecurityGroupIds",$param) and $param["SecurityGroupIds"] !== null) {
+            if(is_bool($param["SecurityGroupIds"])){
                 $this->RequestParams["SecurityGroupIds"] = $param["SecurityGroupIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupIds"] = $param["SecurityGroupIds"];
             }
         }
-        if (array_key_exists("InstanceIds", $param) and $param["InstanceIds"] !== null) {
-            if (is_bool($param["InstanceIds"])) {
+        if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
+            if(is_bool($param["InstanceIds"])){
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceIds"] = $param["InstanceIds"];
@@ -51,12 +50,12 @@ class BindSecurityGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

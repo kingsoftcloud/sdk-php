@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kcrs\V20211109\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "InstanceName" => null,
-        /**String**/
+         /**String**/
         "ChargeType" => null,
-        /**String**/
+         /**String**/
         "InstanceType" => null,
-        /**String**/
+         /**String**/
         "PurchaseTime" => null,
-        /**String**/
+         /**String**/
         "ProjectId" => null,
     ];
 
@@ -31,36 +30,36 @@ class CreateInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceName", $param) and $param["InstanceName"] !== null) {
-            if (is_bool($param["InstanceName"])) {
+        if (array_key_exists("InstanceName",$param) and $param["InstanceName"] !== null) {
+            if(is_bool($param["InstanceName"])){
                 $this->RequestParams["InstanceName"] = $param["InstanceName"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceName"] = $param["InstanceName"];
             }
         }
-        if (array_key_exists("ChargeType", $param) and $param["ChargeType"] !== null) {
-            if (is_bool($param["ChargeType"])) {
+        if (array_key_exists("ChargeType",$param) and $param["ChargeType"] !== null) {
+            if(is_bool($param["ChargeType"])){
                 $this->RequestParams["ChargeType"] = $param["ChargeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"];
             }
         }
-        if (array_key_exists("InstanceType", $param) and $param["InstanceType"] !== null) {
-            if (is_bool($param["InstanceType"])) {
+        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
+            if(is_bool($param["InstanceType"])){
                 $this->RequestParams["InstanceType"] = $param["InstanceType"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceType"] = $param["InstanceType"];
             }
         }
-        if (array_key_exists("PurchaseTime", $param) and $param["PurchaseTime"] !== null) {
-            if (is_bool($param["PurchaseTime"])) {
+        if (array_key_exists("PurchaseTime",$param) and $param["PurchaseTime"] !== null) {
+            if(is_bool($param["PurchaseTime"])){
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"];
             }
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            if (is_bool($param["ProjectId"])) {
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
@@ -69,12 +68,12 @@ class CreateInstanceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

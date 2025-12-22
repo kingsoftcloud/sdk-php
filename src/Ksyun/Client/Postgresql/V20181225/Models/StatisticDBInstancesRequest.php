@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Postgresql\V20181225\Models;
+namespace  Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class StatisticDBInstancesRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ExpiryDateLessThan" => null,
-        /**String**/
+         /**String**/
         "GroupId" => null,
-        /**String**/
+         /**String**/
         "Keyword" => null,
     ];
 
@@ -27,22 +26,22 @@ class StatisticDBInstancesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ExpiryDateLessThan", $param) and $param["ExpiryDateLessThan"] !== null) {
-            if (is_bool($param["ExpiryDateLessThan"])) {
+        if (array_key_exists("ExpiryDateLessThan",$param) and $param["ExpiryDateLessThan"] !== null) {
+            if(is_bool($param["ExpiryDateLessThan"])){
                 $this->RequestParams["ExpiryDateLessThan"] = $param["ExpiryDateLessThan"] ? "true" : "false";
             } else {
                 $this->RequestParams["ExpiryDateLessThan"] = $param["ExpiryDateLessThan"];
             }
         }
-        if (array_key_exists("GroupId", $param) and $param["GroupId"] !== null) {
-            if (is_bool($param["GroupId"])) {
+        if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
+            if(is_bool($param["GroupId"])){
                 $this->RequestParams["GroupId"] = $param["GroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["GroupId"] = $param["GroupId"];
             }
         }
-        if (array_key_exists("Keyword", $param) and $param["Keyword"] !== null) {
-            if (is_bool($param["Keyword"])) {
+        if (array_key_exists("Keyword",$param) and $param["Keyword"] !== null) {
+            if(is_bool($param["Keyword"])){
                 $this->RequestParams["Keyword"] = $param["Keyword"] ? "true" : "false";
             } else {
                 $this->RequestParams["Keyword"] = $param["Keyword"];
@@ -51,12 +50,12 @@ class StatisticDBInstancesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

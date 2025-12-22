@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Resourcemanager\V20210320\Models;
+namespace  Ksyun\Client\Resourcemanager\V20210320\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class UpdateFolderRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "FolderId" => null,
-        /**String**/
+         /**String**/
         "ParentId" => null,
-        /**String**/
+         /**String**/
         "Name" => null,
-        /**String**/
+         /**String**/
         "Desc" => null,
     ];
 
@@ -29,29 +28,29 @@ class UpdateFolderRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FolderId", $param) and $param["FolderId"] !== null) {
-            if (is_bool($param["FolderId"])) {
+        if (array_key_exists("FolderId",$param) and $param["FolderId"] !== null) {
+            if(is_bool($param["FolderId"])){
                 $this->RequestParams["FolderId"] = $param["FolderId"] ? "true" : "false";
             } else {
                 $this->RequestParams["FolderId"] = $param["FolderId"];
             }
         }
-        if (array_key_exists("ParentId", $param) and $param["ParentId"] !== null) {
-            if (is_bool($param["ParentId"])) {
+        if (array_key_exists("ParentId",$param) and $param["ParentId"] !== null) {
+            if(is_bool($param["ParentId"])){
                 $this->RequestParams["ParentId"] = $param["ParentId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ParentId"] = $param["ParentId"];
             }
         }
-        if (array_key_exists("Name", $param) and $param["Name"] !== null) {
-            if (is_bool($param["Name"])) {
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            if(is_bool($param["Name"])){
                 $this->RequestParams["Name"] = $param["Name"] ? "true" : "false";
             } else {
                 $this->RequestParams["Name"] = $param["Name"];
             }
         }
-        if (array_key_exists("Desc", $param) and $param["Desc"] !== null) {
-            if (is_bool($param["Desc"])) {
+        if (array_key_exists("Desc",$param) and $param["Desc"] !== null) {
+            if(is_bool($param["Desc"])){
                 $this->RequestParams["Desc"] = $param["Desc"] ? "true" : "false";
             } else {
                 $this->RequestParams["Desc"] = $param["Desc"];
@@ -60,12 +59,12 @@ class UpdateFolderRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

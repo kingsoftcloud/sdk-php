@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Waf\V20200707\Models;
+namespace  Ksyun\Client\Waf\V20200707\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,11 +7,11 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeAccessControlRulesRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "RuleId" => null,
-        /**String**/
+         /**String**/
         "ResourceRecordId" => null,
-        /**String**/
+         /**String**/
         "RuleName" => null,
     ];
 
@@ -27,22 +26,22 @@ class DescribeAccessControlRulesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RuleId", $param) and $param["RuleId"] !== null) {
-            if (is_bool($param["RuleId"])) {
+        if (array_key_exists("RuleId",$param) and $param["RuleId"] !== null) {
+            if(is_bool($param["RuleId"])){
                 $this->RequestParams["RuleId"] = $param["RuleId"] ? "true" : "false";
             } else {
                 $this->RequestParams["RuleId"] = $param["RuleId"];
             }
         }
-        if (array_key_exists("ResourceRecordId", $param) and $param["ResourceRecordId"] !== null) {
-            if (is_bool($param["ResourceRecordId"])) {
+        if (array_key_exists("ResourceRecordId",$param) and $param["ResourceRecordId"] !== null) {
+            if(is_bool($param["ResourceRecordId"])){
                 $this->RequestParams["ResourceRecordId"] = $param["ResourceRecordId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ResourceRecordId"] = $param["ResourceRecordId"];
             }
         }
-        if (array_key_exists("RuleName", $param) and $param["RuleName"] !== null) {
-            if (is_bool($param["RuleName"])) {
+        if (array_key_exists("RuleName",$param) and $param["RuleName"] !== null) {
+            if(is_bool($param["RuleName"])){
                 $this->RequestParams["RuleName"] = $param["RuleName"] ? "true" : "false";
             } else {
                 $this->RequestParams["RuleName"] = $param["RuleName"];
@@ -51,12 +50,12 @@ class DescribeAccessControlRulesRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

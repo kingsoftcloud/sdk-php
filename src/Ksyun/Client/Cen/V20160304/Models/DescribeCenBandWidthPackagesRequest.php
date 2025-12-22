@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Cen\V20160304\Models;
+namespace  Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,22 +7,26 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeCenBandWidthPackagesRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "MaxResults" => null,
-        /**String**/
+         /**String**/
         "NextToken" => null,
     ];
 
-    /**特殊参数类型:Filter**/
+     /**特殊参数类型:Filter**/
     public $ProjectId = [];
-    /**特殊参数类型:Filter**/
+      /**特殊参数类型:Filter**/
     public $CenBandWidthPackageId = [];
-    /**特殊参数类型:Filter**/
+      /**特殊参数类型:Filter**/
     public $Filter = [];
-
+      /**特殊参数类型:Filter**/
+    public $TagKey = [];
+      /**特殊参数类型:Filter**/
+    public $TagKV = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -31,41 +34,49 @@ class DescribeCenBandWidthPackagesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            $res = $this->formatFilterParams("ProjectId", $param["ProjectId"]);
-            $this->_unserialize("ProjectId", $res);
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
+            $this->_unserialize("ProjectId",$res);
         }
-        if (array_key_exists("CenBandWidthPackageId", $param) and $param["CenBandWidthPackageId"] !== null) {
-            $res = $this->formatFilterParams("CenBandWidthPackageId", $param["CenBandWidthPackageId"]);
-            $this->_unserialize("CenBandWidthPackageId", $res);
+        if (array_key_exists("CenBandWidthPackageId",$param) and $param["CenBandWidthPackageId"] !== null) {
+            $res = $this->formatFilterParams("CenBandWidthPackageId",$param["CenBandWidthPackageId"]);
+            $this->_unserialize("CenBandWidthPackageId",$res);
         }
-        if (array_key_exists("Filter", $param) and $param["Filter"] !== null) {
-            $res = $this->formatFilterParams("Filter", $param["Filter"]);
-            $this->_unserialize("Filter", $res);
+        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
+            $res = $this->formatFilterParams("Filter",$param["Filter"]);
+            $this->_unserialize("Filter",$res);
         }
-        if (array_key_exists("MaxResults", $param) and $param["MaxResults"] !== null) {
-            if (is_bool($param["MaxResults"])) {
+        if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
+            if(is_bool($param["MaxResults"])){
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxResults"] = $param["MaxResults"];
             }
         }
-        if (array_key_exists("NextToken", $param) and $param["NextToken"] !== null) {
-            if (is_bool($param["NextToken"])) {
+        if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
+            if(is_bool($param["NextToken"])){
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
             }
         }
+        if (array_key_exists("TagKey",$param) and $param["TagKey"] !== null) {
+            $res = $this->formatFilterParams("TagKey",$param["TagKey"]);
+            $this->_unserialize("TagKey",$res);
+        }
+        if (array_key_exists("TagKV",$param) and $param["TagKV"] !== null) {
+            $res = $this->formatFilterParams("TagKV",$param["TagKV"]);
+            $this->_unserialize("TagKV",$res);
+        }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

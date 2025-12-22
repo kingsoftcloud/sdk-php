@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kcs\V20160701\Models;
+namespace  Ksyun\Client\Kcs\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,17 +7,17 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeCacheParameterGroupsRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "AvailableZone" => null,
-        /**String**/
+         /**String**/
         "Name" => null,
-        /**String**/
+         /**String**/
         "CacheParameterGroupId" => null,
-        /**String**/
+         /**String**/
         "ParamVersion" => null,
-        /**String**/
+         /**String**/
         "Offset" => null,
-        /**String**/
+         /**String**/
         "Limit" => null,
     ];
 
@@ -33,43 +32,43 @@ class DescribeCacheParameterGroupsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("AvailableZone", $param) and $param["AvailableZone"] !== null) {
-            if (is_bool($param["AvailableZone"])) {
+        if (array_key_exists("AvailableZone",$param) and $param["AvailableZone"] !== null) {
+            if(is_bool($param["AvailableZone"])){
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"] ? "true" : "false";
             } else {
                 $this->RequestParams["AvailableZone"] = $param["AvailableZone"];
             }
         }
-        if (array_key_exists("Name", $param) and $param["Name"] !== null) {
-            if (is_bool($param["Name"])) {
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            if(is_bool($param["Name"])){
                 $this->RequestParams["Name"] = $param["Name"] ? "true" : "false";
             } else {
                 $this->RequestParams["Name"] = $param["Name"];
             }
         }
-        if (array_key_exists("CacheParameterGroupId", $param) and $param["CacheParameterGroupId"] !== null) {
-            if (is_bool($param["CacheParameterGroupId"])) {
+        if (array_key_exists("CacheParameterGroupId",$param) and $param["CacheParameterGroupId"] !== null) {
+            if(is_bool($param["CacheParameterGroupId"])){
                 $this->RequestParams["CacheParameterGroupId"] = $param["CacheParameterGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CacheParameterGroupId"] = $param["CacheParameterGroupId"];
             }
         }
-        if (array_key_exists("ParamVersion", $param) and $param["ParamVersion"] !== null) {
-            if (is_bool($param["ParamVersion"])) {
+        if (array_key_exists("ParamVersion",$param) and $param["ParamVersion"] !== null) {
+            if(is_bool($param["ParamVersion"])){
                 $this->RequestParams["ParamVersion"] = $param["ParamVersion"] ? "true" : "false";
             } else {
                 $this->RequestParams["ParamVersion"] = $param["ParamVersion"];
             }
         }
-        if (array_key_exists("Offset", $param) and $param["Offset"] !== null) {
-            if (is_bool($param["Offset"])) {
+        if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
+            if(is_bool($param["Offset"])){
                 $this->RequestParams["Offset"] = $param["Offset"] ? "true" : "false";
             } else {
                 $this->RequestParams["Offset"] = $param["Offset"];
             }
         }
-        if (array_key_exists("Limit", $param) and $param["Limit"] !== null) {
-            if (is_bool($param["Limit"])) {
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            if(is_bool($param["Limit"])){
                 $this->RequestParams["Limit"] = $param["Limit"] ? "true" : "false";
             } else {
                 $this->RequestParams["Limit"] = $param["Limit"];
@@ -78,12 +77,12 @@ class DescribeCacheParameterGroupsRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

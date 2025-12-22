@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Mongodb\V20170101\Models;
+namespace  Ksyun\Client\Mongodb\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class SetMongoDBTimingSnapshotRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "InstanceId" => null,
-        /**String**/
+         /**String**/
         "TimingSwitch" => null,
-        /**String**/
+         /**String**/
         "Timezone" => null,
-        /**String**/
+         /**String**/
         "TimeCycle" => null,
     ];
 
@@ -29,29 +28,29 @@ class SetMongoDBTimingSnapshotRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId", $param) and $param["InstanceId"] !== null) {
-            if (is_bool($param["InstanceId"])) {
+        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
+            if(is_bool($param["InstanceId"])){
                 $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceId"] = $param["InstanceId"];
             }
         }
-        if (array_key_exists("TimingSwitch", $param) and $param["TimingSwitch"] !== null) {
-            if (is_bool($param["TimingSwitch"])) {
+        if (array_key_exists("TimingSwitch",$param) and $param["TimingSwitch"] !== null) {
+            if(is_bool($param["TimingSwitch"])){
                 $this->RequestParams["TimingSwitch"] = $param["TimingSwitch"] ? "true" : "false";
             } else {
                 $this->RequestParams["TimingSwitch"] = $param["TimingSwitch"];
             }
         }
-        if (array_key_exists("Timezone", $param) and $param["Timezone"] !== null) {
-            if (is_bool($param["Timezone"])) {
+        if (array_key_exists("Timezone",$param) and $param["Timezone"] !== null) {
+            if(is_bool($param["Timezone"])){
                 $this->RequestParams["Timezone"] = $param["Timezone"] ? "true" : "false";
             } else {
                 $this->RequestParams["Timezone"] = $param["Timezone"];
             }
         }
-        if (array_key_exists("TimeCycle", $param) and $param["TimeCycle"] !== null) {
-            if (is_bool($param["TimeCycle"])) {
+        if (array_key_exists("TimeCycle",$param) and $param["TimeCycle"] !== null) {
+            if(is_bool($param["TimeCycle"])){
                 $this->RequestParams["TimeCycle"] = $param["TimeCycle"] ? "true" : "false";
             } else {
                 $this->RequestParams["TimeCycle"] = $param["TimeCycle"];
@@ -60,12 +59,12 @@ class SetMongoDBTimingSnapshotRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

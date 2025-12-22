@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Cen\V20160304\Models;
+namespace  Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,10 +7,12 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifyCenRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "CenId" => null,
-        /**String**/
+         /**String**/
         "CenName" => null,
+         /**String**/
+        "Description" => null,
     ];
 
 
@@ -25,29 +26,36 @@ class ModifyCenRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenId", $param) and $param["CenId"] !== null) {
-            if (is_bool($param["CenId"])) {
+        if (array_key_exists("CenId",$param) and $param["CenId"] !== null) {
+            if(is_bool($param["CenId"])){
                 $this->RequestParams["CenId"] = $param["CenId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenId"] = $param["CenId"];
             }
         }
-        if (array_key_exists("CenName", $param) and $param["CenName"] !== null) {
-            if (is_bool($param["CenName"])) {
+        if (array_key_exists("CenName",$param) and $param["CenName"] !== null) {
+            if(is_bool($param["CenName"])){
                 $this->RequestParams["CenName"] = $param["CenName"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenName"] = $param["CenName"];
             }
         }
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
+                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Description"] = $param["Description"];
+            }
+        }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Cen\V20160304\Models;
+namespace  Ksyun\Client\Cen\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,16 +7,14 @@ use Ksyun\Common\Http\HttpOptions;
 class CreateCenRegionBandwidthRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
-        "CenId" => null,
-        /**String**/
-        "RegionA" => null,
-        /**String**/
-        "RegionB" => null,
-        /**String**/
+         /**String**/
+        "LocalRegion" => null,
+         /**String**/
+        "RemoteRegion" => null,
+         /**String**/
         "CenBandWidthPackageId" => null,
-        /**Int**/
-        "BandWidth" => null,
+         /**Int**/
+        "InterBandWidth" => null,
     ];
 
 
@@ -31,50 +28,43 @@ class CreateCenRegionBandwidthRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CenId", $param) and $param["CenId"] !== null) {
-            if (is_bool($param["CenId"])) {
-                $this->RequestParams["CenId"] = $param["CenId"] ? "true" : "false";
+        if (array_key_exists("LocalRegion",$param) and $param["LocalRegion"] !== null) {
+            if(is_bool($param["LocalRegion"])){
+                $this->RequestParams["LocalRegion"] = $param["LocalRegion"] ? "true" : "false";
             } else {
-                $this->RequestParams["CenId"] = $param["CenId"];
+                $this->RequestParams["LocalRegion"] = $param["LocalRegion"];
             }
         }
-        if (array_key_exists("RegionA", $param) and $param["RegionA"] !== null) {
-            if (is_bool($param["RegionA"])) {
-                $this->RequestParams["RegionA"] = $param["RegionA"] ? "true" : "false";
+        if (array_key_exists("RemoteRegion",$param) and $param["RemoteRegion"] !== null) {
+            if(is_bool($param["RemoteRegion"])){
+                $this->RequestParams["RemoteRegion"] = $param["RemoteRegion"] ? "true" : "false";
             } else {
-                $this->RequestParams["RegionA"] = $param["RegionA"];
+                $this->RequestParams["RemoteRegion"] = $param["RemoteRegion"];
             }
         }
-        if (array_key_exists("RegionB", $param) and $param["RegionB"] !== null) {
-            if (is_bool($param["RegionB"])) {
-                $this->RequestParams["RegionB"] = $param["RegionB"] ? "true" : "false";
-            } else {
-                $this->RequestParams["RegionB"] = $param["RegionB"];
-            }
-        }
-        if (array_key_exists("CenBandWidthPackageId", $param) and $param["CenBandWidthPackageId"] !== null) {
-            if (is_bool($param["CenBandWidthPackageId"])) {
+        if (array_key_exists("CenBandWidthPackageId",$param) and $param["CenBandWidthPackageId"] !== null) {
+            if(is_bool($param["CenBandWidthPackageId"])){
                 $this->RequestParams["CenBandWidthPackageId"] = $param["CenBandWidthPackageId"] ? "true" : "false";
             } else {
                 $this->RequestParams["CenBandWidthPackageId"] = $param["CenBandWidthPackageId"];
             }
         }
-        if (array_key_exists("BandWidth", $param) and $param["BandWidth"] !== null) {
-            if (is_bool($param["BandWidth"])) {
-                $this->RequestParams["BandWidth"] = $param["BandWidth"] ? "true" : "false";
+        if (array_key_exists("InterBandWidth",$param) and $param["InterBandWidth"] !== null) {
+            if(is_bool($param["InterBandWidth"])){
+                $this->RequestParams["InterBandWidth"] = $param["InterBandWidth"] ? "true" : "false";
             } else {
-                $this->RequestParams["BandWidth"] = $param["BandWidth"];
+                $this->RequestParams["InterBandWidth"] = $param["InterBandWidth"];
             }
         }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Kce\V20230101\Models;
+namespace  Ksyun\Client\Kce\V20230101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeComponentListRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "K8sVersion" => null,
     ];
 
@@ -23,8 +22,8 @@ class DescribeComponentListRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("K8sVersion", $param) and $param["K8sVersion"] !== null) {
-            if (is_bool($param["K8sVersion"])) {
+        if (array_key_exists("K8sVersion",$param) and $param["K8sVersion"] !== null) {
+            if(is_bool($param["K8sVersion"])){
                 $this->RequestParams["K8sVersion"] = $param["K8sVersion"] ? "true" : "false";
             } else {
                 $this->RequestParams["K8sVersion"] = $param["K8sVersion"];
@@ -33,12 +32,12 @@ class DescribeComponentListRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

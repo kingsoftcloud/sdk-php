@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Postgresql\V20181225\Models;
+namespace  Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class ModifySecurityGroupRuleNameRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "SecurityGroupRuleId" => null,
-        /**String**/
+         /**String**/
         "SecurityGroupRuleName" => null,
     ];
 
@@ -25,15 +24,15 @@ class ModifySecurityGroupRuleNameRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SecurityGroupRuleId", $param) and $param["SecurityGroupRuleId"] !== null) {
-            if (is_bool($param["SecurityGroupRuleId"])) {
+        if (array_key_exists("SecurityGroupRuleId",$param) and $param["SecurityGroupRuleId"] !== null) {
+            if(is_bool($param["SecurityGroupRuleId"])){
                 $this->RequestParams["SecurityGroupRuleId"] = $param["SecurityGroupRuleId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupRuleId"] = $param["SecurityGroupRuleId"];
             }
         }
-        if (array_key_exists("SecurityGroupRuleName", $param) and $param["SecurityGroupRuleName"] !== null) {
-            if (is_bool($param["SecurityGroupRuleName"])) {
+        if (array_key_exists("SecurityGroupRuleName",$param) and $param["SecurityGroupRuleName"] !== null) {
+            if(is_bool($param["SecurityGroupRuleName"])){
                 $this->RequestParams["SecurityGroupRuleName"] = $param["SecurityGroupRuleName"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupRuleName"] = $param["SecurityGroupRuleName"];
@@ -42,12 +41,12 @@ class ModifySecurityGroupRuleNameRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

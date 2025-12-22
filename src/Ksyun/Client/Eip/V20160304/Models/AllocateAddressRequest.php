@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Eip\V20160304\Models;
+namespace  Ksyun\Client\Eip\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,15 +7,15 @@ use Ksyun\Common\Http\HttpOptions;
 class AllocateAddressRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "LineId" => null,
-        /**Int**/
+         /**Int**/
         "BandWidth" => null,
-        /**String**/
+         /**String**/
         "ProjectId" => null,
-        /**String**/
+         /**String**/
         "ChargeType" => null,
-        /**Int**/
+         /**Int**/
         "PurchaseTime" => null,
     ];
 
@@ -31,36 +30,36 @@ class AllocateAddressRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LineId", $param) and $param["LineId"] !== null) {
-            if (is_bool($param["LineId"])) {
+        if (array_key_exists("LineId",$param) and $param["LineId"] !== null) {
+            if(is_bool($param["LineId"])){
                 $this->RequestParams["LineId"] = $param["LineId"] ? "true" : "false";
             } else {
                 $this->RequestParams["LineId"] = $param["LineId"];
             }
         }
-        if (array_key_exists("BandWidth", $param) and $param["BandWidth"] !== null) {
-            if (is_bool($param["BandWidth"])) {
+        if (array_key_exists("BandWidth",$param) and $param["BandWidth"] !== null) {
+            if(is_bool($param["BandWidth"])){
                 $this->RequestParams["BandWidth"] = $param["BandWidth"] ? "true" : "false";
             } else {
                 $this->RequestParams["BandWidth"] = $param["BandWidth"];
             }
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            if (is_bool($param["ProjectId"])) {
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
-        if (array_key_exists("ChargeType", $param) and $param["ChargeType"] !== null) {
-            if (is_bool($param["ChargeType"])) {
+        if (array_key_exists("ChargeType",$param) and $param["ChargeType"] !== null) {
+            if(is_bool($param["ChargeType"])){
                 $this->RequestParams["ChargeType"] = $param["ChargeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"];
             }
         }
-        if (array_key_exists("PurchaseTime", $param) and $param["PurchaseTime"] !== null) {
-            if (is_bool($param["PurchaseTime"])) {
+        if (array_key_exists("PurchaseTime",$param) and $param["PurchaseTime"] !== null) {
+            if(is_bool($param["PurchaseTime"])){
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"];
@@ -69,12 +68,12 @@ class AllocateAddressRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,17 +7,17 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribePrivateLinkServerRequest extends BaseModel
 {
     public $RequestParams = [
-        /**Int**/
+         /**Int**/
         "MaxResults" => null,
-        /**String**/
+         /**String**/
         "NextToken" => null,
     ];
 
-    /**特殊参数类型:Filter**/
+     /**特殊参数类型:Filter**/
     public $PrivateLinkServerId = [];
-    /**特殊参数类型:Filter**/
+      /**特殊参数类型:Filter**/
     public $ProjectId = [];
-
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -29,23 +28,23 @@ class DescribePrivateLinkServerRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PrivateLinkServerId", $param) and $param["PrivateLinkServerId"] !== null) {
-            $res = $this->formatFilterParams("PrivateLinkServerId", $param["PrivateLinkServerId"]);
-            $this->_unserialize("PrivateLinkServerId", $res);
+        if (array_key_exists("PrivateLinkServerId",$param) and $param["PrivateLinkServerId"] !== null) {
+            $res = $this->formatFilterParams("PrivateLinkServerId",$param["PrivateLinkServerId"]);
+            $this->_unserialize("PrivateLinkServerId",$res);
         }
-        if (array_key_exists("ProjectId", $param) and $param["ProjectId"] !== null) {
-            $res = $this->formatFilterParams("ProjectId", $param["ProjectId"]);
-            $this->_unserialize("ProjectId", $res);
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
+            $this->_unserialize("ProjectId",$res);
         }
-        if (array_key_exists("MaxResults", $param) and $param["MaxResults"] !== null) {
-            if (is_bool($param["MaxResults"])) {
+        if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
+            if(is_bool($param["MaxResults"])){
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxResults"] = $param["MaxResults"];
             }
         }
-        if (array_key_exists("NextToken", $param) and $param["NextToken"] !== null) {
-            if (is_bool($param["NextToken"])) {
+        if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
+            if(is_bool($param["NextToken"])){
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
@@ -54,12 +53,12 @@ class DescribePrivateLinkServerRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

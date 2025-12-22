@@ -1,27 +1,26 @@
 <?php
-
-namespace Ksyun\Client\Kcrs\V20211109\Models;
+namespace  Ksyun\Client\Kcrs\V20211109\Models;
 
 use Ksyun\Common\BaseModel;
 
 class ModifyInstanceTokenStatusResponse extends BaseModel
 {
-    /** 请求Id**/
-    public $RequestId;
+         /** 请求Id**/
+         public  $RequestId;
 
-    public function __construct()
-    {
+         public function __construct()
+         {
 
-    }
+         }
 
-    public function unserialize($param)
-    {
-        if ($param === null) {
-            return;
+        public function unserialize($param)
+        {
+            if ($param === null) {
+                return;
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+
         }
-        if (array_key_exists("RequestId", $param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
-        }
-
-    }
 }

@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Tidb\V20210520\Models;
+namespace  Ksyun\Client\Tidb\V20210520\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,18 +7,20 @@ use Ksyun\Common\Http\HttpOptions;
 class ListInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "ProjectIds" => null,
-        /**String**/
+         /**String**/
         "InstanceStatus" => null,
-        /**String**/
+         /**String**/
         "FuzzySearch" => null,
-        /**Int**/
+         /**Int**/
         "Offset" => null,
-        /**Int**/
+         /**Int**/
         "Limit" => null,
-        /**String**/
+         /**String**/
         "OrderBy" => null,
+         /**Int**/
+        "ProductType" => null,
     ];
 
 
@@ -33,57 +34,64 @@ class ListInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProjectIds", $param) and $param["ProjectIds"] !== null) {
-            if (is_bool($param["ProjectIds"])) {
+        if (array_key_exists("ProjectIds",$param) and $param["ProjectIds"] !== null) {
+            if(is_bool($param["ProjectIds"])){
                 $this->RequestParams["ProjectIds"] = $param["ProjectIds"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectIds"] = $param["ProjectIds"];
             }
         }
-        if (array_key_exists("InstanceStatus", $param) and $param["InstanceStatus"] !== null) {
-            if (is_bool($param["InstanceStatus"])) {
+        if (array_key_exists("InstanceStatus",$param) and $param["InstanceStatus"] !== null) {
+            if(is_bool($param["InstanceStatus"])){
                 $this->RequestParams["InstanceStatus"] = $param["InstanceStatus"] ? "true" : "false";
             } else {
                 $this->RequestParams["InstanceStatus"] = $param["InstanceStatus"];
             }
         }
-        if (array_key_exists("FuzzySearch", $param) and $param["FuzzySearch"] !== null) {
-            if (is_bool($param["FuzzySearch"])) {
+        if (array_key_exists("FuzzySearch",$param) and $param["FuzzySearch"] !== null) {
+            if(is_bool($param["FuzzySearch"])){
                 $this->RequestParams["FuzzySearch"] = $param["FuzzySearch"] ? "true" : "false";
             } else {
                 $this->RequestParams["FuzzySearch"] = $param["FuzzySearch"];
             }
         }
-        if (array_key_exists("Offset", $param) and $param["Offset"] !== null) {
-            if (is_bool($param["Offset"])) {
+        if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
+            if(is_bool($param["Offset"])){
                 $this->RequestParams["Offset"] = $param["Offset"] ? "true" : "false";
             } else {
                 $this->RequestParams["Offset"] = $param["Offset"];
             }
         }
-        if (array_key_exists("Limit", $param) and $param["Limit"] !== null) {
-            if (is_bool($param["Limit"])) {
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            if(is_bool($param["Limit"])){
                 $this->RequestParams["Limit"] = $param["Limit"] ? "true" : "false";
             } else {
                 $this->RequestParams["Limit"] = $param["Limit"];
             }
         }
-        if (array_key_exists("OrderBy", $param) and $param["OrderBy"] !== null) {
-            if (is_bool($param["OrderBy"])) {
+        if (array_key_exists("OrderBy",$param) and $param["OrderBy"] !== null) {
+            if(is_bool($param["OrderBy"])){
                 $this->RequestParams["OrderBy"] = $param["OrderBy"] ? "true" : "false";
             } else {
                 $this->RequestParams["OrderBy"] = $param["OrderBy"];
             }
         }
+        if (array_key_exists("ProductType",$param) and $param["ProductType"] !== null) {
+            if(is_bool($param["ProductType"])){
+                $this->RequestParams["ProductType"] = $param["ProductType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProductType"] = $param["ProductType"];
+            }
+        }
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

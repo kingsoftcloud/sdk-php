@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Tidb\V20210520\Models;
+namespace  Ksyun\Client\Tidb\V20210520\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,18 +7,18 @@ use Ksyun\Common\Http\HttpOptions;
 class UpdateSecurityGroupRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "SecurityGroupId" => null,
-        /**String**/
+         /**String**/
         "SecurityGroupName" => null,
-        /**String**/
+         /**String**/
         "Description" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -27,22 +26,22 @@ class UpdateSecurityGroupRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SecurityGroupId", $param) and $param["SecurityGroupId"] !== null) {
-            if (is_bool($param["SecurityGroupId"])) {
+        if (array_key_exists("SecurityGroupId",$param) and $param["SecurityGroupId"] !== null) {
+            if(is_bool($param["SecurityGroupId"])){
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupId"] = $param["SecurityGroupId"];
             }
         }
-        if (array_key_exists("SecurityGroupName", $param) and $param["SecurityGroupName"] !== null) {
-            if (is_bool($param["SecurityGroupName"])) {
+        if (array_key_exists("SecurityGroupName",$param) and $param["SecurityGroupName"] !== null) {
+            if(is_bool($param["SecurityGroupName"])){
                 $this->RequestParams["SecurityGroupName"] = $param["SecurityGroupName"] ? "true" : "false";
             } else {
                 $this->RequestParams["SecurityGroupName"] = $param["SecurityGroupName"];
             }
         }
-        if (array_key_exists("Description", $param) and $param["Description"] !== null) {
-            if (is_bool($param["Description"])) {
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
@@ -51,12 +50,12 @@ class UpdateSecurityGroupRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

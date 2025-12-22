@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Krds\V20160701\Models;
+namespace  Ksyun\Client\Krds\V20160701\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,20 +7,20 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeAuditHotDurationRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "DBInstanceIdentifier" => null,
-        /**String**/
+         /**String**/
         "TimeRange" => null,
-        /**String**/
+         /**String**/
         "StartTime" => null,
-        /**String**/
+         /**String**/
         "EndTime" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -29,29 +28,29 @@ class DescribeAuditHotDurationRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
-            if (is_bool($param["DBInstanceIdentifier"])) {
+        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
+            if(is_bool($param["DBInstanceIdentifier"])){
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("TimeRange", $param) and $param["TimeRange"] !== null) {
-            if (is_bool($param["TimeRange"])) {
+        if (array_key_exists("TimeRange",$param) and $param["TimeRange"] !== null) {
+            if(is_bool($param["TimeRange"])){
                 $this->RequestParams["TimeRange"] = $param["TimeRange"] ? "true" : "false";
             } else {
                 $this->RequestParams["TimeRange"] = $param["TimeRange"];
             }
         }
-        if (array_key_exists("StartTime", $param) and $param["StartTime"] !== null) {
-            if (is_bool($param["StartTime"])) {
+        if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
+            if(is_bool($param["StartTime"])){
                 $this->RequestParams["StartTime"] = $param["StartTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["StartTime"] = $param["StartTime"];
             }
         }
-        if (array_key_exists("EndTime", $param) and $param["EndTime"] !== null) {
-            if (is_bool($param["EndTime"])) {
+        if (array_key_exists("EndTime",$param) and $param["EndTime"] !== null) {
+            if(is_bool($param["EndTime"])){
                 $this->RequestParams["EndTime"] = $param["EndTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["EndTime"] = $param["EndTime"];
@@ -60,12 +59,12 @@ class DescribeAuditHotDurationRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

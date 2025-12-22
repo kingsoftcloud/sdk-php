@@ -1,27 +1,26 @@
 <?php
-
-namespace Ksyun\Client\Kls\V20170101\Models;
+namespace  Ksyun\Client\Kls\V20170101\Models;
 
 use Ksyun\Common\BaseModel;
 
 class ListHistoryPubStreamsErrInfoResponse extends BaseModel
 {
-    /** **/
-    public $Data;
+         /** **/
+         public  $ListHistoryPubStreamsErrInfoResponse;
 
-    public function __construct()
-    {
+         public function __construct()
+         {
 
-    }
+         }
 
-    public function unserialize($param)
-    {
-        if ($param === null) {
-            return;
+        public function unserialize($param)
+        {
+            if ($param === null) {
+                return;
+            }
+            if (array_key_exists("ListHistoryPubStreamsErrInfoResponse",$param) and $param["ListHistoryPubStreamsErrInfoResponse"] !== null) {
+                $this->ListHistoryPubStreamsErrInfoResponse = $param["ListHistoryPubStreamsErrInfoResponse"];
+            }
+
         }
-        if (array_key_exists("Data", $param) and $param["Data"] !== null) {
-            $this->Data = $param["Data"];
-        }
-
-    }
 }

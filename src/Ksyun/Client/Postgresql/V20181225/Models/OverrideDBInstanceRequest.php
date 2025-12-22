@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Postgresql\V20181225\Models;
+namespace  Ksyun\Client\Postgresql\V20181225\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class OverrideDBInstanceRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "DBInstanceIdentifier" => null,
-        /**String**/
+         /**String**/
         "DBBackupIdentifier" => null,
     ];
 
@@ -25,15 +24,15 @@ class OverrideDBInstanceRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DBInstanceIdentifier", $param) and $param["DBInstanceIdentifier"] !== null) {
-            if (is_bool($param["DBInstanceIdentifier"])) {
+        if (array_key_exists("DBInstanceIdentifier",$param) and $param["DBInstanceIdentifier"] !== null) {
+            if(is_bool($param["DBInstanceIdentifier"])){
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBInstanceIdentifier"] = $param["DBInstanceIdentifier"];
             }
         }
-        if (array_key_exists("DBBackupIdentifier", $param) and $param["DBBackupIdentifier"] !== null) {
-            if (is_bool($param["DBBackupIdentifier"])) {
+        if (array_key_exists("DBBackupIdentifier",$param) and $param["DBBackupIdentifier"] !== null) {
+            if(is_bool($param["DBBackupIdentifier"])){
                 $this->RequestParams["DBBackupIdentifier"] = $param["DBBackupIdentifier"] ? "true" : "false";
             } else {
                 $this->RequestParams["DBBackupIdentifier"] = $param["DBBackupIdentifier"];
@@ -42,12 +41,12 @@ class OverrideDBInstanceRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

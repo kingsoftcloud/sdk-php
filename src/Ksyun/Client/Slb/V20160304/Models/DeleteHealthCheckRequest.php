@@ -1,6 +1,5 @@
 <?php
-
-namespace Ksyun\Client\Slb\V20160304\Models;
+namespace  Ksyun\Client\Slb\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
@@ -8,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteHealthCheckRequest extends BaseModel
 {
     public $RequestParams = [
-        /**String**/
+         /**String**/
         "HealthCheckId" => null,
     ];
 
@@ -23,8 +22,8 @@ class DeleteHealthCheckRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HealthCheckId", $param) and $param["HealthCheckId"] !== null) {
-            if (is_bool($param["HealthCheckId"])) {
+        if (array_key_exists("HealthCheckId",$param) and $param["HealthCheckId"] !== null) {
+            if(is_bool($param["HealthCheckId"])){
                 $this->RequestParams["HealthCheckId"] = $param["HealthCheckId"] ? "true" : "false";
             } else {
                 $this->RequestParams["HealthCheckId"] = $param["HealthCheckId"];
@@ -33,12 +32,12 @@ class DeleteHealthCheckRequest extends BaseModel
 
     }
 
-    private function _unserialize($name, $params)
+    private function _unserialize($name,$params)
     {
         if ($params === null) {
             return;
         }
-        foreach ($params as $key => $value) {
+        foreach ($params as $key => $value){
             $this->$name[$key] = $value;
         }
 

@@ -152,11 +152,16 @@ abstract class BaseClient
             if ($responseData->getStatusCode() !== BaseClient::$HTTP_RSP_OK) {
                 throw new KsyunSDKException($responseData->getReasonPhrase(), $responseData->getBody());
             }
+            $statusCode = $responseData->getStatusCode();
             $tmpResp = json_decode($responseData->getBody(), true);
-            if (array_key_exists("Error", $tmpResp)) {
-                throw new KsyunSDKException($tmpResp["Error"]["Code"], $tmpResp["Error"]["Message"], $tmpResp["RequestId"]);
+            if ($statusCode < 200 || $statusCode > 299) {
+                if (array_key_exists("Error", $tmpResp)) {
+                    throw new KsyunSDKException($tmpResp["Error"]["Code"], $tmpResp["Error"]["Message"], $tmpResp["RequestId"]);
+                }
+                throw new KsyunSDKException($responseData->getReasonPhrase(), $responseData->getBody());
             }
-            return json_encode($tmpResp);
+
+            return $tmpResp ? json_encode($tmpResp) : null;
         } catch (\Exception $e) {
             if (!($e instanceof KsyunSDKException)) {
                 throw new KsyunSDKException("", $e->getResponse()->getBody()->getContents());
