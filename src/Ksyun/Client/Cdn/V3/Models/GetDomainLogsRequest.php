@@ -9,6 +9,14 @@ class GetDomainLogsRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "DomainId" => null,
+         /**String**/
+        "StartTime" => null,
+         /**String**/
+        "EndTime" => null,
+         /**Int**/
+        "PageSize" => null,
+         /**Int**/
+        "PageNumber" => null,
     ];
 
 
@@ -27,6 +35,34 @@ class GetDomainLogsRequest extends BaseModel
                 $this->RequestParams["DomainId"] = $param["DomainId"] ? "true" : "false";
             } else {
                 $this->RequestParams["DomainId"] = $param["DomainId"];
+            }
+        }
+        if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
+            if(is_bool($param["StartTime"])){
+                $this->RequestParams["StartTime"] = $param["StartTime"] ? "true" : "false";
+            } else {
+                $this->RequestParams["StartTime"] = $param["StartTime"];
+            }
+        }
+        if (array_key_exists("EndTime",$param) and $param["EndTime"] !== null) {
+            if(is_bool($param["EndTime"])){
+                $this->RequestParams["EndTime"] = $param["EndTime"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EndTime"] = $param["EndTime"];
+            }
+        }
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            if(is_bool($param["PageSize"])){
+                $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PageSize"] = $param["PageSize"];
+            }
+        }
+        if (array_key_exists("PageNumber",$param) and $param["PageNumber"] !== null) {
+            if(is_bool($param["PageNumber"])){
+                $this->RequestParams["PageNumber"] = $param["PageNumber"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PageNumber"] = $param["PageNumber"];
             }
         }
 
