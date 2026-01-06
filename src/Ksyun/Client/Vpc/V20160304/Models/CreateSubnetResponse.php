@@ -8,7 +8,7 @@ class CreateSubnetResponse extends BaseModel
          /** 请求ID**/
          public  $RequestId;
 
-         /**Object 子网信息**/
+         /** 子网信息**/
          public  $Subnet;
 
          public function __construct()
