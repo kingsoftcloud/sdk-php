@@ -14,8 +14,6 @@ class QueryTokenDataRequest extends BaseModel
          /**Int**/
         "MaxResults" => null,
          /**String**/
-        "ModelKeyword" => null,
-         /**String**/
         "Keyword" => null,
          /**String**/
         "GroupBy" => null,
@@ -57,13 +55,6 @@ class QueryTokenDataRequest extends BaseModel
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxResults"] = $param["MaxResults"];
-            }
-        }
-        if (array_key_exists("ModelKeyword",$param) and $param["ModelKeyword"] !== null) {
-            if(is_bool($param["ModelKeyword"])){
-                $this->RequestParams["ModelKeyword"] = $param["ModelKeyword"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ModelKeyword"] = $param["ModelKeyword"];
             }
         }
         if (array_key_exists("Keyword",$param) and $param["Keyword"] !== null) {
