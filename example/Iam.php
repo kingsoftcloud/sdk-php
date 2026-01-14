@@ -1,11 +1,14 @@
 <?php
 require_once __DIR__ . '/../../../../vendor/autoload.php';
+
 // 导入对应产品模块的client
 use Ksyun\Client\Iam\V20151101\IamClient;
+
 // 导入要请求接口对应的Request类
 use Ksyun\Client\Iam\V20151101\Models\ListUsersRequest;
 use Ksyun\Common\Exception\KsyunSDKException;
 use Ksyun\Common\Credential;
+
 // 导入可选配置类
 use Ksyun\Common\Http\HttpOptions;
 
@@ -14,7 +17,7 @@ try {
     $cred = new Credential(getenv("KSYUN_SECRETID"), getenv("KSYUN_SECRETKEY"));
 
     // 实例化一个http选项，可选的，没有特殊需求可以跳过
-    $httpOptions = new HttpOptions("http://","iam.api.ksyun.com","GET");
+    $httpOptions = new HttpOptions("http://", "iam.api.ksyun.com", "GET");
 
     $client = new IamClient($cred, "default", $httpOptions);
 
@@ -23,8 +26,7 @@ try {
 
     // 这里还支持以标准json格式的string来赋值请求参数的方式。下面的代码跟上面的参数赋值是等效的
     $params = [
-                "Marker" => "10",
-                "MaxItems" => 10
+        "MaxItems" => 10
     ];
     $req->setParams($params);
 
@@ -35,7 +37,6 @@ try {
     // 输出json格式的字符串回包
     var_dump($resp);
 
-}
-catch(KsyunSDKException $e) {
+} catch (KsyunSDKException $e) {
     echo $e;
 }

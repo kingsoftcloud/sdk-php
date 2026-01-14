@@ -21,6 +21,8 @@ class DescribeApikeysRequest extends BaseModel
     public $AssociatedModelId = [];
       /**特殊参数类型:Filter**/
     public $Status = [];
+      /**特殊参数类型:Filter**/
+    public $KeyId = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -67,6 +69,10 @@ class DescribeApikeysRequest extends BaseModel
             } else {
                 $this->RequestParams["DefaultKey"] = $param["DefaultKey"];
             }
+        }
+        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
+            $res = $this->formatFilterParams("KeyId",$param["KeyId"]);
+            $this->_unserialize("KeyId",$res);
         }
 
     }

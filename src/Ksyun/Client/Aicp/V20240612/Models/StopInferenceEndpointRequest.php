@@ -4,7 +4,7 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class StartInferenceEndpointRequest extends BaseModel
+class StopInferenceEndpointRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/

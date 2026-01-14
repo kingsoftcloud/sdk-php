@@ -23,6 +23,8 @@ class QueryTokenDataRequest extends BaseModel
         "Marker" => null,
          /**Boolean**/
         "IsGlobalServer" => null,
+         /**String**/
+        "ModelName" => null,
     ];
 
 
@@ -90,6 +92,13 @@ class QueryTokenDataRequest extends BaseModel
                 $this->RequestParams["IsGlobalServer"] = $param["IsGlobalServer"] ? "true" : "false";
             } else {
                 $this->RequestParams["IsGlobalServer"] = $param["IsGlobalServer"];
+            }
+        }
+        if (array_key_exists("ModelName",$param) and $param["ModelName"] !== null) {
+            if(is_bool($param["ModelName"])){
+                $this->RequestParams["ModelName"] = $param["ModelName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelName"] = $param["ModelName"];
             }
         }
 

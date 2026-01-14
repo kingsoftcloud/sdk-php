@@ -4,11 +4,13 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class StartInferenceEndpointRequest extends BaseModel
+class EnableEndpointRateLimitRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "EndpointId" => null,
+         /**Object**/
+        "RateLimit" => null,
     ];
 
 
@@ -27,6 +29,13 @@ class StartInferenceEndpointRequest extends BaseModel
                 $this->RequestParams["EndpointId"] = $param["EndpointId"] ? "true" : "false";
             } else {
                 $this->RequestParams["EndpointId"] = $param["EndpointId"];
+            }
+        }
+        if (array_key_exists("RateLimit",$param) and $param["RateLimit"] !== null) {
+            if(is_bool($param["RateLimit"])){
+                $this->RequestParams["RateLimit"] = $param["RateLimit"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RateLimit"] = $param["RateLimit"];
             }
         }
 
