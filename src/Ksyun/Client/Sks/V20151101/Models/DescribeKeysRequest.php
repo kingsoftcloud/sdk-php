@@ -17,6 +17,8 @@ class DescribeKeysRequest extends BaseModel
     public $KeyId = [];
       /**特殊参数类型:Filter**/
     public $Filter = [];
+      /**特殊参数类型:Filter**/
+    public $ProjectId = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -49,6 +51,10 @@ class DescribeKeysRequest extends BaseModel
         if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
             $res = $this->formatFilterParams("Filter",$param["Filter"]);
             $this->_unserialize("Filter",$res);
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
+            $this->_unserialize("ProjectId",$res);
         }
 
     }

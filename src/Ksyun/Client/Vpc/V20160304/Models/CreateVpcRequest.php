@@ -13,6 +13,8 @@ class CreateVpcRequest extends BaseModel
         "CidrBlock" => null,
          /**Boolean**/
         "ProvidedIpv6CidrBlock" => null,
+         /**String**/
+        "Ipv6CidrBlock" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class CreateVpcRequest extends BaseModel
                 $this->RequestParams["ProvidedIpv6CidrBlock"] = $param["ProvidedIpv6CidrBlock"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProvidedIpv6CidrBlock"] = $param["ProvidedIpv6CidrBlock"];
+            }
+        }
+        if (array_key_exists("Ipv6CidrBlock",$param) and $param["Ipv6CidrBlock"] !== null) {
+            if(is_bool($param["Ipv6CidrBlock"])){
+                $this->RequestParams["Ipv6CidrBlock"] = $param["Ipv6CidrBlock"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Ipv6CidrBlock"] = $param["Ipv6CidrBlock"];
             }
         }
 

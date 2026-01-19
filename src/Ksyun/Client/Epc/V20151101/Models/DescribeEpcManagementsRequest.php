@@ -21,6 +21,8 @@ class DescribeEpcManagementsRequest extends BaseModel
 
      /**特殊参数类型:Filter**/
     public $EpcManagementId = [];
+      /**特殊参数类型:Filter**/
+    public $ProjectId = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -70,6 +72,10 @@ class DescribeEpcManagementsRequest extends BaseModel
             } else {
                 $this->RequestParams["RemoteManagementId"] = $param["RemoteManagementId"];
             }
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            $res = $this->formatFilterParams("ProjectId",$param["ProjectId"]);
+            $this->_unserialize("ProjectId",$res);
         }
 
     }

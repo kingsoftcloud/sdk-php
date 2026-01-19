@@ -115,6 +115,10 @@ class BatchCreateEpcRequest extends BaseModel
         "DataDiskMount" => null,
          /**String**/
         "StorageRoceNetworkCardName" => null,
+         /**String**/
+        "SRoceCluster" => null,
+         /**String**/
+        "RoceCluster" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -510,6 +514,20 @@ class BatchCreateEpcRequest extends BaseModel
                 $this->RequestParams["StorageRoceNetworkCardName"] = $param["StorageRoceNetworkCardName"] ? "true" : "false";
             } else {
                 $this->RequestParams["StorageRoceNetworkCardName"] = $param["StorageRoceNetworkCardName"];
+            }
+        }
+        if (array_key_exists("SRoceCluster",$param) and $param["SRoceCluster"] !== null) {
+            if(is_bool($param["SRoceCluster"])){
+                $this->RequestParams["SRoceCluster"] = $param["SRoceCluster"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SRoceCluster"] = $param["SRoceCluster"];
+            }
+        }
+        if (array_key_exists("RoceCluster",$param) and $param["RoceCluster"] !== null) {
+            if(is_bool($param["RoceCluster"])){
+                $this->RequestParams["RoceCluster"] = $param["RoceCluster"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RoceCluster"] = $param["RoceCluster"];
             }
         }
 

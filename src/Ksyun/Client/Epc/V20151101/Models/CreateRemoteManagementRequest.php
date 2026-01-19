@@ -15,7 +15,7 @@ class CreateRemoteManagementRequest extends BaseModel
         "PhoneNumber" => null,
          /**String**/
         "Name" => null,
-         /**Int**/
+         /**Long**/
         "VersionId" => null,
     ];
 

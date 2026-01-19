@@ -19,7 +19,7 @@ class ModifyRemoteManagementRequest extends BaseModel
         "NewPin" => null,
          /**String**/
         "Name" => null,
-         /**Int**/
+         /**Long**/
         "VersionId" => null,
     ];
 
