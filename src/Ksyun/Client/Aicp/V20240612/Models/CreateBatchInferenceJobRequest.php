@@ -15,7 +15,7 @@ class CreateBatchInferenceJobRequest extends BaseModel
         "ApikeyId" => null,
          /**String**/
         "Model" => null,
-         /**Int**/
+         /**Long**/
         "ExecuteTimeoutMs" => null,
          /**String**/
         "InputDataType" => null,

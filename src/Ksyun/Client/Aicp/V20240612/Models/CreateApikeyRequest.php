@@ -11,7 +11,7 @@ class CreateApikeyRequest extends BaseModel
         "Name" => null,
          /**String**/
         "Description" => null,
-         /**Int**/
+         /**Long**/
         "ProjectId" => null,
          /**Array**/
         "AssociatedModelIds" => null,

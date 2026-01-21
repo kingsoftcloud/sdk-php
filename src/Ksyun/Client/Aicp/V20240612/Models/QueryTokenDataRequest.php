@@ -7,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class QueryTokenDataRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+         /**Long**/
         "StartTimestamp" => null,
-         /**Int**/
+         /**Long**/
         "EndTimestamp" => null,
          /**Int**/
         "MaxResults" => null,

@@ -19,7 +19,7 @@ class ModifyNotebookRequest extends BaseModel
         "QueueName" => null,
          /**String**/
         "GPUType" => null,
-         /**Int**/
+         /**String**/
         "GPUNumber" => null,
          /**Int**/
         "CPUNum" => null,

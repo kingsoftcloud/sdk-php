@@ -23,7 +23,7 @@ class CreateTrainJobRequest extends BaseModel
         "AccessType" => null,
          /**Boolean**/
         "SelfHealing" => null,
-         /**Int**/
+         /**Long**/
         "MaxRuntimeHour" => null,
          /**Boolean**/
         "JobRunOnCPU" => null,
