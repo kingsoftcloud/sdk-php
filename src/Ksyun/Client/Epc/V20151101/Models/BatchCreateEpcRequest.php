@@ -10,6 +10,8 @@ class BatchCreateEpcRequest extends BaseModel
          /**String**/
         "HostType" => null,
          /**String**/
+        "GroupSubType" => null,
+         /**String**/
         "AvailabilityZone" => null,
          /**String**/
         "Raid" => null,
@@ -119,8 +121,6 @@ class BatchCreateEpcRequest extends BaseModel
         "SRoceCluster" => null,
          /**String**/
         "RoceCluster" => null,
-         /**String**/
-        "GroupSubType" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -141,6 +141,13 @@ class BatchCreateEpcRequest extends BaseModel
                 $this->RequestParams["HostType"] = $param["HostType"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostType"] = $param["HostType"];
+            }
+        }
+        if (array_key_exists("GroupSubType",$param) and $param["GroupSubType"] !== null) {
+            if(is_bool($param["GroupSubType"])){
+                $this->RequestParams["GroupSubType"] = $param["GroupSubType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["GroupSubType"] = $param["GroupSubType"];
             }
         }
         if (array_key_exists("AvailabilityZone",$param) and $param["AvailabilityZone"] !== null) {
@@ -530,13 +537,6 @@ class BatchCreateEpcRequest extends BaseModel
                 $this->RequestParams["RoceCluster"] = $param["RoceCluster"] ? "true" : "false";
             } else {
                 $this->RequestParams["RoceCluster"] = $param["RoceCluster"];
-            }
-        }
-        if (array_key_exists("GroupSubType",$param) and $param["GroupSubType"] !== null) {
-            if(is_bool($param["GroupSubType"])){
-                $this->RequestParams["GroupSubType"] = $param["GroupSubType"] ? "true" : "false";
-            } else {
-                $this->RequestParams["GroupSubType"] = $param["GroupSubType"];
             }
         }
 

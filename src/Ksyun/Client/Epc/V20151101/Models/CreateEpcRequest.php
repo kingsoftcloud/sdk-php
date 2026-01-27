@@ -10,6 +10,8 @@ class CreateEpcRequest extends BaseModel
          /**String**/
         "HostType" => null,
          /**String**/
+        "GroupSubType" => null,
+         /**String**/
         "AvailabilityZone" => null,
          /**String**/
         "Raid" => null,
@@ -19,6 +21,8 @@ class CreateEpcRequest extends BaseModel
         "ImageId" => null,
          /**String**/
         "NetworkInterfaceMode" => null,
+         /**String**/
+        "BondAttribute" => null,
          /**String**/
         "SubnetId" => null,
          /**String**/
@@ -80,8 +84,6 @@ class CreateEpcRequest extends BaseModel
          /**String**/
         "NvmeDataDiskCatalogueSuffix" => null,
          /**String**/
-        "BondAttribute" => null,
-         /**String**/
         "ContainerAgent" => null,
          /**String**/
         "KesAgent" => null,
@@ -131,8 +133,6 @@ class CreateEpcRequest extends BaseModel
         "SRoceCluster" => null,
          /**String**/
         "UserDefinedData" => null,
-         /**String**/
-        "GroupSubType" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -153,6 +153,13 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["HostType"] = $param["HostType"] ? "true" : "false";
             } else {
                 $this->RequestParams["HostType"] = $param["HostType"];
+            }
+        }
+        if (array_key_exists("GroupSubType",$param) and $param["GroupSubType"] !== null) {
+            if(is_bool($param["GroupSubType"])){
+                $this->RequestParams["GroupSubType"] = $param["GroupSubType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["GroupSubType"] = $param["GroupSubType"];
             }
         }
         if (array_key_exists("AvailabilityZone",$param) and $param["AvailabilityZone"] !== null) {
@@ -188,6 +195,13 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["NetworkInterfaceMode"] = $param["NetworkInterfaceMode"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkInterfaceMode"] = $param["NetworkInterfaceMode"];
+            }
+        }
+        if (array_key_exists("BondAttribute",$param) and $param["BondAttribute"] !== null) {
+            if(is_bool($param["BondAttribute"])){
+                $this->RequestParams["BondAttribute"] = $param["BondAttribute"] ? "true" : "false";
+            } else {
+                $this->RequestParams["BondAttribute"] = $param["BondAttribute"];
             }
         }
         if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
@@ -404,13 +418,6 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["NvmeDataDiskCatalogueSuffix"] = $param["NvmeDataDiskCatalogueSuffix"];
             }
         }
-        if (array_key_exists("BondAttribute",$param) and $param["BondAttribute"] !== null) {
-            if(is_bool($param["BondAttribute"])){
-                $this->RequestParams["BondAttribute"] = $param["BondAttribute"] ? "true" : "false";
-            } else {
-                $this->RequestParams["BondAttribute"] = $param["BondAttribute"];
-            }
-        }
         if (array_key_exists("ContainerAgent",$param) and $param["ContainerAgent"] !== null) {
             if(is_bool($param["ContainerAgent"])){
                 $this->RequestParams["ContainerAgent"] = $param["ContainerAgent"] ? "true" : "false";
@@ -584,13 +591,6 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"];
-            }
-        }
-        if (array_key_exists("GroupSubType",$param) and $param["GroupSubType"] !== null) {
-            if(is_bool($param["GroupSubType"])){
-                $this->RequestParams["GroupSubType"] = $param["GroupSubType"] ? "true" : "false";
-            } else {
-                $this->RequestParams["GroupSubType"] = $param["GroupSubType"];
             }
         }
 
