@@ -131,6 +131,8 @@ class CreateEpcRequest extends BaseModel
         "SRoceCluster" => null,
          /**String**/
         "UserDefinedData" => null,
+         /**String**/
+        "GroupSubType" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -582,6 +584,13 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"];
+            }
+        }
+        if (array_key_exists("GroupSubType",$param) and $param["GroupSubType"] !== null) {
+            if(is_bool($param["GroupSubType"])){
+                $this->RequestParams["GroupSubType"] = $param["GroupSubType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["GroupSubType"] = $param["GroupSubType"];
             }
         }
 
