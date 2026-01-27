@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Aicp\V20251212\Models;
 
 use Ksyun\Common\BaseModel;
 
-class SaveNotebookImageResponse extends BaseModel
+class CreateModelVersionResponse extends BaseModel
 {
          /** 请求ID**/
          public  $RequestId;
 
-         /** 镜像ID**/
-         public  $ImageId;
+         /** 模型版本ID**/
+         public  $ModelVersionId;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class SaveNotebookImageResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
-                $this->ImageId = $param["ImageId"];
+            if (array_key_exists("ModelVersionId",$param) and $param["ModelVersionId"] !== null) {
+                $this->ModelVersionId = $param["ModelVersionId"];
             }
 
         }

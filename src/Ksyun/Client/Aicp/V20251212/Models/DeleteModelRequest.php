@@ -1,14 +1,14 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Aicp\V20251212\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class StopNotebookRequest extends BaseModel
+class DeleteModelRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "NotebookId" => null,
+        "ModelId" => null,
     ];
 
 
@@ -22,11 +22,11 @@ class StopNotebookRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NotebookId",$param) and $param["NotebookId"] !== null) {
-            if(is_bool($param["NotebookId"])){
-                $this->RequestParams["NotebookId"] = $param["NotebookId"] ? "true" : "false";
+        if (array_key_exists("ModelId",$param) and $param["ModelId"] !== null) {
+            if(is_bool($param["ModelId"])){
+                $this->RequestParams["ModelId"] = $param["ModelId"] ? "true" : "false";
             } else {
-                $this->RequestParams["NotebookId"] = $param["NotebookId"];
+                $this->RequestParams["ModelId"] = $param["ModelId"];
             }
         }
 

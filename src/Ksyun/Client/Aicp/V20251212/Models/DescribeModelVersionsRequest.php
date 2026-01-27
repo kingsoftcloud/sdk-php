@@ -1,27 +1,25 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Aicp\V20251212\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeNotebooksRequest extends BaseModel
+class DescribeModelVersionsRequest extends BaseModel
 {
     public $RequestParams = [
+         /**Array**/
+        "ModelVersionId.N" => null,
          /**String**/
-        "Name" => null,
+        "ModelVersionName" => null,
+         /**String**/
+        "ModelId" => null,
          /**Int**/
         "Page" => null,
          /**Int**/
         "PageSize" => null,
-         /**String**/
-        "QueueId" => null,
     ];
 
-     /**特殊参数类型:Filter**/
-    public $NotebookId = [];
-      /**特殊参数类型:Filter**/
-    public $Filter = [];
- 
+
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -32,15 +30,25 @@ class DescribeNotebooksRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NotebookId",$param) and $param["NotebookId"] !== null) {
-            $res = $this->formatFilterParams("NotebookId",$param["NotebookId"]);
-            $this->_unserialize("NotebookId",$res);
-        }
-        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
-            if(is_bool($param["Name"])){
-                $this->RequestParams["Name"] = $param["Name"] ? "true" : "false";
+        if (array_key_exists("ModelVersionId.N",$param) and $param["ModelVersionId.N"] !== null) {
+            if(is_bool($param["ModelVersionId.N"])){
+                $this->RequestParams["ModelVersionId.N"] = $param["ModelVersionId.N"] ? "true" : "false";
             } else {
-                $this->RequestParams["Name"] = $param["Name"];
+                $this->RequestParams["ModelVersionId.N"] = $param["ModelVersionId.N"];
+            }
+        }
+        if (array_key_exists("ModelVersionName",$param) and $param["ModelVersionName"] !== null) {
+            if(is_bool($param["ModelVersionName"])){
+                $this->RequestParams["ModelVersionName"] = $param["ModelVersionName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelVersionName"] = $param["ModelVersionName"];
+            }
+        }
+        if (array_key_exists("ModelId",$param) and $param["ModelId"] !== null) {
+            if(is_bool($param["ModelId"])){
+                $this->RequestParams["ModelId"] = $param["ModelId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelId"] = $param["ModelId"];
             }
         }
         if (array_key_exists("Page",$param) and $param["Page"] !== null) {
@@ -55,17 +63,6 @@ class DescribeNotebooksRequest extends BaseModel
                 $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
             } else {
                 $this->RequestParams["PageSize"] = $param["PageSize"];
-            }
-        }
-        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
-            $res = $this->formatFilterParams("Filter",$param["Filter"]);
-            $this->_unserialize("Filter",$res);
-        }
-        if (array_key_exists("QueueId",$param) and $param["QueueId"] !== null) {
-            if(is_bool($param["QueueId"])){
-                $this->RequestParams["QueueId"] = $param["QueueId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["QueueId"] = $param["QueueId"];
             }
         }
 

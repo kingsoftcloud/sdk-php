@@ -4,11 +4,11 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class StopNotebookRequest extends BaseModel
+class DeleteStorageConfigRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "NotebookId" => null,
+        "StorageConfigId" => null,
     ];
 
 
@@ -22,11 +22,11 @@ class StopNotebookRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NotebookId",$param) and $param["NotebookId"] !== null) {
-            if(is_bool($param["NotebookId"])){
-                $this->RequestParams["NotebookId"] = $param["NotebookId"] ? "true" : "false";
+        if (array_key_exists("StorageConfigId",$param) and $param["StorageConfigId"] !== null) {
+            if(is_bool($param["StorageConfigId"])){
+                $this->RequestParams["StorageConfigId"] = $param["StorageConfigId"] ? "true" : "false";
             } else {
-                $this->RequestParams["NotebookId"] = $param["NotebookId"];
+                $this->RequestParams["StorageConfigId"] = $param["StorageConfigId"];
             }
         }
 

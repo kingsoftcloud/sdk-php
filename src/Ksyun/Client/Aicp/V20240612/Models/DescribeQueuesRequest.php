@@ -4,21 +4,17 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeNotebooksRequest extends BaseModel
+class DescribeQueuesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "Name" => null,
          /**Int**/
         "Page" => null,
          /**Int**/
         "PageSize" => null,
-         /**String**/
-        "QueueId" => null,
     ];
 
      /**特殊参数类型:Filter**/
-    public $NotebookId = [];
+    public $QueueId = [];
       /**特殊参数类型:Filter**/
     public $Filter = [];
  
@@ -32,16 +28,9 @@ class DescribeNotebooksRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NotebookId",$param) and $param["NotebookId"] !== null) {
-            $res = $this->formatFilterParams("NotebookId",$param["NotebookId"]);
-            $this->_unserialize("NotebookId",$res);
-        }
-        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
-            if(is_bool($param["Name"])){
-                $this->RequestParams["Name"] = $param["Name"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Name"] = $param["Name"];
-            }
+        if (array_key_exists("QueueId",$param) and $param["QueueId"] !== null) {
+            $res = $this->formatFilterParams("QueueId",$param["QueueId"]);
+            $this->_unserialize("QueueId",$res);
         }
         if (array_key_exists("Page",$param) and $param["Page"] !== null) {
             if(is_bool($param["Page"])){
@@ -60,13 +49,6 @@ class DescribeNotebooksRequest extends BaseModel
         if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
             $res = $this->formatFilterParams("Filter",$param["Filter"]);
             $this->_unserialize("Filter",$res);
-        }
-        if (array_key_exists("QueueId",$param) and $param["QueueId"] !== null) {
-            if(is_bool($param["QueueId"])){
-                $this->RequestParams["QueueId"] = $param["QueueId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["QueueId"] = $param["QueueId"];
-            }
         }
 
     }

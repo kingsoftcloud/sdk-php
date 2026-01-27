@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 
 use Ksyun\Common\BaseModel;
 
-class SaveNotebookImageResponse extends BaseModel
+class ModifyStorageConfigResponse extends BaseModel
 {
+         /** 存储配置ID**/
+         public  $StorageConfigId;
+
          /** 请求ID**/
          public  $RequestId;
-
-         /** 镜像ID**/
-         public  $ImageId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class SaveNotebookImageResponse extends BaseModel
             if ($param === null) {
                 return;
             }
+            if (array_key_exists("StorageConfigId",$param) and $param["StorageConfigId"] !== null) {
+                $this->StorageConfigId = $param["StorageConfigId"];
+            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("ImageId",$param) and $param["ImageId"] !== null) {
-                $this->ImageId = $param["ImageId"];
             }
 
         }

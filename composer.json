@@ -1,6 +1,6 @@
 {
     "name": "ksyun/ksyun-sdk-php",
-    "version": "1.7.16",
+    "version": "1.7.17",
     "description": "ksyun OpenApi php sdk",
     "type": "library",
     "homepage": "https://github.com/kingsoftcloud/sdk-php",
