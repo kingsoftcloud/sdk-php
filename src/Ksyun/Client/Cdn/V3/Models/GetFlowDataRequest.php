@@ -17,9 +17,9 @@ class GetFlowDataRequest extends BaseModel
         "DomainIds" => null,
          /**String**/
         "Regions" => null,
-         /**Int**/
+         /**Long**/
         "ResultType" => null,
-         /**Int**/
+         /**Long**/
         "Granularity" => null,
          /**String**/
         "DataType" => null,

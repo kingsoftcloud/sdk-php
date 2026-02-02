@@ -7,13 +7,13 @@ use Ksyun\Common\Http\HttpOptions;
 class GetCdnDomainsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+         /**Long**/
         "PageSize" => null,
-         /**Int**/
+         /**Long**/
         "PageNumber" => null,
          /**String**/
         "DomainName" => null,
-         /**Int**/
+         /**Long**/
         "ProjectId" => null,
          /**String**/
         "DomainStatus" => null,

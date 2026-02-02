@@ -13,6 +13,8 @@ class ModifyEpcRequest extends BaseModel
         "HostName" => null,
          /**String**/
         "Description" => null,
+         /**String**/
+        "ClientToken" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class ModifyEpcRequest extends BaseModel
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
+            }
+        }
+        if (array_key_exists("ClientToken",$param) and $param["ClientToken"] !== null) {
+            if(is_bool($param["ClientToken"])){
+                $this->RequestParams["ClientToken"] = $param["ClientToken"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ClientToken"] = $param["ClientToken"];
             }
         }
 

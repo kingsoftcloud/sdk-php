@@ -67,6 +67,8 @@ class ReinstallEpcRequest extends BaseModel
         "StorageRoceNetworkCardName" => null,
          /**String**/
         "UserDefinedData" => null,
+         /**String**/
+        "ClientToken" => null,
     ];
 
 
@@ -288,6 +290,13 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"];
+            }
+        }
+        if (array_key_exists("ClientToken",$param) and $param["ClientToken"] !== null) {
+            if(is_bool($param["ClientToken"])){
+                $this->RequestParams["ClientToken"] = $param["ClientToken"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ClientToken"] = $param["ClientToken"];
             }
         }
 

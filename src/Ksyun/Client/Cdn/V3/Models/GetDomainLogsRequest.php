@@ -13,9 +13,9 @@ class GetDomainLogsRequest extends BaseModel
         "StartTime" => null,
          /**String**/
         "EndTime" => null,
-         /**Int**/
+         /**Long**/
         "PageSize" => null,
-         /**Int**/
+         /**Long**/
         "PageNumber" => null,
     ];
 

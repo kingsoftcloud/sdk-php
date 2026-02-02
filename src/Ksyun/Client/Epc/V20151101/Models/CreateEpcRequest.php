@@ -133,6 +133,8 @@ class CreateEpcRequest extends BaseModel
         "SRoceCluster" => null,
          /**String**/
         "UserDefinedData" => null,
+         /**String**/
+        "ClientToken" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -591,6 +593,13 @@ class CreateEpcRequest extends BaseModel
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserDefinedData"] = $param["UserDefinedData"];
+            }
+        }
+        if (array_key_exists("ClientToken",$param) and $param["ClientToken"] !== null) {
+            if(is_bool($param["ClientToken"])){
+                $this->RequestParams["ClientToken"] = $param["ClientToken"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ClientToken"] = $param["ClientToken"];
             }
         }
 

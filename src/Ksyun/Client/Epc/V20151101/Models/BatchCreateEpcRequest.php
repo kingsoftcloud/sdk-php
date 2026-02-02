@@ -121,6 +121,8 @@ class BatchCreateEpcRequest extends BaseModel
         "SRoceCluster" => null,
          /**String**/
         "RoceCluster" => null,
+         /**String**/
+        "ClientToken" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -537,6 +539,13 @@ class BatchCreateEpcRequest extends BaseModel
                 $this->RequestParams["RoceCluster"] = $param["RoceCluster"] ? "true" : "false";
             } else {
                 $this->RequestParams["RoceCluster"] = $param["RoceCluster"];
+            }
+        }
+        if (array_key_exists("ClientToken",$param) and $param["ClientToken"] !== null) {
+            if(is_bool($param["ClientToken"])){
+                $this->RequestParams["ClientToken"] = $param["ClientToken"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ClientToken"] = $param["ClientToken"];
             }
         }
 
