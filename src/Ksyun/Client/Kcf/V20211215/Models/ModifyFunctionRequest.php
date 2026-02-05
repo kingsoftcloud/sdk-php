@@ -37,6 +37,8 @@ class ModifyFunctionRequest extends BaseModel
         "ReadinessProbeConfig" => null,
          /**Array**/
         "Layers" => null,
+         /**Object**/
+        "CustomContainerConfig" => null,
     ];
 
 
@@ -153,6 +155,13 @@ class ModifyFunctionRequest extends BaseModel
                 $this->RequestParams["Layers"] = $param["Layers"] ? "true" : "false";
             } else {
                 $this->RequestParams["Layers"] = $param["Layers"];
+            }
+        }
+        if (array_key_exists("CustomContainerConfig",$param) and $param["CustomContainerConfig"] !== null) {
+            if(is_bool($param["CustomContainerConfig"])){
+                $this->RequestParams["CustomContainerConfig"] = $param["CustomContainerConfig"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CustomContainerConfig"] = $param["CustomContainerConfig"];
             }
         }
 

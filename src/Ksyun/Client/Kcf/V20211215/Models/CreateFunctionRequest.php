@@ -43,6 +43,10 @@ class CreateFunctionRequest extends BaseModel
         "ReadinessProbeConfig" => null,
          /**Array**/
         "Layers" => null,
+         /**String**/
+        "CodeType" => null,
+         /**Object**/
+        "CustomContainerConfig" => null,
     ];
 
 
@@ -180,6 +184,20 @@ class CreateFunctionRequest extends BaseModel
                 $this->RequestParams["Layers"] = $param["Layers"] ? "true" : "false";
             } else {
                 $this->RequestParams["Layers"] = $param["Layers"];
+            }
+        }
+        if (array_key_exists("CodeType",$param) and $param["CodeType"] !== null) {
+            if(is_bool($param["CodeType"])){
+                $this->RequestParams["CodeType"] = $param["CodeType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CodeType"] = $param["CodeType"];
+            }
+        }
+        if (array_key_exists("CustomContainerConfig",$param) and $param["CustomContainerConfig"] !== null) {
+            if(is_bool($param["CustomContainerConfig"])){
+                $this->RequestParams["CustomContainerConfig"] = $param["CustomContainerConfig"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CustomContainerConfig"] = $param["CustomContainerConfig"];
             }
         }
 
