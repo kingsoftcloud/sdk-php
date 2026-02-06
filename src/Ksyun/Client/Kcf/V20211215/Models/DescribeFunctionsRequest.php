@@ -1,20 +1,20 @@
 <?php
-namespace  Ksyun\Client\Kpfs\V20240930\Models;
+namespace  Ksyun\Client\Kcf\V20211215\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeDataFlowTaskListRequest extends BaseModel
+class DescribeFunctionsRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "FileSystemId" => null,
+        "Namespace" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -22,11 +22,11 @@ class DescribeDataFlowTaskListRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
-            if(is_bool($param["FileSystemId"])){
-                $this->RequestParams["FileSystemId"] = $param["FileSystemId"] ? "true" : "false";
+        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
+            if(is_bool($param["Namespace"])){
+                $this->RequestParams["Namespace"] = $param["Namespace"] ? "true" : "false";
             } else {
-                $this->RequestParams["FileSystemId"] = $param["FileSystemId"];
+                $this->RequestParams["Namespace"] = $param["Namespace"];
             }
         }
 
