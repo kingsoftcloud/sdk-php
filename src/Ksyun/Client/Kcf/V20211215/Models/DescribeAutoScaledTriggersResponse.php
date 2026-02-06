@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Kcf\V20211215\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeNotebookEventsResponse extends BaseModel
+class DescribeAutoScaledTriggersResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /**Object 事件列表**/
-         public  $DataSet;
+         /** **/
+         public  $Data;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class DescribeNotebookEventsResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("DataSet",$param) and $param["DataSet"] !== null) {
-                $this->DataSet = $param["DataSet"];
+            if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+                $this->Data = $param["Data"];
             }
 
         }

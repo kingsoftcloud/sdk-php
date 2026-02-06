@@ -1,20 +1,20 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Kcf\V20211215\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeNotebookEventsRequest extends BaseModel
+class DescribeAutoScalingConfigRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "NotebookId" => null,
+        "FunctionId" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -22,11 +22,11 @@ class DescribeNotebookEventsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NotebookId",$param) and $param["NotebookId"] !== null) {
-            if(is_bool($param["NotebookId"])){
-                $this->RequestParams["NotebookId"] = $param["NotebookId"] ? "true" : "false";
+        if (array_key_exists("FunctionId",$param) and $param["FunctionId"] !== null) {
+            if(is_bool($param["FunctionId"])){
+                $this->RequestParams["FunctionId"] = $param["FunctionId"] ? "true" : "false";
             } else {
-                $this->RequestParams["NotebookId"] = $param["NotebookId"];
+                $this->RequestParams["FunctionId"] = $param["FunctionId"];
             }
         }
 

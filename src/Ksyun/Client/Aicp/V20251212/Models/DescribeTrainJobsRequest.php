@@ -13,6 +13,12 @@ class DescribeTrainJobsRequest extends BaseModel
         "Page" => null,
          /**String**/
         "TrainJobName" => null,
+         /**String**/
+        "GPUType" => null,
+         /**String**/
+        "SortKey" => null,
+         /**String**/
+        "Sort" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -57,6 +63,27 @@ class DescribeTrainJobsRequest extends BaseModel
                 $this->RequestParams["TrainJobName"] = $param["TrainJobName"] ? "true" : "false";
             } else {
                 $this->RequestParams["TrainJobName"] = $param["TrainJobName"];
+            }
+        }
+        if (array_key_exists("GPUType",$param) and $param["GPUType"] !== null) {
+            if(is_bool($param["GPUType"])){
+                $this->RequestParams["GPUType"] = $param["GPUType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["GPUType"] = $param["GPUType"];
+            }
+        }
+        if (array_key_exists("SortKey",$param) and $param["SortKey"] !== null) {
+            if(is_bool($param["SortKey"])){
+                $this->RequestParams["SortKey"] = $param["SortKey"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SortKey"] = $param["SortKey"];
+            }
+        }
+        if (array_key_exists("Sort",$param) and $param["Sort"] !== null) {
+            if(is_bool($param["Sort"])){
+                $this->RequestParams["Sort"] = $param["Sort"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Sort"] = $param["Sort"];
             }
         }
 
