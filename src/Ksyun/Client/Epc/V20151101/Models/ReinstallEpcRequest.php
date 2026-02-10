@@ -69,6 +69,10 @@ class ReinstallEpcRequest extends BaseModel
         "UserDefinedData" => null,
          /**String**/
         "ClientToken" => null,
+         /**String**/
+        "NetworkCardNameFormat" => null,
+         /**String**/
+        "NetworkCardPriority" => null,
     ];
 
 
@@ -297,6 +301,20 @@ class ReinstallEpcRequest extends BaseModel
                 $this->RequestParams["ClientToken"] = $param["ClientToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClientToken"] = $param["ClientToken"];
+            }
+        }
+        if (array_key_exists("NetworkCardNameFormat",$param) and $param["NetworkCardNameFormat"] !== null) {
+            if(is_bool($param["NetworkCardNameFormat"])){
+                $this->RequestParams["NetworkCardNameFormat"] = $param["NetworkCardNameFormat"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NetworkCardNameFormat"] = $param["NetworkCardNameFormat"];
+            }
+        }
+        if (array_key_exists("NetworkCardPriority",$param) and $param["NetworkCardPriority"] !== null) {
+            if(is_bool($param["NetworkCardPriority"])){
+                $this->RequestParams["NetworkCardPriority"] = $param["NetworkCardPriority"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NetworkCardPriority"] = $param["NetworkCardPriority"];
             }
         }
 
