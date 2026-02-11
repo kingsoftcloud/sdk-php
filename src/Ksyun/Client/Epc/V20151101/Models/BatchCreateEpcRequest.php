@@ -127,6 +127,10 @@ class BatchCreateEpcRequest extends BaseModel
         "NetworkCardNameFormat" => null,
          /**String**/
         "NetworkCardPriority" => null,
+         /**String**/
+        "FileSystemId" => null,
+         /**String**/
+        "PosixAclId" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -564,6 +568,20 @@ class BatchCreateEpcRequest extends BaseModel
                 $this->RequestParams["NetworkCardPriority"] = $param["NetworkCardPriority"] ? "true" : "false";
             } else {
                 $this->RequestParams["NetworkCardPriority"] = $param["NetworkCardPriority"];
+            }
+        }
+        if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
+            if(is_bool($param["FileSystemId"])){
+                $this->RequestParams["FileSystemId"] = $param["FileSystemId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["FileSystemId"] = $param["FileSystemId"];
+            }
+        }
+        if (array_key_exists("PosixAclId",$param) and $param["PosixAclId"] !== null) {
+            if(is_bool($param["PosixAclId"])){
+                $this->RequestParams["PosixAclId"] = $param["PosixAclId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PosixAclId"] = $param["PosixAclId"];
             }
         }
 
