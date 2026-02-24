@@ -13,9 +13,9 @@ class GetLogsRequest extends BaseModel
         "LogPoolName" => null,
          /**String**/
         "LogPoolId" => null,
-         /**Int**/
+         /**Long**/
         "From" => null,
-         /**Int**/
+         /**Long**/
         "To" => null,
          /**String**/
         "Query" => null,
