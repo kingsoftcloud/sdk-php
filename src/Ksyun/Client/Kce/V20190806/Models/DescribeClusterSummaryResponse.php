@@ -8,7 +8,7 @@ class DescribeClusterSummaryResponse extends BaseModel
          /** **/
          public  $RequestId;
 
-         /** **/
+         /**Object **/
          public  $ClusterSet;
 
          public function __construct()
