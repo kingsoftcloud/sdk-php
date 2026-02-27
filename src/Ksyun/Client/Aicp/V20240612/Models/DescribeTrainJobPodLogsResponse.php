@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class DescribeTrainJobPodLogsResponse extends BaseModel
 {
-         /** 请求id**/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** 日志内容**/
+         /** 日志内容。若资源组关联了Klog，请使用Klog的GetLogs接口查询**/
          public  $PodLogs;
 
          public function __construct()

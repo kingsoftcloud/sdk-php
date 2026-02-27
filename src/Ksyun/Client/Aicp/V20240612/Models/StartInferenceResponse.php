@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeTrainJobEventsResponse extends BaseModel
+class StartInferenceResponse extends BaseModel
 {
-         /** 请求id**/
+         /** 请求ID**/
          public  $RequestId;
 
-         /**Object 事件记录**/
-         public  $DataSet;
+         /** 推理服务ID**/
+         public  $InferenceId;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class DescribeTrainJobEventsResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("DataSet",$param) and $param["DataSet"] !== null) {
-                $this->DataSet = $param["DataSet"];
+            if (array_key_exists("InferenceId",$param) and $param["InferenceId"] !== null) {
+                $this->InferenceId = $param["InferenceId"];
             }
 
         }

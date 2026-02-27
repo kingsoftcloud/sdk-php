@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class ModifyTrainJobResponse extends BaseModel
 {
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /** 训练任务ID**/
          public  $TrainJobId;
 
          public function __construct()

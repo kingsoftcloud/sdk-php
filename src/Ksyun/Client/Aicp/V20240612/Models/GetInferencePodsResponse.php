@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeTrainJobEventsResponse extends BaseModel
+class GetInferencePodsResponse extends BaseModel
 {
-         /** 请求id**/
-         public  $RequestId;
+         /**Object 模型在线服务Pod列表**/
+         public  $Pods;
 
-         /**Object 事件记录**/
-         public  $DataSet;
+         /** 请求ID**/
+         public  $RequestId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class DescribeTrainJobEventsResponse extends BaseModel
             if ($param === null) {
                 return;
             }
+            if (array_key_exists("Pods",$param) and $param["Pods"] !== null) {
+                $this->Pods = $param["Pods"];
+            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("DataSet",$param) and $param["DataSet"] !== null) {
-                $this->DataSet = $param["DataSet"];
             }
 
         }

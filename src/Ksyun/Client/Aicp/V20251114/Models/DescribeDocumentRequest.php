@@ -1,0 +1,63 @@
+<?php
+namespace  Ksyun\Client\Aicp\V20251114\Models;
+
+use Ksyun\Common\BaseModel;
+use Ksyun\Common\Http\HttpOptions;
+
+class DescribeDocumentRequest extends BaseModel
+{
+    public $RequestParams = [
+         /**String**/
+        "DatasetId" => null,
+         /**String**/
+        "DocumentId" => null,
+         /**String**/
+        "Metadata" => null,
+    ];
+
+
+    public function __construct(HttpOptions $httpOptions)
+    {
+        $httpOptions->setHeaderContentType("application/json");
+    }
+
+    public function setParams($param = [])
+    {
+        if ($param === null) {
+            return;
+        }
+        if (array_key_exists("DatasetId",$param) and $param["DatasetId"] !== null) {
+            if(is_bool($param["DatasetId"])){
+                $this->RequestParams["DatasetId"] = $param["DatasetId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DatasetId"] = $param["DatasetId"];
+            }
+        }
+        if (array_key_exists("DocumentId",$param) and $param["DocumentId"] !== null) {
+            if(is_bool($param["DocumentId"])){
+                $this->RequestParams["DocumentId"] = $param["DocumentId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DocumentId"] = $param["DocumentId"];
+            }
+        }
+        if (array_key_exists("Metadata",$param) and $param["Metadata"] !== null) {
+            if(is_bool($param["Metadata"])){
+                $this->RequestParams["Metadata"] = $param["Metadata"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Metadata"] = $param["Metadata"];
+            }
+        }
+
+    }
+
+    private function _unserialize($name,$params)
+    {
+        if ($params === null) {
+            return;
+        }
+        foreach ($params as $key => $value){
+            $this->$name[$key] = $value;
+        }
+
+    }
+}

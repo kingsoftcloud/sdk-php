@@ -4,17 +4,17 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeTrainJobRequest extends BaseModel
+class DescribeInferencesRequest extends BaseModel
 {
     public $RequestParams = [
          /**Int**/
-        "Marker" => null,
+        "PageSize" => null,
          /**Int**/
-        "MaxResults" => null,
+        "Page" => null,
     ];
 
      /**特殊参数类型:Filter**/
-    public $TrainJobId = [];
+    public $InferenceId = [];
       /**特殊参数类型:Filter**/
     public $Filter = [];
  
@@ -28,26 +28,26 @@ class DescribeTrainJobRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TrainJobId",$param) and $param["TrainJobId"] !== null) {
-            $res = $this->formatFilterParams("TrainJobId",$param["TrainJobId"]);
-            $this->_unserialize("TrainJobId",$res);
+        if (array_key_exists("InferenceId",$param) and $param["InferenceId"] !== null) {
+            $res = $this->formatFilterParams("InferenceId",$param["InferenceId"]);
+            $this->_unserialize("InferenceId",$res);
         }
         if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
             $res = $this->formatFilterParams("Filter",$param["Filter"]);
             $this->_unserialize("Filter",$res);
         }
-        if (array_key_exists("Marker",$param) and $param["Marker"] !== null) {
-            if(is_bool($param["Marker"])){
-                $this->RequestParams["Marker"] = $param["Marker"] ? "true" : "false";
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            if(is_bool($param["PageSize"])){
+                $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
             } else {
-                $this->RequestParams["Marker"] = $param["Marker"];
+                $this->RequestParams["PageSize"] = $param["PageSize"];
             }
         }
-        if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
-            if(is_bool($param["MaxResults"])){
-                $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
+                $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
             } else {
-                $this->RequestParams["MaxResults"] = $param["MaxResults"];
+                $this->RequestParams["Page"] = $param["Page"];
             }
         }
 

@@ -11,7 +11,7 @@ class DescribeTrainJobPodsResponse extends BaseModel
          /**Object **/
          public  $TrainJobPodSet;
 
-         /** 请求id**/
+         /** 请求ID**/
          public  $RequestId;
 
          /** pod总数**/
