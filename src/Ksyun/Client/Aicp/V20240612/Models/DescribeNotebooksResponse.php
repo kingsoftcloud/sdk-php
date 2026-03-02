@@ -17,7 +17,7 @@ class DescribeNotebooksResponse extends BaseModel
          /** 页码**/
          public  $Page;
 
-         /** 页大小**/
+         /** 单次调用可返回的最大条目数量**/
          public  $PageSize;
 
          public function __construct()
