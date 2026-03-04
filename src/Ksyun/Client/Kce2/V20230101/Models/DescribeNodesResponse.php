@@ -11,9 +11,6 @@ class DescribeNodesResponse extends BaseModel
          /** 返回数据**/
          public  $Data;
 
-         /** 节点列表**/
-         public  $InstanceSet;
-
          public function __construct()
          {
 
@@ -29,9 +26,6 @@ class DescribeNodesResponse extends BaseModel
             }
             if (array_key_exists("Data",$param) and $param["Data"] !== null) {
                 $this->Data = $param["Data"];
-            }
-            if (array_key_exists("InstanceSet",$param) and $param["InstanceSet"] !== null) {
-                $this->InstanceSet = $param["InstanceSet"];
             }
 
         }

@@ -9,8 +9,6 @@ class DeleteNodeRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "ClusterId" => null,
-         /**Array**/
-        "NodeIds" => null,
          /**Boolean**/
         "InstanceDelete" => null,
          /**String**/
@@ -35,13 +33,6 @@ class DeleteNodeRequest extends BaseModel
                 $this->RequestParams["ClusterId"] = $param["ClusterId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClusterId"] = $param["ClusterId"];
-            }
-        }
-        if (array_key_exists("NodeIds",$param) and $param["NodeIds"] !== null) {
-            if(is_bool($param["NodeIds"])){
-                $this->RequestParams["NodeIds"] = $param["NodeIds"] ? "true" : "false";
-            } else {
-                $this->RequestParams["NodeIds"] = $param["NodeIds"];
             }
         }
         if (array_key_exists("InstanceDelete",$param) and $param["InstanceDelete"] !== null) {
