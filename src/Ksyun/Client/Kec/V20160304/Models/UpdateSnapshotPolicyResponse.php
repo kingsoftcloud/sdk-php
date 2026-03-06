@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeKecInventoryResponse extends BaseModel
+class UpdateSnapshotPolicyResponse extends BaseModel
 {
-         /** 请求ID。**/
-         public  $RequestId;
+         /** 自动快照策略 ID**/
+         public  $AutoSnapshotPolicyId;
 
-         /** 当前可用区目标规格可开机数量。**/
-         public  $InstanceCount;
+         /** 请求ID**/
+         public  $RequestId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class DescribeKecInventoryResponse extends BaseModel
             if ($param === null) {
                 return;
             }
+            if (array_key_exists("AutoSnapshotPolicyId",$param) and $param["AutoSnapshotPolicyId"] !== null) {
+                $this->AutoSnapshotPolicyId = $param["AutoSnapshotPolicyId"];
+            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("InstanceCount",$param) and $param["InstanceCount"] !== null) {
-                $this->InstanceCount = $param["InstanceCount"];
             }
 
         }

@@ -4,15 +4,13 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CreateMountTargetRequest extends BaseModel
+class ModifyMountTargetRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "FileSystemId" => null,
          /**String**/
-        "SubnetId" => null,
-         /**String**/
-        "IpVersion" => null,
+        "MountTargetId" => null,
          /**String**/
         "AccessGroupId" => null,
     ];
@@ -35,18 +33,11 @@ class CreateMountTargetRequest extends BaseModel
                 $this->RequestParams["FileSystemId"] = $param["FileSystemId"];
             }
         }
-        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
-            if(is_bool($param["SubnetId"])){
-                $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
+        if (array_key_exists("MountTargetId",$param) and $param["MountTargetId"] !== null) {
+            if(is_bool($param["MountTargetId"])){
+                $this->RequestParams["MountTargetId"] = $param["MountTargetId"] ? "true" : "false";
             } else {
-                $this->RequestParams["SubnetId"] = $param["SubnetId"];
-            }
-        }
-        if (array_key_exists("IpVersion",$param) and $param["IpVersion"] !== null) {
-            if(is_bool($param["IpVersion"])){
-                $this->RequestParams["IpVersion"] = $param["IpVersion"] ? "true" : "false";
-            } else {
-                $this->RequestParams["IpVersion"] = $param["IpVersion"];
+                $this->RequestParams["MountTargetId"] = $param["MountTargetId"];
             }
         }
         if (array_key_exists("AccessGroupId",$param) and $param["AccessGroupId"] !== null) {

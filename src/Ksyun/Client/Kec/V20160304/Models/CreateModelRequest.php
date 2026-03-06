@@ -31,7 +31,7 @@ class CreateModelRequest extends BaseModel
         "InstanceNameSuffix" => null,
          /**String**/
         "SriovNetSupport" => null,
-         /**Int**/
+         /**Long**/
         "ProjectId" => null,
          /**String**/
         "DataGuardId" => null,

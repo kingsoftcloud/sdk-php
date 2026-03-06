@@ -4,17 +4,17 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class CreateMountTargetRequest extends BaseModel
+class CreateSnapshotRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "FileSystemId" => null,
          /**String**/
-        "SubnetId" => null,
+        "SnapshotName" => null,
          /**String**/
-        "IpVersion" => null,
-         /**String**/
-        "AccessGroupId" => null,
+        "Description" => null,
+         /**Int**/
+        "AliveDays" => null,
     ];
 
 
@@ -35,25 +35,25 @@ class CreateMountTargetRequest extends BaseModel
                 $this->RequestParams["FileSystemId"] = $param["FileSystemId"];
             }
         }
-        if (array_key_exists("SubnetId",$param) and $param["SubnetId"] !== null) {
-            if(is_bool($param["SubnetId"])){
-                $this->RequestParams["SubnetId"] = $param["SubnetId"] ? "true" : "false";
+        if (array_key_exists("SnapshotName",$param) and $param["SnapshotName"] !== null) {
+            if(is_bool($param["SnapshotName"])){
+                $this->RequestParams["SnapshotName"] = $param["SnapshotName"] ? "true" : "false";
             } else {
-                $this->RequestParams["SubnetId"] = $param["SubnetId"];
+                $this->RequestParams["SnapshotName"] = $param["SnapshotName"];
             }
         }
-        if (array_key_exists("IpVersion",$param) and $param["IpVersion"] !== null) {
-            if(is_bool($param["IpVersion"])){
-                $this->RequestParams["IpVersion"] = $param["IpVersion"] ? "true" : "false";
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
+                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
-                $this->RequestParams["IpVersion"] = $param["IpVersion"];
+                $this->RequestParams["Description"] = $param["Description"];
             }
         }
-        if (array_key_exists("AccessGroupId",$param) and $param["AccessGroupId"] !== null) {
-            if(is_bool($param["AccessGroupId"])){
-                $this->RequestParams["AccessGroupId"] = $param["AccessGroupId"] ? "true" : "false";
+        if (array_key_exists("AliveDays",$param) and $param["AliveDays"] !== null) {
+            if(is_bool($param["AliveDays"])){
+                $this->RequestParams["AliveDays"] = $param["AliveDays"] ? "true" : "false";
             } else {
-                $this->RequestParams["AccessGroupId"] = $param["AccessGroupId"];
+                $this->RequestParams["AliveDays"] = $param["AliveDays"];
             }
         }
 

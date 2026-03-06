@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeKecInventoryResponse extends BaseModel
+class CreateAccessRuleResponse extends BaseModel
 {
-         /** 请求ID。**/
+         /** 请求ID**/
          public  $RequestId;
 
-         /** 当前可用区目标规格可开机数量。**/
-         public  $InstanceCount;
+         /**String 权限组规则ID**/
+         public  $AccessRuleIds;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class DescribeKecInventoryResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("InstanceCount",$param) and $param["InstanceCount"] !== null) {
-                $this->InstanceCount = $param["InstanceCount"];
+            if (array_key_exists("AccessRuleIds",$param) and $param["AccessRuleIds"] !== null) {
+                $this->AccessRuleIds = $param["AccessRuleIds"];
             }
 
         }

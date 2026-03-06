@@ -9,7 +9,7 @@ class TerminateModelsRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "ModelId" => null,
-         /**Int**/
+         /**Long**/
         "ModelVersion" => null,
     ];
 

@@ -23,7 +23,7 @@ class CreateDedicatedHostsRequest extends BaseModel
         "DedicatedClusterId" => null,
          /**String**/
         "AvailabilityZone" => null,
-         /**Int**/
+         /**Long**/
         "ProjectId" => null,
          /**String**/
         "EbsClusterMode" => null,

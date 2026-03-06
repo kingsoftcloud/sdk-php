@@ -4,13 +4,13 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeKecInventoryRequest extends BaseModel
+class CreateAccessGroupRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "InstanceType" => null,
+        "AccessGroupName" => null,
          /**String**/
-        "AvailabilityZone" => null,
+        "Description" => null,
     ];
 
 
@@ -24,18 +24,18 @@ class DescribeKecInventoryRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
-            if(is_bool($param["InstanceType"])){
-                $this->RequestParams["InstanceType"] = $param["InstanceType"] ? "true" : "false";
+        if (array_key_exists("AccessGroupName",$param) and $param["AccessGroupName"] !== null) {
+            if(is_bool($param["AccessGroupName"])){
+                $this->RequestParams["AccessGroupName"] = $param["AccessGroupName"] ? "true" : "false";
             } else {
-                $this->RequestParams["InstanceType"] = $param["InstanceType"];
+                $this->RequestParams["AccessGroupName"] = $param["AccessGroupName"];
             }
         }
-        if (array_key_exists("AvailabilityZone",$param) and $param["AvailabilityZone"] !== null) {
-            if(is_bool($param["AvailabilityZone"])){
-                $this->RequestParams["AvailabilityZone"] = $param["AvailabilityZone"] ? "true" : "false";
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
+                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
-                $this->RequestParams["AvailabilityZone"] = $param["AvailabilityZone"];
+                $this->RequestParams["Description"] = $param["Description"];
             }
         }
 

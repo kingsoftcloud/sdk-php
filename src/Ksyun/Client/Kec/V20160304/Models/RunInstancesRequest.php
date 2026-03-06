@@ -33,7 +33,7 @@ class RunInstancesRequest extends BaseModel
         "InstanceName" => null,
          /**String**/
         "InstanceNameSuffix" => null,
-         /**Int**/
+         /**Long**/
         "ProjectId" => null,
          /**String**/
         "UserData" => null,
@@ -41,7 +41,7 @@ class RunInstancesRequest extends BaseModel
         "SystemDisk" => null,
          /**String**/
         "ModelId" => null,
-         /**Int**/
+         /**Long**/
         "ModelVersion" => null,
          /**String**/
         "AssembledImageDataDiskType" => null,

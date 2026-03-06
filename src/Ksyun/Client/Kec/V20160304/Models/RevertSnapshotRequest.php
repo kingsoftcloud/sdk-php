@@ -4,13 +4,13 @@ namespace  Ksyun\Client\Kec\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeKecInventoryRequest extends BaseModel
+class RevertSnapshotRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "InstanceType" => null,
+        "FileSystemId" => null,
          /**String**/
-        "AvailabilityZone" => null,
+        "SnapshotId" => null,
     ];
 
 
@@ -24,18 +24,18 @@ class DescribeKecInventoryRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceType",$param) and $param["InstanceType"] !== null) {
-            if(is_bool($param["InstanceType"])){
-                $this->RequestParams["InstanceType"] = $param["InstanceType"] ? "true" : "false";
+        if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
+            if(is_bool($param["FileSystemId"])){
+                $this->RequestParams["FileSystemId"] = $param["FileSystemId"] ? "true" : "false";
             } else {
-                $this->RequestParams["InstanceType"] = $param["InstanceType"];
+                $this->RequestParams["FileSystemId"] = $param["FileSystemId"];
             }
         }
-        if (array_key_exists("AvailabilityZone",$param) and $param["AvailabilityZone"] !== null) {
-            if(is_bool($param["AvailabilityZone"])){
-                $this->RequestParams["AvailabilityZone"] = $param["AvailabilityZone"] ? "true" : "false";
+        if (array_key_exists("SnapshotId",$param) and $param["SnapshotId"] !== null) {
+            if(is_bool($param["SnapshotId"])){
+                $this->RequestParams["SnapshotId"] = $param["SnapshotId"] ? "true" : "false";
             } else {
-                $this->RequestParams["AvailabilityZone"] = $param["AvailabilityZone"];
+                $this->RequestParams["SnapshotId"] = $param["SnapshotId"];
             }
         }
 
