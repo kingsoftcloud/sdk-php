@@ -15,6 +15,8 @@ class GetTotalSizeRequest extends BaseModel
         "EndTime" => null,
          /**String**/
         "Interval" => null,
+         /**String**/
+        "DirPath" => null,
     ];
 
 
@@ -54,6 +56,13 @@ class GetTotalSizeRequest extends BaseModel
                 $this->RequestParams["Interval"] = $param["Interval"] ? "true" : "false";
             } else {
                 $this->RequestParams["Interval"] = $param["Interval"];
+            }
+        }
+        if (array_key_exists("DirPath",$param) and $param["DirPath"] !== null) {
+            if(is_bool($param["DirPath"])){
+                $this->RequestParams["DirPath"] = $param["DirPath"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DirPath"] = $param["DirPath"];
             }
         }
 

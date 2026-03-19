@@ -14,6 +14,30 @@ class DescribeDirQuotaResponse extends BaseModel
          /** 已用容量，单位Byte**/
          public  $LogicalUsedCapacity;
 
+         /** 容量配额的设置方式。参数取值：
+
+none：无设置。仅KPFS性能型支持。
+
+statistics：仅统计。仅KPFS性能型支持。
+
+limit：限制类型。KPFS容量型、标准型、性能型均支持。**/
+         public  $LogicalCapacityType;
+
+         /** Inodes配额的设置方式，仅KPFS性能型支持。参数取值：
+
+none：无设置
+
+statistics：仅统计
+
+limit：限制类型。**/
+         public  $LogicalInodesType;
+
+         /** Inodes硬阈值，仅KPFS性能型支持。单位个。**/
+         public  $LogicalHardInodes;
+
+         /** 已用Inodes，仅KPFS性能型支持。单位个。**/
+         public  $LogicalUsedInodes;
+
          public function __construct()
          {
 
@@ -32,6 +56,18 @@ class DescribeDirQuotaResponse extends BaseModel
             }
             if (array_key_exists("LogicalUsedCapacity",$param) and $param["LogicalUsedCapacity"] !== null) {
                 $this->LogicalUsedCapacity = $param["LogicalUsedCapacity"];
+            }
+            if (array_key_exists("LogicalCapacityType",$param) and $param["LogicalCapacityType"] !== null) {
+                $this->LogicalCapacityType = $param["LogicalCapacityType"];
+            }
+            if (array_key_exists("LogicalInodesType",$param) and $param["LogicalInodesType"] !== null) {
+                $this->LogicalInodesType = $param["LogicalInodesType"];
+            }
+            if (array_key_exists("LogicalHardInodes",$param) and $param["LogicalHardInodes"] !== null) {
+                $this->LogicalHardInodes = $param["LogicalHardInodes"];
+            }
+            if (array_key_exists("LogicalUsedInodes",$param) and $param["LogicalUsedInodes"] !== null) {
+                $this->LogicalUsedInodes = $param["LogicalUsedInodes"];
             }
 
         }

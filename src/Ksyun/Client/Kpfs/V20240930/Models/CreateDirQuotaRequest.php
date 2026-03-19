@@ -17,8 +17,14 @@ class CreateDirQuotaRequest extends BaseModel
         "FileSystemName" => null,
          /**String**/
         "DirPath" => null,
+         /**String**/
+        "LogicalCapacityType" => null,
          /**Long**/
         "LogicalHardThreshold" => null,
+         /**String**/
+        "LogicalInodesType" => null,
+         /**Long**/
+        "LogicalHardInodes" => null,
     ];
 
 
@@ -67,11 +73,32 @@ class CreateDirQuotaRequest extends BaseModel
                 $this->RequestParams["DirPath"] = $param["DirPath"];
             }
         }
+        if (array_key_exists("LogicalCapacityType",$param) and $param["LogicalCapacityType"] !== null) {
+            if(is_bool($param["LogicalCapacityType"])){
+                $this->RequestParams["LogicalCapacityType"] = $param["LogicalCapacityType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LogicalCapacityType"] = $param["LogicalCapacityType"];
+            }
+        }
         if (array_key_exists("LogicalHardThreshold",$param) and $param["LogicalHardThreshold"] !== null) {
             if(is_bool($param["LogicalHardThreshold"])){
                 $this->RequestParams["LogicalHardThreshold"] = $param["LogicalHardThreshold"] ? "true" : "false";
             } else {
                 $this->RequestParams["LogicalHardThreshold"] = $param["LogicalHardThreshold"];
+            }
+        }
+        if (array_key_exists("LogicalInodesType",$param) and $param["LogicalInodesType"] !== null) {
+            if(is_bool($param["LogicalInodesType"])){
+                $this->RequestParams["LogicalInodesType"] = $param["LogicalInodesType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LogicalInodesType"] = $param["LogicalInodesType"];
+            }
+        }
+        if (array_key_exists("LogicalHardInodes",$param) and $param["LogicalHardInodes"] !== null) {
+            if(is_bool($param["LogicalHardInodes"])){
+                $this->RequestParams["LogicalHardInodes"] = $param["LogicalHardInodes"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LogicalHardInodes"] = $param["LogicalHardInodes"];
             }
         }
 
