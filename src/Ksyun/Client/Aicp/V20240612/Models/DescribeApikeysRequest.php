@@ -23,6 +23,8 @@ class DescribeApikeysRequest extends BaseModel
     public $Status = [];
       /**特殊参数类型:Filter**/
     public $KeyId = [];
+      /**特殊参数类型:Filter**/
+    public $ExcludeTypes = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -73,6 +75,10 @@ class DescribeApikeysRequest extends BaseModel
         if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
             $res = $this->formatFilterParams("KeyId",$param["KeyId"]);
             $this->_unserialize("KeyId",$res);
+        }
+        if (array_key_exists("ExcludeTypes",$param) and $param["ExcludeTypes"] !== null) {
+            $res = $this->formatFilterParams("ExcludeTypes",$param["ExcludeTypes"]);
+            $this->_unserialize("ExcludeTypes",$res);
         }
 
     }
