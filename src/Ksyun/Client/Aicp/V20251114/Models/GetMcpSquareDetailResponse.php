@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Aicp\V20251114\Models;
 
 use Ksyun\Common\BaseModel;
 
-class GetInferencePodsResponse extends BaseModel
+class GetMcpSquareDetailResponse extends BaseModel
 {
-         /**Object 模型在线服务Pod列表**/
-         public  $Pods;
-
-         /** 请求ID**/
+         /** 请求唯一标识**/
          public  $RequestId;
+
+         /**Object MCP服务详情**/
+         public  $McpServer;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class GetInferencePodsResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("Pods",$param) and $param["Pods"] !== null) {
-                $this->Pods = $param["Pods"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("McpServer",$param) and $param["McpServer"] !== null) {
+                $this->McpServer = $param["McpServer"];
             }
 
         }

@@ -17,6 +17,8 @@ class CreateInferenceEndpointRequest extends BaseModel
         "RateLimit " => null,
          /**String**/
         "ModelId" => null,
+         /**Object**/
+        "QuotaLimit" => null,
     ];
 
 
@@ -63,6 +65,13 @@ class CreateInferenceEndpointRequest extends BaseModel
                 $this->RequestParams["ModelId"] = $param["ModelId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ModelId"] = $param["ModelId"];
+            }
+        }
+        if (array_key_exists("QuotaLimit",$param) and $param["QuotaLimit"] !== null) {
+            if(is_bool($param["QuotaLimit"])){
+                $this->RequestParams["QuotaLimit"] = $param["QuotaLimit"] ? "true" : "false";
+            } else {
+                $this->RequestParams["QuotaLimit"] = $param["QuotaLimit"];
             }
         }
 

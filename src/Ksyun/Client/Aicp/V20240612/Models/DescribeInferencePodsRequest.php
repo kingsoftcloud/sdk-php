@@ -4,16 +4,20 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class GetInferencePodsRequest extends BaseModel
+class DescribeInferencePodsRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "InferenceId" => null,
-         /**String**/
-        "State" => null,
+         /**Int**/
+        "Page" => null,
+         /**Int**/
+        "PageSize" => null,
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $Filter = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -31,11 +35,22 @@ class GetInferencePodsRequest extends BaseModel
                 $this->RequestParams["InferenceId"] = $param["InferenceId"];
             }
         }
-        if (array_key_exists("State",$param) and $param["State"] !== null) {
-            if(is_bool($param["State"])){
-                $this->RequestParams["State"] = $param["State"] ? "true" : "false";
+        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
+            $res = $this->formatFilterParams("Filter",$param["Filter"]);
+            $this->_unserialize("Filter",$res);
+        }
+        if (array_key_exists("Page",$param) and $param["Page"] !== null) {
+            if(is_bool($param["Page"])){
+                $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
             } else {
-                $this->RequestParams["State"] = $param["State"];
+                $this->RequestParams["Page"] = $param["Page"];
+            }
+        }
+        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
+            if(is_bool($param["PageSize"])){
+                $this->RequestParams["PageSize"] = $param["PageSize"] ? "true" : "false";
+            } else {
+                $this->RequestParams["PageSize"] = $param["PageSize"];
             }
         }
 
