@@ -15,7 +15,7 @@ class DescribeDBLogFilesRequest extends BaseModel
         "StartTime" => null,
          /**String**/
         "EndTime" => null,
-         /**Int**/
+         /**Long**/
         "MaxFileSize" => null,
          /**Int**/
         "Marker" => null,

@@ -7,9 +7,9 @@ use Ksyun\Common\Http\HttpOptions;
 class DescribeSystemEventAttributesRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Int**/
+         /**Long**/
         "StartTime" => null,
-         /**Int**/
+         /**Long**/
         "EndTime" => null,
          /**String**/
         "Namespace" => null,

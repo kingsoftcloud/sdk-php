@@ -1,20 +1,20 @@
 <?php
-namespace  Ksyun\Client\Mongodb\V20170101\Models;
+namespace  Ksyun\Client\Monitor\V20250101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeInstanceParamsRequest extends BaseModel
+class PutDefaultEventPolicyRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "InstanceId" => null,
+        "PolicyName" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -22,11 +22,11 @@ class DescribeInstanceParamsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            if(is_bool($param["InstanceId"])){
-                $this->RequestParams["InstanceId"] = $param["InstanceId"] ? "true" : "false";
+        if (array_key_exists("PolicyName",$param) and $param["PolicyName"] !== null) {
+            if(is_bool($param["PolicyName"])){
+                $this->RequestParams["PolicyName"] = $param["PolicyName"] ? "true" : "false";
             } else {
-                $this->RequestParams["InstanceId"] = $param["InstanceId"];
+                $this->RequestParams["PolicyName"] = $param["PolicyName"];
             }
         }
 

@@ -1,20 +1,20 @@
 <?php
-namespace  Ksyun\Client\Mongodb\V20170101\Models;
+namespace  Ksyun\Client\Monitor\V20250101\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeDefaultParamsRequest extends BaseModel
+class GetPrometheusTokenRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "DbVersion" => null,
+        "ControllerID" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/json");
+        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
     }
 
     public function setParams($param = [])
@@ -22,11 +22,11 @@ class DescribeDefaultParamsRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DbVersion",$param) and $param["DbVersion"] !== null) {
-            if(is_bool($param["DbVersion"])){
-                $this->RequestParams["DbVersion"] = $param["DbVersion"] ? "true" : "false";
+        if (array_key_exists("ControllerID",$param) and $param["ControllerID"] !== null) {
+            if(is_bool($param["ControllerID"])){
+                $this->RequestParams["ControllerID"] = $param["ControllerID"] ? "true" : "false";
             } else {
-                $this->RequestParams["DbVersion"] = $param["DbVersion"];
+                $this->RequestParams["ControllerID"] = $param["ControllerID"];
             }
         }
 
