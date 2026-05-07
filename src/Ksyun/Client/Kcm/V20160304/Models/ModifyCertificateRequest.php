@@ -15,6 +15,10 @@ class ModifyCertificateRequest extends BaseModel
         "PrivateKey" => null,
          /**String**/
         "PublicKey" => null,
+         /**String**/
+        "SslCertificateId" => null,
+         /**String**/
+        "Description" => null,
     ];
 
 
@@ -54,6 +58,20 @@ class ModifyCertificateRequest extends BaseModel
                 $this->RequestParams["PublicKey"] = $param["PublicKey"] ? "true" : "false";
             } else {
                 $this->RequestParams["PublicKey"] = $param["PublicKey"];
+            }
+        }
+        if (array_key_exists("SslCertificateId",$param) and $param["SslCertificateId"] !== null) {
+            if(is_bool($param["SslCertificateId"])){
+                $this->RequestParams["SslCertificateId"] = $param["SslCertificateId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SslCertificateId"] = $param["SslCertificateId"];
+            }
+        }
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
+                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Description"] = $param["Description"];
             }
         }
 
