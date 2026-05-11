@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Kscc\V1\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeUserCostSummaryResponse extends BaseModel
+class UpdateAccountQuotaResponse extends BaseModel
 {
          /** 请求ID**/
          public  $RequestId;
 
-         /** 用户配额汇总**/
-         public  $DescribeUserCostSummaryResult;
+         /** 更新后的账号配额**/
+         public  $UpdateAccountQuotaResult;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class DescribeUserCostSummaryResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("DescribeUserCostSummaryResult",$param) and $param["DescribeUserCostSummaryResult"] !== null) {
-                $this->DescribeUserCostSummaryResult = $param["DescribeUserCostSummaryResult"];
+            if (array_key_exists("UpdateAccountQuotaResult",$param) and $param["UpdateAccountQuotaResult"] !== null) {
+                $this->UpdateAccountQuotaResult = $param["UpdateAccountQuotaResult"];
             }
 
         }

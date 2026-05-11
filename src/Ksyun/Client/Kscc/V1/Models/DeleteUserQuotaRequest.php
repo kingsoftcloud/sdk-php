@@ -4,19 +4,17 @@ namespace  Ksyun\Client\Kscc\V1\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeUserCostSummaryRequest extends BaseModel
+class DeleteUserQuotaRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
         "UserName" => null,
-         /**String**/
-        "Month" => null,
     ];
 
 
     public function __construct(HttpOptions $httpOptions)
     {
-        $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
+        $httpOptions->setHeaderContentType("application/json");
     }
 
     public function setParams($param = [])
@@ -29,13 +27,6 @@ class DescribeUserCostSummaryRequest extends BaseModel
                 $this->RequestParams["UserName"] = $param["UserName"] ? "true" : "false";
             } else {
                 $this->RequestParams["UserName"] = $param["UserName"];
-            }
-        }
-        if (array_key_exists("Month",$param) and $param["Month"] !== null) {
-            if(is_bool($param["Month"])){
-                $this->RequestParams["Month"] = $param["Month"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Month"] = $param["Month"];
             }
         }
 

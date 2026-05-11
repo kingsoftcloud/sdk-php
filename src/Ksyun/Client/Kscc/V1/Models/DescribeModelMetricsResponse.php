@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Kscc\V1\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeUserCostSummaryResponse extends BaseModel
+class DescribeModelMetricsResponse extends BaseModel
 {
          /** 请求ID**/
          public  $RequestId;
 
-         /** 用户配额汇总**/
-         public  $DescribeUserCostSummaryResult;
+         /** 模型监控指标结果**/
+         public  $DescribeModelMetricsResult;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class DescribeUserCostSummaryResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("DescribeUserCostSummaryResult",$param) and $param["DescribeUserCostSummaryResult"] !== null) {
-                $this->DescribeUserCostSummaryResult = $param["DescribeUserCostSummaryResult"];
+            if (array_key_exists("DescribeModelMetricsResult",$param) and $param["DescribeModelMetricsResult"] !== null) {
+                $this->DescribeModelMetricsResult = $param["DescribeModelMetricsResult"];
             }
 
         }

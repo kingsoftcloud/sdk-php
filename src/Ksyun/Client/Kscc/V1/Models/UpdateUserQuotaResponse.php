@@ -8,7 +8,7 @@ class UpdateUserQuotaResponse extends BaseModel
          /** 请求ID**/
          public  $RequestId;
 
-         /** **/
+         /** 更新结果**/
          public  $UpdateUserQuotaResult;
 
          public function __construct()
