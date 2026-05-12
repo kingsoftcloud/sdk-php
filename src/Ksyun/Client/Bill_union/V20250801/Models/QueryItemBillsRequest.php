@@ -15,7 +15,7 @@ class QueryItemBillsRequest extends BaseModel
         "PayType" => null,
          /**String**/
         "InstanceId" => null,
-         /**Int**/
+         /**Long**/
         "SubAccountId" => null,
          /**Int**/
         "Size" => null,

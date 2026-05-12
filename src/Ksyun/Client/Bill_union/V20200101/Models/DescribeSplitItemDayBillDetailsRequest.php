@@ -15,7 +15,7 @@ class DescribeSplitItemDayBillDetailsRequest extends BaseModel
         "StatisticType" => null,
          /**Int**/
         "PayType" => null,
-         /**Int**/
+         /**Long**/
         "SubAccountId" => null,
          /**Int**/
         "Page" => null,

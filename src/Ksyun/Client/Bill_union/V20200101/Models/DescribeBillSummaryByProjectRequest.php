@@ -11,7 +11,7 @@ class DescribeBillSummaryByProjectRequest extends BaseModel
         "BillBeginMonth" => null,
          /**String**/
         "BillEndMonth" => null,
-         /**Int**/
+         /**Long**/
         "SubAccount" => null,
          /**Boolean**/
         "FetchAllFinanceRelationData" => null,

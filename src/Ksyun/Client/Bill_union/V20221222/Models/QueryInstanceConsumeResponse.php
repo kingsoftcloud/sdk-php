@@ -20,6 +20,15 @@ class QueryInstanceConsumeResponse extends BaseModel
          /** **/
          public  $ok;
 
+         /** **/
+         public  $Success;
+
+         /** **/
+         public  $RequestId;
+
+         /** **/
+         public  $Data;
+
          public function __construct()
          {
 
@@ -44,6 +53,15 @@ class QueryInstanceConsumeResponse extends BaseModel
             }
             if (array_key_exists("ok",$param) and $param["ok"] !== null) {
                 $this->ok = $param["ok"];
+            }
+            if (array_key_exists("Success",$param) and $param["Success"] !== null) {
+                $this->Success = $param["Success"];
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+                $this->Data = $param["Data"];
             }
 
         }
