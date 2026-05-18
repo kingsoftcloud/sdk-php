@@ -6,10 +6,10 @@ use Ksyun\Common\BaseModel;
 class GetUserResponse extends BaseModel
 {
          /** **/
-         public  $GetUserResult;
+         public  $RequestId;
 
          /** **/
-         public  $RequestId;
+         public  $GetUserResult;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class GetUserResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("GetUserResult",$param) and $param["GetUserResult"] !== null) {
-                $this->GetUserResult = $param["GetUserResult"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("GetUserResult",$param) and $param["GetUserResult"] !== null) {
+                $this->GetUserResult = $param["GetUserResult"];
             }
 
         }
