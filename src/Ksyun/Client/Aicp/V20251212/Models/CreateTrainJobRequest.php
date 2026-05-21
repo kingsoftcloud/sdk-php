@@ -33,6 +33,8 @@ class CreateTrainJobRequest extends BaseModel
         "StorageConfigs" => null,
          /**Array**/
         "Roles" => null,
+         /**Int**/
+        "HoldingTimeMinutes" => null,
     ];
 
 
@@ -135,6 +137,13 @@ class CreateTrainJobRequest extends BaseModel
                 $this->RequestParams["Roles"] = $param["Roles"] ? "true" : "false";
             } else {
                 $this->RequestParams["Roles"] = $param["Roles"];
+            }
+        }
+        if (array_key_exists("HoldingTimeMinutes",$param) and $param["HoldingTimeMinutes"] !== null) {
+            if(is_bool($param["HoldingTimeMinutes"])){
+                $this->RequestParams["HoldingTimeMinutes"] = $param["HoldingTimeMinutes"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HoldingTimeMinutes"] = $param["HoldingTimeMinutes"];
             }
         }
 

@@ -25,6 +25,8 @@ class CreateStorageConfigRequest extends BaseModel
         "Ak" => null,
          /**String**/
         "Sk" => null,
+         /**Boolean**/
+        "Prefetch" => null,
     ];
 
 
@@ -99,6 +101,13 @@ class CreateStorageConfigRequest extends BaseModel
                 $this->RequestParams["Sk"] = $param["Sk"] ? "true" : "false";
             } else {
                 $this->RequestParams["Sk"] = $param["Sk"];
+            }
+        }
+        if (array_key_exists("Prefetch",$param) and $param["Prefetch"] !== null) {
+            if(is_bool($param["Prefetch"])){
+                $this->RequestParams["Prefetch"] = $param["Prefetch"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Prefetch"] = $param["Prefetch"];
             }
         }
 

@@ -27,6 +27,12 @@ class QueryTokenDataRequest extends BaseModel
         "Marker" => null,
          /**String**/
         "ModelName" => null,
+         /**String**/
+        "SortField" => null,
+         /**String**/
+        "SortOrder" => null,
+         /**String**/
+        "KeyId" => null,
     ];
 
 
@@ -108,6 +114,27 @@ class QueryTokenDataRequest extends BaseModel
                 $this->RequestParams["ModelName"] = $param["ModelName"] ? "true" : "false";
             } else {
                 $this->RequestParams["ModelName"] = $param["ModelName"];
+            }
+        }
+        if (array_key_exists("SortField",$param) and $param["SortField"] !== null) {
+            if(is_bool($param["SortField"])){
+                $this->RequestParams["SortField"] = $param["SortField"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SortField"] = $param["SortField"];
+            }
+        }
+        if (array_key_exists("SortOrder",$param) and $param["SortOrder"] !== null) {
+            if(is_bool($param["SortOrder"])){
+                $this->RequestParams["SortOrder"] = $param["SortOrder"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SortOrder"] = $param["SortOrder"];
+            }
+        }
+        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
+            if(is_bool($param["KeyId"])){
+                $this->RequestParams["KeyId"] = $param["KeyId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["KeyId"] = $param["KeyId"];
             }
         }
 

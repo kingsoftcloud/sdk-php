@@ -8,10 +8,6 @@ class QueryMemorySdkRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "Namespace" => null,
-         /**String**/
-        "UserId" => null,
-         /**String**/
         "Query" => null,
          /**String**/
         "SceneId" => null,
@@ -25,6 +21,12 @@ class QueryMemorySdkRequest extends BaseModel
         "ReturnCitations" => null,
          /**Int**/
         "Limit" => null,
+         /**Array**/
+        "SceneIds" => null,
+         /**String**/
+        "MemoryCollectionId" => null,
+         /**String**/
+        "AgentUserId" => null,
     ];
 
 
@@ -37,20 +39,6 @@ class QueryMemorySdkRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
-            if(is_bool($param["Namespace"])){
-                $this->RequestParams["Namespace"] = $param["Namespace"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Namespace"] = $param["Namespace"];
-            }
-        }
-        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
-            if(is_bool($param["UserId"])){
-                $this->RequestParams["UserId"] = $param["UserId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["UserId"] = $param["UserId"];
-            }
         }
         if (array_key_exists("Query",$param) and $param["Query"] !== null) {
             if(is_bool($param["Query"])){
@@ -99,6 +87,27 @@ class QueryMemorySdkRequest extends BaseModel
                 $this->RequestParams["Limit"] = $param["Limit"] ? "true" : "false";
             } else {
                 $this->RequestParams["Limit"] = $param["Limit"];
+            }
+        }
+        if (array_key_exists("SceneIds",$param) and $param["SceneIds"] !== null) {
+            if(is_bool($param["SceneIds"])){
+                $this->RequestParams["SceneIds"] = $param["SceneIds"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SceneIds"] = $param["SceneIds"];
+            }
+        }
+        if (array_key_exists("MemoryCollectionId",$param) and $param["MemoryCollectionId"] !== null) {
+            if(is_bool($param["MemoryCollectionId"])){
+                $this->RequestParams["MemoryCollectionId"] = $param["MemoryCollectionId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["MemoryCollectionId"] = $param["MemoryCollectionId"];
+            }
+        }
+        if (array_key_exists("AgentUserId",$param) and $param["AgentUserId"] !== null) {
+            if(is_bool($param["AgentUserId"])){
+                $this->RequestParams["AgentUserId"] = $param["AgentUserId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AgentUserId"] = $param["AgentUserId"];
             }
         }
 

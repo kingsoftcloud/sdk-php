@@ -8,10 +8,6 @@ class CreateMemorySdkRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "Namespace" => null,
-         /**String**/
-        "UserId" => null,
-         /**String**/
         "AgentId" => null,
          /**String**/
         "SessionId" => null,
@@ -21,6 +17,10 @@ class CreateMemorySdkRequest extends BaseModel
         "DataType" => null,
          /**Object**/
         "Data" => null,
+         /**String**/
+        "AgentUserId" => null,
+         /**String**/
+        "MemoryCollectionId" => null,
     ];
 
 
@@ -33,20 +33,6 @@ class CreateMemorySdkRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
-            if(is_bool($param["Namespace"])){
-                $this->RequestParams["Namespace"] = $param["Namespace"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Namespace"] = $param["Namespace"];
-            }
-        }
-        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
-            if(is_bool($param["UserId"])){
-                $this->RequestParams["UserId"] = $param["UserId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["UserId"] = $param["UserId"];
-            }
         }
         if (array_key_exists("AgentId",$param) and $param["AgentId"] !== null) {
             if(is_bool($param["AgentId"])){
@@ -81,6 +67,20 @@ class CreateMemorySdkRequest extends BaseModel
                 $this->RequestParams["Data"] = $param["Data"] ? "true" : "false";
             } else {
                 $this->RequestParams["Data"] = $param["Data"];
+            }
+        }
+        if (array_key_exists("AgentUserId",$param) and $param["AgentUserId"] !== null) {
+            if(is_bool($param["AgentUserId"])){
+                $this->RequestParams["AgentUserId"] = $param["AgentUserId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AgentUserId"] = $param["AgentUserId"];
+            }
+        }
+        if (array_key_exists("MemoryCollectionId",$param) and $param["MemoryCollectionId"] !== null) {
+            if(is_bool($param["MemoryCollectionId"])){
+                $this->RequestParams["MemoryCollectionId"] = $param["MemoryCollectionId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["MemoryCollectionId"] = $param["MemoryCollectionId"];
             }
         }
 

@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 
 use Ksyun\Common\BaseModel;
 
-class UpdateInferenceEndpointResponse extends BaseModel
+class CreateResourcePoolResponse extends BaseModel
 {
-         /** **/
-         public  $RequestId;
+         /** 资源组ID**/
+         public  $ResourcePoolId;
 
-         /** **/
-         public  $EndpointId;
+         /** 请求ID**/
+         public  $RequestId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class UpdateInferenceEndpointResponse extends BaseModel
             if ($param === null) {
                 return;
             }
+            if (array_key_exists("ResourcePoolId",$param) and $param["ResourcePoolId"] !== null) {
+                $this->ResourcePoolId = $param["ResourcePoolId"];
+            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
-            }
-            if (array_key_exists("EndpointId",$param) and $param["EndpointId"] !== null) {
-                $this->EndpointId = $param["EndpointId"];
             }
 
         }

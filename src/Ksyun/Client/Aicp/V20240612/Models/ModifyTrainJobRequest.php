@@ -11,6 +11,8 @@ class ModifyTrainJobRequest extends BaseModel
         "TrainJobId" => null,
          /**String**/
         "Priority" => null,
+         /**Int**/
+        "HoldingTimeMinutes" => null,
     ];
 
 
@@ -36,6 +38,13 @@ class ModifyTrainJobRequest extends BaseModel
                 $this->RequestParams["Priority"] = $param["Priority"] ? "true" : "false";
             } else {
                 $this->RequestParams["Priority"] = $param["Priority"];
+            }
+        }
+        if (array_key_exists("HoldingTimeMinutes",$param) and $param["HoldingTimeMinutes"] !== null) {
+            if(is_bool($param["HoldingTimeMinutes"])){
+                $this->RequestParams["HoldingTimeMinutes"] = $param["HoldingTimeMinutes"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HoldingTimeMinutes"] = $param["HoldingTimeMinutes"];
             }
         }
 
