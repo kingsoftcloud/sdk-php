@@ -15,6 +15,10 @@ class DescribeImageCacheRequest extends BaseModel
         "Marker" => null,
          /**Int**/
         "MaxResults" => null,
+         /**String**/
+        "SortKey" => null,
+         /**String**/
+        "SortDirection" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -60,6 +64,20 @@ class DescribeImageCacheRequest extends BaseModel
                 $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
             } else {
                 $this->RequestParams["MaxResults"] = $param["MaxResults"];
+            }
+        }
+        if (array_key_exists("SortKey",$param) and $param["SortKey"] !== null) {
+            if(is_bool($param["SortKey"])){
+                $this->RequestParams["SortKey"] = $param["SortKey"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SortKey"] = $param["SortKey"];
+            }
+        }
+        if (array_key_exists("SortDirection",$param) and $param["SortDirection"] !== null) {
+            if(is_bool($param["SortDirection"])){
+                $this->RequestParams["SortDirection"] = $param["SortDirection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SortDirection"] = $param["SortDirection"];
             }
         }
 

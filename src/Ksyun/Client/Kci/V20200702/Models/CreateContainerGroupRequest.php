@@ -21,7 +21,7 @@ class CreateContainerGroupRequest extends BaseModel
         "ChargeType" => null,
          /**String**/
         "SpotStrategy" => null,
-         /**Int**/
+         /**Long**/
         "ProjectId" => null,
          /**Double**/
         "Cpu" => null,
@@ -57,6 +57,8 @@ class CreateContainerGroupRequest extends BaseModel
         "KubeProxy" => null,
          /**Boolean**/
         "KlogEnabled" => null,
+         /**Boolean**/
+        "HostPID" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -81,6 +83,8 @@ class CreateContainerGroupRequest extends BaseModel
     public $DataDisk = [];
       /**特殊参数类型:Filter**/
     public $ContainerSpec = [];
+      /**特殊参数类型:Filter**/
+    public $InitContainer = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -310,6 +314,17 @@ class CreateContainerGroupRequest extends BaseModel
         if (array_key_exists("ContainerSpec",$param) and $param["ContainerSpec"] !== null) {
             $res = $this->formatFilterParams("ContainerSpec",$param["ContainerSpec"]);
             $this->_unserialize("ContainerSpec",$res);
+        }
+        if (array_key_exists("HostPID",$param) and $param["HostPID"] !== null) {
+            if(is_bool($param["HostPID"])){
+                $this->RequestParams["HostPID"] = $param["HostPID"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HostPID"] = $param["HostPID"];
+            }
+        }
+        if (array_key_exists("InitContainer",$param) and $param["InitContainer"] !== null) {
+            $res = $this->formatFilterParams("InitContainer",$param["InitContainer"]);
+            $this->_unserialize("InitContainer",$res);
         }
 
     }
