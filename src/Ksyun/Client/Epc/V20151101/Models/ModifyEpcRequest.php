@@ -15,6 +15,8 @@ class ModifyEpcRequest extends BaseModel
         "Description" => null,
          /**String**/
         "ClientToken" => null,
+         /**String**/
+        "DeleteProtection" => null,
     ];
 
 
@@ -54,6 +56,13 @@ class ModifyEpcRequest extends BaseModel
                 $this->RequestParams["ClientToken"] = $param["ClientToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["ClientToken"] = $param["ClientToken"];
+            }
+        }
+        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
+            if(is_bool($param["DeleteProtection"])){
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
             }
         }
 

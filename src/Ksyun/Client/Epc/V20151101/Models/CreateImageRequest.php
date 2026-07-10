@@ -15,6 +15,8 @@ class CreateImageRequest extends BaseModel
         "ImageMode" => null,
          /**String**/
         "ImageInitialization" => null,
+         /**String**/
+        "Description" => null,
     ];
 
 
@@ -54,6 +56,13 @@ class CreateImageRequest extends BaseModel
                 $this->RequestParams["ImageInitialization"] = $param["ImageInitialization"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageInitialization"] = $param["ImageInitialization"];
+            }
+        }
+        if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+            if(is_bool($param["Description"])){
+                $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Description"] = $param["Description"];
             }
         }
 

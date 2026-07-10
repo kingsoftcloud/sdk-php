@@ -17,6 +17,18 @@ class ModifyApikeyRequest extends BaseModel
         "AssociatedModelIds" => null,
          /**Boolean**/
         "AllAssociatedModel" => null,
+         /**Array**/
+        "AllowEndpoints" => null,
+         /**Boolean**/
+        "AllAssociatedProjectResources" => null,
+         /**Boolean**/
+        "AllAssociatedEndpoint" => null,
+         /**Array**/
+        "LowPriceModels" => null,
+         /**Array**/
+        "HighPriceModels" => null,
+         /**Array**/
+        "AllowedIps" => null,
     ];
 
 
@@ -63,6 +75,48 @@ class ModifyApikeyRequest extends BaseModel
                 $this->RequestParams["AllAssociatedModel"] = $param["AllAssociatedModel"] ? "true" : "false";
             } else {
                 $this->RequestParams["AllAssociatedModel"] = $param["AllAssociatedModel"];
+            }
+        }
+        if (array_key_exists("AllowEndpoints",$param) and $param["AllowEndpoints"] !== null) {
+            if(is_bool($param["AllowEndpoints"])){
+                $this->RequestParams["AllowEndpoints"] = $param["AllowEndpoints"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AllowEndpoints"] = $param["AllowEndpoints"];
+            }
+        }
+        if (array_key_exists("AllAssociatedProjectResources",$param) and $param["AllAssociatedProjectResources"] !== null) {
+            if(is_bool($param["AllAssociatedProjectResources"])){
+                $this->RequestParams["AllAssociatedProjectResources"] = $param["AllAssociatedProjectResources"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AllAssociatedProjectResources"] = $param["AllAssociatedProjectResources"];
+            }
+        }
+        if (array_key_exists("AllAssociatedEndpoint",$param) and $param["AllAssociatedEndpoint"] !== null) {
+            if(is_bool($param["AllAssociatedEndpoint"])){
+                $this->RequestParams["AllAssociatedEndpoint"] = $param["AllAssociatedEndpoint"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AllAssociatedEndpoint"] = $param["AllAssociatedEndpoint"];
+            }
+        }
+        if (array_key_exists("LowPriceModels",$param) and $param["LowPriceModels"] !== null) {
+            if(is_bool($param["LowPriceModels"])){
+                $this->RequestParams["LowPriceModels"] = $param["LowPriceModels"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LowPriceModels"] = $param["LowPriceModels"];
+            }
+        }
+        if (array_key_exists("HighPriceModels",$param) and $param["HighPriceModels"] !== null) {
+            if(is_bool($param["HighPriceModels"])){
+                $this->RequestParams["HighPriceModels"] = $param["HighPriceModels"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HighPriceModels"] = $param["HighPriceModels"];
+            }
+        }
+        if (array_key_exists("AllowedIps",$param) and $param["AllowedIps"] !== null) {
+            if(is_bool($param["AllowedIps"])){
+                $this->RequestParams["AllowedIps"] = $param["AllowedIps"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AllowedIps"] = $param["AllowedIps"];
             }
         }
 

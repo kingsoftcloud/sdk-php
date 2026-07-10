@@ -13,6 +13,8 @@ class UpdateMemoryCollectionRequest extends BaseModel
         "Description" => null,
          /**String**/
         "Name" => null,
+         /**Object**/
+        "LongTermConfiguration" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class UpdateMemoryCollectionRequest extends BaseModel
                 $this->RequestParams["Name"] = $param["Name"] ? "true" : "false";
             } else {
                 $this->RequestParams["Name"] = $param["Name"];
+            }
+        }
+        if (array_key_exists("LongTermConfiguration",$param) and $param["LongTermConfiguration"] !== null) {
+            if(is_bool($param["LongTermConfiguration"])){
+                $this->RequestParams["LongTermConfiguration"] = $param["LongTermConfiguration"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LongTermConfiguration"] = $param["LongTermConfiguration"];
             }
         }
 

@@ -53,6 +53,8 @@ class CreateNotebookRequest extends BaseModel
         "AllocationId" => null,
          /**String**/
         "RunOnCPU" => null,
+         /**Object**/
+        "AutoSaveConfig" => null,
     ];
 
 
@@ -225,6 +227,13 @@ class CreateNotebookRequest extends BaseModel
                 $this->RequestParams["RunOnCPU"] = $param["RunOnCPU"] ? "true" : "false";
             } else {
                 $this->RequestParams["RunOnCPU"] = $param["RunOnCPU"];
+            }
+        }
+        if (array_key_exists("AutoSaveConfig",$param) and $param["AutoSaveConfig"] !== null) {
+            if(is_bool($param["AutoSaveConfig"])){
+                $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"];
             }
         }
 

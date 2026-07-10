@@ -131,10 +131,14 @@ class BatchCreateEpcRequest extends BaseModel
         "FileSystemId" => null,
          /**String**/
         "PosixAclId" => null,
+         /**String**/
+        "UltraServerSn" => null,
     ];
 
      /**特殊参数类型:Filter**/
     public $SecurityGroupId = [];
+      /**特殊参数类型:Filter**/
+    public $CustomInstallConfig = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -582,6 +586,17 @@ class BatchCreateEpcRequest extends BaseModel
                 $this->RequestParams["PosixAclId"] = $param["PosixAclId"] ? "true" : "false";
             } else {
                 $this->RequestParams["PosixAclId"] = $param["PosixAclId"];
+            }
+        }
+        if (array_key_exists("CustomInstallConfig",$param) and $param["CustomInstallConfig"] !== null) {
+            $res = $this->formatFilterParams("CustomInstallConfig",$param["CustomInstallConfig"]);
+            $this->_unserialize("CustomInstallConfig",$res);
+        }
+        if (array_key_exists("UltraServerSn",$param) and $param["UltraServerSn"] !== null) {
+            if(is_bool($param["UltraServerSn"])){
+                $this->RequestParams["UltraServerSn"] = $param["UltraServerSn"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UltraServerSn"] = $param["UltraServerSn"];
             }
         }
 

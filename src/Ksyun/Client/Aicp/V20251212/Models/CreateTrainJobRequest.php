@@ -35,6 +35,16 @@ class CreateTrainJobRequest extends BaseModel
         "Roles" => null,
          /**Int**/
         "HoldingTimeMinutes" => null,
+         /**Boolean**/
+        "EnableDeviceHealthCheck" => null,
+         /**Object**/
+        "DeviceHealthCheckConfig" => null,
+         /**String**/
+        "RuntimeEnv" => null,
+         /**String**/
+        "EntryPointCommand" => null,
+         /**Boolean**/
+        "UseIdleResource" => null,
     ];
 
 
@@ -144,6 +154,41 @@ class CreateTrainJobRequest extends BaseModel
                 $this->RequestParams["HoldingTimeMinutes"] = $param["HoldingTimeMinutes"] ? "true" : "false";
             } else {
                 $this->RequestParams["HoldingTimeMinutes"] = $param["HoldingTimeMinutes"];
+            }
+        }
+        if (array_key_exists("EnableDeviceHealthCheck",$param) and $param["EnableDeviceHealthCheck"] !== null) {
+            if(is_bool($param["EnableDeviceHealthCheck"])){
+                $this->RequestParams["EnableDeviceHealthCheck"] = $param["EnableDeviceHealthCheck"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableDeviceHealthCheck"] = $param["EnableDeviceHealthCheck"];
+            }
+        }
+        if (array_key_exists("DeviceHealthCheckConfig",$param) and $param["DeviceHealthCheckConfig"] !== null) {
+            if(is_bool($param["DeviceHealthCheckConfig"])){
+                $this->RequestParams["DeviceHealthCheckConfig"] = $param["DeviceHealthCheckConfig"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DeviceHealthCheckConfig"] = $param["DeviceHealthCheckConfig"];
+            }
+        }
+        if (array_key_exists("RuntimeEnv",$param) and $param["RuntimeEnv"] !== null) {
+            if(is_bool($param["RuntimeEnv"])){
+                $this->RequestParams["RuntimeEnv"] = $param["RuntimeEnv"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RuntimeEnv"] = $param["RuntimeEnv"];
+            }
+        }
+        if (array_key_exists("EntryPointCommand",$param) and $param["EntryPointCommand"] !== null) {
+            if(is_bool($param["EntryPointCommand"])){
+                $this->RequestParams["EntryPointCommand"] = $param["EntryPointCommand"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EntryPointCommand"] = $param["EntryPointCommand"];
+            }
+        }
+        if (array_key_exists("UseIdleResource",$param) and $param["UseIdleResource"] !== null) {
+            if(is_bool($param["UseIdleResource"])){
+                $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"];
             }
         }
 

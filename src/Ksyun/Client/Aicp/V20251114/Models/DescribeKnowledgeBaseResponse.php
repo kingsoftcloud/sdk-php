@@ -32,9 +32,6 @@ class DescribeKnowledgeBaseResponse extends BaseModel
          /** 文档数**/
          public  $DocumentCount;
 
-         /** 总词数**/
-         public  $WordCount;
-
          /** 创建人**/
          public  $CreatedBy;
 
@@ -70,6 +67,15 @@ class DescribeKnowledgeBaseResponse extends BaseModel
 
          /**Object 外部检索参数**/
          public  $ExternalRetrievalModel;
+
+         /** 项目ID**/
+         public  $ProjectId;
+
+         /** 计费方式**/
+         public  $ChargeType;
+
+         /** 计算资源数**/
+         public  $ComputeUnit;
 
          public function __construct()
          {
@@ -108,9 +114,6 @@ class DescribeKnowledgeBaseResponse extends BaseModel
             if (array_key_exists("DocumentCount",$param) and $param["DocumentCount"] !== null) {
                 $this->DocumentCount = $param["DocumentCount"];
             }
-            if (array_key_exists("WordCount",$param) and $param["WordCount"] !== null) {
-                $this->WordCount = $param["WordCount"];
-            }
             if (array_key_exists("CreatedBy",$param) and $param["CreatedBy"] !== null) {
                 $this->CreatedBy = $param["CreatedBy"];
             }
@@ -146,6 +149,15 @@ class DescribeKnowledgeBaseResponse extends BaseModel
             }
             if (array_key_exists("ExternalRetrievalModel",$param) and $param["ExternalRetrievalModel"] !== null) {
                 $this->ExternalRetrievalModel = $param["ExternalRetrievalModel"];
+            }
+            if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+                $this->ProjectId = $param["ProjectId"];
+            }
+            if (array_key_exists("ChargeType",$param) and $param["ChargeType"] !== null) {
+                $this->ChargeType = $param["ChargeType"];
+            }
+            if (array_key_exists("ComputeUnit",$param) and $param["ComputeUnit"] !== null) {
+                $this->ComputeUnit = $param["ComputeUnit"];
             }
 
         }

@@ -11,6 +11,9 @@ class UpdateMemoryCollectionResponse extends BaseModel
          /** 记忆库名称（修改接口不支持修改名称，返回原有）**/
          public  $Name;
 
+         /** **/
+         public  $LongTermConfiguration;
+
          public function __construct()
          {
 
@@ -26,6 +29,9 @@ class UpdateMemoryCollectionResponse extends BaseModel
             }
             if (array_key_exists("Name",$param) and $param["Name"] !== null) {
                 $this->Name = $param["Name"];
+            }
+            if (array_key_exists("LongTermConfiguration",$param) and $param["LongTermConfiguration"] !== null) {
+                $this->LongTermConfiguration = $param["LongTermConfiguration"];
             }
 
         }

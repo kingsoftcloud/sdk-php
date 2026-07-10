@@ -13,6 +13,12 @@ class CreateKnowledgeBaseRequest extends BaseModel
         "IndexingTechnique" => null,
          /**Object**/
         "RetrievalModel" => null,
+         /**Int**/
+        "ComputeUnit" => null,
+         /**String**/
+        "ProjectId" => null,
+         /**String**/
+        "ChargeType" => null,
     ];
 
 
@@ -45,6 +51,27 @@ class CreateKnowledgeBaseRequest extends BaseModel
                 $this->RequestParams["RetrievalModel"] = $param["RetrievalModel"] ? "true" : "false";
             } else {
                 $this->RequestParams["RetrievalModel"] = $param["RetrievalModel"];
+            }
+        }
+        if (array_key_exists("ComputeUnit",$param) and $param["ComputeUnit"] !== null) {
+            if(is_bool($param["ComputeUnit"])){
+                $this->RequestParams["ComputeUnit"] = $param["ComputeUnit"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ComputeUnit"] = $param["ComputeUnit"];
+            }
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
+                $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProjectId"] = $param["ProjectId"];
+            }
+        }
+        if (array_key_exists("ChargeType",$param) and $param["ChargeType"] !== null) {
+            if(is_bool($param["ChargeType"])){
+                $this->RequestParams["ChargeType"] = $param["ChargeType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ChargeType"] = $param["ChargeType"];
             }
         }
 

@@ -19,6 +19,8 @@ class ModifyKnowledgeBaseRequest extends BaseModel
         "EmbeddingModel" => null,
          /**Object**/
         "RetrievalModel" => null,
+         /**Int**/
+        "ComputeUnit" => null,
     ];
 
 
@@ -72,6 +74,13 @@ class ModifyKnowledgeBaseRequest extends BaseModel
                 $this->RequestParams["RetrievalModel"] = $param["RetrievalModel"] ? "true" : "false";
             } else {
                 $this->RequestParams["RetrievalModel"] = $param["RetrievalModel"];
+            }
+        }
+        if (array_key_exists("ComputeUnit",$param) and $param["ComputeUnit"] !== null) {
+            if(is_bool($param["ComputeUnit"])){
+                $this->RequestParams["ComputeUnit"] = $param["ComputeUnit"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ComputeUnit"] = $param["ComputeUnit"];
             }
         }
 

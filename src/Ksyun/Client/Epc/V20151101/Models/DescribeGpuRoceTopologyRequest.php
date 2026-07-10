@@ -9,6 +9,16 @@ class DescribeGpuRoceTopologyRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "SpineName" => null,
+         /**String**/
+        "LeafName" => null,
+         /**String**/
+        "HostId" => null,
+         /**String**/
+        "Sn" => null,
+         /**String**/
+        "RoceCluster" => null,
+         /**String**/
+        "SRoceCluster" => null,
     ];
 
 
@@ -27,6 +37,41 @@ class DescribeGpuRoceTopologyRequest extends BaseModel
                 $this->RequestParams["SpineName"] = $param["SpineName"] ? "true" : "false";
             } else {
                 $this->RequestParams["SpineName"] = $param["SpineName"];
+            }
+        }
+        if (array_key_exists("LeafName",$param) and $param["LeafName"] !== null) {
+            if(is_bool($param["LeafName"])){
+                $this->RequestParams["LeafName"] = $param["LeafName"] ? "true" : "false";
+            } else {
+                $this->RequestParams["LeafName"] = $param["LeafName"];
+            }
+        }
+        if (array_key_exists("HostId",$param) and $param["HostId"] !== null) {
+            if(is_bool($param["HostId"])){
+                $this->RequestParams["HostId"] = $param["HostId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["HostId"] = $param["HostId"];
+            }
+        }
+        if (array_key_exists("Sn",$param) and $param["Sn"] !== null) {
+            if(is_bool($param["Sn"])){
+                $this->RequestParams["Sn"] = $param["Sn"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Sn"] = $param["Sn"];
+            }
+        }
+        if (array_key_exists("RoceCluster",$param) and $param["RoceCluster"] !== null) {
+            if(is_bool($param["RoceCluster"])){
+                $this->RequestParams["RoceCluster"] = $param["RoceCluster"] ? "true" : "false";
+            } else {
+                $this->RequestParams["RoceCluster"] = $param["RoceCluster"];
+            }
+        }
+        if (array_key_exists("SRoceCluster",$param) and $param["SRoceCluster"] !== null) {
+            if(is_bool($param["SRoceCluster"])){
+                $this->RequestParams["SRoceCluster"] = $param["SRoceCluster"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SRoceCluster"] = $param["SRoceCluster"];
             }
         }
 

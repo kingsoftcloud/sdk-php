@@ -26,6 +26,9 @@ class GetMemoryCollectionResponse extends BaseModel
          /** 记忆库所属地域**/
          public  $Region;
 
+         /** **/
+         public  $LongTermConfiguration;
+
          public function __construct()
          {
 
@@ -56,6 +59,9 @@ class GetMemoryCollectionResponse extends BaseModel
             }
             if (array_key_exists("Region",$param) and $param["Region"] !== null) {
                 $this->Region = $param["Region"];
+            }
+            if (array_key_exists("LongTermConfiguration",$param) and $param["LongTermConfiguration"] !== null) {
+                $this->LongTermConfiguration = $param["LongTermConfiguration"];
             }
 
         }

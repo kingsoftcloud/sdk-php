@@ -17,6 +17,8 @@ class DescribeTrainJobsRequest extends BaseModel
         "GPUType" => null,
          /**String**/
         "QueueId" => null,
+         /**Boolean**/
+        "UseIdleResource" => null,
          /**String**/
         "SortKey" => null,
          /**String**/
@@ -79,6 +81,13 @@ class DescribeTrainJobsRequest extends BaseModel
                 $this->RequestParams["QueueId"] = $param["QueueId"] ? "true" : "false";
             } else {
                 $this->RequestParams["QueueId"] = $param["QueueId"];
+            }
+        }
+        if (array_key_exists("UseIdleResource",$param) and $param["UseIdleResource"] !== null) {
+            if(is_bool($param["UseIdleResource"])){
+                $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"];
             }
         }
         if (array_key_exists("SortKey",$param) and $param["SortKey"] !== null) {

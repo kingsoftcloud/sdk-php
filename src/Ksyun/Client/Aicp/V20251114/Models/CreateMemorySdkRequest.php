@@ -21,6 +21,8 @@ class CreateMemorySdkRequest extends BaseModel
         "AgentUserId" => null,
          /**String**/
         "MemoryCollectionId" => null,
+         /**Boolean**/
+        "Flush" => null,
     ];
 
 
@@ -81,6 +83,13 @@ class CreateMemorySdkRequest extends BaseModel
                 $this->RequestParams["MemoryCollectionId"] = $param["MemoryCollectionId"] ? "true" : "false";
             } else {
                 $this->RequestParams["MemoryCollectionId"] = $param["MemoryCollectionId"];
+            }
+        }
+        if (array_key_exists("Flush",$param) and $param["Flush"] !== null) {
+            if(is_bool($param["Flush"])){
+                $this->RequestParams["Flush"] = $param["Flush"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Flush"] = $param["Flush"];
             }
         }
 

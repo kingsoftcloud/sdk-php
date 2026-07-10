@@ -17,6 +17,8 @@ class DescribeResourcePoolInstanceTasksRequest extends BaseModel
         "PageSize" => null,
          /**Int**/
         "Page" => null,
+         /**Boolean**/
+        "UseIdleResource" => null,
     ];
 
 
@@ -63,6 +65,13 @@ class DescribeResourcePoolInstanceTasksRequest extends BaseModel
                 $this->RequestParams["Page"] = $param["Page"] ? "true" : "false";
             } else {
                 $this->RequestParams["Page"] = $param["Page"];
+            }
+        }
+        if (array_key_exists("UseIdleResource",$param) and $param["UseIdleResource"] !== null) {
+            if(is_bool($param["UseIdleResource"])){
+                $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"] ? "true" : "false";
+            } else {
+                $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"];
             }
         }
 

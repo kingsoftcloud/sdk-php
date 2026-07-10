@@ -13,6 +13,8 @@ class DescribeModelsRequest extends BaseModel
         "MaxResults" => null,
          /**String**/
         "ModelName" => null,
+         /**Int**/
+        "Status" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -21,6 +23,10 @@ class DescribeModelsRequest extends BaseModel
     public $Provider = [];
       /**特殊参数类型:Filter**/
     public $ContextLength = [];
+      /**特殊参数类型:Filter**/
+    public $Capabilities = [];
+      /**特殊参数类型:Filter**/
+    public $ContextLengthRanges = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -64,6 +70,21 @@ class DescribeModelsRequest extends BaseModel
             } else {
                 $this->RequestParams["ModelName"] = $param["ModelName"];
             }
+        }
+        if (array_key_exists("Capabilities",$param) and $param["Capabilities"] !== null) {
+            $res = $this->formatFilterParams("Capabilities",$param["Capabilities"]);
+            $this->_unserialize("Capabilities",$res);
+        }
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            if(is_bool($param["Status"])){
+                $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Status"] = $param["Status"];
+            }
+        }
+        if (array_key_exists("ContextLengthRanges",$param) and $param["ContextLengthRanges"] !== null) {
+            $res = $this->formatFilterParams("ContextLengthRanges",$param["ContextLengthRanges"]);
+            $this->_unserialize("ContextLengthRanges",$res);
         }
 
     }

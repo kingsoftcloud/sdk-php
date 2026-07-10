@@ -79,7 +79,9 @@ class ReinstallEpcRequest extends BaseModel
         "PosixAclId" => null,
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $CustomInstallConfig = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/x-www-form-urlencoded");
@@ -334,6 +336,10 @@ class ReinstallEpcRequest extends BaseModel
             } else {
                 $this->RequestParams["PosixAclId"] = $param["PosixAclId"];
             }
+        }
+        if (array_key_exists("CustomInstallConfig",$param) and $param["CustomInstallConfig"] !== null) {
+            $res = $this->formatFilterParams("CustomInstallConfig",$param["CustomInstallConfig"]);
+            $this->_unserialize("CustomInstallConfig",$res);
         }
 
     }

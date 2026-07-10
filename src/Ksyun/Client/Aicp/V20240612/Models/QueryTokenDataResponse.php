@@ -41,6 +41,33 @@ class QueryTokenDataResponse extends BaseModel
          /** 网页解析次数**/
          public  $SumTotalWebParser;
 
+         /** 总的音频缓存量**/
+         public  $SumTotalCacheAudioToken;
+
+         /** 总的图片缓存token量**/
+         public  $SumTotalCacheImageToken;
+
+         /** 总的显式缓存命中量**/
+         public  $SumTotalEphemeralCacheToken;
+
+         /** 总的音频未命中量**/
+         public  $SumTotalCacheMissAudioToken;
+
+         /** 总队图片缓存未命中量**/
+         public  $SumTotalCacheMissImageToken;
+
+         /** 总的文转语音文字输入字符数**/
+         public  $SumTotalVoiceWordCount;
+
+         /** 总的图片输出token数**/
+         public  $SumTotalImageOutputToken;
+
+         /** 总的5分钟缓存写入量**/
+         public  $SumTotalCreationCache5mToken;
+
+         /** 总的1小时缓存写入量**/
+         public  $SumTotalCreationCache1hToken;
+
          public function __construct()
          {
 
@@ -86,6 +113,33 @@ class QueryTokenDataResponse extends BaseModel
             }
             if (array_key_exists("SumTotalWebParser",$param) and $param["SumTotalWebParser"] !== null) {
                 $this->SumTotalWebParser = $param["SumTotalWebParser"];
+            }
+            if (array_key_exists("SumTotalCacheAudioToken",$param) and $param["SumTotalCacheAudioToken"] !== null) {
+                $this->SumTotalCacheAudioToken = $param["SumTotalCacheAudioToken"];
+            }
+            if (array_key_exists("SumTotalCacheImageToken",$param) and $param["SumTotalCacheImageToken"] !== null) {
+                $this->SumTotalCacheImageToken = $param["SumTotalCacheImageToken"];
+            }
+            if (array_key_exists("SumTotalEphemeralCacheToken",$param) and $param["SumTotalEphemeralCacheToken"] !== null) {
+                $this->SumTotalEphemeralCacheToken = $param["SumTotalEphemeralCacheToken"];
+            }
+            if (array_key_exists("SumTotalCacheMissAudioToken",$param) and $param["SumTotalCacheMissAudioToken"] !== null) {
+                $this->SumTotalCacheMissAudioToken = $param["SumTotalCacheMissAudioToken"];
+            }
+            if (array_key_exists("SumTotalCacheMissImageToken",$param) and $param["SumTotalCacheMissImageToken"] !== null) {
+                $this->SumTotalCacheMissImageToken = $param["SumTotalCacheMissImageToken"];
+            }
+            if (array_key_exists("SumTotalVoiceWordCount",$param) and $param["SumTotalVoiceWordCount"] !== null) {
+                $this->SumTotalVoiceWordCount = $param["SumTotalVoiceWordCount"];
+            }
+            if (array_key_exists("SumTotalImageOutputToken",$param) and $param["SumTotalImageOutputToken"] !== null) {
+                $this->SumTotalImageOutputToken = $param["SumTotalImageOutputToken"];
+            }
+            if (array_key_exists("SumTotalCreationCache5mToken",$param) and $param["SumTotalCreationCache5mToken"] !== null) {
+                $this->SumTotalCreationCache5mToken = $param["SumTotalCreationCache5mToken"];
+            }
+            if (array_key_exists("SumTotalCreationCache1hToken",$param) and $param["SumTotalCreationCache1hToken"] !== null) {
+                $this->SumTotalCreationCache1hToken = $param["SumTotalCreationCache1hToken"];
             }
 
         }

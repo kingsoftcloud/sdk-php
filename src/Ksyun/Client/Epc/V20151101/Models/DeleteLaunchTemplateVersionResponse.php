@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Epc\V20151101\Models;
 
 use Ksyun\Common\BaseModel;
 
-class CreateApikeyResponse extends BaseModel
+class DeleteLaunchTemplateVersionResponse extends BaseModel
 {
-         /** 是否成功**/
-         public  $Success;
-
          /** **/
          public  $RequestId;
+
+         /** **/
+         public  $Return;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class CreateApikeyResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("Success",$param) and $param["Success"] !== null) {
-                $this->Success = $param["Success"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
+                $this->Return = $param["Return"];
             }
 
         }
