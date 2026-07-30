@@ -9,6 +9,8 @@ class DeleteNotebookRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "NotebookId" => null,
+         /**String**/
+        "VolumeReclaimPolicy" => null,
     ];
 
 
@@ -27,6 +29,13 @@ class DeleteNotebookRequest extends BaseModel
                 $this->RequestParams["NotebookId"] = $param["NotebookId"] ? "true" : "false";
             } else {
                 $this->RequestParams["NotebookId"] = $param["NotebookId"];
+            }
+        }
+        if (array_key_exists("VolumeReclaimPolicy",$param) and $param["VolumeReclaimPolicy"] !== null) {
+            if(is_bool($param["VolumeReclaimPolicy"])){
+                $this->RequestParams["VolumeReclaimPolicy"] = $param["VolumeReclaimPolicy"] ? "true" : "false";
+            } else {
+                $this->RequestParams["VolumeReclaimPolicy"] = $param["VolumeReclaimPolicy"];
             }
         }
 

@@ -17,6 +17,8 @@ class DescribeResourcePoolsRequest extends BaseModel
         "ResourcePoolName" => null,
          /**String**/
         "Component" => null,
+         /**Boolean**/
+        "EnableVolume" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -76,6 +78,13 @@ class DescribeResourcePoolsRequest extends BaseModel
         if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
             $res = $this->formatFilterParams("Filter",$param["Filter"]);
             $this->_unserialize("Filter",$res);
+        }
+        if (array_key_exists("EnableVolume",$param) and $param["EnableVolume"] !== null) {
+            if(is_bool($param["EnableVolume"])){
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"];
+            }
         }
 
     }

@@ -15,6 +15,8 @@ class DescribeNotebooksRequest extends BaseModel
         "PageSize" => null,
          /**String**/
         "QueueId" => null,
+         /**Boolean**/
+        "EnableVolume" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -66,6 +68,13 @@ class DescribeNotebooksRequest extends BaseModel
                 $this->RequestParams["QueueId"] = $param["QueueId"] ? "true" : "false";
             } else {
                 $this->RequestParams["QueueId"] = $param["QueueId"];
+            }
+        }
+        if (array_key_exists("EnableVolume",$param) and $param["EnableVolume"] !== null) {
+            if(is_bool($param["EnableVolume"])){
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"];
             }
         }
 

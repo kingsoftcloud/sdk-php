@@ -29,6 +29,10 @@ class CreateResourcePoolRequest extends BaseModel
         "Overallocate" => null,
          /**Array**/
         "Components" => null,
+         /**Boolean**/
+        "EnableVolume" => null,
+         /**String**/
+        "VolumeChargeType" => null,
     ];
 
 
@@ -117,6 +121,20 @@ class CreateResourcePoolRequest extends BaseModel
                 $this->RequestParams["Components"] = $param["Components"] ? "true" : "false";
             } else {
                 $this->RequestParams["Components"] = $param["Components"];
+            }
+        }
+        if (array_key_exists("EnableVolume",$param) and $param["EnableVolume"] !== null) {
+            if(is_bool($param["EnableVolume"])){
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"];
+            }
+        }
+        if (array_key_exists("VolumeChargeType",$param) and $param["VolumeChargeType"] !== null) {
+            if(is_bool($param["VolumeChargeType"])){
+                $this->RequestParams["VolumeChargeType"] = $param["VolumeChargeType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["VolumeChargeType"] = $param["VolumeChargeType"];
             }
         }
 

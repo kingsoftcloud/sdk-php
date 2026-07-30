@@ -55,6 +55,10 @@ class CreateNotebookRequest extends BaseModel
         "RunOnCPU" => null,
          /**Object**/
         "AutoSaveConfig" => null,
+         /**Boolean**/
+        "EnableVolume" => null,
+         /**Object**/
+        "VolumeConfig" => null,
     ];
 
 
@@ -234,6 +238,20 @@ class CreateNotebookRequest extends BaseModel
                 $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"] ? "true" : "false";
             } else {
                 $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"];
+            }
+        }
+        if (array_key_exists("EnableVolume",$param) and $param["EnableVolume"] !== null) {
+            if(is_bool($param["EnableVolume"])){
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableVolume"] = $param["EnableVolume"];
+            }
+        }
+        if (array_key_exists("VolumeConfig",$param) and $param["VolumeConfig"] !== null) {
+            if(is_bool($param["VolumeConfig"])){
+                $this->RequestParams["VolumeConfig"] = $param["VolumeConfig"] ? "true" : "false";
+            } else {
+                $this->RequestParams["VolumeConfig"] = $param["VolumeConfig"];
             }
         }
 

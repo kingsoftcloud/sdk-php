@@ -57,6 +57,8 @@ class ModifyNotebookRequest extends BaseModel
         "ImageRepoId" => null,
          /**String**/
         "ImageRegistryId" => null,
+         /**Object**/
+        "AutoSaveConfig" => null,
     ];
 
 
@@ -243,6 +245,13 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["ImageRegistryId"] = $param["ImageRegistryId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImageRegistryId"] = $param["ImageRegistryId"];
+            }
+        }
+        if (array_key_exists("AutoSaveConfig",$param) and $param["AutoSaveConfig"] !== null) {
+            if(is_bool($param["AutoSaveConfig"])){
+                $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"];
             }
         }
 
