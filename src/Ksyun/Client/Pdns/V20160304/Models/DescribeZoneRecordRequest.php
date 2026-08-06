@@ -9,6 +9,10 @@ class DescribeZoneRecordRequest extends BaseModel
     public $RequestParams = [
          /**String**/
         "ZoneId" => null,
+         /**Int**/
+        "MaxResults" => null,
+         /**String**/
+        "NextToken" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -40,6 +44,20 @@ class DescribeZoneRecordRequest extends BaseModel
         if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
             $res = $this->formatFilterParams("Filter",$param["Filter"]);
             $this->_unserialize("Filter",$res);
+        }
+        if (array_key_exists("MaxResults",$param) and $param["MaxResults"] !== null) {
+            if(is_bool($param["MaxResults"])){
+                $this->RequestParams["MaxResults"] = $param["MaxResults"] ? "true" : "false";
+            } else {
+                $this->RequestParams["MaxResults"] = $param["MaxResults"];
+            }
+        }
+        if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
+            if(is_bool($param["NextToken"])){
+                $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NextToken"] = $param["NextToken"];
+            }
         }
 
     }

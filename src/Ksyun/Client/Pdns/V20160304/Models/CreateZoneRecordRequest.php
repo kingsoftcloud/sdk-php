@@ -17,6 +17,12 @@ class CreateZoneRecordRequest extends BaseModel
         "RecordTtl" => null,
          /**String**/
         "RecordValue" => null,
+         /**Int**/
+        "Priority" => null,
+         /**Int**/
+        "Weight" => null,
+         /**Int**/
+        "Port" => null,
     ];
 
 
@@ -63,6 +69,27 @@ class CreateZoneRecordRequest extends BaseModel
                 $this->RequestParams["RecordValue"] = $param["RecordValue"] ? "true" : "false";
             } else {
                 $this->RequestParams["RecordValue"] = $param["RecordValue"];
+            }
+        }
+        if (array_key_exists("Priority",$param) and $param["Priority"] !== null) {
+            if(is_bool($param["Priority"])){
+                $this->RequestParams["Priority"] = $param["Priority"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Priority"] = $param["Priority"];
+            }
+        }
+        if (array_key_exists("Weight",$param) and $param["Weight"] !== null) {
+            if(is_bool($param["Weight"])){
+                $this->RequestParams["Weight"] = $param["Weight"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Weight"] = $param["Weight"];
+            }
+        }
+        if (array_key_exists("Port",$param) and $param["Port"] !== null) {
+            if(is_bool($param["Port"])){
+                $this->RequestParams["Port"] = $param["Port"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Port"] = $param["Port"];
             }
         }
 
