@@ -5,7 +5,7 @@ use Ksyun\Common\BaseModel;
 
 class UpdateDirQuotaResponse extends BaseModel
 {
-         /** **/
+         /** 唯一请求ID，每次请求都会返回。**/
          public  $RequestId;
 
          public function __construct()

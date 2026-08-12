@@ -8,16 +8,16 @@ class DescribeFileSystemListResponse extends BaseModel
          /** 唯一请求ID，每次请求都会返回。**/
          public  $RequestId;
 
-         /**Object 文件系统的描述信息列表**/
+         /**Object 文件系统的描述信息。**/
          public  $Data;
 
-         /** 页码。默认为1**/
+         /** 分页大小。**/
          public  $PageSize;
 
-         /** 分页大小。默认为20**/
+         /** 页码。**/
          public  $PageNum;
 
-         /** 返回的文件系统总数**/
+         /** 返回的文件系统总数。**/
          public  $TotalCount;
 
          public function __construct()

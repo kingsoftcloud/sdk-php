@@ -8,8 +8,6 @@ class DescribeFileSystemListRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "Region" => null,
-         /**String**/
         "FileSystemName" => null,
          /**String**/
         "FileSystemIds" => null,
@@ -33,13 +31,6 @@ class DescribeFileSystemListRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("Region",$param) and $param["Region"] !== null) {
-            if(is_bool($param["Region"])){
-                $this->RequestParams["Region"] = $param["Region"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Region"] = $param["Region"];
-            }
         }
         if (array_key_exists("FileSystemName",$param) and $param["FileSystemName"] !== null) {
             if(is_bool($param["FileSystemName"])){

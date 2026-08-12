@@ -8,8 +8,11 @@ class DescribePerformanceOneNfsAclListResponse extends BaseModel
          /** 唯一请求ID，每次请求都会返回。**/
          public  $RequestId;
 
-         /**Object 访问授权列表信息**/
+         /**Object 访问授权列表信息。**/
          public  $Data;
+
+         /** 总数量。**/
+         public  $TotalCount;
 
          public function __construct()
          {
@@ -26,6 +29,9 @@ class DescribePerformanceOneNfsAclListResponse extends BaseModel
             }
             if (array_key_exists("Data",$param) and $param["Data"] !== null) {
                 $this->Data = $param["Data"];
+            }
+            if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+                $this->TotalCount = $param["TotalCount"];
             }
 
         }

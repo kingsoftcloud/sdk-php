@@ -11,9 +11,9 @@ class DescribePerformanceOneNfsAclListRequest extends BaseModel
         "FileSystemName" => null,
          /**String**/
         "NfsAclId" => null,
-         /**Int**/
+         /**Long**/
         "PageNum" => null,
-         /**Int**/
+         /**Long**/
         "PageSize" => null,
     ];
 

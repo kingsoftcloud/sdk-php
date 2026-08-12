@@ -5,13 +5,13 @@ use Ksyun\Common\BaseModel;
 
 class DescribeDirQuotaResponse extends BaseModel
 {
-         /** 唯一请求ID**/
+         /** 唯一请求ID，每次请求都会返回。**/
          public  $RequestId;
 
-         /** 容量硬阈值，单位Byte**/
+         /** 容量硬阈值，单位 Byte。**/
          public  $LogicalHardThreshold;
 
-         /** 已用容量，单位Byte**/
+         /** 已用容量，单位 Byte。**/
          public  $LogicalUsedCapacity;
 
          /** 容量配额的设置方式。参数取值：
