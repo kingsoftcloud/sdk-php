@@ -59,6 +59,8 @@ class ModifyNotebookRequest extends BaseModel
         "ImageRegistryId" => null,
          /**Object**/
         "AutoSaveConfig" => null,
+         /**Array**/
+        "Envs" => null,
     ];
 
 
@@ -252,6 +254,13 @@ class ModifyNotebookRequest extends BaseModel
                 $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"] ? "true" : "false";
             } else {
                 $this->RequestParams["AutoSaveConfig"] = $param["AutoSaveConfig"];
+            }
+        }
+        if (array_key_exists("Envs",$param) and $param["Envs"] !== null) {
+            if(is_bool($param["Envs"])){
+                $this->RequestParams["Envs"] = $param["Envs"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Envs"] = $param["Envs"];
             }
         }
 

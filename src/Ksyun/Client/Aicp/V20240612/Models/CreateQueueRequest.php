@@ -20,6 +20,8 @@ class CreateQueueRequest extends BaseModel
          /**Array**/
         "AccessList" => null,
          /**Array**/
+        "SharedGroupList" => null,
+         /**Array**/
         "WorkloadType" => null,
     ];
 
@@ -74,6 +76,13 @@ class CreateQueueRequest extends BaseModel
                 $this->RequestParams["AccessList"] = $param["AccessList"] ? "true" : "false";
             } else {
                 $this->RequestParams["AccessList"] = $param["AccessList"];
+            }
+        }
+        if (array_key_exists("SharedGroupList",$param) and $param["SharedGroupList"] !== null) {
+            if(is_bool($param["SharedGroupList"])){
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"];
             }
         }
         if (array_key_exists("WorkloadType",$param) and $param["WorkloadType"] !== null) {

@@ -11,6 +11,10 @@ class ModifyModelAccessRequest extends BaseModel
         "ModelId" => null,
          /**Array**/
         "Users" => null,
+         /**String**/
+        "ModelPermission" => null,
+         /**Array**/
+        "SharedGroupList" => null,
     ];
 
 
@@ -36,6 +40,20 @@ class ModifyModelAccessRequest extends BaseModel
                 $this->RequestParams["Users"] = $param["Users"] ? "true" : "false";
             } else {
                 $this->RequestParams["Users"] = $param["Users"];
+            }
+        }
+        if (array_key_exists("ModelPermission",$param) and $param["ModelPermission"] !== null) {
+            if(is_bool($param["ModelPermission"])){
+                $this->RequestParams["ModelPermission"] = $param["ModelPermission"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModelPermission"] = $param["ModelPermission"];
+            }
+        }
+        if (array_key_exists("SharedGroupList",$param) and $param["SharedGroupList"] !== null) {
+            if(is_bool($param["SharedGroupList"])){
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"];
             }
         }
 

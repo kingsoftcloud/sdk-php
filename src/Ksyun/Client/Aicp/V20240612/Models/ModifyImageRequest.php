@@ -13,6 +13,10 @@ class ModifyImageRequest extends BaseModel
         "ImageName" => null,
          /**String**/
         "ImagePermission" => null,
+         /**Array**/
+        "AccessList" => null,
+         /**Array**/
+        "SharedGroupList" => null,
     ];
 
 
@@ -45,6 +49,20 @@ class ModifyImageRequest extends BaseModel
                 $this->RequestParams["ImagePermission"] = $param["ImagePermission"] ? "true" : "false";
             } else {
                 $this->RequestParams["ImagePermission"] = $param["ImagePermission"];
+            }
+        }
+        if (array_key_exists("AccessList",$param) and $param["AccessList"] !== null) {
+            if(is_bool($param["AccessList"])){
+                $this->RequestParams["AccessList"] = $param["AccessList"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AccessList"] = $param["AccessList"];
+            }
+        }
+        if (array_key_exists("SharedGroupList",$param) and $param["SharedGroupList"] !== null) {
+            if(is_bool($param["SharedGroupList"])){
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"];
             }
         }
 

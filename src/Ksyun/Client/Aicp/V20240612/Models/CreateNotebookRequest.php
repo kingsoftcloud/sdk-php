@@ -59,6 +59,8 @@ class CreateNotebookRequest extends BaseModel
         "EnableVolume" => null,
          /**Object**/
         "VolumeConfig" => null,
+         /**Array**/
+        "Envs" => null,
     ];
 
 
@@ -252,6 +254,13 @@ class CreateNotebookRequest extends BaseModel
                 $this->RequestParams["VolumeConfig"] = $param["VolumeConfig"] ? "true" : "false";
             } else {
                 $this->RequestParams["VolumeConfig"] = $param["VolumeConfig"];
+            }
+        }
+        if (array_key_exists("Envs",$param) and $param["Envs"] !== null) {
+            if(is_bool($param["Envs"])){
+                $this->RequestParams["Envs"] = $param["Envs"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Envs"] = $param["Envs"];
             }
         }
 

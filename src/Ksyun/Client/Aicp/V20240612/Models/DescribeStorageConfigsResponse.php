@@ -20,9 +20,6 @@ class DescribeStorageConfigsResponse extends BaseModel
          /**Object 存储配置信息**/
          public  $StorageConfigSet;
 
-         /** 是否开启预取**/
-         public  $Prefetch;
-
          public function __construct()
          {
 
@@ -47,9 +44,6 @@ class DescribeStorageConfigsResponse extends BaseModel
             }
             if (array_key_exists("StorageConfigSet",$param) and $param["StorageConfigSet"] !== null) {
                 $this->StorageConfigSet = $param["StorageConfigSet"];
-            }
-            if (array_key_exists("Prefetch",$param) and $param["Prefetch"] !== null) {
-                $this->Prefetch = $param["Prefetch"];
             }
 
         }

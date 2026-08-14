@@ -22,11 +22,15 @@ class CreateStorageConfigRequest extends BaseModel
          /**Array**/
         "Users" => null,
          /**String**/
+        "DatasetPermission" => null,
+         /**Array**/
+        "SharedGroupList" => null,
+         /**Boolean**/
+        "Prefetch" => null,
+         /**String**/
         "Ak" => null,
          /**String**/
         "Sk" => null,
-         /**Boolean**/
-        "Prefetch" => null,
     ];
 
 
@@ -89,6 +93,27 @@ class CreateStorageConfigRequest extends BaseModel
                 $this->RequestParams["Users"] = $param["Users"];
             }
         }
+        if (array_key_exists("DatasetPermission",$param) and $param["DatasetPermission"] !== null) {
+            if(is_bool($param["DatasetPermission"])){
+                $this->RequestParams["DatasetPermission"] = $param["DatasetPermission"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DatasetPermission"] = $param["DatasetPermission"];
+            }
+        }
+        if (array_key_exists("SharedGroupList",$param) and $param["SharedGroupList"] !== null) {
+            if(is_bool($param["SharedGroupList"])){
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SharedGroupList"] = $param["SharedGroupList"];
+            }
+        }
+        if (array_key_exists("Prefetch",$param) and $param["Prefetch"] !== null) {
+            if(is_bool($param["Prefetch"])){
+                $this->RequestParams["Prefetch"] = $param["Prefetch"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Prefetch"] = $param["Prefetch"];
+            }
+        }
         if (array_key_exists("Ak",$param) and $param["Ak"] !== null) {
             if(is_bool($param["Ak"])){
                 $this->RequestParams["Ak"] = $param["Ak"] ? "true" : "false";
@@ -101,13 +126,6 @@ class CreateStorageConfigRequest extends BaseModel
                 $this->RequestParams["Sk"] = $param["Sk"] ? "true" : "false";
             } else {
                 $this->RequestParams["Sk"] = $param["Sk"];
-            }
-        }
-        if (array_key_exists("Prefetch",$param) and $param["Prefetch"] !== null) {
-            if(is_bool($param["Prefetch"])){
-                $this->RequestParams["Prefetch"] = $param["Prefetch"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Prefetch"] = $param["Prefetch"];
             }
         }
 
