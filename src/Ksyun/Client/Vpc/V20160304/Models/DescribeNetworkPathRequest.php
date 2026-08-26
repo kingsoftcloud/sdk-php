@@ -4,15 +4,13 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeIpv6PublicIpAddressesRequest extends BaseModel
+class DescribeNetworkPathRequest extends BaseModel
 {
     public $RequestParams = [
     ];
 
      /**特殊参数类型:Filter**/
-    public $Ipv6PublicIpAddressId = [];
-      /**特殊参数类型:Filter**/
-    public $Filter = [];
+    public $PathId = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -24,13 +22,9 @@ class DescribeIpv6PublicIpAddressesRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Ipv6PublicIpAddressId",$param) and $param["Ipv6PublicIpAddressId"] !== null) {
-            $res = $this->formatFilterParams("Ipv6PublicIpAddressId",$param["Ipv6PublicIpAddressId"]);
-            $this->_unserialize("Ipv6PublicIpAddressId",$res);
-        }
-        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
-            $res = $this->formatFilterParams("Filter",$param["Filter"]);
-            $this->_unserialize("Filter",$res);
+        if (array_key_exists("PathId",$param) and $param["PathId"] !== null) {
+            $res = $this->formatFilterParams("PathId",$param["PathId"]);
+            $this->_unserialize("PathId",$res);
         }
 
     }

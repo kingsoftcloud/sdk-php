@@ -3,16 +3,13 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 
 use Ksyun\Common\BaseModel;
 
-class CreateVpcResponse extends BaseModel
+class DescribeNetworkPathResponse extends BaseModel
 {
-         /** 请求ID**/
+         /** **/
          public  $RequestId;
 
-         /** Vpc信息**/
-         public  $Vpc;
-
-         /** 云企业网账号ID**/
-         public  $CenAccountId;
+         /**Object **/
+         public  $NetworkPathSet;
 
          public function __construct()
          {
@@ -27,11 +24,8 @@ class CreateVpcResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("Vpc",$param) and $param["Vpc"] !== null) {
-                $this->Vpc = $param["Vpc"];
-            }
-            if (array_key_exists("CenAccountId",$param) and $param["CenAccountId"] !== null) {
-                $this->CenAccountId = $param["CenAccountId"];
+            if (array_key_exists("NetworkPathSet",$param) and $param["NetworkPathSet"] !== null) {
+                $this->NetworkPathSet = $param["NetworkPathSet"];
             }
 
         }

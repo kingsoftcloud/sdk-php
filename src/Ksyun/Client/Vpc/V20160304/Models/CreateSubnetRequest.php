@@ -33,6 +33,8 @@ class CreateSubnetRequest extends BaseModel
         "AvailabilityZone" => null,
          /**Boolean**/
         "VisitInternet" => null,
+         /**String**/
+        "Ipv6CidrBlock" => null,
     ];
 
 
@@ -135,6 +137,13 @@ class CreateSubnetRequest extends BaseModel
                 $this->RequestParams["VisitInternet"] = $param["VisitInternet"] ? "true" : "false";
             } else {
                 $this->RequestParams["VisitInternet"] = $param["VisitInternet"];
+            }
+        }
+        if (array_key_exists("Ipv6CidrBlock",$param) and $param["Ipv6CidrBlock"] !== null) {
+            if(is_bool($param["Ipv6CidrBlock"])){
+                $this->RequestParams["Ipv6CidrBlock"] = $param["Ipv6CidrBlock"] ? "true" : "false";
+            } else {
+                $this->RequestParams["Ipv6CidrBlock"] = $param["Ipv6CidrBlock"];
             }
         }
 

@@ -59,6 +59,18 @@ class AddNatIpResponse extends BaseModel
          /**Object Dnat的信息**/
          public  $DnatSet;
 
+         /**Object 资源所绑定的标签信息**/
+         public  $TagSet;
+
+         /** Nat版本**/
+         public  $NatVersion;
+
+         /** Nat线路ID**/
+         public  $NatLineId;
+
+         /**Object 绑定的EIP信息**/
+         public  $FloatingIpSet;
+
          public function __construct()
          {
 
@@ -122,6 +134,18 @@ class AddNatIpResponse extends BaseModel
             }
             if (array_key_exists("DnatSet",$param) and $param["DnatSet"] !== null) {
                 $this->DnatSet = $param["DnatSet"];
+            }
+            if (array_key_exists("TagSet",$param) and $param["TagSet"] !== null) {
+                $this->TagSet = $param["TagSet"];
+            }
+            if (array_key_exists("NatVersion",$param) and $param["NatVersion"] !== null) {
+                $this->NatVersion = $param["NatVersion"];
+            }
+            if (array_key_exists("NatLineId",$param) and $param["NatLineId"] !== null) {
+                $this->NatLineId = $param["NatLineId"];
+            }
+            if (array_key_exists("FloatingIpSet",$param) and $param["FloatingIpSet"] !== null) {
+                $this->FloatingIpSet = $param["FloatingIpSet"];
             }
 
         }

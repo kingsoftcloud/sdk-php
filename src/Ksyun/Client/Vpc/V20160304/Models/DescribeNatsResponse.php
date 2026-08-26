@@ -14,6 +14,19 @@ class DescribeNatsResponse extends BaseModel
          /**Object Nat的信息**/
          public  $NatSet;
 
+         /** Nat版本**/
+         public  $NatVersion;
+
+         /** Nat线路ID**/
+         public  $NatLineId;
+
+         /** Nat的数量**/
+         public  $TotalCount;
+
+         /**Object 绑定的EIP
+> Nat2.0参数**/
+         public  $FloatingIpSet;
+
          public function __construct()
          {
 
@@ -32,6 +45,18 @@ class DescribeNatsResponse extends BaseModel
             }
             if (array_key_exists("NatSet",$param) and $param["NatSet"] !== null) {
                 $this->NatSet = $param["NatSet"];
+            }
+            if (array_key_exists("NatVersion",$param) and $param["NatVersion"] !== null) {
+                $this->NatVersion = $param["NatVersion"];
+            }
+            if (array_key_exists("NatLineId",$param) and $param["NatLineId"] !== null) {
+                $this->NatLineId = $param["NatLineId"];
+            }
+            if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+                $this->TotalCount = $param["TotalCount"];
+            }
+            if (array_key_exists("FloatingIpSet",$param) and $param["FloatingIpSet"] !== null) {
+                $this->FloatingIpSet = $param["FloatingIpSet"];
             }
 
         }

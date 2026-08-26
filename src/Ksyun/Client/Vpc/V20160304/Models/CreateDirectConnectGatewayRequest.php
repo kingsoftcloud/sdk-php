@@ -11,6 +11,10 @@ class CreateDirectConnectGatewayRequest extends BaseModel
         "VpcId" => null,
          /**String**/
         "DirectConnectGatewayName" => null,
+         /**String**/
+        "ProjectId" => null,
+         /**Boolean**/
+        "AutoPublishSystemRoute" => null,
     ];
 
 
@@ -36,6 +40,20 @@ class CreateDirectConnectGatewayRequest extends BaseModel
                 $this->RequestParams["DirectConnectGatewayName"] = $param["DirectConnectGatewayName"] ? "true" : "false";
             } else {
                 $this->RequestParams["DirectConnectGatewayName"] = $param["DirectConnectGatewayName"];
+            }
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
+                $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProjectId"] = $param["ProjectId"];
+            }
+        }
+        if (array_key_exists("AutoPublishSystemRoute",$param) and $param["AutoPublishSystemRoute"] !== null) {
+            if(is_bool($param["AutoPublishSystemRoute"])){
+                $this->RequestParams["AutoPublishSystemRoute"] = $param["AutoPublishSystemRoute"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AutoPublishSystemRoute"] = $param["AutoPublishSystemRoute"];
             }
         }
 

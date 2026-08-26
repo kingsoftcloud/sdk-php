@@ -18,7 +18,7 @@ class QueryNatTopVifMonitorRequest extends BaseModel
          /**String**/
         "InstanceType" => null,
          /**String**/
-        "ip" => null,
+        "Ip" => null,
     ];
 
 
@@ -67,11 +67,11 @@ class QueryNatTopVifMonitorRequest extends BaseModel
                 $this->RequestParams["InstanceType"] = $param["InstanceType"];
             }
         }
-        if (array_key_exists("ip",$param) and $param["ip"] !== null) {
-            if(is_bool($param["ip"])){
-                $this->RequestParams["ip"] = $param["ip"] ? "true" : "false";
+        if (array_key_exists("Ip",$param) and $param["Ip"] !== null) {
+            if(is_bool($param["Ip"])){
+                $this->RequestParams["Ip"] = $param["Ip"] ? "true" : "false";
             } else {
-                $this->RequestParams["ip"] = $param["ip"];
+                $this->RequestParams["Ip"] = $param["Ip"];
             }
         }
 

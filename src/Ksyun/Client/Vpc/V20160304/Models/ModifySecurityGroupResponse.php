@@ -29,6 +29,12 @@ class ModifySecurityGroupResponse extends BaseModel
          /**Object 安全组规则的信息**/
          public  $SecurityGroupEntrySet;
 
+         /** 安全组是否被授权**/
+         public  $AuthorizedOn;
+
+         /** 安全组是否已授权**/
+         public  $EmpowerOn;
+
          public function __construct()
          {
 
@@ -62,6 +68,12 @@ class ModifySecurityGroupResponse extends BaseModel
             }
             if (array_key_exists("SecurityGroupEntrySet",$param) and $param["SecurityGroupEntrySet"] !== null) {
                 $this->SecurityGroupEntrySet = $param["SecurityGroupEntrySet"];
+            }
+            if (array_key_exists("AuthorizedOn",$param) and $param["AuthorizedOn"] !== null) {
+                $this->AuthorizedOn = $param["AuthorizedOn"];
+            }
+            if (array_key_exists("EmpowerOn",$param) and $param["EmpowerOn"] !== null) {
+                $this->EmpowerOn = $param["EmpowerOn"];
             }
 
         }

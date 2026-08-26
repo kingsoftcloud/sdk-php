@@ -14,6 +14,9 @@ class DescribeRoutesResponse extends BaseModel
          /**Object 路由列表信息**/
          public  $RouteSet;
 
+         /** 总量**/
+         public  $TotalCount;
+
          public function __construct()
          {
 
@@ -32,6 +35,9 @@ class DescribeRoutesResponse extends BaseModel
             }
             if (array_key_exists("RouteSet",$param) and $param["RouteSet"] !== null) {
                 $this->RouteSet = $param["RouteSet"];
+            }
+            if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+                $this->TotalCount = $param["TotalCount"];
             }
 
         }

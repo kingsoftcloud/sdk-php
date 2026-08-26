@@ -31,6 +31,8 @@ class AuthorizeSecurityGroupEntryRequest extends BaseModel
         "Priority" => null,
          /**String**/
         "Policy" => null,
+         /**String**/
+        "AuthorizedSecurityGroupId" => null,
     ];
 
 
@@ -126,6 +128,13 @@ class AuthorizeSecurityGroupEntryRequest extends BaseModel
                 $this->RequestParams["Policy"] = $param["Policy"] ? "true" : "false";
             } else {
                 $this->RequestParams["Policy"] = $param["Policy"];
+            }
+        }
+        if (array_key_exists("AuthorizedSecurityGroupId",$param) and $param["AuthorizedSecurityGroupId"] !== null) {
+            if(is_bool($param["AuthorizedSecurityGroupId"])){
+                $this->RequestParams["AuthorizedSecurityGroupId"] = $param["AuthorizedSecurityGroupId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["AuthorizedSecurityGroupId"] = $param["AuthorizedSecurityGroupId"];
             }
         }
 

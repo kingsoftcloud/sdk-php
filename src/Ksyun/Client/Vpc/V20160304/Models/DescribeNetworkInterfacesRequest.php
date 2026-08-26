@@ -11,6 +11,8 @@ class DescribeNetworkInterfacesRequest extends BaseModel
         "MaxResults" => null,
          /**String**/
         "NextToken" => null,
+         /**Boolean**/
+        "VisitInternet" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -48,6 +50,13 @@ class DescribeNetworkInterfacesRequest extends BaseModel
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
+            }
+        }
+        if (array_key_exists("VisitInternet",$param) and $param["VisitInternet"] !== null) {
+            if(is_bool($param["VisitInternet"])){
+                $this->RequestParams["VisitInternet"] = $param["VisitInternet"] ? "true" : "false";
+            } else {
+                $this->RequestParams["VisitInternet"] = $param["VisitInternet"];
             }
         }
 

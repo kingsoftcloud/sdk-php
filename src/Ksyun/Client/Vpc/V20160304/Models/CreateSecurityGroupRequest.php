@@ -13,6 +13,8 @@ class CreateSecurityGroupRequest extends BaseModel
         "SecurityGroupName" => null,
          /**String**/
         "Description" => null,
+         /**String**/
+        "SecurityGroupType" => null,
     ];
 
 
@@ -45,6 +47,13 @@ class CreateSecurityGroupRequest extends BaseModel
                 $this->RequestParams["Description"] = $param["Description"] ? "true" : "false";
             } else {
                 $this->RequestParams["Description"] = $param["Description"];
+            }
+        }
+        if (array_key_exists("SecurityGroupType",$param) and $param["SecurityGroupType"] !== null) {
+            if(is_bool($param["SecurityGroupType"])){
+                $this->RequestParams["SecurityGroupType"] = $param["SecurityGroupType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SecurityGroupType"] = $param["SecurityGroupType"];
             }
         }
 

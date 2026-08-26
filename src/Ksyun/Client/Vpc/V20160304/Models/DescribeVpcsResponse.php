@@ -14,6 +14,9 @@ class DescribeVpcsResponse extends BaseModel
          /**Object Vpc的信息**/
          public  $VpcSet;
 
+         /** 总数量**/
+         public  $TotalCount;
+
          public function __construct()
          {
 
@@ -32,6 +35,9 @@ class DescribeVpcsResponse extends BaseModel
             }
             if (array_key_exists("VpcSet",$param) and $param["VpcSet"] !== null) {
                 $this->VpcSet = $param["VpcSet"];
+            }
+            if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+                $this->TotalCount = $param["TotalCount"];
             }
 
         }

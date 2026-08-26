@@ -14,6 +14,9 @@ class DescribeSecurityGroupsResponse extends BaseModel
          /**Object 安全组列表信息**/
          public  $SecurityGroupSet;
 
+         /** 总量**/
+         public  $TotalCount;
+
          public function __construct()
          {
 
@@ -32,6 +35,9 @@ class DescribeSecurityGroupsResponse extends BaseModel
             }
             if (array_key_exists("SecurityGroupSet",$param) and $param["SecurityGroupSet"] !== null) {
                 $this->SecurityGroupSet = $param["SecurityGroupSet"];
+            }
+            if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+                $this->TotalCount = $param["TotalCount"];
             }
 
         }

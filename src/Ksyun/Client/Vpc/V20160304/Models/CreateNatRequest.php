@@ -27,6 +27,8 @@ class CreateNatRequest extends BaseModel
         "ChargeType" => null,
          /**Int**/
         "PurchaseTime" => null,
+         /**String**/
+        "NatVersion" => null,
     ];
 
 
@@ -108,6 +110,13 @@ class CreateNatRequest extends BaseModel
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"] ? "true" : "false";
             } else {
                 $this->RequestParams["PurchaseTime"] = $param["PurchaseTime"];
+            }
+        }
+        if (array_key_exists("NatVersion",$param) and $param["NatVersion"] !== null) {
+            if(is_bool($param["NatVersion"])){
+                $this->RequestParams["NatVersion"] = $param["NatVersion"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NatVersion"] = $param["NatVersion"];
             }
         }
 

@@ -59,6 +59,12 @@ class CreateNatResponse extends BaseModel
          /**Object Dnat的信息**/
          public  $DnatSet;
 
+         /** Nat版本**/
+         public  $NatVersion;
+
+         /** Nat线路ID**/
+         public  $NatLineId;
+
          public function __construct()
          {
 
@@ -122,6 +128,12 @@ class CreateNatResponse extends BaseModel
             }
             if (array_key_exists("DnatSet",$param) and $param["DnatSet"] !== null) {
                 $this->DnatSet = $param["DnatSet"];
+            }
+            if (array_key_exists("NatVersion",$param) and $param["NatVersion"] !== null) {
+                $this->NatVersion = $param["NatVersion"];
+            }
+            if (array_key_exists("NatLineId",$param) and $param["NatLineId"] !== null) {
+                $this->NatLineId = $param["NatLineId"];
             }
 
         }

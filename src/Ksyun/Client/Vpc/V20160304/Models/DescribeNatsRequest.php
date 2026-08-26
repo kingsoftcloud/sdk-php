@@ -13,6 +13,8 @@ class DescribeNatsRequest extends BaseModel
         "MaxResults" => null,
          /**String**/
         "NextToken" => null,
+         /**String**/
+        "NatVersion" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -75,6 +77,13 @@ class DescribeNatsRequest extends BaseModel
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
+            }
+        }
+        if (array_key_exists("NatVersion",$param) and $param["NatVersion"] !== null) {
+            if(is_bool($param["NatVersion"])){
+                $this->RequestParams["NatVersion"] = $param["NatVersion"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NatVersion"] = $param["NatVersion"];
             }
         }
 

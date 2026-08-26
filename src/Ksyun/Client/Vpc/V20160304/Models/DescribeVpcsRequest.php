@@ -11,6 +11,8 @@ class DescribeVpcsRequest extends BaseModel
         "MaxResults" => null,
          /**String**/
         "NextToken" => null,
+         /**Boolean**/
+        "ProvidedIpv6CidrBlock" => null,
     ];
 
      /**特殊参数类型:Filter**/
@@ -42,6 +44,13 @@ class DescribeVpcsRequest extends BaseModel
                 $this->RequestParams["NextToken"] = $param["NextToken"] ? "true" : "false";
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
+            }
+        }
+        if (array_key_exists("ProvidedIpv6CidrBlock",$param) and $param["ProvidedIpv6CidrBlock"] !== null) {
+            if(is_bool($param["ProvidedIpv6CidrBlock"])){
+                $this->RequestParams["ProvidedIpv6CidrBlock"] = $param["ProvidedIpv6CidrBlock"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProvidedIpv6CidrBlock"] = $param["ProvidedIpv6CidrBlock"];
             }
         }
 

@@ -14,6 +14,9 @@ class DescribeVpcPeeringConnectionsResponse extends BaseModel
          /**Object 对等连接的信息**/
          public  $VpcPeeringConnectionSet;
 
+         /** 总数量**/
+         public  $TotalCount;
+
          public function __construct()
          {
 
@@ -32,6 +35,9 @@ class DescribeVpcPeeringConnectionsResponse extends BaseModel
             }
             if (array_key_exists("VpcPeeringConnectionSet",$param) and $param["VpcPeeringConnectionSet"] !== null) {
                 $this->VpcPeeringConnectionSet = $param["VpcPeeringConnectionSet"];
+            }
+            if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+                $this->TotalCount = $param["TotalCount"];
             }
 
         }

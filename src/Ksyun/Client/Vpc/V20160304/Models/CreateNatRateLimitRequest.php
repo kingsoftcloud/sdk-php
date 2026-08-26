@@ -12,7 +12,7 @@ class CreateNatRateLimitRequest extends BaseModel
          /**Int**/
         "BandwidthLimit" => null,
          /**Int**/
-        "inBandwidthLimit" => null,
+        "InBandwidthLimit" => null,
     ];
 
 
@@ -40,11 +40,11 @@ class CreateNatRateLimitRequest extends BaseModel
                 $this->RequestParams["BandwidthLimit"] = $param["BandwidthLimit"];
             }
         }
-        if (array_key_exists("inBandwidthLimit",$param) and $param["inBandwidthLimit"] !== null) {
-            if(is_bool($param["inBandwidthLimit"])){
-                $this->RequestParams["inBandwidthLimit"] = $param["inBandwidthLimit"] ? "true" : "false";
+        if (array_key_exists("InBandwidthLimit",$param) and $param["InBandwidthLimit"] !== null) {
+            if(is_bool($param["InBandwidthLimit"])){
+                $this->RequestParams["InBandwidthLimit"] = $param["InBandwidthLimit"] ? "true" : "false";
             } else {
-                $this->RequestParams["inBandwidthLimit"] = $param["inBandwidthLimit"];
+                $this->RequestParams["InBandwidthLimit"] = $param["InBandwidthLimit"];
             }
         }
 

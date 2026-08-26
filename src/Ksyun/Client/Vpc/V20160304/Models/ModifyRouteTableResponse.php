@@ -11,6 +11,9 @@ class ModifyRouteTableResponse extends BaseModel
          /** 路由表的名称**/
          public  $RouteTableName;
 
+         /** 描述**/
+         public  $Description;
+
          public function __construct()
          {
 
@@ -26,6 +29,9 @@ class ModifyRouteTableResponse extends BaseModel
             }
             if (array_key_exists("RouteTableName",$param) and $param["RouteTableName"] !== null) {
                 $this->RouteTableName = $param["RouteTableName"];
+            }
+            if (array_key_exists("Description",$param) and $param["Description"] !== null) {
+                $this->Description = $param["Description"];
             }
 
         }

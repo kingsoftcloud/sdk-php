@@ -11,6 +11,9 @@ class BatchModifyNatRateLimitResponse extends BaseModel
          /** **/
          public  $NatRateLimit;
 
+         /** 操作是否成功**/
+         public  $Return;
+
          public function __construct()
          {
 
@@ -26,6 +29,9 @@ class BatchModifyNatRateLimitResponse extends BaseModel
             }
             if (array_key_exists("NatRateLimit",$param) and $param["NatRateLimit"] !== null) {
                 $this->NatRateLimit = $param["NatRateLimit"];
+            }
+            if (array_key_exists("Return",$param) and $param["Return"] !== null) {
+                $this->Return = $param["Return"];
             }
 
         }

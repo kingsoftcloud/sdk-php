@@ -4,11 +4,9 @@ namespace  Ksyun\Client\Vpc\V20160304\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DescribeNatRateLimitRequest extends BaseModel
+class DescribePathTasksRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "NatId" => null,
          /**String**/
         "NextToken" => null,
          /**Int**/
@@ -16,7 +14,9 @@ class DescribeNatRateLimitRequest extends BaseModel
     ];
 
      /**特殊参数类型:Filter**/
-    public $Filter = [];
+    public $PathId = [];
+      /**特殊参数类型:Filter**/
+    public $PathTaskId = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -28,16 +28,13 @@ class DescribeNatRateLimitRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NatId",$param) and $param["NatId"] !== null) {
-            if(is_bool($param["NatId"])){
-                $this->RequestParams["NatId"] = $param["NatId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["NatId"] = $param["NatId"];
-            }
+        if (array_key_exists("PathId",$param) and $param["PathId"] !== null) {
+            $res = $this->formatFilterParams("PathId",$param["PathId"]);
+            $this->_unserialize("PathId",$res);
         }
-        if (array_key_exists("Filter",$param) and $param["Filter"] !== null) {
-            $res = $this->formatFilterParams("Filter",$param["Filter"]);
-            $this->_unserialize("Filter",$res);
+        if (array_key_exists("PathTaskId",$param) and $param["PathTaskId"] !== null) {
+            $res = $this->formatFilterParams("PathTaskId",$param["PathTaskId"]);
+            $this->_unserialize("PathTaskId",$res);
         }
         if (array_key_exists("NextToken",$param) and $param["NextToken"] !== null) {
             if(is_bool($param["NextToken"])){

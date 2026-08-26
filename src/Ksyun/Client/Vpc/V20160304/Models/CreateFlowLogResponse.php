@@ -38,6 +38,9 @@ class CreateFlowLogResponse extends BaseModel
          /** 创建时间**/
          public  $CreateTime;
 
+         /** 状态**/
+         public  $Status;
+
          public function __construct()
          {
 
@@ -80,6 +83,9 @@ class CreateFlowLogResponse extends BaseModel
             }
             if (array_key_exists("CreateTime",$param) and $param["CreateTime"] !== null) {
                 $this->CreateTime = $param["CreateTime"];
+            }
+            if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+                $this->Status = $param["Status"];
             }
 
         }

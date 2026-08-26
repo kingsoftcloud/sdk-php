@@ -7,7 +7,7 @@ use Ksyun\Common\Http\HttpOptions;
 class BatchModifyNatRateLimitRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
+         /**Int**/
         "BandwidthLimit" => null,
          /**Int**/
         "InBandwidthLimit" => null,
