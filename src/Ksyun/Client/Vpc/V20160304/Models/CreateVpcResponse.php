@@ -11,9 +11,6 @@ class CreateVpcResponse extends BaseModel
          /** Vpc信息**/
          public  $Vpc;
 
-         /** 云企业网账号ID**/
-         public  $CenAccountId;
-
          public function __construct()
          {
 
@@ -29,9 +26,6 @@ class CreateVpcResponse extends BaseModel
             }
             if (array_key_exists("Vpc",$param) and $param["Vpc"] !== null) {
                 $this->Vpc = $param["Vpc"];
-            }
-            if (array_key_exists("CenAccountId",$param) and $param["CenAccountId"] !== null) {
-                $this->CenAccountId = $param["CenAccountId"];
             }
 
         }
