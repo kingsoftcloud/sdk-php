@@ -11,8 +11,14 @@ class CreateQueueRequest extends BaseModel
         "ResourcePoolId" => null,
          /**String**/
         "QueueName" => null,
+         /**String**/
+        "QueueType" => null,
+         /**String**/
+        "NodeSelectType" => null,
          /**Object**/
         "Capability" => null,
+         /**Array**/
+        "NodeSpec" => null,
          /**Boolean**/
         "AllowBorrowing" => null,
          /**String**/
@@ -50,11 +56,32 @@ class CreateQueueRequest extends BaseModel
                 $this->RequestParams["QueueName"] = $param["QueueName"];
             }
         }
+        if (array_key_exists("QueueType",$param) and $param["QueueType"] !== null) {
+            if(is_bool($param["QueueType"])){
+                $this->RequestParams["QueueType"] = $param["QueueType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["QueueType"] = $param["QueueType"];
+            }
+        }
+        if (array_key_exists("NodeSelectType",$param) and $param["NodeSelectType"] !== null) {
+            if(is_bool($param["NodeSelectType"])){
+                $this->RequestParams["NodeSelectType"] = $param["NodeSelectType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NodeSelectType"] = $param["NodeSelectType"];
+            }
+        }
         if (array_key_exists("Capability",$param) and $param["Capability"] !== null) {
             if(is_bool($param["Capability"])){
                 $this->RequestParams["Capability"] = $param["Capability"] ? "true" : "false";
             } else {
                 $this->RequestParams["Capability"] = $param["Capability"];
+            }
+        }
+        if (array_key_exists("NodeSpec",$param) and $param["NodeSpec"] !== null) {
+            if(is_bool($param["NodeSpec"])){
+                $this->RequestParams["NodeSpec"] = $param["NodeSpec"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NodeSpec"] = $param["NodeSpec"];
             }
         }
         if (array_key_exists("AllowBorrowing",$param) and $param["AllowBorrowing"] !== null) {

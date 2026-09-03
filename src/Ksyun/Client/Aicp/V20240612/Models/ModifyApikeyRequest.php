@@ -29,6 +29,8 @@ class ModifyApikeyRequest extends BaseModel
         "HighPriceModels" => null,
          /**Array**/
         "AllowedIps" => null,
+         /**String**/
+        "ProjectId" => null,
     ];
 
 
@@ -117,6 +119,13 @@ class ModifyApikeyRequest extends BaseModel
                 $this->RequestParams["AllowedIps"] = $param["AllowedIps"] ? "true" : "false";
             } else {
                 $this->RequestParams["AllowedIps"] = $param["AllowedIps"];
+            }
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
+                $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
 

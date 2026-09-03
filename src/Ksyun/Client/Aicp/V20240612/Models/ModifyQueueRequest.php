@@ -21,6 +21,10 @@ class ModifyQueueRequest extends BaseModel
         "SharedGroupList" => null,
          /**Array**/
         "WorkloadType" => null,
+         /**Array**/
+        "NodeSpec" => null,
+         /**String**/
+        "NodeSelectType" => null,
     ];
 
 
@@ -81,6 +85,20 @@ class ModifyQueueRequest extends BaseModel
                 $this->RequestParams["WorkloadType"] = $param["WorkloadType"] ? "true" : "false";
             } else {
                 $this->RequestParams["WorkloadType"] = $param["WorkloadType"];
+            }
+        }
+        if (array_key_exists("NodeSpec",$param) and $param["NodeSpec"] !== null) {
+            if(is_bool($param["NodeSpec"])){
+                $this->RequestParams["NodeSpec"] = $param["NodeSpec"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NodeSpec"] = $param["NodeSpec"];
+            }
+        }
+        if (array_key_exists("NodeSelectType",$param) and $param["NodeSelectType"] !== null) {
+            if(is_bool($param["NodeSelectType"])){
+                $this->RequestParams["NodeSelectType"] = $param["NodeSelectType"] ? "true" : "false";
+            } else {
+                $this->RequestParams["NodeSelectType"] = $param["NodeSelectType"];
             }
         }
 

@@ -45,6 +45,8 @@ class CreateTrainJobRequest extends BaseModel
         "EntryPointCommand" => null,
          /**Boolean**/
         "UseIdleResource" => null,
+         /**Boolean**/
+        "EnableRDMADepsCheck" => null,
     ];
 
 
@@ -189,6 +191,13 @@ class CreateTrainJobRequest extends BaseModel
                 $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"] ? "true" : "false";
             } else {
                 $this->RequestParams["UseIdleResource"] = $param["UseIdleResource"];
+            }
+        }
+        if (array_key_exists("EnableRDMADepsCheck",$param) and $param["EnableRDMADepsCheck"] !== null) {
+            if(is_bool($param["EnableRDMADepsCheck"])){
+                $this->RequestParams["EnableRDMADepsCheck"] = $param["EnableRDMADepsCheck"] ? "true" : "false";
+            } else {
+                $this->RequestParams["EnableRDMADepsCheck"] = $param["EnableRDMADepsCheck"];
             }
         }
 

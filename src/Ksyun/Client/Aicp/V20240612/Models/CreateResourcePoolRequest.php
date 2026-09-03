@@ -33,6 +33,8 @@ class CreateResourcePoolRequest extends BaseModel
         "EnableVolume" => null,
          /**String**/
         "VolumeChargeType" => null,
+         /**String**/
+        "ProjectId" => null,
     ];
 
 
@@ -135,6 +137,13 @@ class CreateResourcePoolRequest extends BaseModel
                 $this->RequestParams["VolumeChargeType"] = $param["VolumeChargeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["VolumeChargeType"] = $param["VolumeChargeType"];
+            }
+        }
+        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
+            if(is_bool($param["ProjectId"])){
+                $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProjectId"] = $param["ProjectId"];
             }
         }
 
