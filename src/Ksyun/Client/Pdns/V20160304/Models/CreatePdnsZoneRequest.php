@@ -15,6 +15,12 @@ class CreatePdnsZoneRequest extends BaseModel
         "ProjectId" => null,
          /**String**/
         "ChargeType" => null,
+         /**String**/
+        "ProxyPattern" => null,
+         /**String**/
+        "DeleteProtection" => null,
+         /**String**/
+        "ModifyProtection" => null,
     ];
 
 
@@ -54,6 +60,27 @@ class CreatePdnsZoneRequest extends BaseModel
                 $this->RequestParams["ChargeType"] = $param["ChargeType"] ? "true" : "false";
             } else {
                 $this->RequestParams["ChargeType"] = $param["ChargeType"];
+            }
+        }
+        if (array_key_exists("ProxyPattern",$param) and $param["ProxyPattern"] !== null) {
+            if(is_bool($param["ProxyPattern"])){
+                $this->RequestParams["ProxyPattern"] = $param["ProxyPattern"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProxyPattern"] = $param["ProxyPattern"];
+            }
+        }
+        if (array_key_exists("DeleteProtection",$param) and $param["DeleteProtection"] !== null) {
+            if(is_bool($param["DeleteProtection"])){
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["DeleteProtection"] = $param["DeleteProtection"];
+            }
+        }
+        if (array_key_exists("ModifyProtection",$param) and $param["ModifyProtection"] !== null) {
+            if(is_bool($param["ModifyProtection"])){
+                $this->RequestParams["ModifyProtection"] = $param["ModifyProtection"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ModifyProtection"] = $param["ModifyProtection"];
             }
         }
 

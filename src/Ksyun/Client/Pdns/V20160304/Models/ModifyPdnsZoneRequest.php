@@ -11,6 +11,8 @@ class ModifyPdnsZoneRequest extends BaseModel
         "ZoneId" => null,
          /**Int**/
         "ZoneTtl" => null,
+         /**String**/
+        "ProxyPattern" => null,
     ];
 
 
@@ -36,6 +38,13 @@ class ModifyPdnsZoneRequest extends BaseModel
                 $this->RequestParams["ZoneTtl"] = $param["ZoneTtl"] ? "true" : "false";
             } else {
                 $this->RequestParams["ZoneTtl"] = $param["ZoneTtl"];
+            }
+        }
+        if (array_key_exists("ProxyPattern",$param) and $param["ProxyPattern"] !== null) {
+            if(is_bool($param["ProxyPattern"])){
+                $this->RequestParams["ProxyPattern"] = $param["ProxyPattern"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ProxyPattern"] = $param["ProxyPattern"];
             }
         }
 

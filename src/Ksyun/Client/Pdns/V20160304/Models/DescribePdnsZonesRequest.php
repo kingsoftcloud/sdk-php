@@ -15,6 +15,8 @@ class DescribePdnsZonesRequest extends BaseModel
 
      /**特殊参数类型:Filter**/
     public $Filter = [];
+      /**特殊参数类型:Filter**/
+    public $ZoneName = [];
  
     public function __construct(HttpOptions $httpOptions)
     {
@@ -43,6 +45,10 @@ class DescribePdnsZonesRequest extends BaseModel
             } else {
                 $this->RequestParams["NextToken"] = $param["NextToken"];
             }
+        }
+        if (array_key_exists("ZoneName",$param) and $param["ZoneName"] !== null) {
+            $res = $this->formatFilterParams("ZoneName",$param["ZoneName"]);
+            $this->_unserialize("ZoneName",$res);
         }
 
     }
