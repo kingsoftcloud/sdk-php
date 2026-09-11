@@ -20,6 +20,9 @@ class DescribeQueuesResponse extends BaseModel
          /**Object 队列列表**/
          public  $QueueSet;
 
+         /** 资源预留配置。不传或 Enabled=false 表示不开启资源预留**/
+         public  $ResourceReservation;
+
          public function __construct()
          {
 
@@ -44,6 +47,9 @@ class DescribeQueuesResponse extends BaseModel
             }
             if (array_key_exists("QueueSet",$param) and $param["QueueSet"] !== null) {
                 $this->QueueSet = $param["QueueSet"];
+            }
+            if (array_key_exists("ResourceReservation",$param) and $param["ResourceReservation"] !== null) {
+                $this->ResourceReservation = $param["ResourceReservation"];
             }
 
         }

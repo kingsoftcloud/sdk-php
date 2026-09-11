@@ -29,6 +29,8 @@ class CreateQueueRequest extends BaseModel
         "SharedGroupList" => null,
          /**Array**/
         "WorkloadType" => null,
+         /**Object**/
+        "ResourceReservation" => null,
     ];
 
 
@@ -117,6 +119,13 @@ class CreateQueueRequest extends BaseModel
                 $this->RequestParams["WorkloadType"] = $param["WorkloadType"] ? "true" : "false";
             } else {
                 $this->RequestParams["WorkloadType"] = $param["WorkloadType"];
+            }
+        }
+        if (array_key_exists("ResourceReservation",$param) and $param["ResourceReservation"] !== null) {
+            if(is_bool($param["ResourceReservation"])){
+                $this->RequestParams["ResourceReservation"] = $param["ResourceReservation"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ResourceReservation"] = $param["ResourceReservation"];
             }
         }
 

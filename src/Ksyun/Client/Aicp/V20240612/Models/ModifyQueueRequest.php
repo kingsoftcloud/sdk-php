@@ -25,6 +25,8 @@ class ModifyQueueRequest extends BaseModel
         "NodeSpec" => null,
          /**String**/
         "NodeSelectType" => null,
+         /**Object**/
+        "ResourceReservation" => null,
     ];
 
 
@@ -99,6 +101,13 @@ class ModifyQueueRequest extends BaseModel
                 $this->RequestParams["NodeSelectType"] = $param["NodeSelectType"] ? "true" : "false";
             } else {
                 $this->RequestParams["NodeSelectType"] = $param["NodeSelectType"];
+            }
+        }
+        if (array_key_exists("ResourceReservation",$param) and $param["ResourceReservation"] !== null) {
+            if(is_bool($param["ResourceReservation"])){
+                $this->RequestParams["ResourceReservation"] = $param["ResourceReservation"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ResourceReservation"] = $param["ResourceReservation"];
             }
         }
 
