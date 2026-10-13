@@ -150,5 +150,59 @@ class HttpConnection
         throw new KsyunSDKException("", "content_type only support (application/x-www-form-urlencoded,application/json)");
     }
 
-}
+    public function getStreamRequest($accessKey, $secretKey, $service, $region, $uri, $query, $headers, $onEvent)
+    {
+        $uri = new Uri($this->normalizeBaseUrl($this->url) . $this->cleanUri($uri));
+        $uri = $uri->withQuery(http_build_query($query));
+        $request = new Request('GET', $uri, $headers);
+        return $this->sendStream($request, $accessKey, $secretKey, $service, $region, $onEvent);
+    }
 
+    public function postStreamRequest($accessKey, $secretKey, $service, $region, $uri, $headers, $body, $onEvent)
+    {
+        $uri = new Uri($this->normalizeBaseUrl($this->url) . $this->cleanUri($uri));
+        $version = isset($body['Version']) ? $body['Version'] : null;
+        $action = isset($body['Action']) ? $body['Action'] : null;
+        unset($body['Action'], $body['Version']);
+        $uri = $uri->withQuery(http_build_query(array_filter(['Action' => $action, 'Version' => $version])));
+        $payload = $this->profile->getHeaderContentType() == HttpOptions::$CONTENT_TYPE_JSON
+            ? json_encode($body, JSON_UNESCAPED_UNICODE)
+            : http_build_query($body);
+        $request = new Request('POST', $uri, $headers, $payload);
+        return $this->sendStream($request, $accessKey, $secretKey, $service, $region, $onEvent);
+    }
+
+    private function sendStream($request, $accessKey, $secretKey, $service, $region, $onEvent)
+    {
+        $credentials = new Credentials($accessKey, $secretKey, '');
+        $signedRequest = (new SignatureV4($service, $region))->signRequest($request, $credentials);
+        // Guzzle timeout 是整条请求的总时长；SSE 由服务端/网关和调用方负责结束。
+        $response = (new Client())->send($signedRequest, array_merge($this->getOptions(), ['stream' => true, 'timeout' => 0]));
+        $status = $response->getStatusCode();
+        if ($status < 200 || $status > 299) {
+            throw new KsyunSDKException($response->getReasonPhrase(), (string)$response->getBody());
+        }
+        $contentType = $response->getHeaderLine('Content-Type');
+        if (!preg_match('/^text\/event-stream(?:\s*;|\s*$)/i', $contentType)) {
+            throw new KsyunSDKException('', 'Invalid SSE Content-Type: ' . ($contentType ?: 'missing'));
+        }
+        $stream = $response->getBody();
+        $buffer = '';
+        while (!$stream->eof()) {
+            $buffer .= $stream->read(8192);
+            while (preg_match('/^(.*?)(?:\r?\n){2}/s', $buffer, $match)) {
+                $rawEvent = $match[1];
+                $buffer = substr($buffer, strlen($match[0]));
+                if ($rawEvent !== '' && call_user_func($onEvent, $rawEvent) === false) {
+                    $stream->close();
+                    return;
+                }
+            }
+        }
+        if ($buffer !== '') {
+            call_user_func($onEvent, $buffer);
+        }
+        $stream->close();
+    }
+
+}

@@ -138,7 +138,37 @@ abstract class BaseClient
      */
     public function __call($action, $request)
     {
+        if (substr($action, -6) === 'Stream') {
+            if (!isset($request[0], $request[1]) || !is_callable($request[1])) {
+                throw new KsyunSDKException('', 'SSE call requires request and event callback');
+            }
+            return $this->doStreamRequest(substr($action, 0, -6), $request[0], $request[1]);
+        }
         return $this->doRequestWithOptions($action, $request[0], array());
+    }
+
+    /**
+     * 调用 SSE API。每收到一个完整事件即调用 $onEvent($rawEvent)，回调返回 false 可主动断开。
+     */
+    protected function doStreamRequest($action, $request, $onEvent)
+    {
+        $serializeRequest = $request->requestObjSerialize($request);
+        $params = $this->formatRequestData($action, $serializeRequest);
+        $headers = [
+            'Accept' => 'text/event-stream',
+            'Cache-Control' => 'no-cache',
+            'Content-Type' => $this->profile->getHeaderContentType(),
+        ];
+        if (!empty($this->profile->getHeaders())) {
+            foreach ((array)$this->profile->getHeaders() as $key => $header) {
+                $headers[$key] = $header;
+            }
+        }
+        $connect = $this->getConnect();
+        if ($this->profile->getReqMethod() === HttpOptions::$REQ_GET) {
+            return $connect->getStreamRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $params, $headers, $onEvent);
+        }
+        return $connect->postStreamRequest($this->credential->getSecretId(), $this->credential->getSecretKey(), $this->service, $this->region, $this->path, $headers, $params, $onEvent);
     }
 
     protected function doRequestWithOptions($action, $request, $options)
