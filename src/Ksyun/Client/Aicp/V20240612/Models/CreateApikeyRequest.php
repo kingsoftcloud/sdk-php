@@ -29,6 +29,10 @@ class CreateApikeyRequest extends BaseModel
         "LowPriceModels" => null,
          /**Array**/
         "HighPriceModels" => null,
+         /**Array**/
+        "OffpeakModels" => null,
+         /**Array**/
+        "CostQuotas" => null,
     ];
 
 
@@ -117,6 +121,20 @@ class CreateApikeyRequest extends BaseModel
                 $this->RequestParams["HighPriceModels"] = $param["HighPriceModels"] ? "true" : "false";
             } else {
                 $this->RequestParams["HighPriceModels"] = $param["HighPriceModels"];
+            }
+        }
+        if (array_key_exists("OffpeakModels",$param) and $param["OffpeakModels"] !== null) {
+            if(is_bool($param["OffpeakModels"])){
+                $this->RequestParams["OffpeakModels"] = $param["OffpeakModels"] ? "true" : "false";
+            } else {
+                $this->RequestParams["OffpeakModels"] = $param["OffpeakModels"];
+            }
+        }
+        if (array_key_exists("CostQuotas",$param) and $param["CostQuotas"] !== null) {
+            if(is_bool($param["CostQuotas"])){
+                $this->RequestParams["CostQuotas"] = $param["CostQuotas"] ? "true" : "false";
+            } else {
+                $this->RequestParams["CostQuotas"] = $param["CostQuotas"];
             }
         }
 

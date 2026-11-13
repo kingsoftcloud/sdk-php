@@ -15,6 +15,8 @@ class ImportDocumentsRequest extends BaseModel
         "AddType" => null,
          /**Array**/
         "Ks3Path" => null,
+         /**Boolean**/
+        "SecurityProcessingEnabled" => null,
     ];
 
 
@@ -54,6 +56,13 @@ class ImportDocumentsRequest extends BaseModel
                 $this->RequestParams["Ks3Path"] = $param["Ks3Path"] ? "true" : "false";
             } else {
                 $this->RequestParams["Ks3Path"] = $param["Ks3Path"];
+            }
+        }
+        if (array_key_exists("SecurityProcessingEnabled",$param) and $param["SecurityProcessingEnabled"] !== null) {
+            if(is_bool($param["SecurityProcessingEnabled"])){
+                $this->RequestParams["SecurityProcessingEnabled"] = $param["SecurityProcessingEnabled"] ? "true" : "false";
+            } else {
+                $this->RequestParams["SecurityProcessingEnabled"] = $param["SecurityProcessingEnabled"];
             }
         }
 

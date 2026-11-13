@@ -7,8 +7,6 @@ use Ksyun\Common\Http\HttpOptions;
 class ActivateApiServiceRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "Status" => null,
     ];
 
 
@@ -21,13 +19,6 @@ class ActivateApiServiceRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            if(is_bool($param["Status"])){
-                $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
-            } else {
-                $this->RequestParams["Status"] = $param["Status"];
-            }
         }
 
     }

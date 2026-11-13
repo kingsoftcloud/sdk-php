@@ -1,15 +1,15 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Aicp\V20260401\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DescribeFineTuneJobAndPodEventsResponse extends BaseModel
+class CreateImageCacheResponse extends BaseModel
 {
          /** 请求ID**/
          public  $RequestId;
 
-         /**Object 事件列表**/
-         public  $Events;
+         /** 镜像缓存列表，单镜像返回1元素列表**/
+         public  $ImageCaches;
 
          public function __construct()
          {
@@ -24,8 +24,8 @@ class DescribeFineTuneJobAndPodEventsResponse extends BaseModel
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
             }
-            if (array_key_exists("Events",$param) and $param["Events"] !== null) {
-                $this->Events = $param["Events"];
+            if (array_key_exists("ImageCaches",$param) and $param["ImageCaches"] !== null) {
+                $this->ImageCaches = $param["ImageCaches"];
             }
 
         }

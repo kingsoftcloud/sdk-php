@@ -14,6 +14,9 @@ class RetrieveKnowledgeResponse extends BaseModel
          /**Object 召回结果**/
          public  $Records;
 
+         /** 模型token消耗**/
+         public  $ModelUsage;
+
          public function __construct()
          {
 
@@ -32,6 +35,9 @@ class RetrieveKnowledgeResponse extends BaseModel
             }
             if (array_key_exists("Records",$param) and $param["Records"] !== null) {
                 $this->Records = $param["Records"];
+            }
+            if (array_key_exists("ModelUsage",$param) and $param["ModelUsage"] !== null) {
+                $this->ModelUsage = $param["ModelUsage"];
             }
 
         }

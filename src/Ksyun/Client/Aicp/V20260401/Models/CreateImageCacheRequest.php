@@ -1,17 +1,17 @@
 <?php
-namespace  Ksyun\Client\Aicp\V20240612\Models;
+namespace  Ksyun\Client\Aicp\V20260401\Models;
 
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DisableOverFreeLimitRequest extends BaseModel
+class CreateImageCacheRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
-        "ModelIds" => null,
     ];
 
-
+     /**特殊参数类型:Filter**/
+    public $ImageConfigs = [];
+ 
     public function __construct(HttpOptions $httpOptions)
     {
         $httpOptions->setHeaderContentType("application/json");
@@ -22,12 +22,9 @@ class DisableOverFreeLimitRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ModelIds",$param) and $param["ModelIds"] !== null) {
-            if(is_bool($param["ModelIds"])){
-                $this->RequestParams["ModelIds"] = $param["ModelIds"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ModelIds"] = $param["ModelIds"];
-            }
+        if (array_key_exists("ImageConfigs",$param) and $param["ImageConfigs"] !== null) {
+            $res = $this->formatFilterParams("ImageConfigs",$param["ImageConfigs"]);
+            $this->_unserialize("ImageConfigs",$res);
         }
 
     }

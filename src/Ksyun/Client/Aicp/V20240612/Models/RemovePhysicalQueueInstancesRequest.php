@@ -4,13 +4,13 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 use Ksyun\Common\BaseModel;
 use Ksyun\Common\Http\HttpOptions;
 
-class DisableApikeyStatusRequest extends BaseModel
+class RemovePhysicalQueueInstancesRequest extends BaseModel
 {
     public $RequestParams = [
          /**String**/
-        "KeyId" => null,
-         /**String**/
-        "Status" => null,
+        "QueueId" => null,
+         /**Array**/
+        "InstanceIds" => null,
     ];
 
 
@@ -24,18 +24,18 @@ class DisableApikeyStatusRequest extends BaseModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("KeyId",$param) and $param["KeyId"] !== null) {
-            if(is_bool($param["KeyId"])){
-                $this->RequestParams["KeyId"] = $param["KeyId"] ? "true" : "false";
+        if (array_key_exists("QueueId",$param) and $param["QueueId"] !== null) {
+            if(is_bool($param["QueueId"])){
+                $this->RequestParams["QueueId"] = $param["QueueId"] ? "true" : "false";
             } else {
-                $this->RequestParams["KeyId"] = $param["KeyId"];
+                $this->RequestParams["QueueId"] = $param["QueueId"];
             }
         }
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            if(is_bool($param["Status"])){
-                $this->RequestParams["Status"] = $param["Status"] ? "true" : "false";
+        if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
+            if(is_bool($param["InstanceIds"])){
+                $this->RequestParams["InstanceIds"] = $param["InstanceIds"] ? "true" : "false";
             } else {
-                $this->RequestParams["Status"] = $param["Status"];
+                $this->RequestParams["InstanceIds"] = $param["InstanceIds"];
             }
         }
 

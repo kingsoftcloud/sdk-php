@@ -7,8 +7,6 @@ use Ksyun\Common\Http\HttpOptions;
 class StopBatchInferenceJobRequest extends BaseModel
 {
     public $RequestParams = [
-         /**String**/
-        "BatchId" => null,
     ];
 
 
@@ -21,13 +19,6 @@ class StopBatchInferenceJobRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("BatchId",$param) and $param["BatchId"] !== null) {
-            if(is_bool($param["BatchId"])){
-                $this->RequestParams["BatchId"] = $param["BatchId"] ? "true" : "false";
-            } else {
-                $this->RequestParams["BatchId"] = $param["BatchId"];
-            }
         }
 
     }

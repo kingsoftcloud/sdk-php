@@ -5,10 +5,10 @@ use Ksyun\Common\BaseModel;
 
 class StopBatchInferenceJobResponse extends BaseModel
 {
-         /** **/
+         /** 是否终止成功**/
          public  $Success;
 
-         /** **/
+         /** 本次 API 请求的唯一标识符**/
          public  $RequestId;
 
          public function __construct()

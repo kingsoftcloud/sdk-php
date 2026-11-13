@@ -1,0 +1,56 @@
+<?php
+namespace  Ksyun\Client\Aicp\V20240612\Models;
+
+use Ksyun\Common\BaseModel;
+
+class RollbackVersionResponse extends BaseModel
+{
+         /** **/
+         public  $Code;
+
+         /** **/
+         public  $Message;
+
+         /** **/
+         public  $RequestId;
+
+         /** **/
+         public  $Action;
+
+         /** **/
+         public  $Data;
+
+         /** **/
+         public  $ReasonCode;
+
+         public function __construct()
+         {
+
+         }
+
+        public function unserialize($param)
+        {
+            if ($param === null) {
+                return;
+            }
+            if (array_key_exists("Code",$param) and $param["Code"] !== null) {
+                $this->Code = $param["Code"];
+            }
+            if (array_key_exists("Message",$param) and $param["Message"] !== null) {
+                $this->Message = $param["Message"];
+            }
+            if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+                $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("Action",$param) and $param["Action"] !== null) {
+                $this->Action = $param["Action"];
+            }
+            if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+                $this->Data = $param["Data"];
+            }
+            if (array_key_exists("ReasonCode",$param) and $param["ReasonCode"] !== null) {
+                $this->ReasonCode = $param["ReasonCode"];
+            }
+
+        }
+}

@@ -7,6 +7,8 @@ use Ksyun\Common\Http\HttpOptions;
 class DeleteImageCacheRequest extends BaseModel
 {
     public $RequestParams = [
+         /**String**/
+        "ImageCacheId" => null,
     ];
 
 
@@ -19,6 +21,13 @@ class DeleteImageCacheRequest extends BaseModel
     {
         if ($param === null) {
             return;
+        }
+        if (array_key_exists("ImageCacheId",$param) and $param["ImageCacheId"] !== null) {
+            if(is_bool($param["ImageCacheId"])){
+                $this->RequestParams["ImageCacheId"] = $param["ImageCacheId"] ? "true" : "false";
+            } else {
+                $this->RequestParams["ImageCacheId"] = $param["ImageCacheId"];
+            }
         }
 
     }

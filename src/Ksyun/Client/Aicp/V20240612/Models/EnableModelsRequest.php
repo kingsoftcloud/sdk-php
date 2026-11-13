@@ -7,8 +7,6 @@ use Ksyun\Common\Http\HttpOptions;
 class EnableModelsRequest extends BaseModel
 {
     public $RequestParams = [
-         /**Array**/
-        "ModelIds" => null,
     ];
 
 
@@ -21,13 +19,6 @@ class EnableModelsRequest extends BaseModel
     {
         if ($param === null) {
             return;
-        }
-        if (array_key_exists("ModelIds",$param) and $param["ModelIds"] !== null) {
-            if(is_bool($param["ModelIds"])){
-                $this->RequestParams["ModelIds"] = $param["ModelIds"] ? "true" : "false";
-            } else {
-                $this->RequestParams["ModelIds"] = $param["ModelIds"];
-            }
         }
 
     }

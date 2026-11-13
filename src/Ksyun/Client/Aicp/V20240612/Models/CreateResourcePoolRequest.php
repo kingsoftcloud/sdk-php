@@ -35,6 +35,8 @@ class CreateResourcePoolRequest extends BaseModel
         "VolumeChargeType" => null,
          /**String**/
         "ProjectId" => null,
+         /**Int**/
+        "VolumeQuota" => null,
     ];
 
 
@@ -144,6 +146,13 @@ class CreateResourcePoolRequest extends BaseModel
                 $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
             } else {
                 $this->RequestParams["ProjectId"] = $param["ProjectId"];
+            }
+        }
+        if (array_key_exists("VolumeQuota",$param) and $param["VolumeQuota"] !== null) {
+            if(is_bool($param["VolumeQuota"])){
+                $this->RequestParams["VolumeQuota"] = $param["VolumeQuota"] ? "true" : "false";
+            } else {
+                $this->RequestParams["VolumeQuota"] = $param["VolumeQuota"];
             }
         }
 

@@ -10,7 +10,7 @@ class AddStorageConfigAccessRequest extends BaseModel
          /**String**/
         "StorageConfigId" => null,
          /**String**/
-        "UserId" => null,
+        "KsyunUserId" => null,
          /**String**/
         "SharedGroupId" => null,
          /**String**/
@@ -35,11 +35,11 @@ class AddStorageConfigAccessRequest extends BaseModel
                 $this->RequestParams["StorageConfigId"] = $param["StorageConfigId"];
             }
         }
-        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
-            if(is_bool($param["UserId"])){
-                $this->RequestParams["UserId"] = $param["UserId"] ? "true" : "false";
+        if (array_key_exists("KsyunUserId",$param) and $param["KsyunUserId"] !== null) {
+            if(is_bool($param["KsyunUserId"])){
+                $this->RequestParams["KsyunUserId"] = $param["KsyunUserId"] ? "true" : "false";
             } else {
-                $this->RequestParams["UserId"] = $param["UserId"];
+                $this->RequestParams["KsyunUserId"] = $param["KsyunUserId"];
             }
         }
         if (array_key_exists("SharedGroupId",$param) and $param["SharedGroupId"] !== null) {

@@ -5,13 +5,13 @@ use Ksyun\Common\BaseModel;
 
 class DescribeInferenceJobsKs3AuthInfoResponse extends BaseModel
 {
-         /** **/
+         /** 数据库主键**/
          public  $Id;
 
-         /** **/
+         /** KS3 临时访问密钥(Access Key)**/
          public  $Ak;
 
-         /** **/
+         /** KS3 临时安全密钥(Secret Key)**/
          public  $Sk;
 
          /** 是否需要授权**/

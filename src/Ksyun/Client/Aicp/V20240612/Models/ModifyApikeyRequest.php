@@ -28,9 +28,9 @@ class ModifyApikeyRequest extends BaseModel
          /**Array**/
         "HighPriceModels" => null,
          /**Array**/
-        "AllowedIps" => null,
-         /**String**/
-        "ProjectId" => null,
+        "OffpeakModels" => null,
+         /**Array**/
+        "CostQuotas" => null,
     ];
 
 
@@ -114,18 +114,18 @@ class ModifyApikeyRequest extends BaseModel
                 $this->RequestParams["HighPriceModels"] = $param["HighPriceModels"];
             }
         }
-        if (array_key_exists("AllowedIps",$param) and $param["AllowedIps"] !== null) {
-            if(is_bool($param["AllowedIps"])){
-                $this->RequestParams["AllowedIps"] = $param["AllowedIps"] ? "true" : "false";
+        if (array_key_exists("OffpeakModels",$param) and $param["OffpeakModels"] !== null) {
+            if(is_bool($param["OffpeakModels"])){
+                $this->RequestParams["OffpeakModels"] = $param["OffpeakModels"] ? "true" : "false";
             } else {
-                $this->RequestParams["AllowedIps"] = $param["AllowedIps"];
+                $this->RequestParams["OffpeakModels"] = $param["OffpeakModels"];
             }
         }
-        if (array_key_exists("ProjectId",$param) and $param["ProjectId"] !== null) {
-            if(is_bool($param["ProjectId"])){
-                $this->RequestParams["ProjectId"] = $param["ProjectId"] ? "true" : "false";
+        if (array_key_exists("CostQuotas",$param) and $param["CostQuotas"] !== null) {
+            if(is_bool($param["CostQuotas"])){
+                $this->RequestParams["CostQuotas"] = $param["CostQuotas"] ? "true" : "false";
             } else {
-                $this->RequestParams["ProjectId"] = $param["ProjectId"];
+                $this->RequestParams["CostQuotas"] = $param["CostQuotas"];
             }
         }
 

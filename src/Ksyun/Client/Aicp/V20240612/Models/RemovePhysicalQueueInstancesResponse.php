@@ -3,13 +3,13 @@ namespace  Ksyun\Client\Aicp\V20240612\Models;
 
 use Ksyun\Common\BaseModel;
 
-class DisableApikeyStatusResponse extends BaseModel
+class RemovePhysicalQueueInstancesResponse extends BaseModel
 {
-         /** **/
-         public  $Success;
-
-         /** **/
+         /** 请求ID**/
          public  $RequestId;
+
+         /** 队列ID**/
+         public  $QueueId;
 
          public function __construct()
          {
@@ -21,11 +21,11 @@ class DisableApikeyStatusResponse extends BaseModel
             if ($param === null) {
                 return;
             }
-            if (array_key_exists("Success",$param) and $param["Success"] !== null) {
-                $this->Success = $param["Success"];
-            }
             if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
                 $this->RequestId = $param["RequestId"];
+            }
+            if (array_key_exists("QueueId",$param) and $param["QueueId"] !== null) {
+                $this->QueueId = $param["QueueId"];
             }
 
         }
