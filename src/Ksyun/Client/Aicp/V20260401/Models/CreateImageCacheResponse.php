@@ -8,7 +8,7 @@ class CreateImageCacheResponse extends BaseModel
          /** 请求ID**/
          public  $RequestId;
 
-         /** 镜像缓存列表，单镜像返回1元素列表**/
+         /**Object **/
          public  $ImageCaches;
 
          public function __construct()

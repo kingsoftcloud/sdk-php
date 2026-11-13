@@ -8,7 +8,7 @@ class GetImageCacheListResponse extends BaseModel
          /** 请求ID**/
          public  $RequestId;
 
-         /** 镜像缓存列表**/
+         /**Object 镜像缓存列表**/
          public  $ImageCaches;
 
          /** 页码**/
